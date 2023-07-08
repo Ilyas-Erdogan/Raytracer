@@ -28,13 +28,13 @@ public:
 	friend Tuple operator/(Tuple& lhs, const double value);
 	friend Tuple operator/(const double value, Tuple& rhs);
 
-private:
+protected:
 	// Coordinates
 	double x;
 	double y;
 	double z;
 	double w;
-protected:
+
 	// Comparison value
 	const double EPSILON{ 0.00001 };
 public:
