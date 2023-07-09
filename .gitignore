@@ -398,6 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Added ignore
-html/
 latex/
 Doxyfile
