@@ -1,6 +1,6 @@
 #include "Colour.h"
 
-Colour::Colour(double red, double green, double blue)
+Colour::Colour(const double red, const double green, const double blue)
 	: Tuple(red, green, blue, 0)
 {
 }
@@ -9,22 +9,23 @@ Colour::~Colour()
 {
 }
 
+/**
+* Calculates Hadamard/Schur product of two colours
+*
+* @param lhs left-hand side of expression
+* @param rhs reference to right-hand side of expression
+*
+* @return
+*/
 Colour Colour::operator*=(const Colour& rhs)
 {
 	this->x *= rhs.getRed();
 	this->y *= rhs.getGreen();
-	this->z *= rhs.GetBlue();
+	this->z *= rhs.getBlue();
 
 	return *this;
 }
-/**
-* Calculates Hadamard/Schur product of two colours
-* 
-* @param lhs left-hand side of expression
-* @param rhs reference to right-hand side of expression
-* 
-* @return
-*/
+
 Colour operator*(Colour lhs, const Colour& rhs)
 {
 	lhs *= rhs;
@@ -32,10 +33,31 @@ Colour operator*(Colour lhs, const Colour& rhs)
 	return lhs;
 }
 
+Colour Colour::operator*=(const double value)
+{
+	this->x *= value;
+	this->y *= value;
+	this->z *= value;
+
+	return *this;
+}
+
+Colour operator*(Colour& lhs, const double value)
+{
+	lhs *= value;
+
+	return lhs;
+}
+
+Colour operator*(const double value, Colour& rhs)
+{
+	return rhs * value;
+}
+
 /**
 * Returns red value from calling object.
 *
-* @return red value.
+* @return Red value.
 */
 double Colour::getRed() const
 {
@@ -45,7 +67,7 @@ double Colour::getRed() const
 /**
 * Returns green value from calling object.
 *
-* @return green value.
+* @return Green value.
 */
 double Colour::getGreen() const
 {
@@ -55,9 +77,9 @@ double Colour::getGreen() const
 /**
 * Returns blue value from calling object.
 *
-* @return blue value.
+* @return Blue value.
 */
-double Colour::GetBlue() const
+double Colour::getBlue() const
 {
 	return this->getZ();
 }

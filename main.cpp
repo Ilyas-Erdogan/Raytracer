@@ -1,13 +1,12 @@
 #include <iostream>
-#include "Vector.h"
-
-int chek(int i)
-{
-	if (i == 1)
-		return 2;
-}
+#include "Canvas.h"
+#include "Colour.h"
 
 int main()
 {
-	chek(2);
+	Canvas c(5, 3);
+	c.writePixel(0, 0, Colour(0.573, 0, 0));
+	c.writePixel(2, 1, Colour(0, 0.53, 0));
+	c.writePixel(4, 2, Colour(0, 0, 0.912));
+	c.convertToPPM("my_image");
 }

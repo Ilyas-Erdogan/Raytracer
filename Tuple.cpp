@@ -228,7 +228,7 @@ void Tuple::normalizeVector()
 }
 
 /**
-* ONLY CALL WITH VECTOR OBJECTS
+* ONLY CALL WITH VECTOR OBJECTS.\n
 * Calculates dot product of calling object and function parameter.
 * 
 * @param secondTerm Tuple reference to calculate dot product with.
