@@ -2,15 +2,18 @@
 
 #include <iostream>
 #include <fstream>
+#include <algorithm>
+#include <sstream>
 #include "Colour.h"
 
-Canvas::Canvas(int width, int height)
+Canvas::Canvas(int width, int height, Colour canvasColour)
 {
 	this->pixels = pixels;
 	this->pixels.resize(height, std::vector<Colour>());
+	// Populate canvas with provided colour (default BLACK)
 	for (auto& i : this->pixels)
 	{
-		i.resize(width, Colour());
+		i.resize(width, canvasColour);
 	}
 }
 
@@ -99,7 +102,7 @@ Colour Canvas::getPixel(const int x, const int y)
 */
 void Canvas::convertToPPM(const std::string fileName)
 {
-	std::ofstream file(fileName + ".ppm");
+	std::ofstream file(fileName + ".ppm", std::ofstream::trunc);
 	if (!file)
 	{
 		std::cerr << "Cannot open file: " << fileName << '\n';
@@ -109,41 +112,63 @@ void Canvas::convertToPPM(const std::string fileName)
 	file << this->getCanvasWidth() << " " << this->getCanvasHeight() << "\n";
 	file << "255\n";
 	
+	int count = 0;
+	std::string tempRed;
+	std::string tempGreen;
+	std::string tempBlue;
+	// Populate pixel map
+	// Design Note: Limit max characters per line to 70
 	for (auto row : this->pixels)
 	{
 		for (auto col : row)
 		{
-			int tempRed = col.getRed() * 255;
-			int tempGreen = col.getGreen() * 255;
-			int tempBlue = col.getBlue() * 255;
+			tempRed = std::to_string(std::clamp(static_cast<int>(col.getRed() * 255), 0, 255));
+			tempGreen = std::to_string(std::clamp(static_cast<int>(col.getGreen() * 255), 0, 255));
+			tempBlue = std::to_string(std::clamp(static_cast<int>(col.getBlue() * 255), 0, 255));
+			
+			count += tempRed.length();
+			if (count >= 69)
+			{
+				tempRed += '\n';
+				count = 0;
+			}
+			else
+			{
+				tempRed += ' ';
+				count++;
+			}
+			count += tempBlue.length();
+			if (count >= 69)
+			{
+				tempGreen += '\n';
+				count = 0;
+			}
+			else
+			{
+				tempGreen += ' ';
+				count++;
+			}
+			count += tempGreen.length();
+			if (count >= 69)
+			{
+				tempBlue += '\n';
+				count = 0;
+			}
+			else
+			{
+				tempBlue += ' ';
+				count++;
+			}
 
-			if (tempRed < 0)
-			{
-				tempRed = 0;
-			}
-			else if (tempRed > 255)
-			{
-				tempRed = 255;
-			}
-			if (tempGreen < 0)
-			{
-				tempGreen = 0;
-			}
-			else if (tempGreen > 255)
-			{
-				tempGreen = 255;
-			}
-			if (tempBlue < 0)
-			{
-				tempBlue = 0;
-			}
-			else if (tempBlue > 255)
-			{
-				tempBlue = 255;
-			}
-			file << tempRed << " " << tempGreen << " " << tempBlue << " ";
+			file << tempRed << tempGreen << tempBlue;
 		}
+		if (tempBlue[tempBlue.length() - 1] != '\n')
+		{
+			file << '\n';
+		}
+		count = 0;
 	}
-
+	file<< '\n';
+	
 	file.close();
 }

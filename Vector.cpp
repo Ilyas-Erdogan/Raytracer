@@ -6,6 +6,11 @@ Vector::Vector(double xCoordinate, double yCoordinate, double zCoordinate)
 {
 }
 
+Vector::Vector(const Tuple& tup)
+	: Vector(tup.getX(), tup.getY(), tup.getZ())
+{
+}
+
 Vector::~Vector()
 {
 	Tuple::~Tuple();

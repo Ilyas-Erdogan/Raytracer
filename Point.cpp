@@ -6,6 +6,11 @@ Point::Point(double xCoordinate, double yCoordinate, double zCoordinate)
 {
 }
 
+Point::Point(const Tuple& tup)
+	: Tuple(tup.getX(), tup.getY(), tup.getZ())
+{
+}
+
 Point::~Point()
 {
 	Tuple::~Tuple();

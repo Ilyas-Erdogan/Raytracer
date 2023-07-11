@@ -7,6 +7,7 @@ class Vector :
 public:
     // Constructors
     Vector(double xCoordinate, double yCoordinate, double zCoordinate);
+    Vector(const Tuple& tup);
     ~Vector();
 };
 

@@ -78,17 +78,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aceacc3e5f169158146f7c1e32c8bf8da"><td class="memItemLeft" align="right" valign="top"><a id="aceacc3e5f169158146f7c1e32c8bf8da" name="aceacc3e5f169158146f7c1e32c8bf8da"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Canvas</b> (int width, int height)</td></tr>
-<tr class="separator:aceacc3e5f169158146f7c1e32c8bf8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a926b393c659f2ccd1f6f28f08fba3d36"><td class="memItemLeft" align="right" valign="top"><a id="a926b393c659f2ccd1f6f28f08fba3d36" name="a926b393c659f2ccd1f6f28f08fba3d36"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Canvas</b> (int width, int height, class <a class="el" href="class_colour.html">Colour</a> canvasColour)</td></tr>
+<tr class="separator:a926b393c659f2ccd1f6f28f08fba3d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefa3cb153b5daa4c5bcd88df5739f2d2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; class <a class="el" href="class_colour.html">Colour</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canvas.html#aefa3cb153b5daa4c5bcd88df5739f2d2">getCanvas</a> ()</td></tr>
 <tr class="separator:aefa3cb153b5daa4c5bcd88df5739f2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5ad8ca2a9a8f47cba4a1c368c0255e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canvas.html#aa5ad8ca2a9a8f47cba4a1c368c0255e3">getCanvasWidth</a> () const</td></tr>
 <tr class="separator:aa5ad8ca2a9a8f47cba4a1c368c0255e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa31582012bdda19b6eab54ca8fad854"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canvas.html#aaa31582012bdda19b6eab54ca8fad854">getCanvasHeight</a> () const</td></tr>
 <tr class="separator:aaa31582012bdda19b6eab54ca8fad854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7027bfad3f227e525b16e4a6c2987f8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canvas.html#a7027bfad3f227e525b16e4a6c2987f8a">writePixel</a> (const int x, const int y, const <a class="el" href="class_colour.html">Colour</a> colour)</td></tr>
-<tr class="separator:a7027bfad3f227e525b16e4a6c2987f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd6ebdf2c82bfd22c547502b11307944"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canvas.html#abd6ebdf2c82bfd22c547502b11307944">writePixel</a> (const int x, const int y, const class <a class="el" href="class_colour.html">Colour</a> colour)</td></tr>
+<tr class="separator:abd6ebdf2c82bfd22c547502b11307944"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61d056f00d681209fc756e5e0b2667dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canvas.html#a61d056f00d681209fc756e5e0b2667dc">getPixel</a> (const int x, const int y)</td></tr>
 <tr class="separator:a61d056f00d681209fc756e5e0b2667dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84b5638e91675b2930ed247664787bfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_canvas.html#a84b5638e91675b2930ed247664787bfd">convertToPPM</a> (const std::string fileName)</td></tr>
@@ -215,8 +215,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7027bfad3f227e525b16e4a6c2987f8a" name="a7027bfad3f227e525b16e4a6c2987f8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7027bfad3f227e525b16e4a6c2987f8a">&#9670;&#160;</a></span>writePixel()</h2>
+<a id="abd6ebdf2c82bfd22c547502b11307944" name="abd6ebdf2c82bfd22c547502b11307944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd6ebdf2c82bfd22c547502b11307944">&#9670;&#160;</a></span>writePixel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,7 +236,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_colour.html">Colour</a>&#160;</td>
+          <td class="paramtype">const class <a class="el" href="class_colour.html">Colour</a>&#160;</td>
           <td class="paramname"><em>colour</em>&#160;</td>
         </tr>
         <tr>

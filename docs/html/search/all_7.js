@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tuple_0',['Tuple',['../class_tuple.html',1,'']]]
+  ['point_0',['Point',['../class_point.html',1,'']]],
+  ['projectile_1',['Projectile',['../struct_projectile.html',1,'']]]
 ];
