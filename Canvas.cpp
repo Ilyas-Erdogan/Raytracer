@@ -11,7 +11,7 @@ Canvas::Canvas(int width, int height, Colour canvasColour)
 	this->pixels = pixels;
 	this->pixels.resize(height, std::vector<Colour>());
 	// Populate canvas with provided colour (default BLACK)
-	for (auto& i : this->pixels)
+	for (std::vector<Colour>& i : this->pixels)
 	{
 		i.resize(width, canvasColour);
 	}
@@ -118,9 +118,9 @@ void Canvas::convertToPPM(const std::string fileName)
 	std::string tempBlue;
 	// Populate pixel map
 	// Design Note: Limit max characters per line to 70
-	for (auto row : this->pixels)
+	for (std::vector<Colour>& row : this->pixels)
 	{
-		for (auto col : row)
+		for (Colour& col : row)
 		{
 			tempRed = std::to_string(std::clamp(static_cast<int>(col.getRed() * 255), 0, 255));
 			tempGreen = std::to_string(std::clamp(static_cast<int>(col.getGreen() * 255), 0, 255));

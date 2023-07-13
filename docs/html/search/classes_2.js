@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['point_0',['Point',['../class_point.html',1,'']]],
-  ['projectile_1',['Projectile',['../struct_projectile.html',1,'']]]
+  ['matrix_0',['Matrix',['../class_matrix.html',1,'']]]
 ];

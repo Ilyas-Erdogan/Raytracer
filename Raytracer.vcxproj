@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Colour.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Tuple.h" />
     <ClInclude Include="Vector.h" />
@@ -139,6 +140,7 @@
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Colour.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Tuple.cpp" />
     <ClCompile Include="Vector.cpp" />

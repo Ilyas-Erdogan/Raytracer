@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_2a_3d_0',['operator*=',['../class_colour.html#aeb3777c005b9732159eca6fe1f096667',1,'Colour']]]
+  ['normalizevector_0',['normalizeVector',['../class_tuple.html#a264f1e2d634ca20cdf6c0e2fb314d8c6',1,'Tuple']]]
 ];

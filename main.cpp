@@ -3,6 +3,7 @@
 #include "Point.h"
 #include "Canvas.h"
 #include "Colour.h"
+#include "Matrix.h"
 
 
 struct Projectile
@@ -28,29 +29,32 @@ Projectile tick(Environment env, Projectile proj)
 
 int main()
 {
-	Point Start(0, 1, 0);
-	Vector Velocity(1, 1.8, 0);
-	Velocity.normalizeVector();
-	Velocity *= 11.25;
-	Projectile p(Start, Velocity);
+	//Point Start(0, 1, 0);
+	//Vector Velocity(1, 1.8, 0);
+	//Velocity.normalizeVector();
+	//Velocity *= 11.25;
+	//Projectile p(Start, Velocity);
 
-	Vector Gravity(0, -0.1, 0);
-	Vector Wind(-0.01, 0, 0);
-	Environment e(Gravity, Wind);
+	//Vector Gravity(0, -0.1, 0);
+	//Vector Wind(-0.01, 0, 0);
+	//Environment e(Gravity, Wind);
 
-	Canvas c(900, 550, Colour());
+	//Canvas c(900, 550, Colour());
 
-	int tickCount = 0;
+	//int tickCount = 0;
 
-	while (p.Position.getY() >= 0)
-	{
-		p = tick(e, p);
-		c.writePixel(static_cast<int>(p.Position.getX()), c.getCanvasHeight() - static_cast<int>(p.Position.getY()), Colour(1, 1, 1));
-		tickCount++;
-		std::cout << p.Position.getX() << " " << p.Position.getY() << " " << p.Position.getZ() << '\n';
-	}
+	//while (p.Position.getY() >= 0)
+	//{
+	//	p = tick(e, p);
+	//	c.writePixel(static_cast<int>(p.Position.getX()), c.getCanvasHeight() - static_cast<int>(p.Position.getY()), Colour(1, 1, 1));
+	//	tickCount++;
+	//	std::cout << p.Position.getX() << " " << p.Position.getY() << " " << p.Position.getZ() << '\n';
+	//}
 
-	c.convertToPPM("projectile");
-	std::cout << tickCount << '\n';
-
+	//c.convertToPPM("projectile");
+	//std::cout << tickCount << '\n';
+	Matrix A({ {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 8, 7, 6}, {5, 4, 3, 2} });
+	Matrix B({ {-2, 1, 2, 3}, {3, 2, 1, -1}, {4, 3, 6, 5}, {1, 2, 7, 8} });
+	Matrix C = A * B;
+	std::cout << C(0,2);
 }
