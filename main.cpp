@@ -53,8 +53,6 @@ int main()
 
 	//c.convertToPPM("projectile");
 	//std::cout << tickCount << '\n';
-	Matrix A({ {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 8, 7, 6}, {5, 4, 3, 2} });
-	Matrix B({ {-2, 1, 2, 3}, {3, 2, 1, -1}, {4, 3, 6, 5}, {1, 2, 7, 8} });
-	Matrix C = A * B;
-	std::cout << C(0,2);
+
+	return 0;
 }

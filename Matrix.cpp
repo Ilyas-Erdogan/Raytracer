@@ -155,13 +155,14 @@ Matrix Matrix::operator*=(const Matrix& rhs)
                 {
                     for (int i = 0; i < rhs.rowSize; i++)
                     {
-                        val += (*this)(row, i) * rhs(i, col);
+                        val += ((*this)(row, i) * rhs(i, col));
                     }
                     returnMatrix.matrix[row][col] = val;
                     val = 0;
                 }
             }
-            return returnMatrix;
+            *this = returnMatrix;
+            return *this;
         }
         else
         {

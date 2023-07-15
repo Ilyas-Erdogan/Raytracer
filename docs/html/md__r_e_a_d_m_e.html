@@ -72,7 +72,64 @@ $(function() {
   <div class="headertitle"><div class="title">Raytracer</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a><a href="https://ilyas-erdogan.github.io/Raytracer/html/index.html">CLASS DOCUMENTATION</a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Sample Program</h1>
+<div class="fragment"><div class="line"> cpp</div>
+<div class="line">#include &lt;iostream&gt;</div>
+<div class="line">#include &quot;Vector.h&quot;</div>
+<div class="line">#include &quot;Point.h&quot;</div>
+<div class="line">#include &quot;Canvas.h&quot;</div>
+<div class="line">#include &quot;Colour.h&quot;</div>
+<div class="line"> </div>
+<div class="line">struct Projectile</div>
+<div class="line">{</div>
+<div class="line">    Point Position;</div>
+<div class="line">    Vector Velocity;</div>
+<div class="line">    Projectile(Point p, Vector v) : Position{ p }, Velocity{ v } {};</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">struct Environment</div>
+<div class="line">{</div>
+<div class="line">    Vector Gravity;</div>
+<div class="line">    Vector Wind;</div>
+<div class="line">    Environment(Vector g, Vector w) : Gravity{ g }, Wind{ w } {};</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">Projectile tick(Environment env, Projectile proj)</div>
+<div class="line">{</div>
+<div class="line">    Vector position = proj.Position + proj.Velocity;</div>
+<div class="line">    Vector velocity = proj.Velocity + env.Gravity + env.Wind;</div>
+<div class="line">    return Projectile(position, velocity);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">int main()</div>
+<div class="line">{</div>
+<div class="line">    Point Start(0, 1, 0);</div>
+<div class="line">    Vector Velocity(1, 1.8, 0);</div>
+<div class="line">    Velocity.normalizeVector();</div>
+<div class="line">    Velocity *= 11.25;</div>
+<div class="line">    Projectile p(Start, Velocity);</div>
+<div class="line"> </div>
+<div class="line">    Vector Gravity(0, -0.1, 0);</div>
+<div class="line">    Vector Wind(-0.01, 0, 0);</div>
+<div class="line">    Environment e(Gravity, Wind);</div>
+<div class="line"> </div>
+<div class="line">    Canvas c(900, 550, Colour());</div>
+<div class="line"> </div>
+<div class="line">    while (p.Position.getY() &gt;= 0)</div>
+<div class="line">    {</div>
+<div class="line">        p = tick(e, p);</div>
+<div class="line">        c.writePixel(static_cast&lt;int&gt;(p.Position.getX()), c.getCanvasHeight() - static_cast&lt;int&gt;(p.Position.getY()), Colour(1, 1, 1));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    c.convertToPPM(&quot;projectile&quot;);</div>
+<div class="line"> </div>
+<div class="line">  return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md2"></a>
+Output</h1>
+<p><img src="Projectile.png" alt="Projectile.png" title="a title" class="inline"/> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
