@@ -1,6 +1,9 @@
 #include "Matrix.h"
+#include "Tuple.h"
+
 #include <iostream>
 #include <stdexcept>
+
 
 /**
 * Initializes a Matrix object of given row and column size.\n
@@ -31,8 +34,8 @@ Matrix::Matrix(const int rowLimit, const int columnLimit)
 Matrix::Matrix(const std::vector<std::vector<double>>& matrixSet)
     : matrix { matrixSet }
 {
-    this->rowSize = matrix[0].size();
-    this->columnSize = matrix.size();
+    this->rowSize = matrix.size();
+    this->columnSize = matrix[0].size();
 }
 
 Matrix::~Matrix()
@@ -137,9 +140,9 @@ bool Matrix::operator!=(const Matrix& rhs) const
 * Caluclates Hadamard product of calling matrix object by right-hand side matrix object.
 * 
 * @param rhs Right-hand side reference of matrix object.
-* @throws exception If calling matrix row size is not equal to right-hand size matrix column size.
+* @throws exception If calling matrix column size is not equal to rhs matrix row size.
 * 
-* @return Matrix object of resultant Hadamard product.
+* @return Modified calling (resultant Hadamard product).
 */
 Matrix Matrix::operator*=(const Matrix& rhs)
 {
@@ -147,11 +150,11 @@ Matrix Matrix::operator*=(const Matrix& rhs)
     {
         if (this->columnSize == rhs.rowSize)
         {
-            Matrix returnMatrix(rhs.rowSize, this->columnSize);
+            Matrix returnMatrix(this->rowSize, rhs.columnSize);
             double val = 0;
-            for (int row = 0; row < rhs.rowSize; row++)
+            for (int row = 0; row < this->rowSize; row++)
             {
-                for (int col = 0; col < this->columnSize; col++)
+                for (int col = 0; col < rhs.columnSize; col++)
                 {
                     for (int i = 0; i < rhs.rowSize; i++)
                     {
@@ -175,9 +178,72 @@ Matrix Matrix::operator*=(const Matrix& rhs)
     }
 }
 
+/**
+* Caluclates Hadamard product of left-hand side matrix object by right-hand side matrix object.
+*
+* @param rhs Right-hand side of matrix object.
+* @param lhs Left-hand side reference of matrix object.
+* @throws exception If lhs matrix column size is not equal to rhs matrix column size.
+*
+* @return Modified lhs matrix (resultant Hadamard product).
+*/
 Matrix operator*(Matrix lhs, const Matrix& rhs)
 {
-    lhs *= rhs;
-    
-    return lhs;
+    try
+    {
+        if (lhs.columnSize == rhs.rowSize)
+        {
+            lhs *= rhs;
+            return lhs;
+        }
+        throw std::exception("First Matrix must have the same number of columns as the second matrix has rows!");
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
 }
+
+/**
+* Returns a Tuple object after multilpication by a Matrix.
+* Function only supports matrices with a column size of 4!
+* 
+* @param Tuple lhs Left-hand side Tuple object.
+* @param Matrix rhs Right-hand side Matrix reference object.
+* 
+* @return Tuple object of resultant multiplication.
+*/
+Tuple operator*(Tuple& lhs, const Matrix& rhs)
+{
+    try
+    {
+        if (rhs.columnSize == 4)
+        {
+            // Convert tuple to matrix
+            Matrix tupleMatrix = rhs * Matrix({ {lhs.getX()}, {lhs.getY()}, {lhs.getZ()}, {lhs.getW()} });
+            // Convert back to Tuple
+            return Tuple(tupleMatrix(0,0), tupleMatrix(1,0), tupleMatrix(2,0), tupleMatrix(3,0));
+        }
+        throw std::exception("Matrix object row size must be equal to four!");
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+/**
+* Returns a Tuple object after multilpication by a Matrix.
+* Function only supports matrices with a column size of 4!
+*
+* @param Matrix lhs Right-hand side Matrix object.
+* @param Tuple rhs Left-hand side Tuple reference object.
+*
+* @return Tuple object of resultant multiplication.
+*/
+Tuple operator*(Matrix& lhs, const Tuple& rhs)
+{
+    Tuple tempTuple = rhs;
+    return tempTuple * lhs;
+}
+

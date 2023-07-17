@@ -53,6 +53,5 @@ int main()
 
 	//c.convertToPPM("projectile");
 	//std::cout << tickCount << '\n';
-
 	return 0;
 }

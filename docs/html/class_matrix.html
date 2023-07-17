@@ -96,9 +96,13 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a8c9c31b48daf1420aff80a499d3ec8fa"><td class="memItemLeft" align="right" valign="top"><a id="a8c9c31b48daf1420aff80a499d3ec8fa" name="a8c9c31b48daf1420aff80a499d3ec8fa"></a>
-<a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="class_matrix.html">Matrix</a> lhs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs)</td></tr>
+<tr class="memitem:a8c9c31b48daf1420aff80a499d3ec8fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a8c9c31b48daf1420aff80a499d3ec8fa">operator*</a> (<a class="el" href="class_matrix.html">Matrix</a> lhs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs)</td></tr>
 <tr class="separator:a8c9c31b48daf1420aff80a499d3ec8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec6ca06b7c0c24c6468917141002428"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_tuple.html">Tuple</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aaec6ca06b7c0c24c6468917141002428">operator*</a> (class <a class="el" href="class_tuple.html">Tuple</a> &amp;lhs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs)</td></tr>
+<tr class="separator:aaec6ca06b7c0c24c6468917141002428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70ff9c4ff7e9d9564a2f13b2fc9cef67"><td class="memItemLeft" align="right" valign="top"><a id="a70ff9c4ff7e9d9564a2f13b2fc9cef67" name="a70ff9c4ff7e9d9564a2f13b2fc9cef67"></a>
+class <a class="el" href="class_tuple.html">Tuple</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="class_matrix.html">Matrix</a> &amp;lhs, const class <a class="el" href="class_tuple.html">Tuple</a> &amp;rhs)</td></tr>
+<tr class="separator:a70ff9c4ff7e9d9564a2f13b2fc9cef67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7043f53623ba57891e957bc9769afb75" name="a7043f53623ba57891e957bc9769afb75"></a>
@@ -301,11 +305,11 @@ Sets matrix row and column count according to given 2-dimensional vector.</p>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">exception</td><td>If calling matrix row size is not equal to right-hand size matrix column size.</td></tr>
+    <tr><td class="paramname">exception</td><td>If calling matrix column size is not equal to rhs matrix row size.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_matrix.html">Matrix</a> object of resultant Hadamard product. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Modified calling (resultant Hadamard product). </dd></dl>
 
 </div>
 </div>
@@ -332,6 +336,103 @@ Sets matrix row and column count according to given 2-dimensional vector.</p>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if both matrices have exact same row &amp; column size and all values are the exact same, otherwise false. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="aaec6ca06b7c0c24c6468917141002428" name="aaec6ca06b7c0c24c6468917141002428"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaec6ca06b7c0c24c6468917141002428">&#9670;&#160;</a></span>operator* <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="class_tuple.html">Tuple</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype">class <a class="el" href="class_tuple.html">Tuple</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a <a class="el" href="class_tuple.html">Tuple</a> object after multilpication by a <a class="el" href="class_matrix.html">Matrix</a>. Function only supports matrices with a column size of 4!</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_tuple.html">Tuple</a></td><td>lhs Left-hand side <a class="el" href="class_tuple.html">Tuple</a> object. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_matrix.html">Matrix</a></td><td>rhs Right-hand side <a class="el" href="class_matrix.html">Matrix</a> reference object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_tuple.html">Tuple</a> object of resultant multiplication. </dd></dl>
+
+</div>
+</div>
+<a id="a8c9c31b48daf1420aff80a499d3ec8fa" name="a8c9c31b48daf1420aff80a499d3ec8fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c9c31b48daf1420aff80a499d3ec8fa">&#9670;&#160;</a></span>operator* <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Caluclates Hadamard product of left-hand side matrix object by right-hand side matrix object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>Right-hand side of matrix object. </td></tr>
+    <tr><td class="paramname">lhs</td><td>Left-hand side reference of matrix object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">exception</td><td>If lhs matrix column size is not equal to rhs matrix column size.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Modified lhs matrix (resultant Hadamard product). </dd></dl>
 
 </div>
 </div>

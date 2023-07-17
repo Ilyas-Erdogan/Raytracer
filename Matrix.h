@@ -19,6 +19,10 @@ public:
 	Matrix operator*=(const Matrix& rhs);
 	friend Matrix operator*(Matrix lhs, const Matrix& rhs);
 
+	//class Tuple operator*=(const Matrix& rhs);
+	friend class Tuple operator*(class Tuple& lhs, const Matrix& rhs);
+	friend class Tuple operator*(Matrix& lhs, const class Tuple& rhs);
+
 private:
 	// Limits
 	int rowSize;
