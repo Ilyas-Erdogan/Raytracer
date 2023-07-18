@@ -42,6 +42,19 @@ Matrix::~Matrix()
 {
 }
 
+Matrix& Matrix::operator=(const Matrix& other)
+{
+    // Self-assignment guard
+    if (this == &other)
+    {
+        return *this;
+    }
+
+    this->matrix = other.matrix;
+    this->rowSize = other.rowSize;
+    this->columnSize = other.columnSize;
+}
+
 /**
 * Accesses value from non-const Matrix object.
 * 
@@ -113,11 +126,14 @@ bool Matrix::operator==(const Matrix& rhs) const
         return false;
     }
     
-    for (int colLeft = 0, colRight = 0; colLeft < this->columnSize, colRight < rhs.columnSize; colLeft++, colRight++)
+    for (int row = 0; row < this->rowSize; row++)
     {
-        if (this->matrix[colLeft] != rhs.matrix[colRight])
+        for (int column = 0; column < this->columnSize; column++)
         {
-            return false;
+            if (std::abs((*this)(row, column) - rhs(row, column)) > EPSILON)
+            {
+                return false;
+            }
         }
     }
 
@@ -210,6 +226,7 @@ Matrix operator*(Matrix lhs, const Matrix& rhs)
 * 
 * @param Tuple lhs Left-hand side Tuple object.
 * @param Matrix rhs Right-hand side Matrix reference object.
+* @throws exception If rhs matrix column size is not equal to 4.
 * 
 * @return Tuple object of resultant multiplication.
 */
@@ -238,6 +255,7 @@ Tuple operator*(Tuple& lhs, const Matrix& rhs)
 *
 * @param Matrix lhs Right-hand side Matrix object.
 * @param Tuple rhs Left-hand side Tuple reference object.
+* @throws exception If lhs matrix column size is not equal to 4.
 *
 * @return Tuple object of resultant multiplication.
 */
@@ -247,3 +265,219 @@ Tuple operator*(Matrix& lhs, const Tuple& rhs)
     return tempTuple * lhs;
 }
 
+/**
+* Returns an identity matrix according to the size of the calling object's Matrix.
+* 
+* @throws exception If calling object's matrix is not a square.
+* 
+* @return Identity matrix.
+*/
+Matrix Matrix::getIdentityMatrix() const
+{
+    try
+    {
+        if (this->rowSize == this->columnSize)
+        {
+            Matrix returnMatrix(this->rowSize, this->columnSize);
+            for (int row = 0; row < this->rowSize; row++)
+            {
+                for (int col = 0; col < this->columnSize; col++)
+                {
+                    if (row == col)
+                    {
+                        returnMatrix.matrix[row][col] = 1;
+                        break;
+                    }
+                }
+            }
+            return returnMatrix;
+        }
+        throw std::exception("No identity matrix for a non-squre matrix!");
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+/**
+* Returns the transposed matrix of calling object's matrix.
+*/
+Matrix Matrix::getTransposedMatrix() const
+{
+    Matrix transposedMatrix(this->rowSize, this->columnSize);
+    for (int row = 0; row < this->rowSize; row++)
+    {
+        for (int col = 0; col < this->columnSize; col++)
+        {
+            transposedMatrix.matrix[col][row] = (*this)(row, col);
+        }
+    }
+    return transposedMatrix;
+}
+
+/**
+* Calcualtes the determinant of the calling matrix.
+* 
+* @throws exception If the calling matrix is not a square matrix.
+* 
+* @return Value of the determinant.
+*/
+double Matrix::getDeterminant() const
+{
+    try
+    {
+        if (this->rowSize == 2 && this->columnSize == 2)
+        {
+            return ((*this)(0, 0) * (*this)(1, 1)) - ((*this)(0, 1) * (*this)(1, 0));
+        }
+        else if (this->rowSize == this->columnSize)
+        {
+            int det = 0;
+            for (int column = 0; column < this->rowSize; column++)
+            {
+                det += (*this)(0, column) * this->getCofactor(0, column);
+            }
+            return det;
+        }
+        else
+        {
+            throw std::exception("Cannot find determinant of a non-square matrix!");
+        }
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+/**
+* Returns a Matrix object containing the requested submatrix.
+* 
+* @param int row Row index to be removed.
+* @param int column Column index to be removed.
+* @throws out_of_range If the row and/or column values are not within the appropriate ranges.
+* 
+* @return Submatrix of the calling object.
+*/
+Matrix Matrix::getSubmatrix(int row, int column) const
+{
+    try
+    {
+        if ((row >= 0 && row < this->rowSize) && (column >= 0 && column < this->columnSize))
+        {
+            Matrix returnMatrix = *this;
+            // Delete the specified row
+            returnMatrix.matrix.erase(returnMatrix.matrix.begin() + row);
+            // Decrease row size prior to iteration
+            returnMatrix.rowSize--;
+            for (int i = 0; i < returnMatrix.rowSize; i++)
+            {
+                returnMatrix.matrix[i].erase(returnMatrix.matrix[i].begin() + column);
+            }
+            returnMatrix.columnSize--;
+            return returnMatrix;
+        }
+        throw std::out_of_range("Row and/or column index to remove not within valid range!");
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+/**
+* Returns the minor (determinant of the submatrix) of the calling object's matrix.
+* 
+* @param int row Row to be omitted when finding the submatrix.
+* @param int column Column to be omitted when finding the submatrix.
+* @throws out_of_range If the row and/or column values are not within the appropriate ranges.
+* 
+* @return Value of the minor of the matrix.
+*/
+double Matrix::getMinor(int row, int column) const
+{
+    try
+    {
+        if ((row >= 0 && row < this->rowSize) && (column >= 0 && column < this->columnSize))
+        {
+            return this->getSubmatrix(row, column).getDeterminant();
+        }
+        throw std::out_of_range("Invalid row and/or column index provided!");
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+/**
+* Returns the minor of the calling object's matrix with the appropriate sign (+/-).
+* 
+* @param int row Row to be removed when calcualting the submatrix.
+* @param int column Column to be removed when calculating the submatrix.
+* @throws out_of_range If the row and/or column values are not within the appropriate ranges.
+* 
+* @return 
+*/
+double Matrix::getCofactor(int row, int column) const
+{
+    try
+    {
+        if ((row >= 0 && row < this->rowSize) && (column >= 0 && column < this->columnSize))
+        {
+            // Determine appropraite sign
+            return (((row + column) % 2 == 0) ? (this->getMinor(row, column)) : (-1 * this->getMinor(row, column)));
+        }
+        throw std::out_of_range("Invalid row and/or column index provided!");
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+/**
+* Determines whether or not the calling object's matrix is invertible.
+* A matrix is deemed invertible if it's determinant is not equal to 0.
+* 
+* @return True if the matrix has non-zero determinant, otehrwise false.
+*/
+bool Matrix::isInvertible() const
+{
+    return !(this->getDeterminant() == 0);
+}
+
+
+/**
+* Returns a matrix containing the inverse matrix of the calling object's matrix.
+* 
+* @throws exception If the matrix is not invertible.
+* 
+* @return Inverse matrix of the calling object.
+*/
+Matrix Matrix::getInverse() const
+{
+    try
+    {
+        if (this->isInvertible())
+        {
+            Matrix invertedMatrix(this->rowSize, this->columnSize);
+            double c = 0;
+            for (int row = 0; row < this->rowSize; row++)
+            {
+                for (int column = 0; column < this->columnSize; column++)
+                {
+                    c = this->getCofactor(row, column);
+                    invertedMatrix.matrix[column][row] = (c / this->getDeterminant());
+                }
+            }
+            return invertedMatrix;
+        }
+        throw std::exception("Matrix is not invertible!");
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}

@@ -10,6 +10,8 @@ public:
 	~Matrix();
 
 	// Overloaded operators
+	Matrix& operator=(const Matrix& other);
+
 	double& operator()(int rowIndex, int colIndex);
 	double operator()(int rowIndex, int colIndex) const;
 
@@ -23,7 +25,20 @@ public:
 	friend class Tuple operator*(class Tuple& lhs, const Matrix& rhs);
 	friend class Tuple operator*(Matrix& lhs, const class Tuple& rhs);
 
+	// Utilities
+	Matrix getIdentityMatrix() const;
+	Matrix getTransposedMatrix() const;
+	double getDeterminant() const;
+	Matrix getSubmatrix(int row, int column) const;
+	double getMinor(int row, int column) const;
+	double getCofactor(int row, int column) const;
+	bool isInvertible() const;
+	Matrix getInverse() const;
+
 private:
+	// Constants
+	const double EPSILON{ 0.00001 };
+
 	// Limits
 	int rowSize;
 	int columnSize;
