@@ -24,7 +24,7 @@ public:
 	//class Tuple operator*=(const Matrix& rhs);
 	friend class Tuple operator*(class Tuple& lhs, const Matrix& rhs);
 	friend class Tuple operator*(Matrix& lhs, const class Tuple& rhs);
-
+	
 	// Utilities
 	Matrix getIdentityMatrix() const;
 	Matrix getTransposedMatrix() const;
@@ -34,8 +34,7 @@ public:
 	double getCofactor(int row, int column) const;
 	bool isInvertible() const;
 	Matrix getInverse() const;
-
-private:
+protected:
 	// Constants
 	const double EPSILON{ 0.00001 };
 

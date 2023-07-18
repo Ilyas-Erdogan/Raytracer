@@ -333,7 +333,7 @@ double Matrix::getDeterminant() const
         }
         else if (this->rowSize == this->columnSize)
         {
-            int det = 0;
+            double det = 0;
             for (int column = 0; column < this->rowSize; column++)
             {
                 det += (*this)(0, column) * this->getCofactor(0, column);

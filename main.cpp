@@ -4,6 +4,7 @@
 #include "Canvas.h"
 #include "Colour.h"
 #include "Matrix.h"
+#include "RotationX.h"
 
 
 struct Projectile
@@ -53,7 +54,10 @@ int main()
 
 	//c.convertToPPM("projectile");
 	//std::cout << tickCount << '\n';
-	Matrix A({ {8, -5, 9, 2}, {7, 5, 6, 1}, {-6, 0, 9, 6}, {-3, 0, -9, -4} });
-	std::cout << (A.getInverse() == Matrix({ {-0.15385, -0.15385, -0.28205, -0.53846 }, {-0.07692, 0.12308, 0.02564, 0.03077}, {0.35897, 0.35897, 0.43590, 0.92308}, {-0.69231, -0.69231, -0.76923, -1.92308} }));
+	const double pi = 3.1415926535897932385;
+	Point p(0, 1, 0);
+	RotationX half_quarter(pi / 4);
+	RotationX inv = half_quarter.getInverse();
+	std::cout << (inv * p == Point(0, std::sqrt(2) / 2, -std::sqrt(2) / 2));
 	return 0;
 }

@@ -133,6 +133,11 @@
     <ClInclude Include="Colour.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="RotationX.h" />
+    <ClInclude Include="RotationY.h" />
+    <ClInclude Include="RotationZ.h" />
+    <ClInclude Include="Scale.h" />
+    <ClInclude Include="Translation.h" />
     <ClInclude Include="Tuple.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
@@ -142,6 +147,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="RotationX.cpp" />
+    <ClCompile Include="RotationY.cpp" />
+    <ClCompile Include="RotationZ.cpp" />
+    <ClCompile Include="Scale.cpp" />
+    <ClCompile Include="Translation.cpp" />
     <ClCompile Include="Tuple.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>

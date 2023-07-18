@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector_0',['Vector',['../class_vector.html',1,'']]]
+  ['scale_0',['Scale',['../class_scale.html',1,'']]]
 ];
