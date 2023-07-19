@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['environment_0',['Environment',['../struct_environment.html',1,'']]]
+  ['matrix_0',['Matrix',['../class_matrix.html',1,'']]]
 ];

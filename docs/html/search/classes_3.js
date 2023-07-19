@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['point_0',['Point',['../class_point.html',1,'']]],
-  ['projectile_1',['Projectile',['../struct_projectile.html',1,'']]]
+  ['rotationx_0',['RotationX',['../class_rotation_x.html',1,'']]],
+  ['rotationy_1',['RotationY',['../class_rotation_y.html',1,'']]],
+  ['rotationz_2',['RotationZ',['../class_rotation_z.html',1,'']]]
 ];

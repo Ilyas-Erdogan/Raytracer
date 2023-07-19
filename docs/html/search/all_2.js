@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['environment_0',['Environment',['../struct_environment.html',1,'']]]
+  ['getblue_0',['getBlue',['../class_colour.html#a856029168a3ad2aba5f29de3bedb6f5c',1,'Colour']]],
+  ['getcanvas_1',['getCanvas',['../class_canvas.html#aefa3cb153b5daa4c5bcd88df5739f2d2',1,'Canvas']]],
+  ['getcanvasheight_2',['getCanvasHeight',['../class_canvas.html#aaa31582012bdda19b6eab54ca8fad854',1,'Canvas']]],
+  ['getcanvaswidth_3',['getCanvasWidth',['../class_canvas.html#aa5ad8ca2a9a8f47cba4a1c368c0255e3',1,'Canvas']]],
+  ['getcofactor_4',['getCofactor',['../class_matrix.html#ae5ae1961f4039e39104b781b952f398a',1,'Matrix']]],
+  ['getdeterminant_5',['getDeterminant',['../class_matrix.html#a7cf20233ae13ddb01d5cf1b43092f16a',1,'Matrix']]],
+  ['getgreen_6',['getGreen',['../class_colour.html#a3376a978ea368fc51e8bf27d128a6f87',1,'Colour']]],
+  ['getidentitymatrix_7',['getIdentityMatrix',['../class_matrix.html#a283dba0030ad108881478297f013d594',1,'Matrix']]],
+  ['getinverse_8',['getInverse',['../class_matrix.html#ade3fcddb0cc6a7e221a94e13afc7752c',1,'Matrix']]],
+  ['getmagnitude_9',['getMagnitude',['../class_tuple.html#a3ffdd41ee9995994972ddd559d7ab0b6',1,'Tuple']]],
+  ['getminor_10',['getMinor',['../class_matrix.html#a6fb7d1efcf2aec46142eec7fbeb27c43',1,'Matrix']]],
+  ['getpixel_11',['getPixel',['../class_canvas.html#a61d056f00d681209fc756e5e0b2667dc',1,'Canvas']]],
+  ['getred_12',['getRed',['../class_colour.html#ad14b85c11d96facb81fc2b2b94d714bf',1,'Colour']]],
+  ['getsubmatrix_13',['getSubmatrix',['../class_matrix.html#afc8a219dcfbe209d1ff17fc00b811212',1,'Matrix']]],
+  ['gettransposedmatrix_14',['getTransposedMatrix',['../class_matrix.html#a27ccc73f38a1604f9be9b0a652dacd9f',1,'Matrix']]],
+  ['getw_15',['getW',['../class_tuple.html#a5a633ef7aaf88b35322ebc8b214655cd',1,'Tuple']]],
+  ['getx_16',['getX',['../class_tuple.html#ae7e37746cae6305650c023907ac118ef',1,'Tuple']]],
+  ['gety_17',['getY',['../class_tuple.html#a22a71a3a7e723285bb5507eeee5971fa',1,'Tuple']]],
+  ['getz_18',['getZ',['../class_tuple.html#abd5e76ee2faa4c27158cb0e91cc5f903',1,'Tuple']]]
 ];

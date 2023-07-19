@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector_0',['Vector',['../class_vector.html',1,'']]]
+  ['writepixel_0',['writePixel',['../class_canvas.html#abd6ebdf2c82bfd22c547502b11307944',1,'Canvas']]]
 ];

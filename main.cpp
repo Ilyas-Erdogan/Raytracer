@@ -16,7 +16,6 @@ int main()
 {
 	Canvas c(100, 100, Colour());
 	const double pi = 3.1415926535897932385;
-
 	Point origin(50, 0, 50);
 	Point twelve(0, 0, 1);
 

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['raytracer_0',['Raytracer',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['rotationx_1',['RotationX',['../class_rotation_x.html',1,'RotationX'],['../class_rotation_x.html#a629af3016c4daff34d8338640ba3539d',1,'RotationX::RotationX(const double r)'],['../class_rotation_x.html#a7488e4e506455e35048551834bd82434',1,'RotationX::RotationX(const Matrix &amp;matrix)']]],
-  ['rotationy_2',['RotationY',['../class_rotation_y.html',1,'RotationY'],['../class_rotation_y.html#a78d168300b61f9c24939e0677553f084',1,'RotationY::RotationY(const double r)'],['../class_rotation_y.html#afcd9ae001096c3e593025ca54aa4f19f',1,'RotationY::RotationY(const Matrix &amp;matrix)']]],
-  ['rotationz_3',['RotationZ',['../class_rotation_z.html',1,'RotationZ'],['../class_rotation_z.html#a89d2adcd5a8309f133f144547e0048df',1,'RotationZ::RotationZ(const double r)'],['../class_rotation_z.html#a324696fb4beacb70d3524d56a74a5013',1,'RotationZ::RotationZ(const Matrix &amp;matrix)']]]
+  ['scale_0',['Scale',['../class_scale.html',1,'Scale'],['../class_scale.html#a346a8904325fdd099ede22c49bd62c77',1,'Scale::Scale(const double x, const double y, const double z)'],['../class_scale.html#a4867a74f8f3434668085d156772c2006',1,'Scale::Scale(const Matrix &amp;matrix)']]],
+  ['shearing_1',['Shearing',['../class_shearing.html',1,'Shearing'],['../class_shearing.html#ae159b41931d7f945f046c70edaaa40fc',1,'Shearing::Shearing(const double x_y, const double x_z, const double y_x, const double y_z, const double z_x, const double z_y)'],['../class_shearing.html#a307aa02ea2192087aabdc5d5571f5214',1,'Shearing::Shearing(const Matrix &amp;matrix)']]]
 ];

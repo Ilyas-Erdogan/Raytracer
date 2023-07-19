@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['scale_0',['Scale',['../class_scale.html',1,'Scale'],['../class_scale.html#a346a8904325fdd099ede22c49bd62c77',1,'Scale::Scale(const double x, const double y, const double z)'],['../class_scale.html#a4867a74f8f3434668085d156772c2006',1,'Scale::Scale(const Matrix &amp;matrix)']]],
-  ['shearing_1',['Shearing',['../class_shearing.html',1,'Shearing'],['../class_shearing.html#ae159b41931d7f945f046c70edaaa40fc',1,'Shearing::Shearing(const double x_y, const double x_z, const double y_x, const double y_z, const double z_x, const double z_y)'],['../class_shearing.html#a307aa02ea2192087aabdc5d5571f5214',1,'Shearing::Shearing(const Matrix &amp;matrix)']]]
+  ['translation_0',['Translation',['../class_translation.html',1,'Translation'],['../class_translation.html#acb8db0da33475ae2d7dc9dc5285e4b99',1,'Translation::Translation(const double x, const double y, const double z)'],['../class_translation.html#a2edfe59e1f40bd6f90f7425e73406d00',1,'Translation::Translation(const Matrix &amp;matrix)']]],
+  ['tuple_1',['Tuple',['../class_tuple.html',1,'']]]
 ];
