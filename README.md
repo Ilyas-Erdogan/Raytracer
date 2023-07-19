@@ -50,7 +50,7 @@ int main()
 }
 ```
 # Output
-![Projectile.png](Projectile.png "a title")
+![Renders/Projectile.png](Projectile.png "a title")
 
 # Example 2 - Simple Clock Rotation Render
 
@@ -75,4 +75,4 @@ int main()
 }
 ```
 # Output
-![clock.png](clock.png "a title")
+![Renders/clock.png](clock.png "a title")
