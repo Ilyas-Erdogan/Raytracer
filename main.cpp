@@ -1,15 +1,15 @@
 #include <iostream>
-#include "Vector.h"
-#include "Point.h"
+#include "Types/Vector.h"
+#include "Types/Point.h"
 #include "Canvas.h"
-#include "Colour.h"
-#include "Matrix.h"
-#include "Translation.h"
-#include "Scale.h"
-#include "RotationX.h"
-#include "RotationY.h"
-#include "RotationZ.h"
-#include "Shearing.h"
+#include "Types/Colour.h"
+#include "Types/Matrix.h"
+#include "Transformations/Translation.h"
+#include "Transformations/Scale.h"
+#include "Transformations/RotationX.h"
+#include "Transformations/RotationY.h"
+#include "Transformations/RotationZ.h"
+#include "Transformations/Shearing.h"
 
 
 int main()

@@ -1,5 +1,5 @@
 #pragma once
-#include "Matrix.h"
+#include "../Types/Matrix.h"
 class Scale :
     public Matrix
 {

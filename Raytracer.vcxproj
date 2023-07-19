@@ -130,32 +130,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Canvas.h" />
-    <ClInclude Include="Colour.h" />
-    <ClInclude Include="Matrix.h" />
-    <ClInclude Include="Point.h" />
-    <ClInclude Include="RotationX.h" />
-    <ClInclude Include="RotationY.h" />
-    <ClInclude Include="RotationZ.h" />
-    <ClInclude Include="Scale.h" />
-    <ClInclude Include="Shearing.h" />
-    <ClInclude Include="Translation.h" />
-    <ClInclude Include="Tuple.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Transformations\RotationX.h" />
+    <ClInclude Include="Transformations\RotationY.h" />
+    <ClInclude Include="Transformations\RotationZ.h" />
+    <ClInclude Include="Transformations\Scale.h" />
+    <ClInclude Include="Transformations\Shearing.h" />
+    <ClInclude Include="Transformations\Translation.h" />
+    <ClInclude Include="Types\Colour.h" />
+    <ClInclude Include="Types\Matrix.h" />
+    <ClInclude Include="Types\Point.h" />
+    <ClInclude Include="Types\Tuple.h" />
+    <ClInclude Include="Types\Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Canvas.cpp" />
-    <ClCompile Include="Colour.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="Point.cpp" />
-    <ClCompile Include="RotationX.cpp" />
-    <ClCompile Include="RotationY.cpp" />
-    <ClCompile Include="RotationZ.cpp" />
-    <ClCompile Include="Scale.cpp" />
-    <ClCompile Include="Shearing.cpp" />
-    <ClCompile Include="Translation.cpp" />
-    <ClCompile Include="Tuple.cpp" />
-    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Transformations\RotationX.cpp" />
+    <ClCompile Include="Transformations\RotationY.cpp" />
+    <ClCompile Include="Transformations\RotationZ.cpp" />
+    <ClCompile Include="Transformations\Scale.cpp" />
+    <ClCompile Include="Transformations\Shearing.cpp" />
+    <ClCompile Include="Transformations\Translation.cpp" />
+    <ClCompile Include="Types\Colour.cpp" />
+    <ClCompile Include="Types\Matrix.cpp" />
+    <ClCompile Include="Types\Point.cpp" />
+    <ClCompile Include="Types\Tuple.cpp" />
+    <ClCompile Include="Types\Vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

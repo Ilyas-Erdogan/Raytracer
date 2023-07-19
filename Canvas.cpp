@@ -4,7 +4,7 @@
 #include <fstream>
 #include <algorithm>
 #include <sstream>
-#include "Colour.h"
+#include "Types/Colour.h"
 
 Canvas::Canvas(int width, int height, Colour canvasColour)
 {
