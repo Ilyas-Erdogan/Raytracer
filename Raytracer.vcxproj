@@ -137,6 +137,7 @@
     <ClInclude Include="RotationY.h" />
     <ClInclude Include="RotationZ.h" />
     <ClInclude Include="Scale.h" />
+    <ClInclude Include="Shearing.h" />
     <ClInclude Include="Translation.h" />
     <ClInclude Include="Tuple.h" />
     <ClInclude Include="Vector.h" />
@@ -151,6 +152,7 @@
     <ClCompile Include="RotationY.cpp" />
     <ClCompile Include="RotationZ.cpp" />
     <ClCompile Include="Scale.cpp" />
+    <ClCompile Include="Shearing.cpp" />
     <ClCompile Include="Translation.cpp" />
     <ClCompile Include="Tuple.cpp" />
     <ClCompile Include="Vector.cpp" />

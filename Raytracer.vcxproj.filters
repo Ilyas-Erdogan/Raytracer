@@ -54,6 +54,9 @@
     <ClInclude Include="RotationZ.h">
       <Filter>Transformations</Filter>
     </ClInclude>
+    <ClInclude Include="Shearing.h">
+      <Filter>Transformations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Canvas.cpp">
@@ -90,6 +93,9 @@
       <Filter>Transformations</Filter>
     </ClCompile>
     <ClCompile Include="RotationZ.cpp">
+      <Filter>Transformations</Filter>
+    </ClCompile>
+    <ClCompile Include="Shearing.cpp">
       <Filter>Transformations</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #include "Vector.h"
 #include <cstdlib>
 
-Vector::Vector(double xCoordinate, double yCoordinate, double zCoordinate)
+Vector::Vector(const double xCoordinate, const double yCoordinate, const double zCoordinate)
 	: Tuple(xCoordinate, yCoordinate, zCoordinate, 0.0)
 {
 }
