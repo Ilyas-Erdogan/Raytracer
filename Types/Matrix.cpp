@@ -329,6 +329,7 @@ double Matrix::getDeterminant() const
     {
         if (this->rowSize == 2 && this->columnSize == 2)
         {
+            
             return ((*this)(0, 0) * (*this)(1, 1)) - ((*this)(0, 1) * (*this)(1, 0));
         }
         else if (this->rowSize == this->columnSize)

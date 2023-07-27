@@ -130,6 +130,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Canvas.h" />
+    <ClInclude Include="Intersection.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="Ray.h" />
+    <ClInclude Include="Sphere.h" />
     <ClInclude Include="Transformations\RotationX.h" />
     <ClInclude Include="Transformations\RotationY.h" />
     <ClInclude Include="Transformations\RotationZ.h" />
@@ -144,7 +148,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Transformations\RotationX.cpp" />
     <ClCompile Include="Transformations\RotationY.cpp" />
     <ClCompile Include="Transformations\RotationZ.cpp" />

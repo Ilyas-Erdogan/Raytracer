@@ -10,23 +10,65 @@
 #include "Transformations/RotationY.h"
 #include "Transformations/RotationZ.h"
 #include "Transformations/Shearing.h"
+#include "Ray.h"
+#include "Object.h"
+#include "Sphere.h"
+#include "Intersection.h"
+#include <chrono>
 
 
 int main()
 {
-	Canvas c(100, 100, Colour());
-	const double pi = 3.1415926535897932385;
-	Point origin(50, 0, 50);
-	Point twelve(0, 0, 1);
+	const double PI = 3.1415926535897932384626433832795028841971693993751058209;
 
-	for (int i = 0; i < 12; i++)
+	double wall_z = 10.0;
+	Point ray_origin(0, 0, -5);
+	double max_y = 1.0;
+	double wall_size = 7.0;
+
+	double canvas_pixels = 100.0;
+	double pixel_size = wall_size / canvas_pixels;
+	double half = wall_size / 2.0;
+	double world_x, world_y;
+	
+	Colour black;
+	Canvas c(100, 100, black);
+	Colour red(1, 0, 0);
+	std::shared_ptr<Sphere> shape = std::make_shared<Sphere>();
+
+	//shape->setTransform(Scale(1, 0.5, 1)); // VARIATION ONE
+	//shape->setTransform(Scale(0.5, 1, 1)); // VARIATION TWO
+	//shape->setTransform(RotationZ(PI / 4) * Scale(0.5, 1, 1)); // VARIATION THREE
+	//shape->setTransform(Shearing(1, 0, 0, 0, 0, 0) * Scale(0.5, 1, 1)); // VARIATION FOUR
+
+	std::chrono::high_resolution_clock::time_point begin;
+	std::chrono::high_resolution_clock::time_point end;
+	std::chrono::nanoseconds elapsed;
+	std::chrono::nanoseconds sum = std::chrono::nanoseconds::zero();
+	for (int y = 0; y < canvas_pixels; y++)
 	{
-		Point toDraw = twelve * RotationY(i * pi / 6);
-		toDraw *= 3.0/8;
-		c.writePixel(origin.getX() + static_cast<int>(toDraw.getX() * c.getCanvasWidth()), origin.getZ() + static_cast<int>(toDraw.getZ() * c.getCanvasHeight()), Colour(1, 1, 1));
+		begin = std::chrono::high_resolution_clock::now();
+		world_y = half - pixel_size * y;
+		for (int x = 0; x < canvas_pixels; x++)
+		{
+			world_x = -half + pixel_size * x;
+
+			Point position(world_x, world_y, wall_z);
+			Ray r(ray_origin, (position - ray_origin).normalizeVector());
+			std::vector<Intersection> xs = shape->intersect(r);
+			if (shape->hit(xs) != nullptr)
+			{
+				c.writePixel(x, y, red);
+			}
+			
+		}
+		end = std::chrono::high_resolution_clock::now();
+		elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+		sum += elapsed;
+		printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
 	}
 
-	c.convertToPPM("clock");
-	
+	c.convertToPPM("Sphere");
+	std::cout << "DONE";
 	return 0;
 }

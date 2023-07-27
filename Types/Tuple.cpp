@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-Tuple::Tuple(double xCoordinate, double yCoordinate, double zCoordinate, double wValue)
+Tuple::Tuple(const double xCoordinate, const double yCoordinate, const double zCoordinate, const double wValue)
 	: x{ xCoordinate }, y{ yCoordinate }, z{ zCoordinate }, w{ wValue }
 {
 }
@@ -47,7 +47,7 @@ bool Tuple::operator!=(const Tuple& rhs) const
 	return !(*this == rhs);
 }
 
-Tuple Tuple::operator+=(const Tuple& rhs)
+Tuple& Tuple::operator+=(const Tuple& rhs)
 {
 	this->x += rhs.x;
 	this->y += rhs.y;
@@ -64,7 +64,7 @@ Tuple operator+(Tuple lhs, const Tuple& rhs)
 	return lhs;
 }
 
-Tuple Tuple::operator-=(const Tuple& rhs)
+Tuple& Tuple::operator-=(const Tuple& rhs)
 {
 	this->x -= rhs.x;
 	this->y -= rhs.y;
@@ -86,7 +86,7 @@ Tuple operator-(Tuple lhs, const Tuple& rhs)
 	return lhs;
 }
 
-Tuple Tuple::operator*=(const double value)
+Tuple& Tuple::operator*=(const double value)
 {
 	this->x *= value;
 	this->y *= value;
@@ -95,19 +95,19 @@ Tuple Tuple::operator*=(const double value)
 	return *this;
 }
 
-Tuple operator*(Tuple& lhs, const double value)
+Tuple operator*(Tuple lhs, const double value)
 {
 	lhs *= value;
 
 	return lhs;
 }
 
-Tuple operator*(const double value, Tuple& lhs)
+Tuple operator*(const double value, const Tuple& rhs)
 {
-	return lhs * value;
+	return rhs * value;
 }
 
-Tuple Tuple::operator/=(const double value)
+Tuple& Tuple::operator/=(const double value)
 {
 	this->x /= value;
 	this->y /= value;
@@ -117,14 +117,14 @@ Tuple Tuple::operator/=(const double value)
 	return *this;
 }
 
-Tuple operator/(Tuple& lhs, const double value)
+Tuple operator/(Tuple lhs, const double value)
 {
 	lhs /= value;
 
 	return lhs;
 }
 
-Tuple operator/(const double value, Tuple& rhs)
+Tuple operator/(const double value, const Tuple& rhs)
 {
 	return rhs / value;
 }
@@ -212,14 +212,12 @@ double Tuple::getMagnitude() const
 * 
 * @return Void
 */
-void Tuple::normalizeVector()
+Tuple Tuple::normalizeVector() const
 {
 	if (isVector())
 	{
 		double magnitude = this->getMagnitude();
-		this->x /= magnitude;
-		this->y /= magnitude;
-		this->z /= magnitude;
+		return Tuple(this->x / magnitude, this->y / magnitude, this->z / magnitude, this->w);
 	}
 	else
 	{
@@ -234,7 +232,7 @@ void Tuple::normalizeVector()
 * @param secondTerm Tuple reference to calculate dot product with.
 * @return Result of dot product
 */
-double Tuple::dotProduct(const Tuple& secondTerm)
+double Tuple::dotProduct(const Tuple& secondTerm) const
 {
 	return ((this->x * secondTerm.x) + (this->y * secondTerm.y) + (this->z * secondTerm.z) + (this->w * secondTerm.w));
 }
@@ -246,7 +244,7 @@ double Tuple::dotProduct(const Tuple& secondTerm)
 * @param secondTerm Tuple reference to calculate cross product with.
 * @return Vector of cross product
 */
-Tuple Tuple::crossProduct(const Tuple& secondTerm)
+Tuple Tuple::crossProduct(const Tuple& secondTerm) const
 {
 	return Tuple(this->y * secondTerm.z - this->z * secondTerm.y,
 		this->z * secondTerm.x - this->x * secondTerm.z,

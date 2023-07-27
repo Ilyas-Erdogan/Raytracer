@@ -4,9 +4,8 @@
 #include <fstream>
 #include <algorithm>
 #include <sstream>
-#include "Types/Colour.h"
 
-Canvas::Canvas(int width, int height, Colour canvasColour)
+Canvas::Canvas(int width, int height, const Colour& canvasColour)
 {
 	this->pixels = pixels;
 	this->pixels.resize(height, std::vector<Colour>());
@@ -61,9 +60,9 @@ int Canvas::getCanvasHeight() const
 * 
 * @return True for succesful write, otherwise false.
 */
-bool Canvas::writePixel(const int x, const int y, const Colour colour)
+bool Canvas::writePixel(const int x, const int y, const Colour& colour)
 {
-	if (x <= this->getCanvasWidth() - 1 && y <= this->getCanvasHeight() - 1)
+	if (x <= this->pixels[0].size() - 1 && y <= this->pixels.size() - 1)
 	{
 		this->pixels[y][x] = colour;
 		return true;
@@ -122,9 +121,9 @@ void Canvas::convertToPPM(const std::string fileName)
 	{
 		for (Colour& col : row)
 		{
-			tempRed = std::to_string(std::clamp(static_cast<int>(col.getRed() * 255), 0, 255));
-			tempGreen = std::to_string(std::clamp(static_cast<int>(col.getGreen() * 255), 0, 255));
-			tempBlue = std::to_string(std::clamp(static_cast<int>(col.getBlue() * 255), 0, 255));
+			tempRed = std::to_string(static_cast<int>(std::min(std::max(col.getRed() * 255, 0.0), 255.0)));
+			tempGreen = std::to_string(static_cast<int>(std::min(std::max(col.getGreen() * 255, 0.0), 255.0)));
+			tempBlue = std::to_string(static_cast<int>(std::min(std::max(col.getBlue() * 255, 0.0), 255.0)));
 			
 			count += tempRed.length();
 			if (count >= 69)

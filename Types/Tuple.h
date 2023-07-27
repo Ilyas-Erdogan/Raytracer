@@ -4,7 +4,7 @@ class Tuple
 {
 public:
 	// Constructor
-	Tuple(double x = 0.0, double y = 0.0, double z = 0.0, double w = 0.0);
+	Tuple(const double x = 0.0, const double y = 0.0, const double z = 0.0, const double w = 0.0);
 	~Tuple();
 	
 	// Overloaded operators
@@ -13,20 +13,20 @@ public:
 	bool operator==(const Tuple& rhs) const;
 	bool operator!=(const Tuple& rhs) const;
 
-	Tuple operator+=(const Tuple& rhs);
+	Tuple& operator+=(const Tuple& rhs);
 	friend Tuple operator+(Tuple lhs, const Tuple& rhs);
 
-	Tuple operator-=(const Tuple& rhs);
+	Tuple& operator-=(const Tuple& rhs);
 	friend Tuple operator-(Tuple lhs, const Tuple& rhs);
 	Tuple operator-() const;
 
-	Tuple operator*=(const double value);
-	friend Tuple operator*(Tuple& lhs, const double value);
-	friend Tuple operator*(const double value, Tuple& rhs);
+	Tuple& operator*=(const double value);
+	friend Tuple operator*(Tuple lhs, const double value);
+	friend Tuple operator*(const double value, const Tuple& rhs);
 
-	Tuple operator/=(const double value);
-	friend Tuple operator/(Tuple& lhs, const double value);
-	friend Tuple operator/(const double value, Tuple& rhs);
+	Tuple& operator/=(const double value);
+	friend Tuple operator/(Tuple lhs, const double value);
+	friend Tuple operator/(const double value, const Tuple& rhs);
 
 protected:
 	// Coordinates
@@ -50,8 +50,7 @@ public:
 
 	// Utilities
 	double getMagnitude() const;
-	void normalizeVector();
-	double dotProduct(const Tuple& secondTerm);
-	Tuple crossProduct(const Tuple& secondTerm);
+	Tuple normalizeVector() const;
+	double dotProduct(const Tuple& secondTerm) const;
+	Tuple crossProduct(const Tuple& secondTerm) const;
 };
-
