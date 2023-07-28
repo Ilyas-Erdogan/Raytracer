@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['operator_21_3d_0',['operator!=',['../class_matrix.html#a024c4d2ad6a47b4c2f18fe0ad9236e32',1,'Matrix']]],
-  ['operator_28_29_1',['operator()',['../class_matrix.html#a8d5dd41db488bfa5fe5f6172a6f728c2',1,'Matrix::operator()(int rowIndex, int colIndex)'],['../class_matrix.html#a67211449f09ec51d8c2edca8387eeb23',1,'Matrix::operator()(int rowIndex, int colIndex) const']]],
-  ['operator_2a_3d_2',['operator*=',['../class_colour.html#aeb3777c005b9732159eca6fe1f096667',1,'Colour::operator*=()'],['../class_matrix.html#a57a13dfcac8ce83d6aedc1a0ea8861c9',1,'Matrix::operator*=(const Matrix &amp;rhs)']]],
-  ['operator_3d_3d_3',['operator==',['../class_matrix.html#a6245b1c3364594e0c27ac6034599977e',1,'Matrix']]]
+  ['settransform_0',['setTransform',['../class_sphere.html#a0d5031621264f55456f5bf69a88bb7de',1,'Sphere']]],
+  ['sphere_1',['Sphere',['../class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9',1,'Sphere::Sphere()'],['../class_sphere.html#a777981f92112683b8fcf66763dd01a4d',1,'Sphere::Sphere(const Matrix &amp;transformMatrix)'],['../class_sphere.html#ab0e906f83912fc977a2e2d262c64404f',1,'Sphere::Sphere(const Sphere &amp;copySphere)'],['../class_sphere.html#aab9cf7a2b59dc1b677133223e3e880fc',1,'Sphere::Sphere(const Object &amp;copyObject)']]]
 ];

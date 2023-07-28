@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['scale_0',['Scale',['../class_scale.html',1,'']]],
-  ['shearing_1',['Shearing',['../class_shearing.html',1,'']]]
+  ['sphere_0',['Sphere',['../class_sphere.html',1,'']]]
 ];

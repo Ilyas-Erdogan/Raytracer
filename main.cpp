@@ -68,7 +68,7 @@ int main()
 		printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
 	}
 
-	c.convertToPPM("Sphere");
+	c.convertToPPM("SphereVar4");
 	std::cout << "DONE";
 	return 0;
 }

@@ -74,14 +74,8 @@ $(function() {
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a><a href="https://ilyas-erdogan.github.io/Raytracer/html/index.html">CLASS DOCUMENTATION</a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Sample Program</h1>
+Example 1 - Simple Projectile Render</h1>
 <div class="fragment"><div class="line"> cpp</div>
-<div class="line">#include &lt;iostream&gt;</div>
-<div class="line">#include &quot;Vector.h&quot;</div>
-<div class="line">#include &quot;Point.h&quot;</div>
-<div class="line">#include &quot;Canvas.h&quot;</div>
-<div class="line">#include &quot;Colour.h&quot;</div>
-<div class="line"> </div>
 <div class="line">struct Projectile</div>
 <div class="line">{</div>
 <div class="line">    Point Position;</div>
@@ -129,7 +123,31 @@ Sample Program</h1>
 <div class="line">}</div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md2"></a>
 Output</h1>
-<p><img src="Projectile.png" alt="Projectile.png" title="a title" class="inline"/> </p>
+<p><img src="Renders/Projectile.png" alt="Renders/Projectile.png" title="a title" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Example 2 - Simple Clock Rotation Render</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> c(100, 100, Colour());</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> pi = 3.1415926535897932385;</div>
+<div class="line">    Point origin(50, 0, 50);</div>
+<div class="line">    Point twelve(0, 0, 1);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 12; i++)</div>
+<div class="line">    {</div>
+<div class="line">        Point toDraw = twelve * RotationY(i * pi / 6);</div>
+<div class="line">        toDraw *= 3.0/8;</div>
+<div class="line">        c.writePixel(origin.getX() + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(toDraw.getX() * c.getCanvasWidth()), origin.getZ() + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(toDraw.getZ() * c.getCanvasHeight()), Colour(1, 1, 1));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    c.convertToPPM(<span class="stringliteral">&quot;clock&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_canvas_html"><div class="ttname"><a href="class_canvas.html">Canvas</a></div><div class="ttdef"><b>Definition</b> Canvas.h:7</div></div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md4"></a>
+Output</h1>
+<p><img src="Renders/clock.png" alt="Renders/clock.png" title="a title" class="inline"/> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
