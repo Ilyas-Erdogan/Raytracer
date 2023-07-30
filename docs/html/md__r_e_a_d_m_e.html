@@ -147,7 +147,59 @@ Example 2 - Simple Clock Rotation Render</h1>
 <div class="ttc" id="aclass_canvas_html"><div class="ttname"><a href="class_canvas.html">Canvas</a></div><div class="ttdef"><b>Definition</b> Canvas.h:7</div></div>
 </div><!-- fragment --> <h1><a class="anchor" id="autotoc_md4"></a>
 Output</h1>
-<p><img src="Renders/clock.png" alt="Renders/clock.png" title="a title" class="inline"/> </p>
+<p><img src="Renders/clock.png" alt="Renders/clock.png" title="a title" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Example 3 - Sphere Render With Optional Transformations</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> PI = 3.1415926535897932384626433832795028841971693993751058209;</div>
+<div class="line">    <span class="keywordtype">double</span> wall_z = 10.0;</div>
+<div class="line">    Point ray_origin(0, 0, -5);</div>
+<div class="line">    <span class="keywordtype">double</span> max_y = 1.0;</div>
+<div class="line">    <span class="keywordtype">double</span> wall_size = 7.0;</div>
+<div class="line">    <span class="keywordtype">double</span> canvas_pixels = 100.0;</div>
+<div class="line">    <span class="keywordtype">double</span> pixel_size = wall_size / canvas_pixels;</div>
+<div class="line">    <span class="keywordtype">double</span> half = wall_size / 2.0;</div>
+<div class="line">    <span class="keywordtype">double</span> world_x, world_y;</div>
+<div class="line">    Colour black;</div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> c(100, 100, black);</div>
+<div class="line">    Colour red(1, 0, 0);</div>
+<div class="line">    std::shared_ptr&lt;Sphere&gt; shape = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//shape-&gt;setTransform(Scale(1, 0.5, 1)); // VARIATION ONE</span></div>
+<div class="line">    <span class="comment">//shape-&gt;setTransform(Scale(0.5, 1, 1)); // VARIATION TWO</span></div>
+<div class="line">    <span class="comment">//shape-&gt;setTransform(RotationZ(PI / 4) * Scale(0.5, 1, 1)); // VARIATION THREE</span></div>
+<div class="line">    <span class="comment">//shape-&gt;setTransform(Shearing(1, 0, 0, 0, 0, 0) * Scale(0.5, 1, 1)); // VARIATION FOUR</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; canvas_pixels; y++)</div>
+<div class="line">    {</div>
+<div class="line">        world_y = half - pixel_size * y;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; canvas_pixels; x++)</div>
+<div class="line">        {</div>
+<div class="line">            world_x = -half + pixel_size * x;</div>
+<div class="line"> </div>
+<div class="line">            Point position(world_x, world_y, wall_z);</div>
+<div class="line">            <a class="code hl_class" href="class_ray.html">Ray</a> r(ray_origin, (position - ray_origin).normalizeVector());</div>
+<div class="line">            std::vector&lt;Intersection&gt; xs = shape-&gt;intersect(r);</div>
+<div class="line">            <span class="keywordflow">if</span> (shape-&gt;hit(xs) != <span class="keyword">nullptr</span>)</div>
+<div class="line">            {</div>
+<div class="line">                c.writePixel(x, y, red);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    c.convertToPPM(<span class="stringliteral">&quot;SphereVar4&quot;</span>);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;DONE&quot;</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_ray_html"><div class="ttname"><a href="class_ray.html">Ray</a></div><div class="ttdef"><b>Definition</b> Ray.h:7</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+Output</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Regular Sphere   </th><th class="markdownTableHeadNone">Variation One   </th><th class="markdownTableHeadNone">Variation Two   </th><th class="markdownTableHeadNone">Variation Three   </th><th class="markdownTableHeadNone">Variation Four    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><img src="Renders/SphereVar4.png" alt="Renders/SphereVar4.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/SphereVar1.png" alt="Renders/SphereVar1.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/SphereVar2.png" alt="Renders/SphereVar2.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/SphereVar3.png" alt="Renders/SphereVar3.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/SphereVar4.png" alt="Renders/SphereVar4.png" title="a title" class="inline"/>   </td></tr>
+</table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

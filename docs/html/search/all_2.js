@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hit_0',['hit',['../class_sphere.html#ad585771bb660823f5c7f31f2985a3f6d',1,'Sphere']]]
+  ['intersection_0',['Intersection',['../class_intersection.html',1,'']]]
 ];

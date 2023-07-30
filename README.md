@@ -2,7 +2,9 @@
 [CLASS DOCUMENTATION](https://ilyas-erdogan.github.io/Raytracer/html/index.html)
 
 # Example 1 - Simple Projectile Render
-``` cpp
+<details>
+  <summary>Reveal Code Sample</summary>
+  ``` cpp
 struct Projectile
 {
 	Point Position;
@@ -49,6 +51,8 @@ int main()
   return 0;
 }
 ```
+</details>
+
 # Output
 ![Renders/Projectile.png](Renders/Projectile.png "a title")
 

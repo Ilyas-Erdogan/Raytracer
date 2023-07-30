@@ -9,5 +9,8 @@ public:
     Vector(const double xCoordinate, const double yCoordinate, const double zCoordinate);
     Vector(const Tuple& tup);
     ~Vector();
+
+    // Utilities
+    Vector reflect(const Vector& normal) const;
 };
 

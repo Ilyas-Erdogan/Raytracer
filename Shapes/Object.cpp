@@ -1,5 +1,5 @@
 #include "Object.h"
-#include "Intersection.h"
+#include "../Intersection.h"
 
 Object::Object()
 {

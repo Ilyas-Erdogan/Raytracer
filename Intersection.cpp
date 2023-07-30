@@ -1,5 +1,5 @@
 #include "Intersection.h" 
-#include "Object.h"
+#include "Shapes/Object.h"
 
 Intersection::Intersection(const double tValue, const std::shared_ptr<Object>& initObject)
 	: t {tValue}, object {initObject}

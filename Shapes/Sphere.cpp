@@ -1,6 +1,6 @@
 #include "Sphere.h"
-#include "Ray.h"
-#include "Intersection.h"
+#include "../Ray.h"
+#include "../Intersection.h"
 
 #include <cmath>
 #include <algorithm>
@@ -9,7 +9,12 @@
 * Constructs a sphere object with a default transform matrix represented by a 4 x 4 identity matrix.
 */
 Sphere::Sphere()
-	: Object(), transform{ Matrix(4, 4).getIdentityMatrix()}
+	: Object(), transform{ Matrix(4, 4).getIdentityMatrix()}, material {std::make_shared<Material>()}
+{
+}
+
+Sphere::Sphere(const std::shared_ptr<Material>& materialVal)
+	:  Object(), transform {Matrix(4, 4).getIdentityMatrix()}, material{ materialVal }
 {
 }
 
@@ -116,11 +121,40 @@ std::unique_ptr<Intersection> Sphere::hit(std::vector<Intersection>& intersectio
 }
 
 /**
+* Finds the normal at the given point.
+* 
+* @param Point worldPoint Refernce to the point in the world space to normalize.
+* 
+* @return A vector of the normal at the given point.
+*/
+Vector Sphere::normalAt(const Point& worldPoint) const
+{
+	Matrix inverseTransform = this->transform.getInverse();
+	Point objectPoint = inverseTransform * worldPoint;
+
+	Vector objectNormal = objectPoint - Point(0, 0, 0);
+
+	Matrix inverseTransposition = this->transform.getInverse().getTransposedMatrix();
+	Vector worldNormal = inverseTransposition * objectNormal;
+	
+	worldNormal = worldNormal.normalizeVector();
+	return worldNormal;
+}
+
+/**
 * @return An immutable reference to the current transformation of the Sphere.
 */
 const Matrix& Sphere::getTransform() const
 {
 	return this->transform;
+}
+
+/**
+* @return An immutable reference to teh current material of the Sphere.
+*/
+const Material& Sphere::getMaterial() const
+{
+	return *this->material;
 }
 
 /**
@@ -131,4 +165,9 @@ const Matrix& Sphere::getTransform() const
 void Sphere::setTransform(const Matrix& transformMatrix)
 {
 	this->transform = transformMatrix;
+}
+
+void Sphere::setMaterial(std::shared_ptr<Material> newMaterial)
+{
+	this->material = std::move(newMaterial);
 }

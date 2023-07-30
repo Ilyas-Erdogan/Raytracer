@@ -11,9 +11,11 @@
 #include "Transformations/RotationZ.h"
 #include "Transformations/Shearing.h"
 #include "Ray.h"
-#include "Object.h"
-#include "Sphere.h"
+#include "Shapes/Object.h"
+#include "Shapes/Sphere.h"
 #include "Intersection.h"
+#include "Material.h"
+#include "PointLight.h"
 #include <chrono>
 
 
@@ -21,12 +23,11 @@ int main()
 {
 	const double PI = 3.1415926535897932384626433832795028841971693993751058209;
 
-	double wall_z = 10.0;
 	Point ray_origin(0, 0, -5);
-	double max_y = 1.0;
-	double wall_size = 7.0;
+	double wall_z = 10;
+	double wall_size = 7;
 
-	double canvas_pixels = 100.0;
+	double canvas_pixels = 100;
 	double pixel_size = wall_size / canvas_pixels;
 	double half = wall_size / 2.0;
 	double world_x, world_y;
@@ -35,6 +36,12 @@ int main()
 	Canvas c(100, 100, black);
 	Colour red(1, 0, 0);
 	std::shared_ptr<Sphere> shape = std::make_shared<Sphere>();
+	std::shared_ptr<Material> material = std::make_shared<Material>(Colour(1, 0.2, 1));
+	shape->setMaterial(material);
+
+	Point lightPosition(-10, 10, -10);
+	Colour lightColour(1, 1, 1);
+	PointLight light(lightPosition, lightColour);
 
 	//shape->setTransform(Scale(1, 0.5, 1)); // VARIATION ONE
 	//shape->setTransform(Scale(0.5, 1, 1)); // VARIATION TWO
@@ -58,7 +65,11 @@ int main()
 			std::vector<Intersection> xs = shape->intersect(r);
 			if (shape->hit(xs) != nullptr)
 			{
-				c.writePixel(x, y, red);
+				Point point = r.getPosition(shape->hit(xs)->getT());
+				Sphere s = *shape->hit(xs)->getObject();
+				Vector normal = s.normalAt(point);
+				Vector eye = -r.getDirection();
+				c.writePixel(x, y, material->lighting(light, point, eye, normal));
 			}
 			
 		}
@@ -68,7 +79,8 @@ int main()
 		printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
 	}
 
-	c.convertToPPM("SphereVar4");
+	c.convertToPPM("LitSphere");
 	std::cout << "DONE";
+
 	return 0;
 }

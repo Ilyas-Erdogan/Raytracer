@@ -7,12 +7,14 @@ class Colour :
 public:
     // Constructors
     Colour(const double red = 0.0, const double green = 0.0, const double blue = 0.0);
+    Colour(const Tuple& other);
     ~Colour();
 
     // Overloaded Operators
-    Colour operator*=(const Colour& rhs);
+    Colour& operator*=(const Colour& rhs);
     friend Colour operator*(Colour lhs, const Colour& rhs);
-    Colour operator*=(const double value);
+
+    Colour& operator*=(const double value);
     friend Colour operator*(Colour& lhs, const double value);
     friend Colour operator*(const double value, Colour& rhs);
 

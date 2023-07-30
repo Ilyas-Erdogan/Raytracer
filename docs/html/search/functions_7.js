@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transform_0',['transform',['../class_ray.html#a96cac5ccb5b21d52b402a8f815d61a55',1,'Ray']]]
+  ['writepixel_0',['writePixel',['../class_canvas.html#a7102f9785264f597dcf8060feead6314',1,'Canvas']]]
 ];

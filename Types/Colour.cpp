@@ -5,9 +5,16 @@ Colour::Colour(const double red, const double green, const double blue)
 {
 }
 
+Colour::Colour(const Tuple& other)
+	: Colour(other.getX(), other.getY(), other.getZ())
+{
+}
+
 Colour::~Colour()
 {
 }
+
+
 
 /**
 * Calculates Hadamard/Schur product of two colours
@@ -17,7 +24,7 @@ Colour::~Colour()
 *
 * @return
 */
-Colour Colour::operator*=(const Colour& rhs)
+Colour& Colour::operator*=(const Colour& rhs)
 {
 	this->x *= rhs.getRed();
 	this->y *= rhs.getGreen();
@@ -33,7 +40,7 @@ Colour operator*(Colour lhs, const Colour& rhs)
 	return lhs;
 }
 
-Colour Colour::operator*=(const double value)
+Colour& Colour::operator*=(const double value)
 {
 	this->x *= value;
 	this->y *= value;

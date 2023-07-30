@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['intersect_0',['intersect',['../class_sphere.html#a8dd0865acccbc51c13db56fe08712feb',1,'Sphere']]],
-  ['intersection_1',['Intersection',['../class_intersection.html',1,'']]]
+  ['lighting_0',['lighting',['../class_material.html#a0a3bbc25f2a62f26b2b14882cb732e3c',1,'Material']]]
 ];

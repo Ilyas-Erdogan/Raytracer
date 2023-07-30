@@ -20,6 +20,9 @@ public:
 	friend Tuple operator-(Tuple lhs, const Tuple& rhs);
 	Tuple operator-() const;
 
+	Tuple& operator*=(const Tuple& rhs);
+	friend Tuple operator*(Tuple lhs, const Tuple& rhs);
+
 	Tuple& operator*=(const double value);
 	friend Tuple operator*(Tuple lhs, const double value);
 	friend Tuple operator*(const double value, const Tuple& rhs);
