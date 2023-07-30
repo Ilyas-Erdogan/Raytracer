@@ -6,6 +6,7 @@
   <summary>Reveal Code Sample</summary>
   # Code
 	```cpp
+	
 	struct Projectile
 	{
 		Point Position;
