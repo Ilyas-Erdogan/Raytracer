@@ -4,8 +4,8 @@
 # Example 1 - Simple Projectile Render
 <details>
   <summary>Reveal Code Sample</summary>
+	<p>
 	```cpp
-	
 	struct Projectile
 	{
 		Point Position;
@@ -52,6 +52,8 @@
 	return 0;
 	}
 	```
+
+	</p>
 </details>
 
 # Output
