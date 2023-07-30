@@ -4,7 +4,6 @@
 # Example 1 - Simple Projectile Render
 <details>
   <summary>Reveal Code Sample</summary>
-  # Code
 	```cpp
 	
 	struct Projectile
