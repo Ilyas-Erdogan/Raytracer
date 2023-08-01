@@ -209,7 +209,7 @@ int main()
 ![Renders/LitSphere.png](Renders/LitSphere.png "a title")
 
 # Example 4 - Virtual Camera
-<details> <sample>Reveal Code Sample</sample>
+<details> <summary>Reveal Code Sample</summary>
 
 # Code Sample
 ```cpp
