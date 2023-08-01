@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writepixel_0',['writePixel',['../class_canvas.html#a7102f9785264f597dcf8060feead6314',1,'Canvas']]]
+  ['viewtransform_0',['ViewTransform',['../class_view_transform.html#ac24f41b0e6fa47c55615af66e059aeab',1,'ViewTransform::ViewTransform(const Point &amp;fromPoint, const Point &amp;toPoint, const Vector &amp;upVector)'],['../class_view_transform.html#a0a211ac1f7d6f45aa672b63e0360da9c',1,'ViewTransform::ViewTransform(const ViewTransform &amp;copyTransform)']]]
 ];

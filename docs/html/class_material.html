@@ -78,8 +78,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4958bdd3908631e170c6eff9a88bd706"><td class="memItemLeft" align="right" valign="top"><a id="a4958bdd3908631e170c6eff9a88bd706" name="a4958bdd3908631e170c6eff9a88bd706"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Material</b> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal=<a class="el" href="class_colour.html">Colour</a>(1, 1, 1), const double ambientVal=0.1, const double diffuseVal=0.9, const double specularVal=0.9, const double shininessVal=200.0)</td></tr>
+<tr class="memitem:a4958bdd3908631e170c6eff9a88bd706"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a4958bdd3908631e170c6eff9a88bd706">Material</a> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal=<a class="el" href="class_colour.html">Colour</a>(1, 1, 1), const double ambientVal=0.1, const double diffuseVal=0.9, const double specularVal=0.9, const double shininessVal=200.0)</td></tr>
 <tr class="separator:a4958bdd3908631e170c6eff9a88bd706"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0519b7438e5ebdcc86d17817c96016d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa0519b7438e5ebdcc86d17817c96016d">operator==</a> (const <a class="el" href="class_material.html">Material</a> &amp;rhs) const</td></tr>
 <tr class="separator:aa0519b7438e5ebdcc86d17817c96016d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,6 +105,64 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0a3bbc25f2a62f26b2b14882cb732e3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a0a3bbc25f2a62f26b2b14882cb732e3c">lighting</a> (const <a class="el" href="class_point_light.html">PointLight</a> &amp;light, const <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeV, const <a class="el" href="class_vector.html">Vector</a> &amp;normalV) const</td></tr>
 <tr class="separator:a0a3bbc25f2a62f26b2b14882cb732e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4958bdd3908631e170c6eff9a88bd706" name="a4958bdd3908631e170c6eff9a88bd706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4958bdd3908631e170c6eff9a88bd706">&#9670;&#160;</a></span>Material()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Material::Material </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_colour.html">Colour</a> &amp;&#160;</td>
+          <td class="paramname"><em>colourVal</em> = <code><a class="el" href="class_colour.html">Colour</a>(1,&#160;1,&#160;1)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>ambientVal</em> = <code>0.1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>diffuseVal</em> = <code>0.9</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>specularVal</em> = <code>0.9</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>shininessVal</em> = <code>200.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructs a <a class="el" href="class_material.html">Material</a> with the given attributes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_colour.html">Colour</a></td><td>colourVal Reference to the <a class="el" href="class_colour.html">Colour</a> to be attribute of the material. </td></tr>
+    <tr><td class="paramname">double</td><td>ambientVal Value of the ambient attribute of the material. Typical Range : [0.0, 1.0]. </td></tr>
+    <tr><td class="paramname">double</td><td>diffuseVal Value of the diffuse attribute of the material. Typical Range : [0.0, 1.0]. </td></tr>
+    <tr><td class="paramname">double</td><td>specularVal Value of the specular attribute of the material. Typical Range : [0.0, 1.0]. </td></tr>
+    <tr><td class="paramname">double</td><td>shininessVal Value of the shininess attribute of the material. Typical Range : [10.0, 200.0]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a22e83dd2eaee14b3798dab0efb052b7e" name="a22e83dd2eaee14b3798dab0efb052b7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22e83dd2eaee14b3798dab0efb052b7e">&#9670;&#160;</a></span>getAmbient()</h2>

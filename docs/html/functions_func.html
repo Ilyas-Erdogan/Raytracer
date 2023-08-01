@@ -77,6 +77,9 @@ $(function() {
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>Camera()&#160;:&#160;<a class="el" href="class_camera.html#a6e5e417871d26f030c91ba0a42af250b">Camera</a></li>
+<li>colourAt()&#160;:&#160;<a class="el" href="class_world.html#acffafee66db6afda6e5112a64c50b0d8">World</a></li>
+<li>Computation()&#160;:&#160;<a class="el" href="class_computation.html#a862c34f65db04e5bbdd8ad22b7797323">Computation</a></li>
 <li>convertToPPM()&#160;:&#160;<a class="el" href="class_canvas.html#a84b5638e91675b2930ed247664787bfd">Canvas</a></li>
 <li>crossProduct()&#160;:&#160;<a class="el" href="class_tuple.html#a18e7d1ead19baec6efc9e00957d46bd1">Tuple</a></li>
 </ul>
@@ -99,7 +102,9 @@ $(function() {
 <li>getDiffuse()&#160;:&#160;<a class="el" href="class_material.html#a549a7e0f79e204aa0df0a9abb93a43f6">Material</a></li>
 <li>getDirection()&#160;:&#160;<a class="el" href="class_ray.html#aec945ee726867c6bedf362bb6d0cb085">Ray</a></li>
 <li>getEyeV()&#160;:&#160;<a class="el" href="class_computation.html#ab071a72c6c2be1030ddb6192742c09b0">Computation</a></li>
+<li>getFieldOfView()&#160;:&#160;<a class="el" href="class_camera.html#acb776a3cc36665b188131dfcd935a372">Camera</a></li>
 <li>getGreen()&#160;:&#160;<a class="el" href="class_colour.html#a3376a978ea368fc51e8bf27d128a6f87">Colour</a></li>
+<li>getHorizontalSize()&#160;:&#160;<a class="el" href="class_camera.html#aa7ddf273529f875e510f85bea570e048">Camera</a></li>
 <li>getIdentityMatrix()&#160;:&#160;<a class="el" href="class_matrix.html#a283dba0030ad108881478297f013d594">Matrix</a></li>
 <li>getInverse()&#160;:&#160;<a class="el" href="class_matrix.html#ade3fcddb0cc6a7e221a94e13afc7752c">Matrix</a></li>
 <li>getLightSource()&#160;:&#160;<a class="el" href="class_world.html#a2b51862f533f299936aa02af1a2ee272">World</a></li>
@@ -111,6 +116,7 @@ $(function() {
 <li>getObjects()&#160;:&#160;<a class="el" href="class_world.html#a8304f759d7b0ad81331e5df5c6c31f51">World</a></li>
 <li>getOrigin()&#160;:&#160;<a class="el" href="class_ray.html#a0b5f30f8089258366fdba11b9b9e0563">Ray</a></li>
 <li>getPixel()&#160;:&#160;<a class="el" href="class_canvas.html#a61d056f00d681209fc756e5e0b2667dc">Canvas</a></li>
+<li>getPixelSize()&#160;:&#160;<a class="el" href="class_camera.html#a715eff3c33f4186028056df56e717b9e">Camera</a></li>
 <li>getPoint()&#160;:&#160;<a class="el" href="class_computation.html#a99f03b3f27a4e36f3d8dde5789d62ebc">Computation</a></li>
 <li>getPosition()&#160;:&#160;<a class="el" href="class_ray.html#a98b62152334c4558f21dfbed8f10630c">Ray</a></li>
 <li>getRed()&#160;:&#160;<a class="el" href="class_colour.html#ad14b85c11d96facb81fc2b2b94d714bf">Colour</a></li>
@@ -118,8 +124,9 @@ $(function() {
 <li>getSpecular()&#160;:&#160;<a class="el" href="class_material.html#abc01f74bdb35147a486ea0d20a037d0f">Material</a></li>
 <li>getSubmatrix()&#160;:&#160;<a class="el" href="class_matrix.html#afc8a219dcfbe209d1ff17fc00b811212">Matrix</a></li>
 <li>getT()&#160;:&#160;<a class="el" href="class_computation.html#a8b712d6c4254d41ec458a781c7497379">Computation</a>, <a class="el" href="class_intersection.html#af90e310f01398d5feebff6febc836ffe">Intersection</a></li>
-<li>getTransform()&#160;:&#160;<a class="el" href="class_object.html#a73a3702855f7b5d74cde91613102762e">Object</a></li>
+<li>getTransform()&#160;:&#160;<a class="el" href="class_camera.html#a496d9a1f6cc738f9f82fdedbd7964d53">Camera</a>, <a class="el" href="class_object.html#a73a3702855f7b5d74cde91613102762e">Object</a></li>
 <li>getTransposedMatrix()&#160;:&#160;<a class="el" href="class_matrix.html#a27ccc73f38a1604f9be9b0a652dacd9f">Matrix</a></li>
+<li>getVerticalSize()&#160;:&#160;<a class="el" href="class_camera.html#ad08c9037928762355eb9c166afd28a05">Camera</a></li>
 <li>getW()&#160;:&#160;<a class="el" href="class_tuple.html#a5a633ef7aaf88b35322ebc8b214655cd">Tuple</a></li>
 <li>getX()&#160;:&#160;<a class="el" href="class_tuple.html#ae7e37746cae6305650c023907ac118ef">Tuple</a></li>
 <li>getY()&#160;:&#160;<a class="el" href="class_tuple.html#a22a71a3a7e723285bb5507eeee5971fa">Tuple</a></li>
@@ -128,13 +135,14 @@ $(function() {
 
 
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>hit()&#160;:&#160;<a class="el" href="class_object.html#ab4cb3e37d70baf9f3f4ec9ea4249d902">Object</a></li>
+<li>hit()&#160;:&#160;<a class="el" href="class_object.html#a50945ec474adf330260773d7021145a8">Object</a></li>
 </ul>
 
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>intersect()&#160;:&#160;<a class="el" href="class_sphere.html#a8dd0865acccbc51c13db56fe08712feb">Sphere</a></li>
 <li>intersectWorld()&#160;:&#160;<a class="el" href="class_world.html#ae0dac2812460f3f2a5e7653ef9a34979">World</a></li>
+<li>isInside()&#160;:&#160;<a class="el" href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">Computation</a></li>
 <li>isInvertible()&#160;:&#160;<a class="el" href="class_matrix.html#ab50fe8dcbce53d9516d9c81ed1e4751c">Matrix</a></li>
 <li>isPoint()&#160;:&#160;<a class="el" href="class_tuple.html#add3bed4f0cfd5675b1af4bc5c814a877">Tuple</a></li>
 <li>isVector()&#160;:&#160;<a class="el" href="class_tuple.html#afc1eae02dcea798e50b670dfc5c5240a">Tuple</a></li>
@@ -147,6 +155,7 @@ $(function() {
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>Material()&#160;:&#160;<a class="el" href="class_material.html#a4958bdd3908631e170c6eff9a88bd706">Material</a></li>
 <li>Matrix()&#160;:&#160;<a class="el" href="class_matrix.html#a7043f53623ba57891e957bc9769afb75">Matrix</a></li>
 </ul>
 
@@ -173,7 +182,9 @@ $(function() {
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
 <li>Ray()&#160;:&#160;<a class="el" href="class_ray.html#a7d9911c815bca78ec4e1f2f8ba1378ab">Ray</a></li>
+<li>rayForPixel()&#160;:&#160;<a class="el" href="class_camera.html#a90ea51278bb11364eb1e66ad0342e37f">Camera</a></li>
 <li>reflect()&#160;:&#160;<a class="el" href="class_vector.html#a8c26a5038bbda00347d385bdd1c0dcdc">Vector</a></li>
+<li>render()&#160;:&#160;<a class="el" href="class_camera.html#a8d1be509ff0b9955b5c8d1981de37cf3">Camera</a></li>
 <li>RotationX()&#160;:&#160;<a class="el" href="class_rotation_x.html#a629af3016c4daff34d8338640ba3539d">RotationX</a></li>
 <li>RotationY()&#160;:&#160;<a class="el" href="class_rotation_y.html#a78d168300b61f9c24939e0677553f084">RotationY</a></li>
 <li>RotationZ()&#160;:&#160;<a class="el" href="class_rotation_z.html#a89d2adcd5a8309f133f144547e0048df">RotationZ</a></li>
@@ -188,7 +199,7 @@ $(function() {
 <li>setLight()&#160;:&#160;<a class="el" href="class_world.html#a9b77069ced686cd60f2266fa49f36c7b">World</a></li>
 <li>setShininess()&#160;:&#160;<a class="el" href="class_material.html#a168129bdfc0437561788922f98f839d3">Material</a></li>
 <li>setSpecular()&#160;:&#160;<a class="el" href="class_material.html#a4179bb759874d311afbb2529f794f407">Material</a></li>
-<li>setTransform()&#160;:&#160;<a class="el" href="class_object.html#ae24935aebda3ca1d0a8d69d2a575a171">Object</a></li>
+<li>setTransform()&#160;:&#160;<a class="el" href="class_camera.html#ab2cca1219d933a42a3a5fe7aecfbace9">Camera</a>, <a class="el" href="class_object.html#ae24935aebda3ca1d0a8d69d2a575a171">Object</a></li>
 <li>shadeHit()&#160;:&#160;<a class="el" href="class_world.html#a49acebcbcf86d9e9351391f791f8b545">World</a></li>
 <li>Shearing()&#160;:&#160;<a class="el" href="class_shearing.html#ae159b41931d7f945f046c70edaaa40fc">Shearing</a></li>
 <li>Sphere()&#160;:&#160;<a class="el" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a></li>
@@ -201,7 +212,13 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>ViewTransform()&#160;:&#160;<a class="el" href="class_view_transform.html#ac24f41b0e6fa47c55615af66e059aeab">ViewTransform</a></li>
+</ul>
+
+
 <h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
+<li>World()&#160;:&#160;<a class="el" href="class_world.html#a3be110e6069b37fa68c89a1f351ee1c8">World</a></li>
 <li>writePixel()&#160;:&#160;<a class="el" href="class_canvas.html#a7102f9785264f597dcf8060feead6314">Canvas</a></li>
 </ul>
 </div><!-- contents -->

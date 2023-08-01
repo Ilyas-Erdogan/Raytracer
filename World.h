@@ -27,5 +27,6 @@ public:
 private:
 	std::vector<std::shared_ptr<class Sphere>> objects;
 	std::unique_ptr<class PointLight> light;
+	const Object utilObject{Object()};
 };
 

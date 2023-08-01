@@ -78,8 +78,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3be110e6069b37fa68c89a1f351ee1c8"><td class="memItemLeft" align="right" valign="top"><a id="a3be110e6069b37fa68c89a1f351ee1c8" name="a3be110e6069b37fa68c89a1f351ee1c8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>World</b> (const bool setDefault)</td></tr>
+<tr class="memitem:a3be110e6069b37fa68c89a1f351ee1c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a3be110e6069b37fa68c89a1f351ee1c8">World</a> (const bool setDefault)</td></tr>
 <tr class="separator:a3be110e6069b37fa68c89a1f351ee1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b51862f533f299936aa02af1a2ee272"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_point_light.html">PointLight</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a2b51862f533f299936aa02af1a2ee272">getLightSource</a> () const</td></tr>
 <tr class="separator:a2b51862f533f299936aa02af1a2ee272"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -93,10 +92,35 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae0dac2812460f3f2a5e7653ef9a34979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49acebcbcf86d9e9351391f791f8b545"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a49acebcbcf86d9e9351391f791f8b545">shadeHit</a> (const <a class="el" href="class_computation.html">Computation</a> &amp;computation) const</td></tr>
 <tr class="separator:a49acebcbcf86d9e9351391f791f8b545"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acffafee66db6afda6e5112a64c50b0d8"><td class="memItemLeft" align="right" valign="top"><a id="acffafee66db6afda6e5112a64c50b0d8" name="acffafee66db6afda6e5112a64c50b0d8"></a>
-const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><b>colourAt</b> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
+<tr class="memitem:acffafee66db6afda6e5112a64c50b0d8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#acffafee66db6afda6e5112a64c50b0d8">colourAt</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
 <tr class="separator:acffafee66db6afda6e5112a64c50b0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3be110e6069b37fa68c89a1f351ee1c8" name="a3be110e6069b37fa68c89a1f351ee1c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3be110e6069b37fa68c89a1f351ee1c8">&#9670;&#160;</a></span>World()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">World::World </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>setDefault</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates an empty or default world according to parameter.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bool</td><td>setDefault If true, a default world with two spheres &amp; a default point light are constructed, otherwise the world is empty, </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="abb51fc656a30cdb4e06bb5af0321c221" name="abb51fc656a30cdb4e06bb5af0321c221"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abb51fc656a30cdb4e06bb5af0321c221">&#9670;&#160;</a></span>addObjects()</h2>
@@ -120,6 +144,32 @@ const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="mem
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="acffafee66db6afda6e5112a64c50b0d8" name="acffafee66db6afda6e5112a64c50b0d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acffafee66db6afda6e5112a64c50b0d8">&#9670;&#160;</a></span>colourAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_colour.html">Colour</a> World::colourAt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_ray.html">Ray</a> &amp;&#160;</td>
+          <td class="paramname"><em>ray</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Determines colour found in the scene determined by the cast ray.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_ray.html">Ray</a></td><td>ray Reference to the ray being cast in the scene.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An immutable <a class="el" href="class_colour.html">Colour</a> (to be drawn onto the canvas). </dd></dl>
 
 </div>
 </div>
@@ -174,14 +224,14 @@ const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="mem
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Finds all the intersections in the world using a given point.</p>
+<p>Finds all the intersections in the world using a given point and aggregates them into a list.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="class_ray.html">Ray</a></td><td>ray Reference to the ray to be cast in the world.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An immutable vector of the intersections found with the given ray. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An <em>sorted</em> immutable vector of the intersections found with the given ray. </dd></dl>
 
 </div>
 </div>

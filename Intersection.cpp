@@ -100,15 +100,18 @@ const std::shared_ptr<Object> Intersection::getObject() const
 */
  const Computation Intersection::prepareComputations(const Ray& ray) const
  {
+	 // Precompute necessary values.
 	 Point tempPoint = ray.getPosition(this->t);
 	 Vector eyeV = -ray.getDirection();
 	 Vector normalV = this->getObject()->normalAt(tempPoint);
-	 bool inside = false;
+	 bool inside = false; // Default value of inside false.
+	 
 	 // Check for hit occuring inside the object.
+	 // A negative dot product implies opposite directions.
 	 if (normalV.dotProduct(eyeV) < 0.0)
 	 {
 		 inside = true;
-		 normalV = -normalV;
+		 normalV = -normalV; // Invert normal vector
 	 }
 	 return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside);
  }

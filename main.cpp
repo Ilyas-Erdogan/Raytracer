@@ -74,7 +74,7 @@ int main()
 	w.addObjects(right);
 	w.addObjects(left);
 	
-	Camera camera(1000, 500, PI / 3);
+	Camera camera(50, 25, PI / 3);
 	camera.setTransform(ViewTransform(Point(0, 1.5, -5), Point(0, 1, 0), Vector(0, 1, 0)));
 	Canvas canvas = camera.render(w);
 

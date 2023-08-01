@@ -81,21 +81,69 @@ Reveal Code Sample</summary>
 <p></p>
 </details>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Sample Code</h1>
-<p>``` struct Projectile { <a class="el" href="class_point.html">Point</a> Position; <a class="el" href="class_vector.html">Vector</a> Velocity; Projectile(Point p, Vector v) : Position{ p }, Velocity{ v } {}; };</p>
-<p>struct Environment { <a class="el" href="class_vector.html">Vector</a> Gravity; <a class="el" href="class_vector.html">Vector</a> Wind; Environment(Vector g, Vector w) : Gravity{ g }, Wind{ w } {}; };</p>
-<p>Projectile tick(Environment env, Projectile proj) { <a class="el" href="class_vector.html">Vector</a> position = proj.Position + proj.Velocity; <a class="el" href="class_vector.html">Vector</a> velocity = proj.Velocity + env.Gravity + env.Wind; return Projectile(position, velocity); }</p>
-<p>int main() { <a class="el" href="class_point.html">Point</a> Start(0, 1, 0); <a class="el" href="class_vector.html">Vector</a> Velocity(1, 1.8, 0); Velocity.normalizeVector(); Velocity *= 11.25; Projectile p(Start, Velocity);</p>
-<p><a class="el" href="class_vector.html">Vector</a> Gravity(0, -0.1, 0); <a class="el" href="class_vector.html">Vector</a> Wind(-0.01, 0, 0); Environment e(Gravity, Wind);</p>
-<p><a class="el" href="class_canvas.html">Canvas</a> c(900, 550, Colour());</p>
-<p>while (p.Position.getY() &gt;= 0) { p = tick(e, p); c.writePixel(static_cast&lt;int&gt;(p.Position.getX()), c.getCanvasHeight() - static_cast&lt;int&gt;(p.Position.getY()), <a class="el" href="class_colour.html">Colour(1, 1, 1)</a>); }</p>
-<p>c.convertToPPM("projectile");</p>
-<p>return 0; } ``` </p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+Code Sample</h1>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>Projectile</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_class" href="class_point.html">Point</a> Position;</div>
+<div class="line">    <a class="code hl_class" href="class_vector.html">Vector</a> Velocity;</div>
+<div class="line">    Projectile(<a class="code hl_class" href="class_point.html">Point</a> p, <a class="code hl_class" href="class_vector.html">Vector</a> v) : Position{ p }, Velocity{ v } {};</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>Environment</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_class" href="class_vector.html">Vector</a> Gravity;</div>
+<div class="line">    <a class="code hl_class" href="class_vector.html">Vector</a> Wind;</div>
+<div class="line">    Environment(<a class="code hl_class" href="class_vector.html">Vector</a> g, <a class="code hl_class" href="class_vector.html">Vector</a> w) : Gravity{ g }, Wind{ w } {};</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">Projectile tick(Environment env, Projectile proj)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_class" href="class_vector.html">Vector</a> position = proj.Position + proj.Velocity;</div>
+<div class="line">    <a class="code hl_class" href="class_vector.html">Vector</a> velocity = proj.Velocity + env.Gravity + env.Wind;</div>
+<div class="line">    <span class="keywordflow">return</span> Projectile(position, velocity);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_class" href="class_point.html">Point</a> Start(0, 1, 0);</div>
+<div class="line">    <a class="code hl_class" href="class_vector.html">Vector</a> Velocity(1, 1.8, 0);</div>
+<div class="line">    Velocity.normalizeVector();</div>
+<div class="line">    Velocity *= 11.25;</div>
+<div class="line">    Projectile p(Start, Velocity);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_vector.html">Vector</a> Gravity(0, -0.1, 0);</div>
+<div class="line">    <a class="code hl_class" href="class_vector.html">Vector</a> Wind(-0.01, 0, 0);</div>
+<div class="line">    Environment e(Gravity, Wind);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> c(900, 550, <a class="code hl_class" href="class_colour.html">Colour</a>());</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (p.Position.getY() &gt;= 0)</div>
+<div class="line">    {</div>
+<div class="line">        p = tick(e, p);</div>
+<div class="line">        c.writePixel(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(p.Position.getX()), c.getCanvasHeight() - <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(p.Position.getY()), <a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 1));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    c.convertToPPM(<span class="stringliteral">&quot;projectile&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_canvas_html"><div class="ttname"><a href="class_canvas.html">Canvas</a></div><div class="ttdef"><b>Definition</b> Canvas.h:7</div></div>
+<div class="ttc" id="aclass_colour_html"><div class="ttname"><a href="class_colour.html">Colour</a></div><div class="ttdef"><b>Definition</b> Colour.h:6</div></div>
+<div class="ttc" id="aclass_point_html"><div class="ttname"><a href="class_point.html">Point</a></div><div class="ttdef"><b>Definition</b> Point.h:6</div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdef"><b>Definition</b> Vector.h:6</div></div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md3"></a>
 Output</h1>
 <p><img src="Renders/Projectile.png" alt="Renders/Projectile.png" title="a title" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Example 2 - Simple Clock Rotation Render</h1>
+<details >
+<summary >
+Reveal Code Sample</summary>
+<p></p>
+<p></p>
+</details>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Code Sample</h1>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> c(100, 100, <a class="code hl_class" href="class_colour.html">Colour</a>());</div>
@@ -114,17 +162,22 @@ Example 2 - Simple Clock Rotation Render</h1>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_canvas_html"><div class="ttname"><a href="class_canvas.html">Canvas</a></div><div class="ttdef"><b>Definition</b> Canvas.h:7</div></div>
-<div class="ttc" id="aclass_colour_html"><div class="ttname"><a href="class_colour.html">Colour</a></div><div class="ttdef"><b>Definition</b> Colour.h:6</div></div>
-<div class="ttc" id="aclass_point_html"><div class="ttname"><a href="class_point.html">Point</a></div><div class="ttdef"><b>Definition</b> Point.h:6</div></div>
 <div class="ttc" id="aclass_rotation_y_html"><div class="ttname"><a href="class_rotation_y.html">RotationY</a></div><div class="ttdef"><b>Definition</b> RotationY.h:5</div></div>
 <div class="ttc" id="aclass_tuple_html_abd5e76ee2faa4c27158cb0e91cc5f903"><div class="ttname"><a href="class_tuple.html#abd5e76ee2faa4c27158cb0e91cc5f903">Tuple::getZ</a></div><div class="ttdeci">double getZ() const</div><div class="ttdef"><b>Definition</b> Tuple.cpp:174</div></div>
 <div class="ttc" id="aclass_tuple_html_ae7e37746cae6305650c023907ac118ef"><div class="ttname"><a href="class_tuple.html#ae7e37746cae6305650c023907ac118ef">Tuple::getX</a></div><div class="ttdeci">double getX() const</div><div class="ttdef"><b>Definition</b> Tuple.cpp:154</div></div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Output</h1>
 <p><img src="Renders/clock.png" alt="Renders/clock.png" title="a title" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Example 3 - Sphere Render With Optional Transformations</h1>
+<details >
+<summary >
+Reveal Code Sample</summary>
+<p></p>
+<p></p>
+</details>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Code Sample</h1>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> PI = 3.1415926535897932384626433832795028841971693993751058209;</div>
@@ -167,7 +220,7 @@ Example 3 - Sphere Render With Optional Transformations</h1>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclass_ray_html"><div class="ttname"><a href="class_ray.html">Ray</a></div><div class="ttdef"><b>Definition</b> Ray.h:7</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
 Output</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -175,6 +228,153 @@ Output</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><img src="Renders/SphereVar4.png" alt="Renders/SphereVar4.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/SphereVar1.png" alt="Renders/SphereVar1.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/SphereVar2.png" alt="Renders/SphereVar2.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/SphereVar3.png" alt="Renders/SphereVar3.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/SphereVar4.png" alt="Renders/SphereVar4.png" title="a title" class="inline"/>   </td></tr>
 </table>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Example 4 - Phong Reflection Model</h1>
+<details >
+<summary >
+Reveal Code Sample</summary>
+<p></p>
+<p></p>
+</details>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Code Sample</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> PI = 3.1415926535897932384626433832795028841971693993751058209;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_point.html">Point</a> ray_origin(0, 0, -5);</div>
+<div class="line">    <span class="keywordtype">double</span> wall_z = 10;</div>
+<div class="line">    <span class="keywordtype">double</span> wall_size = 7;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">double</span> canvas_pixels = 100;</div>
+<div class="line">    <span class="keywordtype">double</span> pixel_size = wall_size / canvas_pixels;</div>
+<div class="line">    <span class="keywordtype">double</span> half = wall_size / 2.0;</div>
+<div class="line">    <span class="keywordtype">double</span> world_x, world_y;</div>
+<div class="line">    </div>
+<div class="line">    <a class="code hl_class" href="class_colour.html">Colour</a> black;</div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> c(100, 100, black);</div>
+<div class="line">    <a class="code hl_class" href="class_colour.html">Colour</a> red(1, 0, 0);</div>
+<div class="line">    std::shared_ptr&lt;Sphere&gt; shape = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; material = std::make_shared&lt;Material&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 0.2, 1));</div>
+<div class="line">    shape-&gt;setMaterial(material);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_point.html">Point</a> lightPosition(-10, 10, -10);</div>
+<div class="line">    <a class="code hl_class" href="class_colour.html">Colour</a> lightColour(1, 1, 1);</div>
+<div class="line">    <a class="code hl_class" href="class_point_light.html">PointLight</a> light(lightPosition, lightColour);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; canvas_pixels; y++)</div>
+<div class="line">    {</div>
+<div class="line">        begin = std::chrono::high_resolution_clock::now();</div>
+<div class="line">        world_y = half - pixel_size * y;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; canvas_pixels; x++)</div>
+<div class="line">        {</div>
+<div class="line">            world_x = -half + pixel_size * x;</div>
+<div class="line">            <a class="code hl_class" href="class_point.html">Point</a> position(world_x, world_y, wall_z);</div>
+<div class="line">            <a class="code hl_class" href="class_ray.html">Ray</a> r(ray_origin, (position - ray_origin).normalizeVector());</div>
+<div class="line">            std::vector&lt;Intersection&gt; xs = shape-&gt;intersect(r);</div>
+<div class="line">            <span class="keywordflow">if</span> (shape-&gt;hit(xs) != <span class="keyword">nullptr</span>)</div>
+<div class="line">            {</div>
+<div class="line">                <a class="code hl_class" href="class_point.html">Point</a> point = r.getPosition(shape-&gt;hit(xs)-&gt;getT());</div>
+<div class="line">                <a class="code hl_class" href="class_sphere.html">Sphere</a> s = *shape-&gt;<a class="code hl_function" href="class_object.html#a50945ec474adf330260773d7021145a8">hit</a>(xs)-&gt;getObject();</div>
+<div class="line">                <a class="code hl_class" href="class_vector.html">Vector</a> normal = s.<a class="code hl_function" href="class_object.html#a1b7e0beda4ecd54d039b371c238c2ac7">normalAt</a>(point);</div>
+<div class="line">                <a class="code hl_class" href="class_vector.html">Vector</a> eye = -r.getDirection();</div>
+<div class="line">                c.writePixel(x, y, material-&gt;lighting(light, point, eye, normal));</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    c.convertToPPM(<span class="stringliteral">&quot;LitSphere&quot;</span>);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;DONE&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_object_html_a1b7e0beda4ecd54d039b371c238c2ac7"><div class="ttname"><a href="class_object.html#a1b7e0beda4ecd54d039b371c238c2ac7">Object::normalAt</a></div><div class="ttdeci">Vector normalAt(const Point &amp;p) const</div><div class="ttdef"><b>Definition</b> Object.cpp:88</div></div>
+<div class="ttc" id="aclass_object_html_a50945ec474adf330260773d7021145a8"><div class="ttname"><a href="class_object.html#a50945ec474adf330260773d7021145a8">Object::hit</a></div><div class="ttdeci">std::unique_ptr&lt; class Intersection &gt; hit(std::vector&lt; class Intersection &gt; &amp;intersctionVec) const</div><div class="ttdef"><b>Definition</b> Object.cpp:108</div></div>
+<div class="ttc" id="aclass_point_light_html"><div class="ttname"><a href="class_point_light.html">PointLight</a></div><div class="ttdef"><b>Definition</b> PointLight.h:6</div></div>
+<div class="ttc" id="aclass_sphere_html"><div class="ttname"><a href="class_sphere.html">Sphere</a></div><div class="ttdef"><b>Definition</b> Sphere.h:10</div></div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md12"></a>
+Output</h1>
+<p><img src="Renders/LitSphere.png" alt="Renders/LitSphere.png" title="a title" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md13"></a>
+Example 4 - Virtual Camera</h1>
+<details >
+<summary >
+Reveal Code Sample</summary>
+<p></p>
+<p></p>
+</details>
+<h1><a class="anchor" id="autotoc_md14"></a>
+Code Sample</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> PI = 3.1415926535897932384626433832795028841971693993751058209;</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Sphere&gt; floor = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    floor-&gt;setTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(10, 0.01, 10));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; material = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    material-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 0.9, 0.9));</div>
+<div class="line">    material-&gt;setSpecular(0);</div>
+<div class="line">    floor-&gt;setMaterial(material);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Sphere&gt; leftWall = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    leftWall-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 0, 5) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(-PI / 4) * <a class="code hl_class" href="class_rotation_x.html">RotationX</a>(PI / 2) * <a class="code hl_class" href="class_scale.html">Scale</a>(10, 0.01, 10));</div>
+<div class="line">    leftWall-&gt;setMaterial(material);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Sphere&gt; rightWall = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    rightWall-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 0, 5) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(PI / 4) * <a class="code hl_class" href="class_rotation_x.html">RotationX</a>(PI / 2) * <a class="code hl_class" href="class_scale.html">Scale</a>(10, 0.1, 10));</div>
+<div class="line">    rightWall-&gt;setMaterial(material);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Sphere&gt; middle = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    middle-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-0.5, 1, 0.5));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; largeMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    largeMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.1, 1, 0.5));</div>
+<div class="line">    largeMaterial-&gt;setDiffuse(0.7);</div>
+<div class="line">    largeMaterial-&gt;setSpecular(0.3);</div>
+<div class="line">    middle-&gt;setMaterial(largeMaterial);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Sphere&gt; right = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    right-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(1.5, 0.5, -0.5) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.5, 0.5, 0.5));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; rightMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    rightMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.5, 1, 0.1));</div>
+<div class="line">    rightMaterial-&gt;setDiffuse(0.7);</div>
+<div class="line">    rightMaterial-&gt;setSpecular(0.3);</div>
+<div class="line">    right-&gt;setMaterial(rightMaterial);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Sphere&gt; left = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    left-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-1.5, 0.33, -0.75) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.33, 0.33, 0.33));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; leftMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    leftMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 0.8, 0.1));</div>
+<div class="line">    leftMaterial-&gt;setDiffuse(0.7);</div>
+<div class="line">    leftMaterial-&gt;setSpecular(0.3);</div>
+<div class="line">    left-&gt;setMaterial(leftMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_world.html">World</a> w(<span class="keyword">false</span>);</div>
+<div class="line">    w.setLight(<a class="code hl_class" href="class_point_light.html">PointLight</a>(<a class="code hl_class" href="class_point.html">Point</a>(-10, 10, -10), <a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 1)));</div>
+<div class="line">    w.addObjects(floor);</div>
+<div class="line">    w.addObjects(leftWall);</div>
+<div class="line">    w.addObjects(rightWall);</div>
+<div class="line">    w.addObjects(middle);</div>
+<div class="line">    w.addObjects(right);</div>
+<div class="line">    w.addObjects(left);</div>
+<div class="line">    </div>
+<div class="line">    <a class="code hl_class" href="class_camera.html">Camera</a> camera(1000, 500, PI / 3);</div>
+<div class="line">    camera.setTransform(<a class="code hl_class" href="class_view_transform.html">ViewTransform</a>(<a class="code hl_class" href="class_point.html">Point</a>(0, 1.5, -5), <a class="code hl_class" href="class_point.html">Point</a>(0, 1, 0), <a class="code hl_class" href="class_vector.html">Vector</a>(0, 1, 0)));</div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> canvas = camera.render(w);</div>
+<div class="line"> </div>
+<div class="line">    canvas.<a class="code hl_function" href="class_canvas.html#a84b5638e91675b2930ed247664787bfd">convertToPPM</a>(<span class="stringliteral">&quot;Scene&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition</b> Camera.h:8</div></div>
+<div class="ttc" id="aclass_canvas_html_a84b5638e91675b2930ed247664787bfd"><div class="ttname"><a href="class_canvas.html#a84b5638e91675b2930ed247664787bfd">Canvas::convertToPPM</a></div><div class="ttdeci">void convertToPPM(const std::string fileName)</div><div class="ttdef"><b>Definition</b> Canvas.cpp:102</div></div>
+<div class="ttc" id="aclass_rotation_x_html"><div class="ttname"><a href="class_rotation_x.html">RotationX</a></div><div class="ttdef"><b>Definition</b> RotationX.h:5</div></div>
+<div class="ttc" id="aclass_scale_html"><div class="ttname"><a href="class_scale.html">Scale</a></div><div class="ttdef"><b>Definition</b> Scale.h:5</div></div>
+<div class="ttc" id="aclass_translation_html"><div class="ttname"><a href="class_translation.html">Translation</a></div><div class="ttdef"><b>Definition</b> Translation.h:6</div></div>
+<div class="ttc" id="aclass_view_transform_html"><div class="ttname"><a href="class_view_transform.html">ViewTransform</a></div><div class="ttdef"><b>Definition</b> ViewTransform.h:8</div></div>
+<div class="ttc" id="aclass_world_html"><div class="ttname"><a href="class_world.html">World</a></div><div class="ttdef"><b>Definition</b> World.h:9</div></div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md15"></a>
+Output</h1>
+<p><img src="Renders/Scene.png" alt="Renders/Scene.png" title="a title" class="inline"/> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

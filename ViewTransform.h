@@ -7,6 +7,7 @@ class ViewTransform :
     public Matrix
 {
 public:
+    // Constructors
     ViewTransform(const Point& fromPoint, const Point& toPoint, const Vector& upVector);
     ViewTransform(const ViewTransform& copyTransform);
     ~ViewTransform();

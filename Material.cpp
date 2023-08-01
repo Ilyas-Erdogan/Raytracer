@@ -1,6 +1,15 @@
 #include "Material.h"
 #include <cmath>
 
+/**
+* Constructs a Material with the given attributes.
+* 
+* @param Colour colourVal Reference to the Colour to be attribute of the material.
+* @param double ambientVal Value of the ambient attribute of the material. Typical Range : [0.0, 1.0]. 
+* @param double diffuseVal Value of the diffuse attribute of the material. Typical Range : [0.0, 1.0].
+* @param double specularVal Value of the specular attribute of the material. Typical Range : [0.0, 1.0].
+* @param double shininessVal Value of the shininess attribute of the material. Typical Range : [10.0, 200.0].
+*/
 Material::Material(const Colour& colourVal, const double ambientVal, const double diffuseVal, const double specularVal, const double shininessVal)
 	: colour {colourVal}, ambient {ambientVal}, diffuse {diffuseVal}, specular {specularVal}, shininess {shininessVal}
 {
@@ -146,7 +155,7 @@ Colour Material::lighting(const PointLight& light, const Point& point, const Vec
 		// Compute the diffuse contribution
 		diffuse = static_cast<Tuple>(effectiveColour) * this->diffuse * lightDotNormal;
 
-		// reflectDotEye represents the cosine of the angle between the reflectino and eye vector.
+		// reflectDotEye represents the cosine of the angle between the reflection and eye vector.
 		Vector reflectV = -lightV.reflect(normalV);
 		double reflectDotEye = reflectV.dotProduct(eyeV);
 

@@ -78,8 +78,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a862c34f65db04e5bbdd8ad22b7797323"><td class="memItemLeft" align="right" valign="top"><a id="a862c34f65db04e5bbdd8ad22b7797323" name="a862c34f65db04e5bbdd8ad22b7797323"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Computation</b> (const double tVal, const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;initObject, const <a class="el" href="class_point.html">Point</a> &amp;pointVal, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeVVal, const <a class="el" href="class_vector.html">Vector</a> &amp;normalVVal, const bool insideVal)</td></tr>
+<tr class="memitem:a862c34f65db04e5bbdd8ad22b7797323"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a862c34f65db04e5bbdd8ad22b7797323">Computation</a> (const double tVal, const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;initObject, const <a class="el" href="class_point.html">Point</a> &amp;pointVal, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeVVal, const <a class="el" href="class_vector.html">Vector</a> &amp;normalVVal, const bool insideVal)</td></tr>
 <tr class="separator:a862c34f65db04e5bbdd8ad22b7797323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b712d6c4254d41ec458a781c7497379"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a8b712d6c4254d41ec458a781c7497379">getT</a> () const</td></tr>
 <tr class="separator:a8b712d6c4254d41ec458a781c7497379"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,10 +90,70 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab071a72c6c2be1030ddb6192742c09b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0666bf24fca0fcd1e37d5ad4dee064"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#afb0666bf24fca0fcd1e37d5ad4dee064">getNormalV</a> () const</td></tr>
 <tr class="separator:afb0666bf24fca0fcd1e37d5ad4dee064"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae661dc99c134f75f9e592d07954ed773"><td class="memItemLeft" align="right" valign="top"><a id="ae661dc99c134f75f9e592d07954ed773" name="ae661dc99c134f75f9e592d07954ed773"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInside</b> () const</td></tr>
+<tr class="memitem:ae661dc99c134f75f9e592d07954ed773"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">isInside</a> () const</td></tr>
 <tr class="separator:ae661dc99c134f75f9e592d07954ed773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a862c34f65db04e5bbdd8ad22b7797323" name="a862c34f65db04e5bbdd8ad22b7797323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a862c34f65db04e5bbdd8ad22b7797323">&#9670;&#160;</a></span>Computation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Computation::Computation </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>tVal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>initObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointVal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>eyeVVal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>normalVVal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>insideVal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates computation object containing all necessary data to perform shading.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>tVal The t (time) vaue as seen by </td></tr>
+    <tr><td class="paramname">shared_ptr&lt;Object&gt;</td><td>initObject Reference to the object in that was hit </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab071a72c6c2be1030ddb6192742c09b0" name="ab071a72c6c2be1030ddb6192742c09b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab071a72c6c2be1030ddb6192742c09b0">&#9670;&#160;</a></span>getEyeV()</h2>
@@ -183,6 +242,24 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInside</b> () const
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The t value of the computation. </dd></dl>
+
+</div>
+</div>
+<a id="ae661dc99c134f75f9e592d07954ed773" name="ae661dc99c134f75f9e592d07954ed773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae661dc99c134f75f9e592d07954ed773">&#9670;&#160;</a></span>isInside()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Computation::isInside </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>True if i </dd></dl>
 
 </div>
 </div>

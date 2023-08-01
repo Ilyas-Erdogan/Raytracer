@@ -119,8 +119,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
 <tr class="separator:a49ccc337698584ef2dcd767e2d12d44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b7e0beda4ecd54d039b371c238c2ac7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a1b7e0beda4ecd54d039b371c238c2ac7">normalAt</a> (const <a class="el" href="class_point.html">Point</a> &amp;p) const</td></tr>
 <tr class="separator:a1b7e0beda4ecd54d039b371c238c2ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4cb3e37d70baf9f3f4ec9ea4249d902"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ab4cb3e37d70baf9f3f4ec9ea4249d902">hit</a> (std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersctionVec) const</td></tr>
-<tr class="separator:ab4cb3e37d70baf9f3f4ec9ea4249d902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50945ec474adf330260773d7021145a8"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a50945ec474adf330260773d7021145a8">hit</a> (std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersctionVec) const</td></tr>
+<tr class="separator:a50945ec474adf330260773d7021145a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9aa22f0904b25380707ddd849305ae53" name="a9aa22f0904b25380707ddd849305ae53"></a>
@@ -159,8 +159,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
 
 </div>
 </div>
-<a id="ab4cb3e37d70baf9f3f4ec9ea4249d902" name="ab4cb3e37d70baf9f3f4ec9ea4249d902"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4cb3e37d70baf9f3f4ec9ea4249d902">&#9670;&#160;</a></span>hit()</h2>
+<a id="a50945ec474adf330260773d7021145a8" name="a50945ec474adf330260773d7021145a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50945ec474adf330260773d7021145a8">&#9670;&#160;</a></span>hit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,8 +168,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
         <tr>
           <td class="memname">std::unique_ptr&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; Object::hit </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>intersectionVec</em></td><td>)</td>
+          <td class="paramtype">std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>intersctionVec</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -177,10 +177,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
 <p>Returns a hit from a vector of intersections.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vector&lt;Intersection&gt;</td><td>intersectionVec </td></tr>
+    <tr><td class="paramname">vector&lt;Intersection&gt;</td><td>intersectionVec The vector of found containing the intersections found by the ray.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A unique pointer of the <a class="el" href="class_intersection.html">Intersection</a>. </dd></dl>
 
 </div>
 </div>

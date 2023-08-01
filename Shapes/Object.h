@@ -31,7 +31,7 @@ public:
 
 	// Utilities
 	Vector normalAt(const Point& p) const;
-	std::unique_ptr<Intersection> hit(std::vector<Intersection>& intersctionVec) const;
+	std::unique_ptr<class Intersection> hit(std::vector<class Intersection>& intersctionVec) const;
 private:
 	Matrix transform;
 	std::shared_ptr<Material> material;

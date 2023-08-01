@@ -98,11 +98,12 @@ Vector Object::normalAt(const Point& worldPoint) const
 	worldNormal = worldNormal.normalizeVector();
 	return worldNormal;
 }
-
 /**
 * Returns a hit from a vector of intersections.
 *
-* @param vector<Intersection> intersectionVec
+* @param vector<Intersection> intersectionVec The vector of found containing the intersections found by the ray.
+* 
+* @return A unique pointer of the Intersection.
 */
 std::unique_ptr<Intersection> Object::hit(std::vector<Intersection>& intersectionVec) const
 {

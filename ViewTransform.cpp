@@ -1,5 +1,13 @@
 #include "ViewTransform.h"
 #include "Transformations/Translation.h"
+
+/**
+* Constructs a ViewTransformation object contatining the corresponding transformation matrix.
+* 
+* @param Point fromPoint Where the eye is in the scene.
+* @param Point toPoint Where the eye should look.
+* @param Vector upVector What direction "up" is in.
+*/
 ViewTransform::ViewTransform(const Point& fromPoint, const Point& toPoint, const Vector& upVector)
 	: Matrix(4, 4), from{fromPoint}, to{toPoint}, up{upVector}
 {
@@ -10,6 +18,11 @@ ViewTransform::ViewTransform(const Point& fromPoint, const Point& toPoint, const
 	this->setMatrix(orientation * Translation(-from.getX(), -from.getY(), -from.getZ()));
 }
 
+/**
+* Constructs a ViewTransformation based on another ViewTrasnformation.
+* 
+* @param ViewTransform copyTransform The ViewTransformation to be copied.
+*/
 ViewTransform::ViewTransform(const ViewTransform& copyTransform)
 	: Matrix(copyTransform), from{copyTransform.from}, to{copyTransform.to}, up{copyTransform.up}
 {

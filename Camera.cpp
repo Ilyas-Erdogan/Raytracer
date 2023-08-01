@@ -2,22 +2,34 @@
 #include <cmath>
 #include <chrono>
 
+/**
+* Constrcuts a virtual "camera" that can "take pictures" of the scene.
+* 
+* @param double horizontalSize The horizontal size in pixels of the canvas.
+* @param double verticalSize The vertical size in pixels of the canvas.
+* @param double fieldOfViewVal The angle that describes the how much the camera can see.
+*/
 Camera::Camera(const double horizontalSize, const double verticalSize, const double fieldOfViewVal)
 	: transform{ Matrix(4, 4).getIdentityMatrix()}, hSize{horizontalSize}, vSize{verticalSize}, fieldOfView{fieldOfViewVal}
 {
-	double halfView = std::tan(this->fieldOfView / 2);
-	double aspect = this->hSize / this->vSize;
+	// Assumes canvas is one unit away.
+	double halfView = std::tan(this->fieldOfView / 2); // Width of hald the canvas.
+	double aspect = this->hSize / this->vSize; // Aspect ration of horizontal size to vertical size.
+	// If vertical size is greater (or equal) than the horizontal then,
 	if (aspect >= 1.0)
 	{
+		// The halfview should be half the width.
 		this->halfWidth = halfView;
 		this->halfHeight = halfView / aspect;
 	}
 	else
 	{
+		// The halfview should be half the height.
 		this->halfWidth = halfView * aspect;
 		this->halfHeight = halfView;
 	}
 
+	// Set pixel size in accordance to calculated values.
 	this->pixelSize = (halfWidth * 2) / this->hSize;
 }
 
@@ -25,36 +37,62 @@ Camera::~Camera()
 {
 }
 
+/**
+* @return The horizontal size of the canvas.
+*/
 double Camera::getHorizontalSize() const
 {
 	return this->hSize;
 }
 
+/**
+* @return The vertical size of the canvas.
+*/
 double Camera::getVerticalSize() const
 {
 	return this->vSize;
 }
 
+/**
+* @return The field of view (angle) of the camera.
+*/
 double Camera::getFieldOfView() const
 {
 	return this->fieldOfView;
 }
 
+/**
+* An immutable reference to transformation matrix of the camera.
+*/
 const Matrix& Camera::getTransform() const
 {
 	return this->transform;
 }
 
+/**
+* @param Matrix transformToSet Reference to the transformation Matrix to apply to the camera object.
+*/
 void Camera::setTransform(const Matrix& transformToSet)
 {
 	this->transform = transformToSet;
 }
 
+/**
+* @return The calculated size of a single pixel.
+*/
 double Camera::getPixelSize() const
 {
 	return this->pixelSize;
 }
 
+/**
+* Returns a new ray that starts at the camera and passes through the provided coordinates.
+* 
+* @param int pX The x-coordinate to be passed through.
+* @param int pY The y-coordinated to be passed through.
+* 
+* @return A new Ray object according to given parameters.
+*/
 const Ray Camera::rayForPixel(const int pX, const int pY) const
 {
 	// The offset from teh edge of the canvas to the pixel's center
@@ -74,6 +112,13 @@ const Ray Camera::rayForPixel(const int pX, const int pY) const
 
 }
 
+/**
+* Renders a canvas using the calling object (camera) to render an image of the given world.
+* 
+* @param @World world Reference to the world to be draw to teh canvas.
+* 
+* @return A canvas containing the rendered image.
+*/
 Canvas Camera::render(World& world) const
 {
 	Canvas image(this->hSize, this->vSize, Colour());
