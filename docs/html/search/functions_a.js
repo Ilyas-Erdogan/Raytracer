@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writepixel_0',['writePixel',['../class_canvas.html#abd6ebdf2c82bfd22c547502b11307944',1,'Canvas']]]
+  ['preparecomputations_0',['prepareComputations',['../class_intersection.html#af6cb975a1a5f8ca993fe7e18cfae8baa',1,'Intersection']]]
 ];

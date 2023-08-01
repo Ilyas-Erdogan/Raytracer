@@ -4,8 +4,8 @@
 # Example 1 - Simple Projectile Render
 <details>
   <summary>Reveal Code Sample</summary>
-	```cpp
-	
+	# Sample Code
+	```
 	struct Projectile
 	{
 		Point Position;

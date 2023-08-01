@@ -43,7 +43,7 @@ Point Ray::getOrigin() const
 *
 * @return Vector Direction of the ray.
 */
-Vector Ray::getDirection() const
+const Vector& Ray::getDirection() const
 {
 	return this->direction;
 }

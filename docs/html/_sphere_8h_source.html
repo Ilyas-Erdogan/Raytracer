@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Raytracer: Sphere.h Source File</title>
+<title>Raytracer: Shapes/Sphere.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,7 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,46 +67,44 @@ $(function() {
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4f7c52f72d34226f55bad014c4ae1d30.html">Shapes</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Sphere.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Object.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;Types/Matrix.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_sphere.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_sphere.html">Sphere</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    : <span class="keyword">public</span> <a class="code hl_class" href="class_object.html">Object</a></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">// Constructors</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_function" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_function" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>(<span class="keyword">const</span> Matrix&amp; transformMatrix);</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_function" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_sphere.html">Sphere</a>&amp; copySphere);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_function" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_object.html">Object</a>&amp; copyObject);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_sphere.html">~Sphere</a>();</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// Utilities</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    std::vector&lt;class Intersection&gt; <a class="code hl_function" href="class_sphere.html#a8dd0865acccbc51c13db56fe08712feb">intersect</a>(<span class="keyword">const</span> <span class="keyword">class</span> <a class="code hl_class" href="class_ray.html">Ray</a>&amp; ray);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::unique_ptr&lt;Intersection&gt; <a class="code hl_function" href="class_sphere.html#ad585771bb660823f5c7f31f2985a3f6d">hit</a>(std::vector&lt;Intersection&gt;&amp; intersctionVec) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../Types/Matrix.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Types/Vector.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Types/Point.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Material.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_sphere.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_sphere.html">Sphere</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    : <span class="keyword">public</span> <a class="code hl_class" href="class_object.html">Object</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// Constructors</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_function" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_function" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_matrix.html">Matrix</a>&amp; transformMatrix);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_function" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_sphere.html">Sphere</a>&amp; copySphere);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_object.html">Object</a>&amp; copyObject);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="class_sphere.html">~Sphere</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// Getters</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">const</span> Matrix&amp; <a class="code hl_function" href="class_sphere.html#a97a415dafa358fbdfad395d4ff424e89">getTransform</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// Setters</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sphere.html#a0d5031621264f55456f5bf69a88bb7de">setTransform</a>(<span class="keyword">const</span> Matrix&amp; transformMatrix);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    Matrix transform;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdef"><b>Definition</b> Object.h:7</div></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// Utilities</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    std::vector&lt;class Intersection&gt; <a class="code hl_function" href="class_sphere.html#a8dd0865acccbc51c13db56fe08712feb">intersect</a>(<span class="keyword">const</span> <span class="keyword">class</span> <a class="code hl_class" href="class_ray.html">Ray</a>&amp; ray);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="ttc" id="aclass_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdef"><b>Definition</b> Matrix.h:6</div></div>
+<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdef"><b>Definition</b> Object.h:9</div></div>
 <div class="ttc" id="aclass_ray_html"><div class="ttname"><a href="class_ray.html">Ray</a></div><div class="ttdef"><b>Definition</b> Ray.h:7</div></div>
-<div class="ttc" id="aclass_sphere_html"><div class="ttname"><a href="class_sphere.html">Sphere</a></div><div class="ttdef"><b>Definition</b> Sphere.h:7</div></div>
-<div class="ttc" id="aclass_sphere_html_a0d5031621264f55456f5bf69a88bb7de"><div class="ttname"><a href="class_sphere.html#a0d5031621264f55456f5bf69a88bb7de">Sphere::setTransform</a></div><div class="ttdeci">void setTransform(const Matrix &amp;transformMatrix)</div><div class="ttdef"><b>Definition</b> Sphere.cpp:131</div></div>
-<div class="ttc" id="aclass_sphere_html_a890a63ff583cb88e7ec4e840b4ef5eb9"><div class="ttname"><a href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere::Sphere</a></div><div class="ttdeci">Sphere()</div><div class="ttdef"><b>Definition</b> Sphere.cpp:11</div></div>
-<div class="ttc" id="aclass_sphere_html_a8dd0865acccbc51c13db56fe08712feb"><div class="ttname"><a href="class_sphere.html#a8dd0865acccbc51c13db56fe08712feb">Sphere::intersect</a></div><div class="ttdeci">std::vector&lt; class Intersection &gt; intersect(const class Ray &amp;ray)</div><div class="ttdef"><b>Definition</b> Sphere.cpp:60</div></div>
-<div class="ttc" id="aclass_sphere_html_a97a415dafa358fbdfad395d4ff424e89"><div class="ttname"><a href="class_sphere.html#a97a415dafa358fbdfad395d4ff424e89">Sphere::getTransform</a></div><div class="ttdeci">const Matrix &amp; getTransform() const</div><div class="ttdef"><b>Definition</b> Sphere.cpp:121</div></div>
-<div class="ttc" id="aclass_sphere_html_ad585771bb660823f5c7f31f2985a3f6d"><div class="ttname"><a href="class_sphere.html#ad585771bb660823f5c7f31f2985a3f6d">Sphere::hit</a></div><div class="ttdeci">std::unique_ptr&lt; Intersection &gt; hit(std::vector&lt; Intersection &gt; &amp;intersctionVec) const</div><div class="ttdef"><b>Definition</b> Sphere.cpp:95</div></div>
+<div class="ttc" id="aclass_sphere_html"><div class="ttname"><a href="class_sphere.html">Sphere</a></div><div class="ttdef"><b>Definition</b> Sphere.h:10</div></div>
+<div class="ttc" id="aclass_sphere_html_a890a63ff583cb88e7ec4e840b4ef5eb9"><div class="ttname"><a href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere::Sphere</a></div><div class="ttdeci">Sphere()</div><div class="ttdef"><b>Definition</b> Sphere.cpp:10</div></div>
+<div class="ttc" id="aclass_sphere_html_a8dd0865acccbc51c13db56fe08712feb"><div class="ttname"><a href="class_sphere.html#a8dd0865acccbc51c13db56fe08712feb">Sphere::intersect</a></div><div class="ttdeci">std::vector&lt; class Intersection &gt; intersect(const class Ray &amp;ray)</div><div class="ttdef"><b>Definition</b> Sphere.cpp:59</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

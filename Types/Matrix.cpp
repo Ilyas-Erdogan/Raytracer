@@ -159,7 +159,7 @@ bool Matrix::operator!=(const Matrix& rhs) const
 * 
 * @return Modified calling (resultant Hadamard product).
 */
-Matrix Matrix::operator*=(const Matrix& rhs)
+Matrix& Matrix::operator*=(const Matrix& rhs)
 {
     try
     {
@@ -229,7 +229,7 @@ Matrix operator*(Matrix lhs, const Matrix& rhs)
 * 
 * @return Tuple object of resultant multiplication.
 */
-Tuple operator*(Tuple& lhs, const Matrix& rhs)
+Tuple operator*(Tuple lhs, const Matrix& rhs)
 {
     try
     {
@@ -258,10 +258,15 @@ Tuple operator*(Tuple& lhs, const Matrix& rhs)
 *
 * @return Tuple object of resultant multiplication.
 */
-Tuple operator*(Matrix& lhs, const Tuple& rhs)
+Tuple operator*(Matrix lhs, const Tuple& rhs)
 {
     Tuple tempTuple = rhs;
     return tempTuple * lhs;
+}
+
+const std::vector<std::vector<double>>& Matrix::getMatrix() const
+{
+    return this->matrix;
 }
 
 /**
@@ -480,4 +485,9 @@ Matrix Matrix::getInverse() const
     {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+}
+
+void Matrix::setMatrix(const Matrix& matrix)
+{
+    this->matrix = matrix.getMatrix();
 }

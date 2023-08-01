@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['setambient_0',['setAmbient',['../class_material.html#a785551b0414b7b096bc86344125c5e2a',1,'Material']]],
-  ['setcolour_1',['setColour',['../class_material.html#aa4f8fc437a67db36e151d132689df187',1,'Material']]],
-  ['setdiffuse_2',['setDiffuse',['../class_material.html#a75106ce3c0ec4aa1ea1f6d6706ca3e9c',1,'Material']]],
-  ['setshininess_3',['setShininess',['../class_material.html#a168129bdfc0437561788922f98f839d3',1,'Material']]],
-  ['setspecular_4',['setSpecular',['../class_material.html#a4179bb759874d311afbb2529f794f407',1,'Material']]]
+  ['intersect_0',['intersect',['../class_sphere.html#a8dd0865acccbc51c13db56fe08712feb',1,'Sphere']]],
+  ['intersectworld_1',['intersectWorld',['../class_world.html#ae0dac2812460f3f2a5e7653ef9a34979',1,'World']]],
+  ['isinvertible_2',['isInvertible',['../class_matrix.html#ab50fe8dcbce53d9516d9c81ed1e4751c',1,'Matrix']]],
+  ['ispoint_3',['isPoint',['../class_tuple.html#add3bed4f0cfd5675b1af4bc5c814a877',1,'Tuple']]],
+  ['isvector_4',['isVector',['../class_tuple.html#afc1eae02dcea798e50b670dfc5c5240a',1,'Tuple']]]
 ];

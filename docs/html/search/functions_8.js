@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['writepixel_0',['writePixel',['../class_canvas.html#a7102f9785264f597dcf8060feead6314',1,'Canvas']]]
+  ['normalat_0',['normalAt',['../class_object.html#a1b7e0beda4ecd54d039b371c238c2ac7',1,'Object']]],
+  ['normalizevector_1',['normalizeVector',['../class_tuple.html#a0014309ee5dfbfd7d398bd3650b469b4',1,'Tuple']]]
 ];

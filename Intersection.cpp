@@ -1,5 +1,5 @@
 #include "Intersection.h" 
-#include "Shapes/Object.h"
+#include "Shapes/Sphere.h"
 
 Intersection::Intersection(const double tValue, const std::shared_ptr<Object>& initObject)
 	: t {tValue}, object {initObject}
@@ -86,7 +86,29 @@ double Intersection::getT() const
 /**
 * @return A immutable reference to the calling object's object.
 */
- std::shared_ptr<Object> Intersection::getObject() const
+const std::shared_ptr<Object> Intersection::getObject() const
 {
 	return std::shared_ptr<Object>(this->object);
 }
+
+/**
+* Encapsulates data containing precomputed information related to the intersection.
+* 
+* @param Ray ray The ray to be cast in the scene.
+* 
+* @return A Computation object containing all the necessary attributes.
+*/
+ const Computation Intersection::prepareComputations(const Ray& ray) const
+ {
+	 Point tempPoint = ray.getPosition(this->t);
+	 Vector eyeV = -ray.getDirection();
+	 Vector normalV = this->getObject()->normalAt(tempPoint);
+	 bool inside = false;
+	 // Check for hit occuring inside the object.
+	 if (normalV.dotProduct(eyeV) < 0.0)
+	 {
+		 inside = true;
+		 normalV = -normalV;
+	 }
+	 return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside);
+ }

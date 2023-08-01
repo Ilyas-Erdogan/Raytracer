@@ -83,12 +83,13 @@ Inheritance diagram for Matrix:</div>
  <div class="center">
   <img src="class_matrix.png" usemap="#Matrix_map" alt=""/>
   <map id="Matrix_map" name="Matrix_map">
-<area href="class_rotation_x.html" alt="RotationX" shape="rect" coords="0,56,74,80"/>
-<area href="class_rotation_y.html" alt="RotationY" shape="rect" coords="84,56,158,80"/>
-<area href="class_rotation_z.html" alt="RotationZ" shape="rect" coords="168,56,242,80"/>
-<area href="class_scale.html" alt="Scale" shape="rect" coords="252,56,326,80"/>
-<area href="class_shearing.html" alt="Shearing" shape="rect" coords="336,56,410,80"/>
-<area href="class_translation.html" alt="Translation" shape="rect" coords="420,56,494,80"/>
+<area href="class_rotation_x.html" alt="RotationX" shape="rect" coords="0,56,97,80"/>
+<area href="class_rotation_y.html" alt="RotationY" shape="rect" coords="107,56,204,80"/>
+<area href="class_rotation_z.html" alt="RotationZ" shape="rect" coords="214,56,311,80"/>
+<area href="class_scale.html" alt="Scale" shape="rect" coords="321,56,418,80"/>
+<area href="class_shearing.html" alt="Shearing" shape="rect" coords="428,56,525,80"/>
+<area href="class_translation.html" alt="Translation" shape="rect" coords="535,56,632,80"/>
+<area href="class_view_transform.html" alt="ViewTransform" shape="rect" coords="642,56,739,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -109,8 +110,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6245b1c3364594e0c27ac6034599977e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024c4d2ad6a47b4c2f18fe0ad9236e32"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a024c4d2ad6a47b4c2f18fe0ad9236e32">operator!=</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs) const</td></tr>
 <tr class="separator:a024c4d2ad6a47b4c2f18fe0ad9236e32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57a13dfcac8ce83d6aedc1a0ea8861c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a57a13dfcac8ce83d6aedc1a0ea8861c9">operator*=</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs)</td></tr>
-<tr class="separator:a57a13dfcac8ce83d6aedc1a0ea8861c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab25d7df6ae0a248aa220b6191f56961a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab25d7df6ae0a248aa220b6191f56961a">operator*=</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs)</td></tr>
+<tr class="separator:ab25d7df6ae0a248aa220b6191f56961a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65a51f5da270e4e4b132ea3ff1cda0f"><td class="memItemLeft" align="right" valign="top"><a id="ab65a51f5da270e4e4b132ea3ff1cda0f" name="ab65a51f5da270e4e4b132ea3ff1cda0f"></a>
+const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMatrix</b> () const</td></tr>
+<tr class="separator:ab65a51f5da270e4e4b132ea3ff1cda0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a283dba0030ad108881478297f013d594"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a283dba0030ad108881478297f013d594">getIdentityMatrix</a> () const</td></tr>
 <tr class="separator:a283dba0030ad108881478297f013d594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27ccc73f38a1604f9be9b0a652dacd9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a27ccc73f38a1604f9be9b0a652dacd9f">getTransposedMatrix</a> () const</td></tr>
@@ -127,6 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab50fe8dcbce53d9516d9c81ed1e4751c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade3fcddb0cc6a7e221a94e13afc7752c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ade3fcddb0cc6a7e221a94e13afc7752c">getInverse</a> () const</td></tr>
 <tr class="separator:ade3fcddb0cc6a7e221a94e13afc7752c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af855c092b79fe021a2317e0d133d5a6e"><td class="memItemLeft" align="right" valign="top"><a id="af855c092b79fe021a2317e0d133d5a6e" name="af855c092b79fe021a2317e0d133d5a6e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMatrix</b> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;matrix)</td></tr>
+<tr class="separator:af855c092b79fe021a2317e0d133d5a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -147,11 +154,11 @@ std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRig
 Friends</h2></td></tr>
 <tr class="memitem:a8c9c31b48daf1420aff80a499d3ec8fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a8c9c31b48daf1420aff80a499d3ec8fa">operator*</a> (<a class="el" href="class_matrix.html">Matrix</a> lhs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs)</td></tr>
 <tr class="separator:a8c9c31b48daf1420aff80a499d3ec8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaec6ca06b7c0c24c6468917141002428"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_tuple.html">Tuple</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aaec6ca06b7c0c24c6468917141002428">operator*</a> (class <a class="el" href="class_tuple.html">Tuple</a> &amp;lhs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs)</td></tr>
-<tr class="separator:aaec6ca06b7c0c24c6468917141002428"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70ff9c4ff7e9d9564a2f13b2fc9cef67"><td class="memItemLeft" align="right" valign="top"><a id="a70ff9c4ff7e9d9564a2f13b2fc9cef67" name="a70ff9c4ff7e9d9564a2f13b2fc9cef67"></a>
-class <a class="el" href="class_tuple.html">Tuple</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="class_matrix.html">Matrix</a> &amp;lhs, const class <a class="el" href="class_tuple.html">Tuple</a> &amp;rhs)</td></tr>
-<tr class="separator:a70ff9c4ff7e9d9564a2f13b2fc9cef67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab366f5c085e14a7dff5b88749031f448"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_tuple.html">Tuple</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab366f5c085e14a7dff5b88749031f448">operator*</a> (class <a class="el" href="class_tuple.html">Tuple</a> lhs, const <a class="el" href="class_matrix.html">Matrix</a> &amp;rhs)</td></tr>
+<tr class="separator:ab366f5c085e14a7dff5b88749031f448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ca2f71248cc4b767aed37b673d3ac4e"><td class="memItemLeft" align="right" valign="top"><a id="a5ca2f71248cc4b767aed37b673d3ac4e" name="a5ca2f71248cc4b767aed37b673d3ac4e"></a>
+class <a class="el" href="class_tuple.html">Tuple</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="class_matrix.html">Matrix</a> lhs, const class <a class="el" href="class_tuple.html">Tuple</a> &amp;rhs)</td></tr>
+<tr class="separator:a5ca2f71248cc4b767aed37b673d3ac4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7043f53623ba57891e957bc9769afb75" name="a7043f53623ba57891e957bc9769afb75"></a>
@@ -571,14 +578,14 @@ Sets matrix row and column count according to given 2-dimensional vector.</p>
 
 </div>
 </div>
-<a id="a57a13dfcac8ce83d6aedc1a0ea8861c9" name="a57a13dfcac8ce83d6aedc1a0ea8861c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57a13dfcac8ce83d6aedc1a0ea8861c9">&#9670;&#160;</a></span>operator*=()</h2>
+<a id="ab25d7df6ae0a248aa220b6191f56961a" name="ab25d7df6ae0a248aa220b6191f56961a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab25d7df6ae0a248aa220b6191f56961a">&#9670;&#160;</a></span>operator*=()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> Matrix::operator*= </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> &amp; Matrix::operator*= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
@@ -630,8 +637,8 @@ Sets matrix row and column count according to given 2-dimensional vector.</p>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="aaec6ca06b7c0c24c6468917141002428" name="aaec6ca06b7c0c24c6468917141002428"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaec6ca06b7c0c24c6468917141002428">&#9670;&#160;</a></span>operator* <span class="overload">[1/2]</span></h2>
+<a id="ab366f5c085e14a7dff5b88749031f448" name="ab366f5c085e14a7dff5b88749031f448"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab366f5c085e14a7dff5b88749031f448">&#9670;&#160;</a></span>operator* <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -642,7 +649,7 @@ Sets matrix row and column count according to given 2-dimensional vector.</p>
         <tr>
           <td class="memname">class <a class="el" href="class_tuple.html">Tuple</a> operator* </td>
           <td>(</td>
-          <td class="paramtype">class <a class="el" href="class_tuple.html">Tuple</a> &amp;&#160;</td>
+          <td class="paramtype">class <a class="el" href="class_tuple.html">Tuple</a>&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
@@ -733,8 +740,8 @@ Sets matrix row and column count according to given 2-dimensional vector.</p>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_matrix_8h_source.html">Matrix.h</a></li>
-<li>Matrix.cpp</li>
+<li>Types/<a class="el" href="_matrix_8h_source.html">Matrix.h</a></li>
+<li>Types/Matrix.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

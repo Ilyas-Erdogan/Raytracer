@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pointlight_0',['PointLight',['../class_point_light.html',1,'']]]
+  ['object_0',['Object',['../class_object.html',1,'']]]
 ];

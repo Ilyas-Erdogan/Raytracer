@@ -79,7 +79,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9f1a2cb6060647d4d95bdcababa79a00"><td class="memItemLeft" align="right" valign="top"><a id="a9f1a2cb6060647d4d95bdcababa79a00" name="a9f1a2cb6060647d4d95bdcababa79a00"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Intersection</b> (const double tValue, const std::shared_ptr&lt; class Object &gt; &amp;initObject)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Intersection</b> (const double tValue, const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;initObject)</td></tr>
 <tr class="separator:a9f1a2cb6060647d4d95bdcababa79a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2109c8d996a007baee76244d267b7787"><td class="memItemLeft" align="right" valign="top"><a id="a2109c8d996a007baee76244d267b7787" name="a2109c8d996a007baee76244d267b7787"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Intersection</b> (const <a class="el" href="class_intersection.html">Intersection</a> &amp;copyIntersection)</td></tr>
@@ -95,18 +95,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a33ba8340bb23cbc7cf72204d08c1a6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af90e310f01398d5feebff6febc836ffe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intersection.html#af90e310f01398d5feebff6febc836ffe">getT</a> () const</td></tr>
 <tr class="separator:af90e310f01398d5feebff6febc836ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af07a9b510f67560e607d143a4dc5e409"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; class Object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intersection.html#af07a9b510f67560e607d143a4dc5e409">getObject</a> () const</td></tr>
-<tr class="separator:af07a9b510f67560e607d143a4dc5e409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ffbc19c9fd44091be213f6b63249168"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intersection.html#a5ffbc19c9fd44091be213f6b63249168">getObject</a> () const</td></tr>
+<tr class="separator:a5ffbc19c9fd44091be213f6b63249168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6cb975a1a5f8ca993fe7e18cfae8baa"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_computation.html">Computation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intersection.html#af6cb975a1a5f8ca993fe7e18cfae8baa">prepareComputations</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray) const</td></tr>
+<tr class="separator:af6cb975a1a5f8ca993fe7e18cfae8baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af07a9b510f67560e607d143a4dc5e409" name="af07a9b510f67560e607d143a4dc5e409"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af07a9b510f67560e607d143a4dc5e409">&#9670;&#160;</a></span>getObject()</h2>
+<a id="a5ffbc19c9fd44091be213f6b63249168" name="a5ffbc19c9fd44091be213f6b63249168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ffbc19c9fd44091be213f6b63249168">&#9670;&#160;</a></span>getObject()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; Object &gt; Intersection::getObject </td>
+          <td class="memname">const std::shared_ptr&lt; <a class="el" href="class_object.html">Object</a> &gt; Intersection::getObject </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -210,6 +212,32 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if both t values are equal and if both object's point to the same object in memory, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="af6cb975a1a5f8ca993fe7e18cfae8baa" name="af6cb975a1a5f8ca993fe7e18cfae8baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6cb975a1a5f8ca993fe7e18cfae8baa">&#9670;&#160;</a></span>prepareComputations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_computation.html">Computation</a> Intersection::prepareComputations </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_ray.html">Ray</a> &amp;&#160;</td>
+          <td class="paramname"><em>ray</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Encapsulates data containing precomputed information related to the intersection.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_ray.html">Ray</a></td><td>ray The ray to be cast in the scene.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="class_computation.html">Computation</a> object containing all the necessary attributes. </dd></dl>
 
 </div>
 </div>

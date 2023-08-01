@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['writepixel_0',['writePixel',['../class_canvas.html#a7102f9785264f597dcf8060feead6314',1,'Canvas']]]
+  ['point_0',['Point',['../class_point.html',1,'']]],
+  ['pointlight_1',['PointLight',['../class_point_light.html',1,'']]],
+  ['preparecomputations_2',['prepareComputations',['../class_intersection.html#af6cb975a1a5f8ca993fe7e18cfae8baa',1,'Intersection']]]
 ];

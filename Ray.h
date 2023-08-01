@@ -11,7 +11,7 @@ public:
 	~Ray();
 
 	Point getOrigin() const;
-	Vector getDirection() const;
+	const Vector& getDirection() const;
 	Point getPosition(const double t) const;
 	Ray transform(class Matrix& transformation) const;
 private:

@@ -6,6 +6,7 @@ class PointLight
 {
 public:
 	PointLight(const Point& positionVal, const Colour& intensityVal);
+	PointLight(const PointLight& pointLightObject);
 	~PointLight();
 
 	const Colour& getIntensity() const;

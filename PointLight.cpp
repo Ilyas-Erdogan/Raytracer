@@ -5,6 +5,11 @@ PointLight::PointLight(const Point& positionVal, const Colour& intensityVal)
 {
 }
 
+PointLight::PointLight(const PointLight& pointLightObject)
+	: PointLight(pointLightObject.getPosition(), pointLightObject.getIntensity())
+{
+}
+
 PointLight::~PointLight()
 {
 }

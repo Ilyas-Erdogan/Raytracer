@@ -129,7 +129,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Canvas.h" />
+    <ClInclude Include="Computation.h" />
     <ClInclude Include="Intersection.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="PointLight.h" />
@@ -147,9 +149,13 @@
     <ClInclude Include="Types\Point.h" />
     <ClInclude Include="Types\Tuple.h" />
     <ClInclude Include="Types\Vector.h" />
+    <ClInclude Include="ViewTransform.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="Computation.cpp" />
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
@@ -168,6 +174,8 @@
     <ClCompile Include="Types\Point.cpp" />
     <ClCompile Include="Types\Tuple.cpp" />
     <ClCompile Include="Types\Vector.cpp" />
+    <ClCompile Include="ViewTransform.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Raytracer: Colour.h Source File</title>
+<title>Raytracer: Types/Colour.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,7 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,6 +67,11 @@ $(function() {
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4332622734cddde5f771acacb5010a61.html">Types</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Colour.h</div></div>
 </div><!--header-->
@@ -81,26 +85,28 @@ $(function() {
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="comment">// Constructors</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="class_colour.html">Colour</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> red = 0.0, <span class="keyword">const</span> <span class="keywordtype">double</span> green = 0.0, <span class="keyword">const</span> <span class="keywordtype">double</span> blue = 0.0);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_colour.html">~Colour</a>();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// Overloaded Operators</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_colour.html">Colour</a> <a class="code hl_function" href="class_colour.html#aeb3777c005b9732159eca6fe1f096667">operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_colour.html">Colour</a>&amp; rhs);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">friend</span> <a class="code hl_class" href="class_colour.html">Colour</a> operator*(<a class="code hl_class" href="class_colour.html">Colour</a> lhs, <span class="keyword">const</span> <a class="code hl_class" href="class_colour.html">Colour</a>&amp; rhs);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_colour.html">Colour</a> <a class="code hl_function" href="class_colour.html#aeb3777c005b9732159eca6fe1f096667">operator*=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> value);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">friend</span> <a class="code hl_class" href="class_colour.html">Colour</a> operator*(<a class="code hl_class" href="class_colour.html">Colour</a>&amp; lhs, <span class="keyword">const</span> <span class="keywordtype">double</span> value);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">friend</span> <a class="code hl_class" href="class_colour.html">Colour</a> operator*(<span class="keyword">const</span> <span class="keywordtype">double</span> value, <a class="code hl_class" href="class_colour.html">Colour</a>&amp; rhs);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// Getters</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_colour.html#ad14b85c11d96facb81fc2b2b94d714bf">getRed</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_colour.html#a3376a978ea368fc51e8bf27d128a6f87">getGreen</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_colour.html#a856029168a3ad2aba5f29de3bedb6f5c">getBlue</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_colour.html">Colour</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_tuple.html">Tuple</a>&amp; other);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_class" href="class_colour.html">~Colour</a>();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// Overloaded Operators</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_colour.html">Colour</a>&amp; <a class="code hl_function" href="class_colour.html#aba17fba16f65080d2177d748e9428d0c">operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_colour.html">Colour</a>&amp; rhs);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">friend</span> <a class="code hl_class" href="class_colour.html">Colour</a> operator*(<a class="code hl_class" href="class_colour.html">Colour</a> lhs, <span class="keyword">const</span> <a class="code hl_class" href="class_colour.html">Colour</a>&amp; rhs);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="class_colour.html">Colour</a>&amp; <a class="code hl_function" href="class_colour.html#aba17fba16f65080d2177d748e9428d0c">operator*=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">friend</span> <a class="code hl_class" href="class_colour.html">Colour</a> operator*(<a class="code hl_class" href="class_colour.html">Colour</a>&amp; lhs, <span class="keyword">const</span> <span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">friend</span> <a class="code hl_class" href="class_colour.html">Colour</a> operator*(<span class="keyword">const</span> <span class="keywordtype">double</span> value, <a class="code hl_class" href="class_colour.html">Colour</a>&amp; rhs);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_colour.html#ad14b85c11d96facb81fc2b2b94d714bf">getRed</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_colour.html#a3376a978ea368fc51e8bf27d128a6f87">getGreen</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_colour.html#a856029168a3ad2aba5f29de3bedb6f5c">getBlue</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="ttc" id="aclass_colour_html"><div class="ttname"><a href="class_colour.html">Colour</a></div><div class="ttdef"><b>Definition</b> Colour.h:6</div></div>
-<div class="ttc" id="aclass_colour_html_a3376a978ea368fc51e8bf27d128a6f87"><div class="ttname"><a href="class_colour.html#a3376a978ea368fc51e8bf27d128a6f87">Colour::getGreen</a></div><div class="ttdeci">double getGreen() const</div><div class="ttdef"><b>Definition</b> Colour.cpp:72</div></div>
-<div class="ttc" id="aclass_colour_html_a856029168a3ad2aba5f29de3bedb6f5c"><div class="ttname"><a href="class_colour.html#a856029168a3ad2aba5f29de3bedb6f5c">Colour::getBlue</a></div><div class="ttdeci">double getBlue() const</div><div class="ttdef"><b>Definition</b> Colour.cpp:82</div></div>
-<div class="ttc" id="aclass_colour_html_ad14b85c11d96facb81fc2b2b94d714bf"><div class="ttname"><a href="class_colour.html#ad14b85c11d96facb81fc2b2b94d714bf">Colour::getRed</a></div><div class="ttdeci">double getRed() const</div><div class="ttdef"><b>Definition</b> Colour.cpp:62</div></div>
-<div class="ttc" id="aclass_colour_html_aeb3777c005b9732159eca6fe1f096667"><div class="ttname"><a href="class_colour.html#aeb3777c005b9732159eca6fe1f096667">Colour::operator*=</a></div><div class="ttdeci">Colour operator*=(const Colour &amp;rhs)</div><div class="ttdef"><b>Definition</b> Colour.cpp:20</div></div>
+<div class="ttc" id="aclass_colour_html_a3376a978ea368fc51e8bf27d128a6f87"><div class="ttname"><a href="class_colour.html#a3376a978ea368fc51e8bf27d128a6f87">Colour::getGreen</a></div><div class="ttdeci">double getGreen() const</div><div class="ttdef"><b>Definition</b> Colour.cpp:79</div></div>
+<div class="ttc" id="aclass_colour_html_a856029168a3ad2aba5f29de3bedb6f5c"><div class="ttname"><a href="class_colour.html#a856029168a3ad2aba5f29de3bedb6f5c">Colour::getBlue</a></div><div class="ttdeci">double getBlue() const</div><div class="ttdef"><b>Definition</b> Colour.cpp:89</div></div>
+<div class="ttc" id="aclass_colour_html_aba17fba16f65080d2177d748e9428d0c"><div class="ttname"><a href="class_colour.html#aba17fba16f65080d2177d748e9428d0c">Colour::operator*=</a></div><div class="ttdeci">Colour &amp; operator*=(const Colour &amp;rhs)</div><div class="ttdef"><b>Definition</b> Colour.cpp:27</div></div>
+<div class="ttc" id="aclass_colour_html_ad14b85c11d96facb81fc2b2b94d714bf"><div class="ttname"><a href="class_colour.html#ad14b85c11d96facb81fc2b2b94d714bf">Colour::getRed</a></div><div class="ttdeci">double getRed() const</div><div class="ttdef"><b>Definition</b> Colour.cpp:69</div></div>
 <div class="ttc" id="aclass_tuple_html"><div class="ttname"><a href="class_tuple.html">Tuple</a></div><div class="ttdef"><b>Definition</b> Tuple.h:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

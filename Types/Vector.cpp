@@ -25,5 +25,5 @@ Vector::~Vector()
 */
 Vector Vector::reflect(const Vector& normal) const
 {
-	return (*this - normal * 2 * this->dotProduct(normal));
+	return (*this - (normal * (2 * this->dotProduct(normal))));
 }

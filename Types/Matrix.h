@@ -19,13 +19,14 @@ public:
 	bool operator==(const Matrix& rhs) const;
 	bool operator!=(const Matrix& rhs) const;
 
-	Matrix operator*=(const Matrix& rhs);
+	Matrix& operator*=(const Matrix& rhs);
 	friend Matrix operator*(Matrix lhs, const Matrix& rhs);
 
-	friend class Tuple operator*(class Tuple& lhs, const Matrix& rhs);
-	friend class Tuple operator*(Matrix& lhs, const class Tuple& rhs);
+	friend class Tuple operator*(class Tuple lhs, const Matrix& rhs);
+	friend class Tuple operator*(Matrix lhs, const class Tuple& rhs);
 	
 	// Utilities
+	const std::vector<std::vector<double>>& getMatrix() const;
 	Matrix getIdentityMatrix() const;
 	Matrix getTransposedMatrix() const;
 	double getDeterminant() const;
@@ -34,6 +35,9 @@ public:
 	double getCofactor(int row, int column) const;
 	bool isInvertible() const;
 	Matrix getInverse() const;
+
+	// Setters
+	void setMatrix(const Matrix& matrix);
 protected:
 	// Constants
 	const double EPSILON{ 0.00001 };

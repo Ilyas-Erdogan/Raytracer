@@ -104,7 +104,7 @@ void Material::setDiffuse(const double diffuseVal)
 */
 void Material::setSpecular(const double specularVal)
 {
-	this->diffuse = specularVal;
+	this->specular = specularVal;
 }
 
 /**

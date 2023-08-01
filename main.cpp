@@ -16,6 +16,9 @@
 #include "Intersection.h"
 #include "Material.h"
 #include "PointLight.h"
+#include "World.h"
+#include "Camera.h"
+#include "ViewTransform.h"
 #include <chrono>
 
 
@@ -23,64 +26,59 @@ int main()
 {
 	const double PI = 3.1415926535897932384626433832795028841971693993751058209;
 
-	Point ray_origin(0, 0, -5);
-	double wall_z = 10;
-	double wall_size = 7;
+	std::shared_ptr<Sphere> floor = std::make_shared<Sphere>();
+	floor->setTransform(Scale(10, 0.01, 10));
+	std::shared_ptr<Material> material = std::make_shared<Material>();
+	material->setColour(Colour(1, 0.9, 0.9));
+	material->setSpecular(0);
+	floor->setMaterial(material);
 
-	double canvas_pixels = 100;
-	double pixel_size = wall_size / canvas_pixels;
-	double half = wall_size / 2.0;
-	double world_x, world_y;
+	std::shared_ptr<Sphere> leftWall = std::make_shared<Sphere>();
+	leftWall->setTransform(Translation(0, 0, 5) * RotationY(-PI / 4) * RotationX(PI / 2) * Scale(10, 0.01, 10));
+	leftWall->setMaterial(material);
+
+	std::shared_ptr<Sphere> rightWall = std::make_shared<Sphere>();
+	rightWall->setTransform(Translation(0, 0, 5) * RotationY(PI / 4) * RotationX(PI / 2) * Scale(10, 0.1, 10));
+	rightWall->setMaterial(material);
+
+	std::shared_ptr<Sphere> middle = std::make_shared<Sphere>();
+	middle->setTransform(Translation(-0.5, 1, 0.5));
+	std::shared_ptr<Material> largeMaterial = std::make_shared<Material>();
+	largeMaterial->setColour(Colour(0.1, 1, 0.5));
+	largeMaterial->setDiffuse(0.7);
+	largeMaterial->setSpecular(0.3);
+	middle->setMaterial(largeMaterial);
+
+	std::shared_ptr<Sphere> right = std::make_shared<Sphere>();
+	right->setTransform(Translation(1.5, 0.5, -0.5) * Scale(0.5, 0.5, 0.5));
+	std::shared_ptr<Material> rightMaterial = std::make_shared<Material>();
+	rightMaterial->setColour(Colour(0.5, 1, 0.1));
+	rightMaterial->setDiffuse(0.7);
+	rightMaterial->setSpecular(0.3);
+	right->setMaterial(rightMaterial);
+
+	std::shared_ptr<Sphere> left = std::make_shared<Sphere>();
+	left->setTransform(Translation(-1.5, 0.33, -0.75) * Scale(0.33, 0.33, 0.33));
+	std::shared_ptr<Material> leftMaterial = std::make_shared<Material>();
+	leftMaterial->setColour(Colour(1, 0.8, 0.1));
+	leftMaterial->setDiffuse(0.7);
+	leftMaterial->setSpecular(0.3);
+	left->setMaterial(leftMaterial);
+
+	World w(false);
+	w.setLight(PointLight(Point(-10, 10, -10), Colour(1, 1, 1)));
+	w.addObjects(floor);
+	w.addObjects(leftWall);
+	w.addObjects(rightWall);
+	w.addObjects(middle);
+	w.addObjects(right);
+	w.addObjects(left);
 	
-	Colour black;
-	Canvas c(100, 100, black);
-	Colour red(1, 0, 0);
-	std::shared_ptr<Sphere> shape = std::make_shared<Sphere>();
-	std::shared_ptr<Material> material = std::make_shared<Material>(Colour(1, 0.2, 1));
-	shape->setMaterial(material);
+	Camera camera(1000, 500, PI / 3);
+	camera.setTransform(ViewTransform(Point(0, 1.5, -5), Point(0, 1, 0), Vector(0, 1, 0)));
+	Canvas canvas = camera.render(w);
 
-	Point lightPosition(-10, 10, -10);
-	Colour lightColour(1, 1, 1);
-	PointLight light(lightPosition, lightColour);
-
-	//shape->setTransform(Scale(1, 0.5, 1)); // VARIATION ONE
-	//shape->setTransform(Scale(0.5, 1, 1)); // VARIATION TWO
-	//shape->setTransform(RotationZ(PI / 4) * Scale(0.5, 1, 1)); // VARIATION THREE
-	//shape->setTransform(Shearing(1, 0, 0, 0, 0, 0) * Scale(0.5, 1, 1)); // VARIATION FOUR
-
-	std::chrono::high_resolution_clock::time_point begin;
-	std::chrono::high_resolution_clock::time_point end;
-	std::chrono::nanoseconds elapsed;
-	std::chrono::nanoseconds sum = std::chrono::nanoseconds::zero();
-	for (int y = 0; y < canvas_pixels; y++)
-	{
-		begin = std::chrono::high_resolution_clock::now();
-		world_y = half - pixel_size * y;
-		for (int x = 0; x < canvas_pixels; x++)
-		{
-			world_x = -half + pixel_size * x;
-
-			Point position(world_x, world_y, wall_z);
-			Ray r(ray_origin, (position - ray_origin).normalizeVector());
-			std::vector<Intersection> xs = shape->intersect(r);
-			if (shape->hit(xs) != nullptr)
-			{
-				Point point = r.getPosition(shape->hit(xs)->getT());
-				Sphere s = *shape->hit(xs)->getObject();
-				Vector normal = s.normalAt(point);
-				Vector eye = -r.getDirection();
-				c.writePixel(x, y, material->lighting(light, point, eye, normal));
-			}
-			
-		}
-		end = std::chrono::high_resolution_clock::now();
-		elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-		sum += elapsed;
-		printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
-	}
-
-	c.convertToPPM("LitSphere");
-	std::cout << "DONE";
+	canvas.convertToPPM("Scene");
 
 	return 0;
 }

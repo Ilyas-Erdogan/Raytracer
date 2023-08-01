@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['operator_21_3d_0',['operator!=',['../class_intersection.html#ab9aeccc9bb38fcc5766fcec44d8c53ec',1,'Intersection']]],
-  ['operator_3c_1',['operator&lt;',['../class_intersection.html#a33ba8340bb23cbc7cf72204d08c1a6ca',1,'Intersection']]],
-  ['operator_3d_3d_2',['operator==',['../class_intersection.html#aa4bb9ee001e66f9f4ec9047ff64cfa19',1,'Intersection::operator==()'],['../class_material.html#aa0519b7438e5ebdcc86d17817c96016d',1,'Material::operator==()']]]
+  ['intersect_0',['intersect',['../class_sphere.html#a8dd0865acccbc51c13db56fe08712feb',1,'Sphere']]],
+  ['intersection_1',['Intersection',['../class_intersection.html',1,'']]],
+  ['intersectworld_2',['intersectWorld',['../class_world.html#ae0dac2812460f3f2a5e7653ef9a34979',1,'World']]],
+  ['isinvertible_3',['isInvertible',['../class_matrix.html#ab50fe8dcbce53d9516d9c81ed1e4751c',1,'Matrix']]],
+  ['ispoint_4',['isPoint',['../class_tuple.html#add3bed4f0cfd5675b1af4bc5c814a877',1,'Tuple']]],
+  ['isvector_5',['isVector',['../class_tuple.html#afc1eae02dcea798e50b670dfc5c5240a',1,'Tuple']]]
 ];

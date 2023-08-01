@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ray_0',['Ray',['../class_ray.html',1,'Ray'],['../class_ray.html#a7d9911c815bca78ec4e1f2f8ba1378ab',1,'Ray::Ray(const Point originPt, const Vector directionVec)'],['../class_ray.html#a155a0b6573cf6a9a2256eb5062523daf',1,'Ray::Ray(const Ray &amp;ray)']]],
-  ['raytracer_1',['Raytracer',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['material_0',['Material',['../class_material.html',1,'']]],
+  ['matrix_1',['Matrix',['../class_matrix.html',1,'Matrix'],['../class_matrix.html#a7043f53623ba57891e957bc9769afb75',1,'Matrix::Matrix(const int rowLimit, const int columnLimit)'],['../class_matrix.html#a2ce922425e2f68eef51961f197216473',1,'Matrix::Matrix(const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;matrixSet)']]]
 ];

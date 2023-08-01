@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lighting_0',['lighting',['../class_material.html#a0a3bbc25f2a62f26b2b14882cb732e3c',1,'Material']]]
+  ['dotproduct_0',['dotProduct',['../class_tuple.html#a72a46ab99133cf0baebd204fe16166e8',1,'Tuple']]]
 ];

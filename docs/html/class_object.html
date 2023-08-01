@@ -87,6 +87,12 @@ Inheritance diagram for Object:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a4101d3b995028bf4d3edd5837e32b05f"><td class="memItemLeft" align="right" valign="top"><a id="a4101d3b995028bf4d3edd5837e32b05f" name="a4101d3b995028bf4d3edd5837e32b05f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; &amp;materialVal)</td></tr>
+<tr class="separator:a4101d3b995028bf4d3edd5837e32b05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db600361a10b0d26f8c6cd772137414"><td class="memItemLeft" align="right" valign="top"><a id="a5db600361a10b0d26f8c6cd772137414" name="a5db600361a10b0d26f8c6cd772137414"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;transformMatrix)</td></tr>
+<tr class="separator:a5db600361a10b0d26f8c6cd772137414"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2b0d3dca5bbd3cf0fb6b759542cf1f8"><td class="memItemLeft" align="right" valign="top"><a id="af2b0d3dca5bbd3cf0fb6b759542cf1f8" name="af2b0d3dca5bbd3cf0fb6b759542cf1f8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="class_object.html">Object</a> &amp;copyObject)</td></tr>
 <tr class="separator:af2b0d3dca5bbd3cf0fb6b759542cf1f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,10 +108,136 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const
 <tr class="memitem:abf36f4494d00df9279aa095d100b7d5a"><td class="memItemLeft" align="right" valign="top"><a id="abf36f4494d00df9279aa095d100b7d5a" name="abf36f4494d00df9279aa095d100b7d5a"></a>
 std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getIntersections</b> (const std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersections) const</td></tr>
 <tr class="separator:abf36f4494d00df9279aa095d100b7d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73a3702855f7b5d74cde91613102762e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a73a3702855f7b5d74cde91613102762e">getTransform</a> () const</td></tr>
+<tr class="separator:a73a3702855f7b5d74cde91613102762e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aa22f0904b25380707ddd849305ae53"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; class <a class="el" href="class_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a9aa22f0904b25380707ddd849305ae53">getMaterial</a> () const</td></tr>
+<tr class="separator:a9aa22f0904b25380707ddd849305ae53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae24935aebda3ca1d0a8d69d2a575a171"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ae24935aebda3ca1d0a8d69d2a575a171">setTransform</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;transformMatrix)</td></tr>
+<tr class="separator:ae24935aebda3ca1d0a8d69d2a575a171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ccc337698584ef2dcd767e2d12d44d"><td class="memItemLeft" align="right" valign="top"><a id="a49ccc337698584ef2dcd767e2d12d44d" name="a49ccc337698584ef2dcd767e2d12d44d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; newMaterial)</td></tr>
+<tr class="separator:a49ccc337698584ef2dcd767e2d12d44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b7e0beda4ecd54d039b371c238c2ac7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a1b7e0beda4ecd54d039b371c238c2ac7">normalAt</a> (const <a class="el" href="class_point.html">Point</a> &amp;p) const</td></tr>
+<tr class="separator:a1b7e0beda4ecd54d039b371c238c2ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4cb3e37d70baf9f3f4ec9ea4249d902"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ab4cb3e37d70baf9f3f4ec9ea4249d902">hit</a> (std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersctionVec) const</td></tr>
+<tr class="separator:ab4cb3e37d70baf9f3f4ec9ea4249d902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9aa22f0904b25380707ddd849305ae53" name="a9aa22f0904b25380707ddd849305ae53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aa22f0904b25380707ddd849305ae53">&#9670;&#160;</a></span>getMaterial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; Object::getMaterial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>An immutable reference to teh current material of the <a class="el" href="class_sphere.html">Sphere</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a73a3702855f7b5d74cde91613102762e" name="a73a3702855f7b5d74cde91613102762e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73a3702855f7b5d74cde91613102762e">&#9670;&#160;</a></span>getTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_matrix.html">Matrix</a> &amp; Object::getTransform </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>An immutable reference to the current transformation of the <a class="el" href="class_sphere.html">Sphere</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ab4cb3e37d70baf9f3f4ec9ea4249d902" name="ab4cb3e37d70baf9f3f4ec9ea4249d902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4cb3e37d70baf9f3f4ec9ea4249d902">&#9670;&#160;</a></span>hit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; Object::hit </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>intersectionVec</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a hit from a vector of intersections.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector&lt;Intersection&gt;</td><td>intersectionVec </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1b7e0beda4ecd54d039b371c238c2ac7" name="a1b7e0beda4ecd54d039b371c238c2ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b7e0beda4ecd54d039b371c238c2ac7">&#9670;&#160;</a></span>normalAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector.html">Vector</a> Object::normalAt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>worldPoint</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finds the normal at the given point.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_point.html">Point</a></td><td>worldPoint Refernce to the point in the world space to normalize.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of the normal at the given point. </dd></dl>
+
+</div>
+</div>
+<a id="ae24935aebda3ca1d0a8d69d2a575a171" name="ae24935aebda3ca1d0a8d69d2a575a171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae24935aebda3ca1d0a8d69d2a575a171">&#9670;&#160;</a></span>setTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Object::setTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>transformMatrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the calling sphere's transformation matrix.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_matrix.html">Matrix</a></td><td>transformMatrix Reference to the matrix to be associated with the <a class="el" href="class_sphere.html">Sphere</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_object_8h_source.html">Object.h</a></li>
-<li>Object.cpp</li>
+<li>Shapes/<a class="el" href="_object_8h_source.html">Object.h</a></li>
+<li>Shapes/Object.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
