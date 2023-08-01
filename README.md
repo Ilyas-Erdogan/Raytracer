@@ -2,20 +2,8 @@
 [CLASS DOCUMENTATION](https://ilyas-erdogan.github.io/Raytracer/html/index.html)
 
 # Example 1 - Simple Projectile Render
-<<<<<<< HEAD
 <details>
   <summary>Reveal Code Sample</summary>
-	# Sample Code
-	```
-	struct Projectile
-	{
-		Point Position;
-		Vector Velocity;
-		Projectile(Point p, Vector v) : Position{ p }, Velocity{ v } {};
-	};
-=======
-<details> <summary>Reveal Code Sample</summary>
-	
 # Code Sample
 	
 ```cpp
@@ -26,7 +14,6 @@ struct Projectile
 	Vector Velocity;
 	Projectile(Point p, Vector v) : Position{ p }, Velocity{ v } {};
 };
->>>>>>> 5ecb62df0c4911277f09c2a37ab77ea4601e2566
 
 struct Environment
 {
