@@ -1,6 +1,6 @@
 #include "Sphere.h"
 #include "../Ray.h"
-#include "../Intersection.h"
+#include "../Types/Intersection.h"
 
 #include <cmath>
 

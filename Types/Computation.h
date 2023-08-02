@@ -1,7 +1,7 @@
 #pragma once
-#include "Types/Point.h"
-#include "Types/Vector.h"
-#include "Shapes/Object.h"
+#include "../Types/Point.h"
+#include "../Types/Vector.h"
+#include "../Primitives/Object.h"
 
 class Computation
 {

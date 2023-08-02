@@ -1,6 +1,6 @@
 #include "World.h"
 #include "PointLight.h"
-#include "Shapes/Sphere.h"
+#include "Primitives/Sphere.h"
 #include "Transformations/Scale.h"
 #include <algorithm>
 

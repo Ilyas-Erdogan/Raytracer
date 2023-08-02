@@ -1,5 +1,5 @@
 #include "ViewTransform.h"
-#include "Transformations/Translation.h"
+#include "../Transformations/Translation.h"
 
 /**
 * Constructs a ViewTransformation object contatining the corresponding transformation matrix.

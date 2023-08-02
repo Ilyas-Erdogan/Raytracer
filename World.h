@@ -2,7 +2,7 @@
 #include <vector>
 #include <memory>
 #include "PointLight.h"
-#include "Intersection.h"
+#include "Types/Intersection.h"
 #include "Ray.h"
 
 class World

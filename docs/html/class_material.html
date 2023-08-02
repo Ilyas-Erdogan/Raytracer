@@ -102,8 +102,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4179bb759874d311afbb2529f794f407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a168129bdfc0437561788922f98f839d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a168129bdfc0437561788922f98f839d3">setShininess</a> (const double shininessVal)</td></tr>
 <tr class="separator:a168129bdfc0437561788922f98f839d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a3bbc25f2a62f26b2b14882cb732e3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a0a3bbc25f2a62f26b2b14882cb732e3c">lighting</a> (const <a class="el" href="class_point_light.html">PointLight</a> &amp;light, const <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeV, const <a class="el" href="class_vector.html">Vector</a> &amp;normalV) const</td></tr>
-<tr class="separator:a0a3bbc25f2a62f26b2b14882cb732e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9caebec73c8df3331158d8837c42343"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ae9caebec73c8df3331158d8837c42343">lighting</a> (const <a class="el" href="class_point_light.html">PointLight</a> &amp;light, const <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeV, const <a class="el" href="class_vector.html">Vector</a> &amp;normalV, const bool inShadow) const</td></tr>
+<tr class="separator:ae9caebec73c8df3331158d8837c42343"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4958bdd3908631e170c6eff9a88bd706" name="a4958bdd3908631e170c6eff9a88bd706"></a>
@@ -254,8 +254,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0a3bbc25f2a62f26b2b14882cb732e3c" name="a0a3bbc25f2a62f26b2b14882cb732e3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a3bbc25f2a62f26b2b14882cb732e3c">&#9670;&#160;</a></span>lighting()</h2>
+<a id="ae9caebec73c8df3331158d8837c42343" name="ae9caebec73c8df3331158d8837c42343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9caebec73c8df3331158d8837c42343">&#9670;&#160;</a></span>lighting()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +282,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>normalV</em>&#160;</td>
+          <td class="paramname"><em>normalV</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>inShadow</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

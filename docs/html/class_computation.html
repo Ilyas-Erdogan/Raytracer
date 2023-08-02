@@ -78,8 +78,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a862c34f65db04e5bbdd8ad22b7797323"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a862c34f65db04e5bbdd8ad22b7797323">Computation</a> (const double tVal, const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;initObject, const <a class="el" href="class_point.html">Point</a> &amp;pointVal, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeVVal, const <a class="el" href="class_vector.html">Vector</a> &amp;normalVVal, const bool insideVal)</td></tr>
-<tr class="separator:a862c34f65db04e5bbdd8ad22b7797323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0526e6c825ae98f0933e2e97ab2ecb4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a0526e6c825ae98f0933e2e97ab2ecb4d">Computation</a> (const double tVal, const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;initObject, const <a class="el" href="class_point.html">Point</a> &amp;pointVal, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeVVal, const <a class="el" href="class_vector.html">Vector</a> &amp;normalVVal, const bool insideVal, const <a class="el" href="class_point.html">Point</a> &amp;overPointVal)</td></tr>
+<tr class="separator:a0526e6c825ae98f0933e2e97ab2ecb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b712d6c4254d41ec458a781c7497379"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a8b712d6c4254d41ec458a781c7497379">getT</a> () const</td></tr>
 <tr class="separator:a8b712d6c4254d41ec458a781c7497379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c5df4b0a61da66d3c6133315bccc16d"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a9c5df4b0a61da66d3c6133315bccc16d">getObject</a> () const</td></tr>
@@ -90,12 +90,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab071a72c6c2be1030ddb6192742c09b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0666bf24fca0fcd1e37d5ad4dee064"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#afb0666bf24fca0fcd1e37d5ad4dee064">getNormalV</a> () const</td></tr>
 <tr class="separator:afb0666bf24fca0fcd1e37d5ad4dee064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa183c44bce99e9bb96df7f70a41df753"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_point.html">Point</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#aa183c44bce99e9bb96df7f70a41df753">getOverPoint</a> () const</td></tr>
+<tr class="separator:aa183c44bce99e9bb96df7f70a41df753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae661dc99c134f75f9e592d07954ed773"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">isInside</a> () const</td></tr>
 <tr class="separator:ae661dc99c134f75f9e592d07954ed773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a862c34f65db04e5bbdd8ad22b7797323" name="a862c34f65db04e5bbdd8ad22b7797323"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a862c34f65db04e5bbdd8ad22b7797323">&#9670;&#160;</a></span>Computation()</h2>
+<a id="a0526e6c825ae98f0933e2e97ab2ecb4d" name="a0526e6c825ae98f0933e2e97ab2ecb4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0526e6c825ae98f0933e2e97ab2ecb4d">&#9670;&#160;</a></span>Computation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,7 +136,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>insideVal</em>&#160;</td>
+          <td class="paramname"><em>insideVal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>overPointVal</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -209,6 +217,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa183c44bce99e9bb96df7f70a41df753" name="aa183c44bce99e9bb96df7f70a41df753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa183c44bce99e9bb96df7f70a41df753">&#9670;&#160;</a></span>getOverPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_point.html">Point</a> &amp; Computation::getOverPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>An immutable reference to the over point. </dd></dl>
+
+</div>
+</div>
 <a id="a99f03b3f27a4e36f3d8dde5789d62ebc" name="a99f03b3f27a4e36f3d8dde5789d62ebc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a99f03b3f27a4e36f3d8dde5789d62ebc">&#9670;&#160;</a></span>getPoint()</h2>
 
@@ -264,8 +290,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_computation_8h_source.html">Computation.h</a></li>
-<li>Computation.cpp</li>
+<li>Types/<a class="el" href="_computation_8h_source.html">Computation.h</a></li>
+<li>Types/Computation.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

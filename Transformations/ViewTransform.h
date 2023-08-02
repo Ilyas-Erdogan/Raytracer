@@ -1,7 +1,7 @@
 #pragma once
-#include "Types/Matrix.h"
-#include "Types/Point.h"
-#include "Types/Vector.h"
+#include "../Types/Matrix.h"
+#include "../Types/Point.h"
+#include "../Types/Vector.h"
 
 class ViewTransform :
     public Matrix

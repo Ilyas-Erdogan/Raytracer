@@ -11,14 +11,14 @@
 #include "Transformations/RotationZ.h"
 #include "Transformations/Shearing.h"
 #include "Ray.h"
-#include "Shapes/Object.h"
-#include "Shapes/Sphere.h"
-#include "Intersection.h"
+#include "Primitives/Object.h"
+#include "Primitives/Sphere.h"
+#include "Types/Intersection.h"
 #include "Material.h"
 #include "PointLight.h"
 #include "World.h"
 #include "Camera.h"
-#include "ViewTransform.h"
+#include "Transformations/ViewTransform.h"
 #include <chrono>
 #include <utility>
 #include <map>
@@ -81,20 +81,5 @@ int main()
 	Canvas canvas = camera.render(w);
 
 	canvas.convertToPPM("Scene");
-
-//	std::map<Matrix, Matrix> table;
-//	Matrix m1({ {1, 2}, {3, 4 } });
-//	Matrix m2({ {5, 6}, {7, 8} });
-//	Matrix m3({ {4,3}, {2,1} });
-////	table.insert(std::pair<Matrix, Matrix>(m1, m2));
-//	table[m1] = m2;
-//	table[m3] = m1;
-//	for (auto row : table[m3].getMatrix())
-//	{
-//		for (auto col : row)
-//		{
-//			std::cout << col << "\n";
-//		}
-//	}
 	return 0;
 }

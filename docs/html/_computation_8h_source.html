@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Raytracer: Computation.h Source File</title>
+<title>Raytracer: Types/Computation.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,7 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,20 +67,25 @@ $(function() {
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4332622734cddde5f771acacb5010a61.html">Types</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Computation.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Types/Point.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;Types/Vector.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Shapes/Object.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../Types/Point.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../Types/Vector.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Primitives/Object.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_computation.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="class_computation.html">Computation</a></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">// Constructors</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_computation.html">Computation</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> tVal, <span class="keyword">const</span> std::shared_ptr&lt;class Object&gt;&amp; initObject, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; pointVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; eyeVVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; normalVVal, <span class="keyword">const</span> <span class="keywordtype">bool</span> insideVal);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_computation.html">Computation</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> tVal, <span class="keyword">const</span> std::shared_ptr&lt;class Object&gt;&amp; initObject, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; pointVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; eyeVVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; normalVVal, <span class="keyword">const</span> <span class="keywordtype">bool</span> insideVal, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; overPointVal);</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_class" href="class_computation.html">~Computation</a>();</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// Getters</span></div>
@@ -90,23 +94,26 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; <a class="code hl_function" href="class_computation.html#a99f03b3f27a4e36f3d8dde5789d62ebc">getPoint</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; <a class="code hl_function" href="class_computation.html#ab071a72c6c2be1030ddb6192742c09b0">getEyeV</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; <a class="code hl_function" href="class_computation.html#afb0666bf24fca0fcd1e37d5ad4dee064">getNormalV</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">isInside</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">double</span> t;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::shared_ptr&lt;class Object&gt; object;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="class_point.html">Point</a> point;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_vector.html">Vector</a> eyeV;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_vector.html">Vector</a> normalV;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">bool</span> inside;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; <a class="code hl_function" href="class_computation.html#aa183c44bce99e9bb96df7f70a41df753">getOverPoint</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">isInside</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">double</span> t;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::shared_ptr&lt;class Object&gt; object;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_point.html">Point</a> point;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_vector.html">Vector</a> eyeV;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_vector.html">Vector</a> normalV;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span> inside;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_class" href="class_point.html">Point</a> overPoint;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="ttc" id="aclass_computation_html"><div class="ttname"><a href="class_computation.html">Computation</a></div><div class="ttdef"><b>Definition</b> Computation.h:7</div></div>
 <div class="ttc" id="aclass_computation_html_a8b712d6c4254d41ec458a781c7497379"><div class="ttname"><a href="class_computation.html#a8b712d6c4254d41ec458a781c7497379">Computation::getT</a></div><div class="ttdeci">double getT() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:21</div></div>
 <div class="ttc" id="aclass_computation_html_a99f03b3f27a4e36f3d8dde5789d62ebc"><div class="ttname"><a href="class_computation.html#a99f03b3f27a4e36f3d8dde5789d62ebc">Computation::getPoint</a></div><div class="ttdeci">const Point &amp; getPoint() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:37</div></div>
 <div class="ttc" id="aclass_computation_html_a9c5df4b0a61da66d3c6133315bccc16d"><div class="ttname"><a href="class_computation.html#a9c5df4b0a61da66d3c6133315bccc16d">Computation::getObject</a></div><div class="ttdeci">const std::shared_ptr&lt; class Object &gt; getObject() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:29</div></div>
+<div class="ttc" id="aclass_computation_html_aa183c44bce99e9bb96df7f70a41df753"><div class="ttname"><a href="class_computation.html#aa183c44bce99e9bb96df7f70a41df753">Computation::getOverPoint</a></div><div class="ttdeci">const Point &amp; getOverPoint() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:61</div></div>
 <div class="ttc" id="aclass_computation_html_ab071a72c6c2be1030ddb6192742c09b0"><div class="ttname"><a href="class_computation.html#ab071a72c6c2be1030ddb6192742c09b0">Computation::getEyeV</a></div><div class="ttdeci">const Vector &amp; getEyeV() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:45</div></div>
-<div class="ttc" id="aclass_computation_html_ae661dc99c134f75f9e592d07954ed773"><div class="ttname"><a href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">Computation::isInside</a></div><div class="ttdeci">bool isInside() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:61</div></div>
+<div class="ttc" id="aclass_computation_html_ae661dc99c134f75f9e592d07954ed773"><div class="ttname"><a href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">Computation::isInside</a></div><div class="ttdeci">bool isInside() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:69</div></div>
 <div class="ttc" id="aclass_computation_html_afb0666bf24fca0fcd1e37d5ad4dee064"><div class="ttname"><a href="class_computation.html#afb0666bf24fca0fcd1e37d5ad4dee064">Computation::getNormalV</a></div><div class="ttdeci">const Vector &amp; getNormalV() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:53</div></div>
 <div class="ttc" id="aclass_point_html"><div class="ttname"><a href="class_point.html">Point</a></div><div class="ttdef"><b>Definition</b> Point.h:6</div></div>
 <div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdef"><b>Definition</b> Vector.h:6</div></div>

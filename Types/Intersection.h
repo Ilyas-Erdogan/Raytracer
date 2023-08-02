@@ -1,7 +1,7 @@
 #pragma once
 #include<memory>
 #include "Computation.h"
-#include "Ray.h"
+#include "../Ray.h"
 
 class Intersection
 {

@@ -277,7 +277,7 @@ int main()
 </details>
 
 # Output
-Unoptomized Render Time: ~73 minutes.
-Optomized Render Time: 55 seconds.
-By caching inverse matrices, the raytracer can now render ~83% faster!
+### Unoptomized Render Time: ~73 minutes.
+### Optomized Render Time: 55 seconds.
+By caching inverse matrices, the raytracer can now render __~83% faster__!
 ![Renders/Scene.png](Renders/Scene.png "a title")
