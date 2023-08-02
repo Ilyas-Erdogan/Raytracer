@@ -5,20 +5,26 @@
 Object::Object()
 	: transform{ Matrix(4, 4).getIdentityMatrix() }, material{ std::make_shared<Material>() }
 {
+	this->cachedInverse = this->transform;
+	this->cachedInverseTranspose = this->cachedInverse.getTransposedMatrix();
 }
 
 Object::Object(const std::shared_ptr<Material>& materialVal)
 	: transform{ Matrix(4, 4).getIdentityMatrix() }, material{ materialVal }
 {
+	this->cachedInverse = this->transform;
+	this->cachedInverseTranspose = this->cachedInverse.getTransposedMatrix();
 }
 
 Object::Object(const Matrix& transformMatrix)
-	: transform {transformMatrix}
+	: transform {transformMatrix}, material{std::make_shared<Material>()}
 {
+	this->cachedInverse = this->transform.getInverse();
+	this->cachedInverseTranspose = this->cachedInverse.getTransposedMatrix();
 }
 
 Object::Object(const Object& copyObject)
-	: Object(Matrix(4, 4).getIdentityMatrix())
+	: transform{copyObject.getTransform()}, material{copyObject.getMaterial()}, cachedInverse{copyObject.getCachedInverse()}, cachedInverseTranspose{copyObject.getCachedInverseTranspose()}
 {
 }
 
@@ -63,6 +69,16 @@ const std::shared_ptr<Material> Object::getMaterial() const
 	return std::shared_ptr<Material>(this->material);
 }
 
+const Matrix& Object::getCachedInverse() const
+{
+	return this->cachedInverse;
+}
+
+const Matrix& Object::getCachedInverseTranspose() const
+{
+	return this->cachedInverseTranspose;
+}
+
 /**
 * Sets the calling sphere's transformation matrix.
 *
@@ -71,6 +87,8 @@ const std::shared_ptr<Material> Object::getMaterial() const
 void Object::setTransform(const Matrix& transformMatrix)
 {
 	this->transform = transformMatrix;
+	this->cachedInverse = transformMatrix.getInverse();
+	this->cachedInverseTranspose = this->cachedInverse.getTransposedMatrix();
 }
 
 void Object::setMaterial(std::shared_ptr<Material> newMaterial)
@@ -85,18 +103,15 @@ void Object::setMaterial(std::shared_ptr<Material> newMaterial)
 *
 * @return A vector of the normal at the given point.
 */
-Vector Object::normalAt(const Point& worldPoint) const
+Vector Object::normalAt(const Point& worldPoint)
 {
-	Matrix inverseTransform = this->getTransform().getInverse();
-	Point objectPoint = inverseTransform * worldPoint;
+	Point objectPoint = this->getCachedInverse() * worldPoint;
 
 	Vector objectNormal = objectPoint - Point(0, 0, 0);
 
-	Matrix inverseTransposition = this->getTransform().getInverse().getTransposedMatrix();
-	Vector worldNormal = inverseTransposition * objectNormal;
+	Vector worldNormal = this->getCachedInverseTranspose() * objectNormal;
 
-	worldNormal = worldNormal.normalizeVector();
-	return worldNormal;
+	return worldNormal.normalizeVector();
 }
 /**
 * Returns a hit from a vector of intersections.

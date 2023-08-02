@@ -67,7 +67,7 @@ Point Ray::getPosition(const double t) const
 * 
 * @return A new Ray with the applied transformation.
 */
-Ray Ray::transform(Matrix& transformation) const
+Ray Ray::transform(const Matrix& transformation) const
 {
 	return Ray(transformation * this->getOrigin(), transformation * this->getDirection());
 }

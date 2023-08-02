@@ -136,7 +136,7 @@ void Material::setShininess(const double shininessVal)
 * 
 * @return The colour to be applied to a pixel given the parameters.
 */
-Colour Material::lighting(const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV) const
+Colour Material::lighting(const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV, const bool inShadow) const
 {
 	// Combine surface colour with light's colour/intensity
 	Colour effectiveColour = this->colour * light.getIntensity();
@@ -147,22 +147,26 @@ Colour Material::lighting(const PointLight& light, const Point& point, const Vec
 
 	Colour diffuse;
 	Colour specular;
-	// lightDotNormal represents the cosine of the angle between the light and normal vector.
-	double lightDotNormal = lightV.dotProduct(normalV);
-
-	if (lightDotNormal >= 0.0)
+	// Ignore diffuse and specular values if in shadow
+	if (!inShadow)
 	{
-		// Compute the diffuse contribution
-		diffuse = static_cast<Tuple>(effectiveColour) * this->diffuse * lightDotNormal;
+		// lightDotNormal represents the cosine of the angle between the light and normal vector.
+		double lightDotNormal = lightV.dotProduct(normalV);
 
-		// reflectDotEye represents the cosine of the angle between the reflection and eye vector.
-		Vector reflectV = -lightV.reflect(normalV);
-		double reflectDotEye = reflectV.dotProduct(eyeV);
-
-		if (reflectDotEye > 0.0)
+		if (lightDotNormal >= 0.0)
 		{
-			double factor = std::pow(reflectDotEye, this->shininess);
-			specular = static_cast<Tuple>(light.getIntensity()) * this->specular * factor;
+			// Compute the diffuse contribution
+			diffuse = static_cast<Tuple>(effectiveColour) * this->diffuse * lightDotNormal;
+
+			// reflectDotEye represents the cosine of the angle between the reflection and eye vector.
+			Vector reflectV = -lightV.reflect(normalV);
+			double reflectDotEye = reflectV.dotProduct(eyeV);
+
+			if (reflectDotEye > 0.0)
+			{
+				double factor = std::pow(reflectDotEye, this->shininess);
+				specular = static_cast<Tuple>(light.getIntensity()) * this->specular * factor;
+			}
 		}
 	}
 

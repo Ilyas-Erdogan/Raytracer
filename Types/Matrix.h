@@ -6,6 +6,7 @@ class Matrix
 {
 public:
 	// Constructors
+	Matrix();
 	Matrix(const int rowLimit, const int columnLimit);
 	Matrix(const std::vector < std::vector<double>>& matrixSet);
 	~Matrix();
@@ -24,6 +25,8 @@ public:
 
 	friend class Tuple operator*(class Tuple lhs, const Matrix& rhs);
 	friend class Tuple operator*(Matrix lhs, const class Tuple& rhs);
+
+	friend bool operator<(const Matrix& l, const Matrix& r);
 	
 	// Utilities
 	const std::vector<std::vector<double>>& getMatrix() const;

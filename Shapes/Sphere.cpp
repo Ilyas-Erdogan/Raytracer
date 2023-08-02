@@ -59,8 +59,7 @@ Sphere::~Sphere()
 std::vector<Intersection> Sphere::intersect(const Ray& ray)
 {
 	// Create new ray transformed by inverse of sphere's transform matrix
-	Matrix inverseTransform = this->getTransform().getInverse();
-	Ray transformedRay = ray.transform(inverseTransform);
+	Ray transformedRay = ray.transform(this->getCachedInverse());
 
 	Vector sphereToRay = transformedRay.getOrigin() - Point(0, 0, 0);
 

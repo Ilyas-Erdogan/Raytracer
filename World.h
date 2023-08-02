@@ -22,8 +22,9 @@ public:
 
 	// Utilities
 	const std::vector<Intersection> intersectWorld(const Ray& ray);
-	const Colour shadeHit(const Computation& computation) const;
+	const Colour shadeHit(const Computation& computation);
 	const Colour colourAt(const Ray& ray);
+	bool isShadowed(const Point& point);
 private:
 	std::vector<std::shared_ptr<class Sphere>> objects;
 	std::unique_ptr<class PointLight> light;

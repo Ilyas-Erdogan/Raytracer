@@ -4,6 +4,7 @@
 #include "Canvas.h"
 #include "World.h"
 
+
 class Camera
 {
 public:
@@ -16,6 +17,7 @@ public:
 	double getVerticalSize() const;
 	double getFieldOfView() const;
 	const Matrix& getTransform() const;
+	const Matrix& getInverseTransform() const;
 
 	// Setters
 	void setTransform(const Matrix& transformToSet);
@@ -33,5 +35,6 @@ private:
 	double halfWidth;
 	double halfHeight;
 	double pixelSize;
+	Matrix inverseTransform;
 };
 

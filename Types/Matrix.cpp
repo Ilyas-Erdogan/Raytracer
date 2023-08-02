@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <tuple>
 
 
 /**
@@ -11,6 +12,10 @@
 * @param rowLimit Number of rows in the matrix.
 * @param columnLimit Number of columns in ther matrix.
 */
+Matrix::Matrix()
+    : rowSize{ 0 }, columnSize{ 0 }
+{
+}
 Matrix::Matrix(const int rowLimit, const int columnLimit)
     : rowSize { rowLimit }, columnSize{ columnLimit }
 {
@@ -262,6 +267,11 @@ Tuple operator*(Matrix lhs, const Tuple& rhs)
 {
     Tuple tempTuple = rhs;
     return tempTuple * lhs;
+}
+
+bool operator<(const Matrix& l, const Matrix& r)
+{
+    return std::tie(l.rowSize, l.columnSize, l.matrix) < std::tie(r.rowSize, r.columnSize, r.matrix);
 }
 
 const std::vector<std::vector<double>>& Matrix::getMatrix() const

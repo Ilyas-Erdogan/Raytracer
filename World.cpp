@@ -113,9 +113,9 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray)
 * 
 * @return The colour at the intersection encapsualted by the proivded compuatation.
 */
-const Colour World::shadeHit(const Computation& computation) const
+const Colour World::shadeHit(const Computation& computation)
 {
-	return computation.getObject()->getMaterial()->lighting(this->getLightSource(), computation.getPoint(), computation.getEyeV(), computation.getNormalV());
+	return computation.getObject()->getMaterial()->lighting(this->getLightSource(), computation.getPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
 }
 
 /**
@@ -140,8 +140,30 @@ const Colour World::colourAt(const Ray& ray)
 	else
 	{
 		// Prepare the appropraite computations to be used for shading.
-		Computation comp = hitCheck->prepareComputations(ray);
 		// Determine Colour to be written.
-		return this->shadeHit(comp);
+		return this->shadeHit(hitCheck->prepareComputations(ray));
 	}
+}
+
+bool World::isShadowed(const Point& point)
+{
+	// Measure distance from point to the light source
+	Vector v = this->getLightSource().getPosition() - point;
+	double distance = v.getMagnitude();
+
+	// Create ray from point to the light source
+	Vector direction = v.normalizeVector();
+	Ray r(point, direction);
+
+	// Intersect the world with the ray
+	std::vector<Intersection> intersections = this->intersectWorld(r);
+	std::unique_ptr<Intersection> h = utilObject.hit(intersections);
+	// Check for hit and if t value is less than distance.
+	if (h != nullptr && h->getT() < distance)
+	{
+		// Hit lies between point and light source
+		return true;
+	}
+	// No hit
+	return false;
 }

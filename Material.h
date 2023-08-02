@@ -28,7 +28,7 @@ public:
 	void setShininess(const double shininessVal);
 
 	// Utilities
-	Colour lighting(const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV) const;
+	Colour lighting(const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV, const bool inShadow) const;
 private:
 	Colour colour;
 	double ambient;

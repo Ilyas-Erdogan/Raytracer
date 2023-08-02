@@ -113,5 +113,7 @@ const std::shared_ptr<Object> Intersection::getObject() const
 		 inside = true;
 		 normalV = -normalV; // Invert normal vector
 	 }
-	 return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside);
+
+	 Point overPoint = tempPoint + normalV * 0.00001;
+	 return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside, overPoint);
  }

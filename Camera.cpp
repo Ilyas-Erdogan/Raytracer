@@ -1,6 +1,7 @@
 #include "Camera.h"
 #include <cmath>
 #include <chrono>
+#include <utility>
 
 /**
 * Constrcuts a virtual "camera" that can "take pictures" of the scene.
@@ -31,6 +32,9 @@ Camera::Camera(const double horizontalSize, const double verticalSize, const dou
 
 	// Set pixel size in accordance to calculated values.
 	this->pixelSize = (halfWidth * 2) / this->hSize;
+	
+	// Set cached inverse transform
+	this->inverseTransform = this->transform;
 }
 
 Camera::~Camera()
@@ -69,12 +73,18 @@ const Matrix& Camera::getTransform() const
 	return this->transform;
 }
 
+const Matrix& Camera::getInverseTransform() const
+{
+	return this->inverseTransform;
+}
+
 /**
 * @param Matrix transformToSet Reference to the transformation Matrix to apply to the camera object.
 */
 void Camera::setTransform(const Matrix& transformToSet)
 {
 	this->transform = transformToSet;
+	this->inverseTransform = transformToSet.getInverse();
 }
 
 /**
@@ -104,8 +114,8 @@ const Ray Camera::rayForPixel(const int pX, const int pY) const
 	double worldY = this->halfHeight - yOffset;
 
 	// Using camera matrix, transform the canvas point and origin, and compute ray's direction vector
-	Point pixel = this->transform.getInverse() * Point(worldX, worldY, -1);
-	Point origin = this->transform.getInverse() * Point(0, 0, 0);
+	Point pixel = this->getInverseTransform() * Point(worldX, worldY, -1);
+	Point origin = this->getInverseTransform() * Point(0, 0, 0);
 	Vector direction = (pixel - origin).normalizeVector();
 
 	return Ray(origin, direction);

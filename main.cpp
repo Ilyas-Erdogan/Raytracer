@@ -20,6 +20,8 @@
 #include "Camera.h"
 #include "ViewTransform.h"
 #include <chrono>
+#include <utility>
+#include <map>
 
 
 int main()
@@ -50,7 +52,7 @@ int main()
 	middle->setMaterial(largeMaterial);
 
 	std::shared_ptr<Sphere> right = std::make_shared<Sphere>();
-	right->setTransform(Translation(1.5, 0.5, -0.5) * Scale(0.5, 0.5, 0.5));
+	right->setTransform(Translation(1.5, 0.5, -0.5) * Scale(0.5, 0.25, 0.5));
 	std::shared_ptr<Material> rightMaterial = std::make_shared<Material>();
 	rightMaterial->setColour(Colour(0.5, 1, 0.1));
 	rightMaterial->setDiffuse(0.7);
@@ -74,11 +76,25 @@ int main()
 	w.addObjects(right);
 	w.addObjects(left);
 	
-	Camera camera(50, 25, PI / 3);
+	Camera camera(1000, 500, PI / 3);
 	camera.setTransform(ViewTransform(Point(0, 1.5, -5), Point(0, 1, 0), Vector(0, 1, 0)));
 	Canvas canvas = camera.render(w);
 
 	canvas.convertToPPM("Scene");
 
+//	std::map<Matrix, Matrix> table;
+//	Matrix m1({ {1, 2}, {3, 4 } });
+//	Matrix m2({ {5, 6}, {7, 8} });
+//	Matrix m3({ {4,3}, {2,1} });
+////	table.insert(std::pair<Matrix, Matrix>(m1, m2));
+//	table[m1] = m2;
+//	table[m3] = m1;
+//	for (auto row : table[m3].getMatrix())
+//	{
+//		for (auto col : row)
+//		{
+//			std::cout << col << "\n";
+//		}
+//	}
 	return 0;
 }

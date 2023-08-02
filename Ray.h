@@ -13,7 +13,7 @@ public:
 	Point getOrigin() const;
 	const Vector& getDirection() const;
 	Point getPosition(const double t) const;
-	Ray transform(class Matrix& transformation) const;
+	Ray transform(const class Matrix& transformation) const;
 private:
 	Point origin; // Starting point
 	Vector direction; // Where it points

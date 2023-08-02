@@ -7,7 +7,7 @@ class Computation
 {
 public:
 	// Constructors
-	Computation(const double tVal, const std::shared_ptr<class Object>& initObject, const Point& pointVal, const Vector& eyeVVal, const Vector& normalVVal, const bool insideVal);
+	Computation(const double tVal, const std::shared_ptr<class Object>& initObject, const Point& pointVal, const Vector& eyeVVal, const Vector& normalVVal, const bool insideVal, const Point& overPointVal);
 	~Computation();
 
 	// Getters
@@ -16,6 +16,7 @@ public:
 	const Point& getPoint() const;
 	const Vector& getEyeV() const;
 	const Vector& getNormalV() const;
+	const Point& getOverPoint() const;
 	bool isInside() const;
 
 private:
@@ -25,5 +26,6 @@ private:
 	Vector eyeV;
 	Vector normalV;
 	bool inside;
+	Point overPoint;
 };
 
