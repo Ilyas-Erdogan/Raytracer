@@ -349,6 +349,7 @@ int main()
 	return 0;
 }
 ```
+</details>
 
 # Output
 ### Render Time: ~395 seconds
@@ -407,6 +408,8 @@ int main()
 	return 0;
 }
 ```
+
+</details>
 
 # Output
 ### Render time: ~97 sec
