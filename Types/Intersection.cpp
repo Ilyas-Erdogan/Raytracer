@@ -2,12 +2,12 @@
 #include "../Primitives/Sphere.h"
 
 Intersection::Intersection(const double tValue, const std::shared_ptr<Object>& initObject)
-	: t {tValue}, object {initObject}
+	: t{ tValue }, object{ initObject }
 {
 }
 
 Intersection::Intersection(const Intersection& copyIntersection)
-	: t {copyIntersection.t}, object {copyIntersection.object}
+	: t{ copyIntersection.t }, object{ copyIntersection.object }
 {
 }
 
@@ -31,9 +31,9 @@ Intersection& Intersection::operator=(const Intersection& other)
 
 /**
 * Checks the equality between two intersection objects.
-* 
+*
 * @param Intersection rhs Reference to the right-hand side of the comparison.
-* 
+*
 * @return True if both t values are equal and if both object's point to the same object in memory, otherwise false.
 */
 bool Intersection::operator==(const Intersection& rhs) const
@@ -65,9 +65,9 @@ bool Intersection::operator!=(const Intersection& rhs) const
 
 /**
 * Compares two intersections via their t values.
-* 
+*
 * @param Intersection rhs Reference to the right-hand side of the comparison.
-* 
+*
 * @return True if the calling Intersection's t value is less than that of the right-hand side t value, otherwise false.
 */
 bool Intersection::operator<(const Intersection& rhs) const
@@ -93,27 +93,27 @@ const std::shared_ptr<Object> Intersection::getObject() const
 
 /**
 * Encapsulates data containing precomputed information related to the intersection.
-* 
+*
 * @param Ray ray The ray to be cast in the scene.
-* 
+*
 * @return A Computation object containing all the necessary attributes.
 */
- const Computation Intersection::prepareComputations(const Ray& ray) const
- {
-	 // Precompute necessary values.
-	 Point tempPoint = ray.getPosition(this->t);
-	 Vector eyeV = -ray.getDirection();
-	 Vector normalV = this->getObject()->normalAt(tempPoint);
-	 bool inside = false; // Default value of inside false.
-	 
-	 // Check for hit occuring inside the object.
-	 // A negative dot product implies opposite directions.
-	 if (normalV.dotProduct(eyeV) < 0.0)
-	 {
-		 inside = true;
-		 normalV = -normalV; // Invert normal vector
-	 }
+const Computation Intersection::prepareComputations(const Ray& ray) const
+{
+	// Precompute necessary values.
+	Point tempPoint = ray.getPosition(this->t);
+	Vector eyeV = -ray.getDirection();
+	Vector normalV = this->getObject()->normalAt(tempPoint);
+	bool inside = false; // Default value of inside false.
 
-	 Point overPoint = tempPoint + normalV * 0.00001;
-	 return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside, overPoint);
- }
+	// Check for hit occuring inside the object.
+	// A negative dot product implies opposite directions.
+	if (normalV.dotProduct(eyeV) < 0.0)
+	{
+		inside = true;
+		normalV = -normalV; // Invert normal vector
+	}
+
+	Point overPoint = tempPoint + normalV * 0.00001;
+	return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside, overPoint);
+}

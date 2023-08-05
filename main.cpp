@@ -19,9 +19,10 @@
 #include "World.h"
 #include "Camera.h"
 #include "Transformations/ViewTransform.h"
+#include "Plane.h"
 #include <chrono>
 #include <utility>
-#include <map>
+#include <thread>
 
 
 int main()
@@ -52,7 +53,7 @@ int main()
 	middle->setMaterial(largeMaterial);
 
 	std::shared_ptr<Sphere> right = std::make_shared<Sphere>();
-	right->setTransform(Translation(1.5, 0.5, -0.5) * Scale(0.5, 0.25, 0.5));
+	right->setTransform(Translation(1.5, 0.5, -0.5) * Scale(0.5, 0.5, 0.5));
 	std::shared_ptr<Material> rightMaterial = std::make_shared<Material>();
 	rightMaterial->setColour(Colour(0.5, 1, 0.1));
 	rightMaterial->setDiffuse(0.7);
@@ -68,18 +69,20 @@ int main()
 	left->setMaterial(leftMaterial);
 
 	World w(false);
-	w.setLight(PointLight(Point(-10, 10, -10), Colour(1, 1, 1)));
+	w.setLight(PointLight(Point(0.5, 10, -1), Colour(1, 1, 1)));
 	w.addObjects(floor);
+	w.addObjects(rightWall);
 	w.addObjects(leftWall);
 	w.addObjects(rightWall);
 	w.addObjects(middle);
 	w.addObjects(right);
 	w.addObjects(left);
-	
-	Camera camera(1000, 500, PI / 3);
-	camera.setTransform(ViewTransform(Point(0, 1.5, -5), Point(0, 1, 0), Vector(0, 1, 0)));
-	Canvas canvas = camera.render(w);
 
-	canvas.convertToPPM("Scene");
+	Camera camera(2000, 1000, PI / 3);
+	camera.setTransform(ViewTransform(Point(0, 1.5, -5), Point(0, 1, 0), Vector(0, 1, 0)));
+
+	Canvas canvas = camera.render(w);
+	std::cout << "DONE";
+	canvas.convertToPPM("Shadow");
 	return 0;
 }

@@ -1,5 +1,6 @@
 #include "Object.h"
 #include "../Types/Intersection.h"
+
 #include <algorithm>
 
 Object::Object()
@@ -79,6 +80,11 @@ const Matrix& Object::getCachedInverseTranspose() const
 	return this->cachedInverseTranspose;
 }
 
+const Ray& Object::getSavedRay() const
+{
+	return this->savedRay;
+}
+
 /**
 * Sets the calling sphere's transformation matrix.
 *
@@ -96,23 +102,6 @@ void Object::setMaterial(std::shared_ptr<Material> newMaterial)
 	this->material = std::move(newMaterial);
 }
 
-/**
-* Finds the normal at the given point.
-*
-* @param Point worldPoint Refernce to the point in the world space to normalize.
-*
-* @return A vector of the normal at the given point.
-*/
-Vector Object::normalAt(const Point& worldPoint)
-{
-	Point objectPoint = this->getCachedInverse() * worldPoint;
-
-	Vector objectNormal = objectPoint - Point(0, 0, 0);
-
-	Vector worldNormal = this->getCachedInverseTranspose() * objectNormal;
-
-	return worldNormal.normalizeVector();
-}
 /**
 * Returns a hit from a vector of intersections.
 *
@@ -141,4 +130,37 @@ std::unique_ptr<Intersection> Object::hit(std::vector<Intersection>& intersectio
 	}
 
 	return nullptr;
+}
+
+/**
+* Returns a collection of Intersections.
+*
+* @param Ray ray Reference to the ray to be checked whether or not it intersects with the sphere.
+*
+* @return A vector of all intersections from the given ray.
+*/
+const std::vector<Intersection> Object::intersect(const Ray& ray)
+{
+	Ray localRay = ray.transform(this->getCachedInverse());
+	this->savedRay = localRay;
+
+	return this->localIntersect(localRay);
+}
+
+/**
+* Finds the normal at the given point.
+*
+* @param Point worldPoint Refernce to the point in the world space to normalize.
+*
+* @return A vector of the normal at the given point.
+*/
+const Vector Object::normalAt(const Point& worldPoint)
+{
+	Point localPoint = this->getCachedInverse() * worldPoint;
+
+	Vector localNormal = this->localNormalAt(localPoint);
+
+	Vector worldNormal = this->getCachedInverseTranspose() * localNormal;
+
+	return worldNormal.normalizeVector();
 }

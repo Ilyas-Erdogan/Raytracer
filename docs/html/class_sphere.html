@@ -81,7 +81,7 @@ Inheritance diagram for Sphere:</div>
  <div class="center">
   <img src="class_sphere.png" usemap="#Sphere_map" alt=""/>
   <map id="Sphere_map" name="Sphere_map">
-<area href="class_object.html" alt="Object" shape="rect" coords="0,56,237,80"/>
+<area href="class_object.html" alt="Object" shape="rect" coords="0,0,241,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -95,8 +95,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab0e906f83912fc977a2e2d262c64404f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab9cf7a2b59dc1b677133223e3e880fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sphere.html#aab9cf7a2b59dc1b677133223e3e880fc">Sphere</a> (const <a class="el" href="class_object.html">Object</a> &amp;copyObject)</td></tr>
 <tr class="separator:aab9cf7a2b59dc1b677133223e3e880fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dd0865acccbc51c13db56fe08712feb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sphere.html#a8dd0865acccbc51c13db56fe08712feb">intersect</a> (const class <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
-<tr class="separator:a8dd0865acccbc51c13db56fe08712feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ce5a368841b2fb4b4b156b05c7fd22"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sphere.html#af5ce5a368841b2fb4b4b156b05c7fd22">localIntersect</a> (const class <a class="el" href="class_ray.html">Ray</a> &amp;localRay)</td></tr>
+<tr class="separator:af5ce5a368841b2fb4b4b156b05c7fd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70e11d7f8facb27abdb81990ea7e3845"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sphere.html#a70e11d7f8facb27abdb81990ea7e3845">localNormalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;localPoint) const</td></tr>
+<tr class="separator:a70e11d7f8facb27abdb81990ea7e3845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_object.html">Object</a></td></tr>
 <tr class="memitem:a4101d3b995028bf4d3edd5837e32b05f inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; &amp;materialVal)</td></tr>
@@ -129,15 +131,24 @@ const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td><td clas
 <tr class="memitem:a0f459e15118b123c7a9ffb35d11c767f inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
 const <a class="el" href="class_matrix.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCachedInverseTranspose</b> () const</td></tr>
 <tr class="separator:a0f459e15118b123c7a9ffb35d11c767f inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1219ceb486c1a9a6d5004069c4fbae41 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
+const <a class="el" href="class_ray.html">Ray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSavedRay</b> () const</td></tr>
+<tr class="separator:a1219ceb486c1a9a6d5004069c4fbae41 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae24935aebda3ca1d0a8d69d2a575a171 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ae24935aebda3ca1d0a8d69d2a575a171">setTransform</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;transformMatrix)</td></tr>
 <tr class="separator:ae24935aebda3ca1d0a8d69d2a575a171 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49ccc337698584ef2dcd767e2d12d44d inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; newMaterial)</td></tr>
 <tr class="separator:a49ccc337698584ef2dcd767e2d12d44d inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae075be7c6b36b1ee801bac712685d789 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ae075be7c6b36b1ee801bac712685d789">normalAt</a> (const <a class="el" href="class_point.html">Point</a> &amp;p)</td></tr>
-<tr class="separator:ae075be7c6b36b1ee801bac712685d789 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50945ec474adf330260773d7021145a8 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a50945ec474adf330260773d7021145a8">hit</a> (std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersctionVec) const</td></tr>
 <tr class="separator:a50945ec474adf330260773d7021145a8 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8214660987134637d2418943863071fa inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a8214660987134637d2418943863071fa">localIntersect</a> (const class <a class="el" href="class_ray.html">Ray</a> &amp;localRay)=0</td></tr>
+<tr class="separator:a8214660987134637d2418943863071fa inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf1d0fa08d2c31e6b0a05ce761626b6 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#aedf1d0fa08d2c31e6b0a05ce761626b6">intersect</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
+<tr class="separator:aedf1d0fa08d2c31e6b0a05ce761626b6 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad7d864e934b9aa36797039aaf92841 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a4ad7d864e934b9aa36797039aaf92841">localNormalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;localPoint) const =0</td></tr>
+<tr class="separator:a4ad7d864e934b9aa36797039aaf92841 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff5b18c1ba00524d57e9f386b0d6883 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a5ff5b18c1ba00524d57e9f386b0d6883">normalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
+<tr class="separator:a5ff5b18c1ba00524d57e9f386b0d6883 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a890a63ff583cb88e7ec4e840b4ef5eb9" name="a890a63ff583cb88e7ec4e840b4ef5eb9"></a>
@@ -234,29 +245,74 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8dd0865acccbc51c13db56fe08712feb" name="a8dd0865acccbc51c13db56fe08712feb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dd0865acccbc51c13db56fe08712feb">&#9670;&#160;</a></span>intersect()</h2>
+<a id="af5ce5a368841b2fb4b4b156b05c7fd22" name="af5ce5a368841b2fb4b4b156b05c7fd22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5ce5a368841b2fb4b4b156b05c7fd22">&#9670;&#160;</a></span>localIntersect()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; Sphere::intersect </td>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; Sphere::localIntersect </td>
           <td>(</td>
           <td class="paramtype">const class <a class="el" href="class_ray.html">Ray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ray</em></td><td>)</td>
+          <td class="paramname"><em>localRay</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Returns a collection of Intersections. The functions calculates discrimant value using Joachimsthal's quadratic equation and uses its value to determine the number of solutions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_ray.html">Ray</a></td><td>ray Reference to the ray to be checked whether or not it intersects with the sphere.</td></tr>
+    <tr><td class="paramname"><a class="el" href="class_ray.html">Ray</a></td><td>localRay Reference to the local ray to be checked whether or not it intersects with the sphere.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of all solutions of the equations for discriminants bigger or equal to zero and the sphere that is intersected, otherwise an empty vector. </dd></dl>
+
+<p>Implements <a class="el" href="class_object.html">Object</a>.</p>
+
+</div>
+</div>
+<a id="a70e11d7f8facb27abdb81990ea7e3845" name="a70e11d7f8facb27abdb81990ea7e3845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70e11d7f8facb27abdb81990ea7e3845">&#9670;&#160;</a></span>localNormalAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_vector.html">Vector</a> Sphere::localNormalAt </td>
+          <td>(</td>
+          <td class="paramtype">const class <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>localPoint</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_point.html">Point</a></td><td>localPoint The local point given from the abstract object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The local point as a vector. </dd></dl>
+
+<p>Implements <a class="el" href="class_object.html">Object</a>.</p>
 
 </div>
 </div>

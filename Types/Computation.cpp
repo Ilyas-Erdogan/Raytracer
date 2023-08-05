@@ -2,12 +2,12 @@
 
 /**
 * Creates computation object containing all necessary data to perform shading.
-* 
+*
 * @param double tVal The t (time) vaue as seen by
-* @param shared_ptr<Object> initObject Reference to the object in that was hit 
+* @param shared_ptr<Object> initObject Reference to the object in that was hit
 */
 Computation::Computation(const double tVal, const std::shared_ptr<Object>& initObject, const Point& pointVal, const Vector& eyeVVal, const Vector& normalVVal, const bool insideVal, const Point& overPointVal)
-	: t{ tVal }, object{ initObject }, point { pointVal }, eyeV{ eyeVVal }, normalV{ normalVVal }, inside{ insideVal }, overPoint{ overPointVal }
+	: t{ tVal }, object{ initObject }, point{ pointVal }, eyeV{ eyeVVal }, normalV{ normalVVal }, inside{ insideVal }, overPoint{ overPointVal }
 {
 }
 

@@ -57,7 +57,7 @@ const PointLight& World::getLightSource() const
 /**
 * @return An immutable vector of the objects in the world.
 */
-const std::vector<std::shared_ptr<class Sphere>>& World::getObjects() const
+const std::vector<std::shared_ptr<class Object>>& World::getObjects() const
 {
 	return this->objects;
 }
@@ -77,7 +77,7 @@ void World::setLight(const PointLight & pointLight)
 * 
 * @param shared_ptr<Sphere> objectToAdd Object to add to the world in the objects list.
 */
-void World::addObjects(const std::shared_ptr<Sphere> objectToAdd)
+void World::addObjects(const std::shared_ptr<Object> objectToAdd)
 {
 	this->objects.emplace_back(objectToAdd);
 }
@@ -93,13 +93,12 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray)
 {
 	std::vector<Intersection> intersections;
 	// Iterate over all objects in the world and check for intersections.
-	for (auto sphereObject : this->objects)
+	for (auto &sphereObject : this->objects)
 	{
-		std::vector<Intersection> intersectionSub = (*sphereObject).intersect(ray);
-		if (intersectionSub.size() != 0)
+		std::vector<Intersection> intersectionSub = sphereObject->intersect(ray);
+		for (auto& intersects : intersectionSub)
 		{
-			intersections.emplace_back(intersectionSub[0]);
-			intersections.emplace_back(intersectionSub[1]);
+			intersections.emplace_back(intersects);
 		}
 	}
 	// Sort over intersection objects
@@ -131,7 +130,7 @@ const Colour World::colourAt(const Ray& ray)
 	std::vector<Intersection> intersections = this->intersectWorld(ray);
 
 	// Find hit from resulting intersections
-	std::unique_ptr<Intersection> hitCheck = utilObject.hit(intersections);
+	std::unique_ptr<Intersection> hitCheck = utilObject->hit(intersections);
 	// If no hits are found, return a black colour
 	if (hitCheck == nullptr)
 	{
@@ -157,7 +156,7 @@ bool World::isShadowed(const Point& point)
 
 	// Intersect the world with the ray
 	std::vector<Intersection> intersections = this->intersectWorld(r);
-	std::unique_ptr<Intersection> h = utilObject.hit(intersections);
+	std::unique_ptr<Intersection> h = utilObject->hit(intersections);
 	// Check for hit and if t value is less than distance.
 	if (h != nullptr && h->getT() < distance)
 	{

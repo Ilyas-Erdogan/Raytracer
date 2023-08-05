@@ -215,7 +215,7 @@ double Tuple::getMagnitude() const
 {
 	if (isVector())
 	{
-		return (std::sqrt(std::pow(this->x, 2) + std::pow(this->y, 2) + std::pow(this->z, 2) + std::pow(this->w, 2)));
+		return (std::sqrt((this->x * this->x) + (this->y * this->y) + (this->z * this->z) + (this->w * this->w)));
 	}
 	else
 	{

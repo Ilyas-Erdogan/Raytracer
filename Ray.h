@@ -6,14 +6,18 @@
 class Ray
 {
 public:
+	// Constructors
 	Ray(const Point originPt, const Vector directionVec);
 	Ray(const Ray& ray);
 	~Ray();
 
-	Point getOrigin() const;
+	// Getters
+	const Point getOrigin() const;
 	const Vector& getDirection() const;
-	Point getPosition(const double t) const;
-	Ray transform(const class Matrix& transformation) const;
+	const Point getPosition(const double t) const;
+
+	// Utilities
+	const Ray transform(const class Matrix& transformation) const;
 private:
 	Point origin; // Starting point
 	Vector direction; // Where it points

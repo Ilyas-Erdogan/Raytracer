@@ -33,7 +33,7 @@ Ray::~Ray()
 * 
 * @return Point Origin of the ray.
 */
-Point Ray::getOrigin() const
+const Point Ray::getOrigin() const
 {
 	return this->origin;
 }
@@ -55,7 +55,7 @@ const Vector& Ray::getDirection() const
 * 
 * @return Point Position of ray along t.
 */
-Point Ray::getPosition(const double t) const
+const Point Ray::getPosition(const double t) const
 {
 	return (this->origin + (t * this->direction));
 }
@@ -67,7 +67,7 @@ Point Ray::getPosition(const double t) const
 * 
 * @return A new Ray with the applied transformation.
 */
-Ray Ray::transform(const Matrix& transformation) const
+const Ray Ray::transform(const Matrix& transformation) const
 {
 	return Ray(transformation * this->getOrigin(), transformation * this->getDirection());
 }

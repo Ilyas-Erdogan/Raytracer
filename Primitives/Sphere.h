@@ -5,8 +5,9 @@
 #include "../Types/Point.h"
 #include "../Material.h"
 
+
 class Sphere
-	: public Object
+	: public Object, public std::enable_shared_from_this<Sphere>
 {
 public:
 	// Constructors
@@ -18,6 +19,7 @@ public:
 
 
 	// Utilities
-	std::vector<class Intersection> intersect(const class Ray& ray);
+	virtual const std::vector<Intersection> localIntersect(const class Ray& localRay);
+	virtual const Vector localNormalAt(const class Point& localPoint) const;
 };
 

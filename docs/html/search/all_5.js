@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['intersect_0',['intersect',['../class_sphere.html#a8dd0865acccbc51c13db56fe08712feb',1,'Sphere']]],
+  ['intersect_0',['intersect',['../class_object.html#aedf1d0fa08d2c31e6b0a05ce761626b6',1,'Object']]],
   ['intersection_1',['Intersection',['../class_intersection.html',1,'']]],
   ['intersectworld_2',['intersectWorld',['../class_world.html#ae0dac2812460f3f2a5e7653ef9a34979',1,'World']]],
   ['isinside_3',['isInside',['../class_computation.html#ae661dc99c134f75f9e592d07954ed773',1,'Computation']]],

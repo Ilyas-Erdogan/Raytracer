@@ -48,23 +48,22 @@ Sphere::~Sphere()
 	Object::~Object();
 }
 
+
 /**
 * Returns a collection of Intersections.
 * The functions calculates discrimant value using Joachimsthal's quadratic equation and uses its value to determine the number of solutions.
 *
-* @param Ray ray Reference to the ray to be checked whether or not it intersects with the sphere.
+* @param Ray localRay Reference to the local ray to be checked whether or not it intersects with the sphere.
 *
 * @return A vector of all solutions of the equations for discriminants bigger or equal to zero and the sphere that is intersected, otherwise an empty vector.
 */
-std::vector<Intersection> Sphere::intersect(const Ray& ray)
+const std::vector<Intersection> Sphere::localIntersect(const Ray& localRay)
 {
 	// Create new ray transformed by inverse of sphere's transform matrix
-	Ray transformedRay = ray.transform(this->getCachedInverse());
+	Vector sphereToRay = localRay.getOrigin() - Point(0, 0, 0);
 
-	Vector sphereToRay = transformedRay.getOrigin() - Point(0, 0, 0);
-
-	double a = transformedRay.getDirection().dotProduct(transformedRay.getDirection());
-	double b = 2.0 * transformedRay.getDirection().dotProduct(sphereToRay);
+	double a = localRay.getDirection().dotProduct(localRay.getDirection());
+	double b = 2.0 * localRay.getDirection().dotProduct(sphereToRay);
 	double c = sphereToRay.dotProduct(sphereToRay) - 1.0;
 
 	double discriminant = (b * b) - (4 * a * c);
@@ -85,3 +84,12 @@ std::vector<Intersection> Sphere::intersect(const Ray& ray)
 	}
 }
 
+/**
+* @param Point localPoint The local point given from the abstract object.
+*
+* @return The local point as a vector.
+*/
+const Vector Sphere::localNormalAt(const class Point& localPoint) const
+{
+	return localPoint;
+}

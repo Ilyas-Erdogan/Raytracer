@@ -28,4 +28,3 @@ private:
 	bool inside;
 	Point overPoint;
 };
-

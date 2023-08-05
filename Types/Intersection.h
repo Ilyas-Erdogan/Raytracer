@@ -27,4 +27,3 @@ private:
 	double t;
 	std::shared_ptr<class Object> object;
 };
-

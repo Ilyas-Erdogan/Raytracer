@@ -3,10 +3,9 @@
 #include <memory>
 #include "../Types/Matrix.h"
 #include "../Material.h"
-#include <map>
+#include "../Ray.h"
 
 class Object
-	: public std::enable_shared_from_this<Object>
 {
 public:
 	// Constructors
@@ -27,18 +26,26 @@ public:
 	const std::shared_ptr<class Material> getMaterial() const;
 	const Matrix& getCachedInverse() const;
 	const Matrix& getCachedInverseTranspose() const;
+	const Ray& getSavedRay() const;
 
 	// Setters
 	void setTransform(const Matrix& transformMatrix);
 	void setMaterial(std::shared_ptr<Material> newMaterial);
 
 	// Utilities
-	Vector normalAt(const Point& p);
 	std::unique_ptr<class Intersection> hit(std::vector<class Intersection>& intersctionVec) const;
+
+	virtual const std::vector<class Intersection> localIntersect(const class Ray& localRay) = 0;
+	const std::vector<class Intersection> intersect(const Ray& ray);
+
+	virtual const Vector localNormalAt(const class Point& localPoint) const = 0;
+	const Vector normalAt(const class Point& point);
 private:
 	Matrix transform;
 	std::shared_ptr<Material> material;
 	Matrix cachedInverse;
 	Matrix cachedInverseTranspose;
+
+	Ray savedRay = Ray(Point(0,0,0), Vector(0,0,0));
 };
 

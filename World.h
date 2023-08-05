@@ -4,6 +4,7 @@
 #include "PointLight.h"
 #include "Types/Intersection.h"
 #include "Ray.h"
+#include "Primitives/Object.h"
 
 class World
 {
@@ -14,11 +15,11 @@ public:
 
 	// Getters
 	const PointLight& getLightSource() const;
-	const std::vector<std::shared_ptr<class Sphere>>& getObjects() const;
+	const std::vector<std::shared_ptr<class Object>>& getObjects() const;
 
 	// Setters
 	void setLight(const PointLight& pointLight);
-	void addObjects(const std::shared_ptr<Sphere> objectToAdd);
+	void addObjects(const std::shared_ptr<Object> objectToAdd);
 
 	// Utilities
 	const std::vector<Intersection> intersectWorld(const Ray& ray);
@@ -26,8 +27,8 @@ public:
 	const Colour colourAt(const Ray& ray);
 	bool isShadowed(const Point& point);
 private:
-	std::vector<std::shared_ptr<class Sphere>> objects;
+	std::vector<std::shared_ptr<class Object>> objects;
 	std::unique_ptr<class PointLight> light;
-	const Object utilObject{Object()};
+	std::unique_ptr<Object> utilObject;
 };
 
