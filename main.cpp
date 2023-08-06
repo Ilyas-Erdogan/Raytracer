@@ -34,77 +34,55 @@ int main()
 {
 	const double PI = 3.1415926535897932384626433832795028841971693993751058209;
 
-	//std::shared_ptr<Sphere> floor = std::make_shared<Sphere>();
-	//floor->setTransform(Scale(10, 0.01, 10));
-	//std::shared_ptr<Material> material = std::make_shared<Material>();
-	//material->setColour(Colour(1, 0.9, 0.9));
-	//material->setSpecular(0);
-	//floor->setMaterial(material);
+	// Patterns
+	const double MAX = 255.0;
+	std::shared_ptr<Pattern> floorPattern = std::make_shared<CheckersPattern>(Colour(38.0/MAX, 38.0 / MAX, 38.0 / MAX), Colour(181.0/MAX, 181.0 / MAX, 181.0 / MAX));
+	std::shared_ptr<Pattern> wallPattern = std::make_shared<StripedPattern>(Colour(38.0 / MAX, 38.0 / MAX, 38.0 / MAX), Colour(181.0 / MAX, 181.0 / MAX, 181.0 / MAX));
+	wallPattern->setPatternTransform(Scale(0.9, 0.9, 0.9) * RotationY(PI/9));
+	std::shared_ptr<Pattern> leftSpherePattern = std::make_shared<RingPattern>(Colour(111.0/MAX, 255.0/MAX, 111.0/MAX), Colour(0, 166.0 / MAX, 0));
+	leftSpherePattern->setPatternTransform(Scale(0.2, 0.2, 0.2));
+	std::shared_ptr<Pattern> rightSpherePattern = std::make_shared<GradientPattern>(Colour(1.0, 165/MAX, 0), Colour(1, 0, 0));
+	rightSpherePattern->setPatternTransform(Translation(-1, 0, 0) * Scale(2, 1, 1));
 
-	//std::shared_ptr<Sphere> leftWall = std::make_shared<Sphere>();
-	//leftWall->setTransform(Translation(0, 0, 5) * RotationY(-PI / 4) * RotationX(PI / 2) * Scale(10, 0.01, 10));
-	//leftWall->setMaterial(material);
+	// Floor
+	std::shared_ptr<Object> floor = std::make_shared<Plane>();
+	std::shared_ptr<Material> floorMaterial = std::make_shared<Material>();
+	floorMaterial->setPattern(floorPattern);
+	floor->setMaterial(floorMaterial);
 
-	//std::shared_ptr<Sphere> rightWall = std::make_shared<Sphere>();
-	//rightWall->setTransform(Translation(0, 0, 5) * RotationY(PI / 4) * RotationX(PI / 2) * Scale(10, 0.1, 10));
-	//rightWall->setMaterial(material);
-
-	std::shared_ptr<Pattern> pattern = std::make_shared<StripedPattern>(Colour(1, 0, 0), Colour(0, 1, 0));
+	// Wall
+	std::shared_ptr<Object> wall = std::make_shared<Plane>();
+	wall->setTransform(Translation(0, 0, 5) * RotationX(PI / 2) );
 	std::shared_ptr<Material> wallMaterial = std::make_shared<Material>();
-	std::shared_ptr<Plane> floor = std::make_shared<Plane>();
-	floor->setMaterial(wallMaterial);
-	wallMaterial->setPattern(pattern);
-	std::shared_ptr<Plane> wall = std::make_shared<Plane>();
-	wall->setTransform(Translation(0, 0, 5) * RotationX(PI / 2));
+	wallMaterial->setPattern(wallPattern);
+	wall->setMaterial(wallMaterial);
 
-	std::shared_ptr<Sphere> middle = std::make_shared<Sphere>();
-	middle->setTransform(Translation(-0.5, 1, 0.5));
-	std::shared_ptr<Material> largeMaterial = std::make_shared<Material>();
-	largeMaterial->setColour(Colour(0.1, 1, 0.5));
-	largeMaterial->setDiffuse(0.7);
-	largeMaterial->setSpecular(0.3);
-	std::shared_ptr<Pattern> middlePattern = std::make_shared<CheckersPattern>(Colour(1, 0, 1), Colour(0, 1, 0));
-	middlePattern->setPatternTransform(Scale(0.1, 0.1, 0.1));
-	largeMaterial->setPattern(middlePattern);
-	middle->setMaterial(largeMaterial);
+	// Big Sphere
+	std::shared_ptr<Object> bigSphere = std::make_shared<Sphere>();
+	bigSphere->setTransform(Translation(-1, 1, 1.5) * RotationY(PI / 8) * RotationX(-PI / 2.5));
+	std::shared_ptr<Material> bigSphereMaterial = std::make_shared<Material>();
+	bigSphereMaterial->setPattern(leftSpherePattern);
+	bigSphere->setMaterial(bigSphereMaterial);
 
-	std::shared_ptr<Sphere> right = std::make_shared<Sphere>();
-	right->setTransform(Translation(1.5, 0.5, -0.5) * Scale(0.5, 0.5, 0.5));
-	std::shared_ptr<Material> rightMaterial = std::make_shared<Material>();
-	rightMaterial->setColour(Colour(0.5, 1, 0.1));
-	rightMaterial->setDiffuse(0.7);
-	rightMaterial->setSpecular(0.3);
-	std::shared_ptr<Pattern> rightPattern = std::make_shared<RingPattern>(Colour(1, 1, 0), Colour(0, 1, 1));
-	rightPattern->setPatternTransform(Scale(1, 0.2, 1));
-	rightMaterial->setPattern(rightPattern);
-	right->setMaterial(rightMaterial);
-
-	std::shared_ptr<Sphere> left = std::make_shared<Sphere>();
-	left->setTransform(Translation(-1.5, 0.33, -0.75) * Scale(0.33, 0.33, 0.33));
-	std::shared_ptr<Material> leftMaterial = std::make_shared<Material>();
-	leftMaterial->setColour(Colour(1, 0.8, 0.1));
-	leftMaterial->setDiffuse(0.7);
-	leftMaterial->setSpecular(0.3);
-	std::shared_ptr<Pattern> leftPattern = std::make_shared<GradientPattern>(Colour(204.0 / 255.0, 43.0 / 255.0, 94.0 / 255.0), Colour(117.0 / 255.0, 58.0 / 255.0, 136.0 / 255.0));
-	leftPattern->setPatternTransform(Translation(-1, 0, 0) * Scale(2, 1, 1));
-	leftMaterial->setPattern(leftPattern);
-	left->setMaterial(leftMaterial);
+	// Small Sphere
+	std::shared_ptr<Object> smallSphere = std::make_shared<Sphere>();
+	smallSphere->setTransform(Translation(1, 0.5, 1) * Scale(0.5, 0.5, 0.5));
+	std::shared_ptr<Material> smallSphereMaterial = std::make_shared<Material>();
+	smallSphereMaterial->setPattern(rightSpherePattern);
+	smallSphere->setMaterial(smallSphereMaterial);
 
 	World w(false);
 	w.setLight(PointLight(Point(-10, 10, -10), Colour(1, 1, 1)));
 	w.addObjects(floor);
-	/*w.addObjects(wall);*/
-	//w.addObjects(leftWall);
-	//w.addObjects(rightWall);
-	w.addObjects(middle);
-	w.addObjects(right);
-	w.addObjects(left);
+	w.addObjects(wall);
+	w.addObjects(bigSphere);
+	w.addObjects(smallSphere);
 	
-	Camera camera(500, 250, PI / 3);
-	camera.setTransform(ViewTransform(Point(0, 1.5, -5), Point(0, 1, 0), Vector(0, 1, 0)));
+	Camera camera(2000, 1000, PI / 3);
+	camera.setTransform(ViewTransform(Point(0, 1.5, -5), Point(0, 1.0, -0.5), Vector(0, 1, 0)));
 
 	Canvas canvas = camera.render(w);
 
-	canvas.convertToPPM("PlaneScene");
+	canvas.convertToPPM("PatternsScene");
 	return 0;
 }

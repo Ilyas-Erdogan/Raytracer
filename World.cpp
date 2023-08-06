@@ -114,7 +114,7 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray)
 */
 const Colour World::shadeHit(const Computation& computation)
 {
-	return computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
+	return computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getOverPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
 }
 
 /**

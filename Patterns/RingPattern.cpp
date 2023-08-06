@@ -21,7 +21,8 @@ RingPattern::~RingPattern()
 */
 const Colour RingPattern::patternAt(const Point& point) const
 {
-	if (static_cast<int>(std::floor(std::sqrt(point.getX() * point.getX() + point.getZ() * point.getZ()))) % 2 == 0)
+	double val = std::floor(std::sqrt(point.getX() * point.getX() + point.getZ() * point.getZ()));
+	if (static_cast<int>(val) % 2 == 0)
 	{
 		return this->a;
 	}
