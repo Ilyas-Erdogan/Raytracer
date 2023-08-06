@@ -480,4 +480,4 @@ int main()
 
 # Output
 ### Render time: ~300 sec
-![Renders/PatternScene.png](Renders/PatternScene.png "a title")
+![Renders/PatternsScene.png](Renders/PatternsScene.png "a title")
