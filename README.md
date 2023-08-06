@@ -478,6 +478,8 @@ int main()
 }
 ```
 
+</details>
+
 # Output
 ### Render time: ~300 sec
 ![Renders/PatternsScene.png](Renders/PatternsScene.png "a title")
