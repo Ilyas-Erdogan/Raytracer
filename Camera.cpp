@@ -73,6 +73,9 @@ const Matrix& Camera::getTransform() const
 	return this->transform;
 }
 
+/**
+* An immutable reference to the inverse transformation matrix of the camera.
+*/
 const Matrix& Camera::getInverseTransform() const
 {
 	return this->inverseTransform;

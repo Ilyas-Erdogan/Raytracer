@@ -1,4 +1,5 @@
 #include "Material.h"
+#include "Primitives/Object.h"
 #include <cmath>
 
 /**
@@ -76,6 +77,11 @@ double Material::getShininess() const
 	return this->shininess;
 }
 
+const std::shared_ptr<Pattern> Material::getPattern() const
+{
+	return this->pattern;
+}
+
 /**
 * Sets the colour of the material.
 * 
@@ -126,6 +132,11 @@ void Material::setShininess(const double shininessVal)
 	this->shininess = shininessVal;
 }
 
+void Material::setPattern(std::shared_ptr<Pattern> patternVal)
+{
+	this->pattern = std::move(patternVal);
+}
+
 /**
 * Applies the Phong reflection model by combining the calling material's ambient, diffuse, and specular components.
 * 
@@ -136,10 +147,19 @@ void Material::setShininess(const double shininessVal)
 * 
 * @return The colour to be applied to a pixel given the parameters.
 */
-Colour Material::lighting(const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV, const bool inShadow) const
+Colour Material::lighting(const std::shared_ptr<Object>& object, const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV, const bool inShadow) const
 {
+	Colour colour; // note not the same at this->colour!!!
+	if (this->pattern != nullptr)
+	{
+		colour = this->pattern->patternAtShape(object, point);
+	}
+	else
+	{
+		colour = this->colour;
+	}
 	// Combine surface colour with light's colour/intensity
-	Colour effectiveColour = this->colour * light.getIntensity();
+	Colour effectiveColour = colour * light.getIntensity();
 	// Find direction to light source
 	Vector lightV = (light.getPosition() - point).normalizeVector();
 	// Compute the ambient contribution

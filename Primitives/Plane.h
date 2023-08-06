@@ -1,5 +1,5 @@
 #pragma once
-#include "Primitives/Object.h"
+#include "Object.h"
 
 class Plane :
     public Object, public std::enable_shared_from_this<Plane>
@@ -13,5 +13,6 @@ public:
     virtual const Vector localNormalAt(const class Point& localPoint) const;
 private:
     const double EPSILON{ 0.00001 };
+    const Vector normal = Vector(0, 1, 0);
 };
 

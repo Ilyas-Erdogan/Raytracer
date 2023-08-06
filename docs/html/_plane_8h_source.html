@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Raytracer: Plane.h Source File</title>
+<title>Raytracer: Primitives/Plane.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,7 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,12 +67,17 @@ $(function() {
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_84b36d56f7b4fc52b5c5efb321dc0000.html">Primitives</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Plane.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Primitives/Object.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Object.h&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_plane.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="class_plane.html">Plane</a> :</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keyword">public</span> <a class="code hl_class" href="class_object.html">Object</a>, <span class="keyword">public</span> std::enable_shared_from_this&lt;Plane&gt;</div>
@@ -87,8 +91,9 @@ $(function() {
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a> <a class="code hl_function" href="class_plane.html#a03be413878574d8bc907e8e99328e07f">localNormalAt</a>(<span class="keyword">const</span> <span class="keyword">class</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; localPoint) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> EPSILON{ 0.00001 };</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a> normal = <a class="code hl_class" href="class_vector.html">Vector</a>(0, 1, 0);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdef"><b>Definition</b> Object.h:9</div></div>
 <div class="ttc" id="aclass_plane_html"><div class="ttname"><a href="class_plane.html">Plane</a></div><div class="ttdef"><b>Definition</b> Plane.h:6</div></div>
 <div class="ttc" id="aclass_plane_html_a03be413878574d8bc907e8e99328e07f"><div class="ttname"><a href="class_plane.html#a03be413878574d8bc907e8e99328e07f">Plane::localNormalAt</a></div><div class="ttdeci">virtual const Vector localNormalAt(const class Point &amp;localPoint) const</div><div class="ttdef"><b>Definition</b> Plane.cpp:40</div></div>

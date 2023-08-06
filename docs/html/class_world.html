@@ -94,8 +94,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4686ce79b43c25251dc8631697e73cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acffafee66db6afda6e5112a64c50b0d8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#acffafee66db6afda6e5112a64c50b0d8">colourAt</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
 <tr class="separator:acffafee66db6afda6e5112a64c50b0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab28c3c3a7d7295cffbdaedc070b62d98"><td class="memItemLeft" align="right" valign="top"><a id="ab28c3c3a7d7295cffbdaedc070b62d98" name="ab28c3c3a7d7295cffbdaedc070b62d98"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShadowed</b> (const <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
+<tr class="memitem:ab28c3c3a7d7295cffbdaedc070b62d98"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#ab28c3c3a7d7295cffbdaedc070b62d98">isShadowed</a> (const <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
 <tr class="separator:ab28c3c3a7d7295cffbdaedc070b62d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -235,6 +234,32 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isShadowed</b> (const
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An <em>sorted</em> immutable vector of the intersections found with the given ray. </dd></dl>
+
+</div>
+</div>
+<a id="ab28c3c3a7d7295cffbdaedc070b62d98" name="ab28c3c3a7d7295cffbdaedc070b62d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab28c3c3a7d7295cffbdaedc070b62d98">&#9670;&#160;</a></span>isShadowed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool World::isShadowed </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if a point is shadowed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_point.html">Point</a></td><td>point Reference to the point to use to measure distance from the light source.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if a hit exists and the t intersection is less than the calcualted distance, otherwise false. </dd></dl>
 
 </div>
 </div>

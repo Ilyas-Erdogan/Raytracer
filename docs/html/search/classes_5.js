@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ray_0',['Ray',['../class_ray.html',1,'']]],
-  ['rotationx_1',['RotationX',['../class_rotation_x.html',1,'']]],
-  ['rotationy_2',['RotationY',['../class_rotation_y.html',1,'']]],
-  ['rotationz_3',['RotationZ',['../class_rotation_z.html',1,'']]]
+  ['pattern_0',['Pattern',['../class_pattern.html',1,'']]],
+  ['plane_1',['Plane',['../class_plane.html',1,'']]],
+  ['point_2',['Point',['../class_point.html',1,'']]],
+  ['pointlight_3',['PointLight',['../class_point_light.html',1,'']]]
 ];

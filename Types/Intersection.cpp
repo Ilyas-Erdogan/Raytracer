@@ -1,8 +1,8 @@
 #include "Intersection.h" 
 #include "../Primitives/Sphere.h"
 
-Intersection::Intersection(const double tValue, const std::shared_ptr<Object>& initObject)
-	: t{ tValue }, object{ initObject }
+Intersection::Intersection(const double tValue, std::shared_ptr<class Object> initObject)
+	: t{ tValue }, object{ std::move(initObject)}
 {
 }
 

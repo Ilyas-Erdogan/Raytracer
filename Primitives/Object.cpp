@@ -1,5 +1,6 @@
 #include "Object.h"
 #include "../Types/Intersection.h"
+#include "../Material.h"
 
 #include <algorithm>
 
@@ -10,7 +11,7 @@ Object::Object()
 	this->cachedInverseTranspose = this->cachedInverse.getTransposedMatrix();
 }
 
-Object::Object(const std::shared_ptr<Material>& materialVal)
+Object::Object(std::shared_ptr<Material> materialVal)
 	: transform{ Matrix(4, 4).getIdentityMatrix() }, material{ materialVal }
 {
 	this->cachedInverse = this->transform;
@@ -67,7 +68,7 @@ const Matrix& Object::getTransform() const
 */
 const std::shared_ptr<Material> Object::getMaterial() const
 {
-	return std::shared_ptr<Material>(this->material);
+	return this->material;
 }
 
 const Matrix& Object::getCachedInverse() const

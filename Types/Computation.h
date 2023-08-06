@@ -7,7 +7,7 @@ class Computation
 {
 public:
 	// Constructors
-	Computation(const double tVal, const std::shared_ptr<class Object>& initObject, const Point& pointVal, const Vector& eyeVVal, const Vector& normalVVal, const bool insideVal, const Point& overPointVal);
+	Computation(const double tVal, std::shared_ptr<class Object> initObject, const Point& pointVal, const Vector& eyeVVal, const Vector& normalVVal, const bool insideVal, const Point& overPointVal);
 	~Computation();
 
 	// Getters

@@ -2,15 +2,15 @@
 #include <vector>
 #include <memory>
 #include "../Types/Matrix.h"
-#include "../Material.h"
 #include "../Ray.h"
+#include <memory>
 
 class Object
 {
 public:
 	// Constructors
 	Object();
-	Object(const std::shared_ptr<Material>& materialVal);
+	Object(std::shared_ptr<class Material> materialVal);
 	Object(const Matrix& transformMatrix);
 	Object(const Object& copyObject);
 	~Object();

@@ -7,7 +7,7 @@ class Intersection
 {
 public:
 	// Constructors
-	Intersection(const double tValue, const std::shared_ptr<class Object>& initObject);
+	Intersection(const double tValue, std::shared_ptr<class Object> initObject);
 	Intersection(const Intersection& copyIntersection);
 	~Intersection();
 

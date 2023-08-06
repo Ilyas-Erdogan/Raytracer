@@ -2,6 +2,8 @@
 #include "Types/Colour.h"
 #include "PointLight.h"
 #include "Types/Vector.h"
+#include "Patterns/Pattern.h"
+#include <memory>
 
 class Material
 {
@@ -19,6 +21,7 @@ public:
 	double getDiffuse() const;
 	double getSpecular() const;
 	double getShininess() const;
+	const std::shared_ptr<Pattern> getPattern() const;
 
 	// Setters
 	void setColour(const Colour& colourVal);
@@ -26,14 +29,17 @@ public:
 	void setDiffuse(const double diffuseVal);
 	void setSpecular(const double specularVal);
 	void setShininess(const double shininessVal);
+	void setPattern(std::shared_ptr<Pattern> patternVal);
 
 	// Utilities
-	Colour lighting(const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV, const bool inShadow) const;
+	Colour lighting(const std::shared_ptr<class Object>& object, const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV, const bool inShadow) const;
 private:
 	Colour colour;
 	double ambient;
 	double diffuse;
 	double specular;
 	double shininess;
+
+	std::shared_ptr<Pattern> pattern;
 };
 

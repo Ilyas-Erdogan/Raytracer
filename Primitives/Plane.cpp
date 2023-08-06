@@ -1,6 +1,6 @@
 #include "Plane.h"
 
-#include "Types/Intersection.h"
+#include "../Types/Intersection.h"
 #include <cmath>
 
 Plane::Plane()
@@ -39,5 +39,5 @@ const std::vector<Intersection> Plane::localIntersect(const Ray& localRay)
 */
 const Vector Plane::localNormalAt(const Point& localPoint) const
 {
-	return Vector(0, 1, 0);
+	return this->normal;
 }

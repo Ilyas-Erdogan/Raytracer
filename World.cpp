@@ -114,7 +114,7 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray)
 */
 const Colour World::shadeHit(const Computation& computation)
 {
-	return computation.getObject()->getMaterial()->lighting(this->getLightSource(), computation.getPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
+	return computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
 }
 
 /**
@@ -144,6 +144,13 @@ const Colour World::colourAt(const Ray& ray)
 	}
 }
 
+/**
+* Checks if a point is shadowed.
+* 
+* @param Point point Reference to the point to use to measure distance from the light source.
+* 
+* @return True if a hit exists and the t intersection is less than the calcualted distance, otherwise false.
+*/
 bool World::isShadowed(const Point& point)
 {
 	// Measure distance from point to the light source

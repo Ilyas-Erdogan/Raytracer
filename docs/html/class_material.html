@@ -92,6 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abc01f74bdb35147a486ea0d20a037d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a4f6a82fe14d4d7bc2c26cce15de656"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a1a4f6a82fe14d4d7bc2c26cce15de656">getShininess</a> () const</td></tr>
 <tr class="separator:a1a4f6a82fe14d4d7bc2c26cce15de656"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade00cea41f0f73934bb0886cbf1c3ac6"><td class="memItemLeft" align="right" valign="top"><a id="ade00cea41f0f73934bb0886cbf1c3ac6" name="ade00cea41f0f73934bb0886cbf1c3ac6"></a>
+const std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPattern</b> () const</td></tr>
+<tr class="separator:ade00cea41f0f73934bb0886cbf1c3ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4f8fc437a67db36e151d132689df187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa4f8fc437a67db36e151d132689df187">setColour</a> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal)</td></tr>
 <tr class="separator:aa4f8fc437a67db36e151d132689df187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a785551b0414b7b096bc86344125c5e2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a785551b0414b7b096bc86344125c5e2a">setAmbient</a> (const double ambientVal)</td></tr>
@@ -102,8 +105,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4179bb759874d311afbb2529f794f407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a168129bdfc0437561788922f98f839d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a168129bdfc0437561788922f98f839d3">setShininess</a> (const double shininessVal)</td></tr>
 <tr class="separator:a168129bdfc0437561788922f98f839d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9caebec73c8df3331158d8837c42343"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ae9caebec73c8df3331158d8837c42343">lighting</a> (const <a class="el" href="class_point_light.html">PointLight</a> &amp;light, const <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeV, const <a class="el" href="class_vector.html">Vector</a> &amp;normalV, const bool inShadow) const</td></tr>
-<tr class="separator:ae9caebec73c8df3331158d8837c42343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2872b56876d79b4cd081483c92ccc5c"><td class="memItemLeft" align="right" valign="top"><a id="aa2872b56876d79b4cd081483c92ccc5c" name="aa2872b56876d79b4cd081483c92ccc5c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPattern</b> (std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt; patternVal)</td></tr>
+<tr class="separator:aa2872b56876d79b4cd081483c92ccc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae80beb4716579b786efbacce3cb30d53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ae80beb4716579b786efbacce3cb30d53">lighting</a> (const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;object, const <a class="el" href="class_point_light.html">PointLight</a> &amp;light, const <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeV, const <a class="el" href="class_vector.html">Vector</a> &amp;normalV, const bool inShadow) const</td></tr>
+<tr class="separator:ae80beb4716579b786efbacce3cb30d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4958bdd3908631e170c6eff9a88bd706" name="a4958bdd3908631e170c6eff9a88bd706"></a>
@@ -254,8 +260,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9caebec73c8df3331158d8837c42343" name="ae9caebec73c8df3331158d8837c42343"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9caebec73c8df3331158d8837c42343">&#9670;&#160;</a></span>lighting()</h2>
+<a id="ae80beb4716579b786efbacce3cb30d53" name="ae80beb4716579b786efbacce3cb30d53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae80beb4716579b786efbacce3cb30d53">&#9670;&#160;</a></span>lighting()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,6 +269,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="class_colour.html">Colour</a> Material::lighting </td>
           <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="class_point_light.html">PointLight</a> &amp;&#160;</td>
           <td class="paramname"><em>light</em>, </td>
         </tr>
