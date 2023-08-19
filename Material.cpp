@@ -11,8 +11,8 @@
 * @param double specularVal Value of the specular attribute of the material. Typical Range : [0.0, 1.0].
 * @param double shininessVal Value of the shininess attribute of the material. Typical Range : [10.0, 200.0].
 */
-Material::Material(const Colour& colourVal, const double ambientVal, const double diffuseVal, const double specularVal, const double shininessVal)
-	: colour {colourVal}, ambient {ambientVal}, diffuse {diffuseVal}, specular {specularVal}, shininess {shininessVal}
+Material::Material(const Colour& colourVal, const double ambientVal, const double diffuseVal, const double specularVal, const double shininessVal, const double reflectiveVal)
+	: colour {colourVal}, ambient {ambientVal}, diffuse {diffuseVal}, specular {specularVal}, shininess {shininessVal}, reflective{reflectiveVal}
 {
 }
 
@@ -77,9 +77,20 @@ double Material::getShininess() const
 	return this->shininess;
 }
 
+/**
+* @return A shared pointer to the pattern of the material.
+*/
 const std::shared_ptr<Pattern> Material::getPattern() const
 {
 	return this->pattern;
+}
+
+/**
+* @return The reflectivity of the material.
+*/
+double Material::getReflectivity() const
+{
+	return this->reflective;
 }
 
 /**
@@ -132,9 +143,24 @@ void Material::setShininess(const double shininessVal)
 	this->shininess = shininessVal;
 }
 
+/**
+* Sets the pattern of the material.
+*
+* @param shared_ptr<Pattern> patternVal Pattern to be assigned to the material.
+*/
 void Material::setPattern(std::shared_ptr<Pattern> patternVal)
 {
 	this->pattern = std::move(patternVal);
+}
+
+/**
+* Sets the reflectivity of the material.
+*
+* @param double reflectiveVal Reflectivity value to be assigned to the material.
+*/
+void Material::setReflectivity(const double reflectiveVal)
+{
+	this->reflective = reflectiveVal;
 }
 
 /**

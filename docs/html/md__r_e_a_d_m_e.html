@@ -516,7 +516,78 @@ Code Sample</h1>
 Output</h1>
 <h3><a class="anchor" id="autotoc_md25"></a>
 Render time: ~97 sec</h3>
-<p><img src="Renders/PlaneScene.png" alt="Renders/PlaneScene.png" title="a title" class="inline"/> </p>
+<p><img src="Renders/PlaneScene.png" alt="Renders/PlaneScene.png" title="a title" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md26"></a>
+Example 7 - Patterns</h1>
+<details >
+<summary >
+Reveal Code Sample</summary>
+<p></p>
+<p></p>
+</details>
+<h1><a class="anchor" id="autotoc_md27"></a>
+Code Sample</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> PI = 3.1415926535897932384626433832795028841971693993751058209;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Patterns</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> MAX = 255.0;</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; floorPattern = std::make_shared&lt;CheckersPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(38.0/MAX, 38.0 / MAX, 38.0 / MAX), <a class="code hl_class" href="class_colour.html">Colour</a>(181.0/MAX, 181.0 / MAX, 181.0 / MAX));</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; wallPattern = std::make_shared&lt;StripedPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(38.0 / MAX, 38.0 / MAX, 38.0 / MAX), <a class="code hl_class" href="class_colour.html">Colour</a>(181.0 / MAX, 181.0 / MAX, 181.0 / MAX));</div>
+<div class="line">    wallPattern-&gt;setPatternTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(0.9, 0.9, 0.9) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(PI/9));</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; leftSpherePattern = std::make_shared&lt;RingPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(111.0/MAX, 255.0/MAX, 111.0/MAX), <a class="code hl_class" href="class_colour.html">Colour</a>(0, 166.0 / MAX, 0));</div>
+<div class="line">    leftSpherePattern-&gt;setPatternTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(0.2, 0.2, 0.2));</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; rightSpherePattern = std::make_shared&lt;GradientPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(1.0, 165/MAX, 0), <a class="code hl_class" href="class_colour.html">Colour</a>(1, 0, 0));</div>
+<div class="line">    rightSpherePattern-&gt;setPatternTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-1, 0, 0) * <a class="code hl_class" href="class_scale.html">Scale</a>(2, 1, 1));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Floor</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; floor = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; floorMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    floorMaterial-&gt;setPattern(floorPattern);</div>
+<div class="line">    floor-&gt;setMaterial(floorMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Wall</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; wall = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    wall-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 0, 5) * <a class="code hl_class" href="class_rotation_x.html">RotationX</a>(PI / 2) );</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; wallMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    wallMaterial-&gt;setPattern(wallPattern);</div>
+<div class="line">    wall-&gt;setMaterial(wallMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Big Sphere</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; bigSphere = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    bigSphere-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-1, 1, 1.5) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(PI / 8) * <a class="code hl_class" href="class_rotation_x.html">RotationX</a>(-PI / 2.5));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; bigSphereMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    bigSphereMaterial-&gt;setPattern(leftSpherePattern);</div>
+<div class="line">    bigSphere-&gt;setMaterial(bigSphereMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Small Sphere</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; smallSphere = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    smallSphere-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(1, 0.5, 1) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.5, 0.5, 0.5));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; smallSphereMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    smallSphereMaterial-&gt;setPattern(rightSpherePattern);</div>
+<div class="line">    smallSphere-&gt;setMaterial(smallSphereMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_world.html">World</a> w(<span class="keyword">false</span>);</div>
+<div class="line">    w.setLight(<a class="code hl_class" href="class_point_light.html">PointLight</a>(<a class="code hl_class" href="class_point.html">Point</a>(-10, 10, -10), <a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 1)));</div>
+<div class="line">    w.addObjects(floor);</div>
+<div class="line">    w.addObjects(wall);</div>
+<div class="line">    w.addObjects(bigSphere);</div>
+<div class="line">    w.addObjects(smallSphere);</div>
+<div class="line">    </div>
+<div class="line">    <a class="code hl_class" href="class_camera.html">Camera</a> camera(2000, 1000, PI / 3);</div>
+<div class="line">    camera.setTransform(<a class="code hl_class" href="class_view_transform.html">ViewTransform</a>(<a class="code hl_class" href="class_point.html">Point</a>(0, 1.5, -5), <a class="code hl_class" href="class_point.html">Point</a>(0, 1.0, -0.5), <a class="code hl_class" href="class_vector.html">Vector</a>(0, 1, 0)));</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> canvas = camera.render(w);</div>
+<div class="line"> </div>
+<div class="line">    canvas.<a class="code hl_function" href="class_canvas.html#a84b5638e91675b2930ed247664787bfd">convertToPPM</a>(<span class="stringliteral">&quot;PatternsScene&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md28"></a>
+Output</h1>
+<h3><a class="anchor" id="autotoc_md29"></a>
+Render time: ~300 sec</h3>
+<p><img src="Renders/PatternsScene.png" alt="Renders/PatternsScene.png" title="a title" class="inline"/> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

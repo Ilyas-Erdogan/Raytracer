@@ -6,8 +6,8 @@
 * @param double tVal The t (time) vaue as seen by
 * @param shared_ptr<Object> initObject Reference to the object in that was hit
 */
-Computation::Computation(const double tVal, std::shared_ptr<Object> initObject, const Point& pointVal, const Vector& eyeVVal, const Vector& normalVVal, const bool insideVal, const Point& overPointVal)
-	: t{ tVal }, object{ std::move(initObject) }, point{ pointVal }, eyeV{ eyeVVal }, normalV{ normalVVal }, inside{ insideVal }, overPoint{ overPointVal }
+Computation::Computation(const double tVal, std::shared_ptr<Object> initObject, const Point& pointVal, const Vector& eyeVVal, const Vector& normalVVal, const bool insideVal, const Point& overPointVal, const Vector& reflectVVal)
+	: t{ tVal }, object{ std::move(initObject) }, point{ pointVal }, eyeV{ eyeVVal }, normalV{ normalVVal }, inside{ insideVal }, overPoint{ overPointVal }, reflectV{ reflectVVal }
 {
 }
 
@@ -69,4 +69,9 @@ const Point& Computation::getOverPoint() const
 bool Computation::isInside() const
 {
 	return this->inside;
+}
+
+const Vector& Computation::getReflectV() const
+{
+	return this->reflectV;
 }

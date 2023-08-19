@@ -78,8 +78,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9ebaa8893882f908902baec59bf07794"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a9ebaa8893882f908902baec59bf07794">Computation</a> (const double tVal, std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; initObject, const <a class="el" href="class_point.html">Point</a> &amp;pointVal, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeVVal, const <a class="el" href="class_vector.html">Vector</a> &amp;normalVVal, const bool insideVal, const <a class="el" href="class_point.html">Point</a> &amp;overPointVal)</td></tr>
-<tr class="separator:a9ebaa8893882f908902baec59bf07794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1386f3c633654afd7f207df44e176a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#af1386f3c633654afd7f207df44e176a4">Computation</a> (const double tVal, std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; initObject, const <a class="el" href="class_point.html">Point</a> &amp;pointVal, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeVVal, const <a class="el" href="class_vector.html">Vector</a> &amp;normalVVal, const bool insideVal, const <a class="el" href="class_point.html">Point</a> &amp;overPointVal, const <a class="el" href="class_vector.html">Vector</a> &amp;reflectVVal)</td></tr>
+<tr class="separator:af1386f3c633654afd7f207df44e176a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b712d6c4254d41ec458a781c7497379"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a8b712d6c4254d41ec458a781c7497379">getT</a> () const</td></tr>
 <tr class="separator:a8b712d6c4254d41ec458a781c7497379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c5df4b0a61da66d3c6133315bccc16d"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#a9c5df4b0a61da66d3c6133315bccc16d">getObject</a> () const</td></tr>
@@ -94,10 +94,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa183c44bce99e9bb96df7f70a41df753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae661dc99c134f75f9e592d07954ed773"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">isInside</a> () const</td></tr>
 <tr class="separator:ae661dc99c134f75f9e592d07954ed773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88f2552df9e5def68a97fb084e2900a9"><td class="memItemLeft" align="right" valign="top"><a id="a88f2552df9e5def68a97fb084e2900a9" name="a88f2552df9e5def68a97fb084e2900a9"></a>
+const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getReflectV</b> () const</td></tr>
+<tr class="separator:a88f2552df9e5def68a97fb084e2900a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9ebaa8893882f908902baec59bf07794" name="a9ebaa8893882f908902baec59bf07794"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ebaa8893882f908902baec59bf07794">&#9670;&#160;</a></span>Computation()</h2>
+<a id="af1386f3c633654afd7f207df44e176a4" name="af1386f3c633654afd7f207df44e176a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1386f3c633654afd7f207df44e176a4">&#9670;&#160;</a></span>Computation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +145,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
-          <td class="paramname"><em>overPointVal</em>&#160;</td>
+          <td class="paramname"><em>overPointVal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>reflectVVal</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

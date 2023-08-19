@@ -78,8 +78,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4958bdd3908631e170c6eff9a88bd706"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a4958bdd3908631e170c6eff9a88bd706">Material</a> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal=<a class="el" href="class_colour.html">Colour</a>(1, 1, 1), const double ambientVal=0.1, const double diffuseVal=0.9, const double specularVal=0.9, const double shininessVal=200.0)</td></tr>
-<tr class="separator:a4958bdd3908631e170c6eff9a88bd706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0226a5d3f7a9f33cc3128844766770c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ad0226a5d3f7a9f33cc3128844766770c">Material</a> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal=<a class="el" href="class_colour.html">Colour</a>(1, 1, 1), const double ambientVal=0.1, const double diffuseVal=0.9, const double specularVal=0.9, const double shininessVal=200.0, const double reflectiveVal=0.0)</td></tr>
+<tr class="separator:ad0226a5d3f7a9f33cc3128844766770c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0519b7438e5ebdcc86d17817c96016d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa0519b7438e5ebdcc86d17817c96016d">operator==</a> (const <a class="el" href="class_material.html">Material</a> &amp;rhs) const</td></tr>
 <tr class="separator:aa0519b7438e5ebdcc86d17817c96016d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2f7f2a55f3756462bcc12f9e4f132f7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa2f7f2a55f3756462bcc12f9e4f132f7">getColour</a> () const</td></tr>
@@ -92,9 +92,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abc01f74bdb35147a486ea0d20a037d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a4f6a82fe14d4d7bc2c26cce15de656"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a1a4f6a82fe14d4d7bc2c26cce15de656">getShininess</a> () const</td></tr>
 <tr class="separator:a1a4f6a82fe14d4d7bc2c26cce15de656"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade00cea41f0f73934bb0886cbf1c3ac6"><td class="memItemLeft" align="right" valign="top"><a id="ade00cea41f0f73934bb0886cbf1c3ac6" name="ade00cea41f0f73934bb0886cbf1c3ac6"></a>
-const std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPattern</b> () const</td></tr>
+<tr class="memitem:ade00cea41f0f73934bb0886cbf1c3ac6"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ade00cea41f0f73934bb0886cbf1c3ac6">getPattern</a> () const</td></tr>
 <tr class="separator:ade00cea41f0f73934bb0886cbf1c3ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a162bc404e95158db15d54696feb8458c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a162bc404e95158db15d54696feb8458c">getReflectivity</a> () const</td></tr>
+<tr class="separator:a162bc404e95158db15d54696feb8458c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4f8fc437a67db36e151d132689df187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa4f8fc437a67db36e151d132689df187">setColour</a> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal)</td></tr>
 <tr class="separator:aa4f8fc437a67db36e151d132689df187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a785551b0414b7b096bc86344125c5e2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a785551b0414b7b096bc86344125c5e2a">setAmbient</a> (const double ambientVal)</td></tr>
@@ -105,15 +106,16 @@ const std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &g
 <tr class="separator:a4179bb759874d311afbb2529f794f407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a168129bdfc0437561788922f98f839d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a168129bdfc0437561788922f98f839d3">setShininess</a> (const double shininessVal)</td></tr>
 <tr class="separator:a168129bdfc0437561788922f98f839d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2872b56876d79b4cd081483c92ccc5c"><td class="memItemLeft" align="right" valign="top"><a id="aa2872b56876d79b4cd081483c92ccc5c" name="aa2872b56876d79b4cd081483c92ccc5c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPattern</b> (std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt; patternVal)</td></tr>
+<tr class="memitem:aa2872b56876d79b4cd081483c92ccc5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa2872b56876d79b4cd081483c92ccc5c">setPattern</a> (std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt; patternVal)</td></tr>
 <tr class="separator:aa2872b56876d79b4cd081483c92ccc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2baea827a2aaef29a916a1d5a7c68e27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a2baea827a2aaef29a916a1d5a7c68e27">setReflectivity</a> (const double reflectiveVal)</td></tr>
+<tr class="separator:a2baea827a2aaef29a916a1d5a7c68e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae80beb4716579b786efbacce3cb30d53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ae80beb4716579b786efbacce3cb30d53">lighting</a> (const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;object, const <a class="el" href="class_point_light.html">PointLight</a> &amp;light, const <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeV, const <a class="el" href="class_vector.html">Vector</a> &amp;normalV, const bool inShadow) const</td></tr>
 <tr class="separator:ae80beb4716579b786efbacce3cb30d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4958bdd3908631e170c6eff9a88bd706" name="a4958bdd3908631e170c6eff9a88bd706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4958bdd3908631e170c6eff9a88bd706">&#9670;&#160;</a></span>Material()</h2>
+<a id="ad0226a5d3f7a9f33cc3128844766770c" name="ad0226a5d3f7a9f33cc3128844766770c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0226a5d3f7a9f33cc3128844766770c">&#9670;&#160;</a></span>Material()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,7 +148,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setPattern</b> (std::
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>shininessVal</em> = <code>200.0</code>&#160;</td>
+          <td class="paramname"><em>shininessVal</em> = <code>200.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>reflectiveVal</em> = <code>0.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -221,6 +229,42 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setPattern</b> (std::
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The diffuse diffuse of the material. </dd></dl>
+
+</div>
+</div>
+<a id="ade00cea41f0f73934bb0886cbf1c3ac6" name="ade00cea41f0f73934bb0886cbf1c3ac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade00cea41f0f73934bb0886cbf1c3ac6">&#9670;&#160;</a></span>getPattern()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt; Material::getPattern </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the pattern of the material. </dd></dl>
+
+</div>
+</div>
+<a id="a162bc404e95158db15d54696feb8458c" name="a162bc404e95158db15d54696feb8458c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a162bc404e95158db15d54696feb8458c">&#9670;&#160;</a></span>getReflectivity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Material::getReflectivity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The reflectivity of the material. </dd></dl>
 
 </div>
 </div>
@@ -418,6 +462,56 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setPattern</b> (std::
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">double</td><td>diffuseVal Diffuse to be assigned to the material. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa2872b56876d79b4cd081483c92ccc5c" name="aa2872b56876d79b4cd081483c92ccc5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2872b56876d79b4cd081483c92ccc5c">&#9670;&#160;</a></span>setPattern()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Material::setPattern </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt;&#160;</td>
+          <td class="paramname"><em>patternVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the pattern of the material.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shared_ptr&lt;Pattern&gt;</td><td>patternVal <a class="el" href="class_pattern.html">Pattern</a> to be assigned to the material. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2baea827a2aaef29a916a1d5a7c68e27" name="a2baea827a2aaef29a916a1d5a7c68e27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2baea827a2aaef29a916a1d5a7c68e27">&#9670;&#160;</a></span>setReflectivity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Material::setReflectivity </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>reflectiveVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the reflectivity of the material.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>reflectiveVal Reflectivity value to be assigned to the material. </td></tr>
   </table>
   </dd>
 </dl>

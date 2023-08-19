@@ -4,8 +4,8 @@ var searchData=
   ['canvas_1',['Canvas',['../class_canvas.html',1,'']]],
   ['checkerspattern_2',['CheckersPattern',['../class_checkers_pattern.html',1,'']]],
   ['colour_3',['Colour',['../class_colour.html',1,'']]],
-  ['colourat_4',['colourAt',['../class_world.html#acffafee66db6afda6e5112a64c50b0d8',1,'World']]],
-  ['computation_5',['Computation',['../class_computation.html',1,'Computation'],['../class_computation.html#a9ebaa8893882f908902baec59bf07794',1,'Computation::Computation()']]],
+  ['colourat_4',['colourAt',['../class_world.html#a9e7807d178818a0f8de0b46579dfedeb',1,'World']]],
+  ['computation_5',['Computation',['../class_computation.html',1,'Computation'],['../class_computation.html#af1386f3c633654afd7f207df44e176a4',1,'Computation::Computation()']]],
   ['converttoppm_6',['convertToPPM',['../class_canvas.html#a84b5638e91675b2930ed247664787bfd',1,'Canvas']]],
   ['crossproduct_7',['crossProduct',['../class_tuple.html#a18e7d1ead19baec6efc9e00957d46bd1',1,'Tuple']]]
 ];

@@ -93,9 +93,9 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray)
 {
 	std::vector<Intersection> intersections;
 	// Iterate over all objects in the world and check for intersections.
-	for (auto &sphereObject : this->objects)
+	for (auto &objectsI : this->objects)
 	{
-		std::vector<Intersection> intersectionSub = sphereObject->intersect(ray);
+		std::vector<Intersection> intersectionSub = objectsI->intersect(ray);
 		for (auto& intersects : intersectionSub)
 		{
 			intersections.emplace_back(intersects);
@@ -112,9 +112,11 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray)
 * 
 * @return The colour at the intersection encapsualted by the proivded compuatation.
 */
-const Colour World::shadeHit(const Computation& computation)
+const Colour World::shadeHit(const Computation& computation, const int remaining)
 {
-	return computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getOverPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
+	Colour surface = computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getOverPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
+	Colour reflected = this->reflectedColour(computation, remaining);
+	return surface + reflected;
 }
 
 /**
@@ -124,7 +126,7 @@ const Colour World::shadeHit(const Computation& computation)
 * 
 * @return An immutable Colour (to be drawn onto the canvas).
 */
-const Colour World::colourAt(const Ray& ray)
+const Colour World::colourAt(const Ray& ray, const int remaining)
 {
 	// Find intersections with given ray
 	std::vector<Intersection> intersections = this->intersectWorld(ray);
@@ -140,7 +142,7 @@ const Colour World::colourAt(const Ray& ray)
 	{
 		// Prepare the appropraite computations to be used for shading.
 		// Determine Colour to be written.
-		return this->shadeHit(hitCheck->prepareComputations(ray));
+		return this->shadeHit(hitCheck->prepareComputations(ray), remaining);
 	}
 }
 
@@ -172,4 +174,24 @@ bool World::isShadowed(const Point& point)
 	}
 	// No hit
 	return false;
+}
+
+/**
+* Determines the colour to display based on the intersected object's reflecitivity attribute.
+* 
+* @pararm Computation comps Reference to the computation used help with calculations.
+* 
+* @return The colour to display.
+*/
+const Colour World::reflectedColour(const Computation& comps, const int remaining)
+{
+	// Check for no reflectivity
+	if (remaining <= 0 || comps.getObject()->getMaterial()->getReflectivity() == 0.0)
+	{
+		return Colour(0, 0, 0);
+	}
+
+	Ray reflectRay(comps.getOverPoint(), comps.getReflectV());
+	Colour colour = this->colourAt(reflectRay, remaining - 1);
+	return colour * comps.getObject()->getMaterial()->getReflectivity();
 }

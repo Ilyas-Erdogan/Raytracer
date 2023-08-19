@@ -69,6 +69,7 @@ int main()
 	smallSphere->setTransform(Translation(1, 0.5, 1) * Scale(0.5, 0.5, 0.5));
 	std::shared_ptr<Material> smallSphereMaterial = std::make_shared<Material>();
 	smallSphereMaterial->setPattern(rightSpherePattern);
+	smallSphereMaterial->setReflectivity(1);
 	smallSphere->setMaterial(smallSphereMaterial);
 
 	World w(false);

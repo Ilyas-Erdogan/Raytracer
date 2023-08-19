@@ -90,12 +90,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a47028e092e7638f57a0e5073744212a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0dac2812460f3f2a5e7653ef9a34979"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#ae0dac2812460f3f2a5e7653ef9a34979">intersectWorld</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
 <tr class="separator:ae0dac2812460f3f2a5e7653ef9a34979"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4686ce79b43c25251dc8631697e73cff"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a4686ce79b43c25251dc8631697e73cff">shadeHit</a> (const <a class="el" href="class_computation.html">Computation</a> &amp;computation)</td></tr>
-<tr class="separator:a4686ce79b43c25251dc8631697e73cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acffafee66db6afda6e5112a64c50b0d8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#acffafee66db6afda6e5112a64c50b0d8">colourAt</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
-<tr class="separator:acffafee66db6afda6e5112a64c50b0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e30c5982979eaa7c9273ccc7bf8f6f9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a0e30c5982979eaa7c9273ccc7bf8f6f9">shadeHit</a> (const <a class="el" href="class_computation.html">Computation</a> &amp;computation, const int remaining=5)</td></tr>
+<tr class="separator:a0e30c5982979eaa7c9273ccc7bf8f6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e7807d178818a0f8de0b46579dfedeb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a9e7807d178818a0f8de0b46579dfedeb">colourAt</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray, const int remaining=5)</td></tr>
+<tr class="separator:a9e7807d178818a0f8de0b46579dfedeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab28c3c3a7d7295cffbdaedc070b62d98"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#ab28c3c3a7d7295cffbdaedc070b62d98">isShadowed</a> (const <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
 <tr class="separator:ab28c3c3a7d7295cffbdaedc070b62d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a9ab0b26d89a7c3bb9e8e6105bd0055"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a6a9ab0b26d89a7c3bb9e8e6105bd0055">reflectedColour</a> (const <a class="el" href="class_computation.html">Computation</a> &amp;comps, const int remaining=5)</td></tr>
+<tr class="separator:a6a9ab0b26d89a7c3bb9e8e6105bd0055"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3be110e6069b37fa68c89a1f351ee1c8" name="a3be110e6069b37fa68c89a1f351ee1c8"></a>
@@ -149,8 +151,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="acffafee66db6afda6e5112a64c50b0d8" name="acffafee66db6afda6e5112a64c50b0d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acffafee66db6afda6e5112a64c50b0d8">&#9670;&#160;</a></span>colourAt()</h2>
+<a id="a9e7807d178818a0f8de0b46579dfedeb" name="a9e7807d178818a0f8de0b46579dfedeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e7807d178818a0f8de0b46579dfedeb">&#9670;&#160;</a></span>colourAt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,8 +161,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">const <a class="el" href="class_colour.html">Colour</a> World::colourAt </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_ray.html">Ray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ray</em></td><td>)</td>
+          <td class="paramname"><em>ray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>remaining</em> = <code>5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -263,6 +275,37 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6a9ab0b26d89a7c3bb9e8e6105bd0055" name="a6a9ab0b26d89a7c3bb9e8e6105bd0055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a9ab0b26d89a7c3bb9e8e6105bd0055">&#9670;&#160;</a></span>reflectedColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_colour.html">Colour</a> World::reflectedColour </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_computation.html">Computation</a> &amp;&#160;</td>
+          <td class="paramname"><em>comps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>remaining</em> = <code>5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Determines the colour to display based on the intersected object's reflecitivity attribute.</p>
+<p>@pararm <a class="el" href="class_computation.html">Computation</a> comps Reference to the computation used help with calculations.</p>
+<dl class="section return"><dt>Returns</dt><dd>The colour to display. </dd></dl>
+
+</div>
+</div>
 <a id="a9b77069ced686cd60f2266fa49f36c7b" name="a9b77069ced686cd60f2266fa49f36c7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b77069ced686cd60f2266fa49f36c7b">&#9670;&#160;</a></span>setLight()</h2>
 
@@ -288,8 +331,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4686ce79b43c25251dc8631697e73cff" name="a4686ce79b43c25251dc8631697e73cff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4686ce79b43c25251dc8631697e73cff">&#9670;&#160;</a></span>shadeHit()</h2>
+<a id="a0e30c5982979eaa7c9273ccc7bf8f6f9" name="a0e30c5982979eaa7c9273ccc7bf8f6f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e30c5982979eaa7c9273ccc7bf8f6f9">&#9670;&#160;</a></span>shadeHit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -298,8 +341,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">const <a class="el" href="class_colour.html">Colour</a> World::shadeHit </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_computation.html">Computation</a> &amp;&#160;</td>
-          <td class="paramname"><em>computation</em></td><td>)</td>
+          <td class="paramname"><em>computation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>remaining</em> = <code>5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

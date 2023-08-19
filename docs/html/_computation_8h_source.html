@@ -85,7 +85,7 @@ $(function() {
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">// Constructors</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_computation.html">Computation</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> tVal, std::shared_ptr&lt;class Object&gt; initObject, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; pointVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; eyeVVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; normalVVal, <span class="keyword">const</span> <span class="keywordtype">bool</span> insideVal, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; overPointVal);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_computation.html">Computation</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> tVal, std::shared_ptr&lt;class Object&gt; initObject, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; pointVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; eyeVVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; normalVVal, <span class="keyword">const</span> <span class="keywordtype">bool</span> insideVal, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; overPointVal, <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; reflectVVal);</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_class" href="class_computation.html">~Computation</a>();</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// Getters</span></div>
@@ -96,16 +96,18 @@ $(function() {
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; <a class="code hl_function" href="class_computation.html#afb0666bf24fca0fcd1e37d5ad4dee064">getNormalV</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a>&amp; <a class="code hl_function" href="class_computation.html#aa183c44bce99e9bb96df7f70a41df753">getOverPoint</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_computation.html#ae661dc99c134f75f9e592d07954ed773">isInside</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">double</span> t;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::shared_ptr&lt;class Object&gt; object;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_point.html">Point</a> point;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_vector.html">Vector</a> eyeV;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_vector.html">Vector</a> normalV;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span> inside;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_class" href="class_point.html">Point</a> overPoint;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_vector.html">Vector</a>&amp; getReflectV() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">double</span> t;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::shared_ptr&lt;class Object&gt; object;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_point.html">Point</a> point;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_vector.html">Vector</a> eyeV;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_vector.html">Vector</a> normalV;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> inside;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="class_point.html">Point</a> overPoint;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="class_vector.html">Vector</a> reflectV;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
 <div class="ttc" id="aclass_computation_html"><div class="ttname"><a href="class_computation.html">Computation</a></div><div class="ttdef"><b>Definition</b> Computation.h:7</div></div>
 <div class="ttc" id="aclass_computation_html_a8b712d6c4254d41ec458a781c7497379"><div class="ttname"><a href="class_computation.html#a8b712d6c4254d41ec458a781c7497379">Computation::getT</a></div><div class="ttdeci">double getT() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:21</div></div>
 <div class="ttc" id="aclass_computation_html_a99f03b3f27a4e36f3d8dde5789d62ebc"><div class="ttname"><a href="class_computation.html#a99f03b3f27a4e36f3d8dde5789d62ebc">Computation::getPoint</a></div><div class="ttdeci">const Point &amp; getPoint() const</div><div class="ttdef"><b>Definition</b> Computation.cpp:37</div></div>

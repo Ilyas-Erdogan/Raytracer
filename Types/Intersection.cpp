@@ -115,5 +115,7 @@ const Computation Intersection::prepareComputations(const Ray& ray) const
 	}
 
 	Point overPoint = tempPoint + normalV * 0.00001;
-	return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside, overPoint);
+
+	Vector reflectV = ray.getDirection().reflect(normalV);
+	return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside, overPoint, reflectV);
 }
