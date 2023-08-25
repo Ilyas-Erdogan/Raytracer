@@ -4,11 +4,13 @@
 #include <cmath>
 
 Plane::Plane()
+	: Object()
 {
 }
 
 Plane::~Plane()
 {
+	Object::~Object();
 }
 
 /**

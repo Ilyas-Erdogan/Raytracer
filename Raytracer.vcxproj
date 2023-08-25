@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Canvas.h" />
+    <ClInclude Include="Cube.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Patterns\CheckersPattern.h" />
     <ClInclude Include="Patterns\GradientPattern.h" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Patterns\CheckersPattern.cpp" />
