@@ -664,4 +664,4 @@ int main()
 # Output
 | Reflection & Refraction | Fresnel Effect Demonstration |
 | -------------- | ------------- |
-| ![Renders/Chapter11Scene.png](Renders/Chapter11Scene.png "a title") | ![Renders/FresnelEffect.png](Renders/FresnelEffect.png "a title") |
+| ![Renders/Chapter11Scene.png](Renders/Chapter11Scene.png "a title") | ![Renders/FresnelTest.png](Renders/FresnelTest.png "a title") |
