@@ -23,11 +23,11 @@ public:
 
 	// Utilities
 	const std::vector<Intersection> intersectWorld(const Ray& ray);
-	const Colour shadeHit(const Computation& computation, const int remaining = 5);
-	const Colour colourAt(const Ray& ray, const int remaining = 5);
+	const Colour shadeHit(const Computation& computation, const int remaining = 4);
+	const Colour colourAt(const Ray& ray, const int remaining = 4);
 	bool isShadowed(const Point& point);
-	const Colour reflectedColour(const Computation& comps, const int remaining = 5);
-	const Colour refractedColour(const Computation& comps, const int remaining = 5);
+	const Colour reflectedColour(const Computation& comps, const int remaining = 4);
+	const Colour refractedColour(const Computation& comps, const int remaining = 4);
 private:
 	std::vector<std::shared_ptr<class Object>> objects;
 	std::unique_ptr<class PointLight> light;

@@ -34,42 +34,42 @@ int main()
 {
 	const double PI = 3.1415926535897932384626433832795028841971693993751058209;
 
-	// Fresnel Effect
-	World w(false);
+	//// Fresnel Effect
+	//World w(false);
 
-	Camera camera(600, 600, 0.45);
-	camera.setTransform(ViewTransform(Point(0, 0, -5), Point(0, 0, 0), Vector(0, 1, 0)));
+	//Camera camera(600, 600, 0.45);
+	//camera.setTransform(ViewTransform(Point(0, 0, -5), Point(0, 0, 0), Vector(0, 1, 0)));
 
-	PointLight light(Point(2, 10, -5), Colour(0.9, 0.9, 0.9));
-	w.setLight(light);
+	//PointLight light(Point(2, 10, -5), Colour(0.9, 0.9, 0.9));
+	//w.setLight(light);
 
-	std::shared_ptr<Object> wall = std::make_shared<Plane>();
-	wall->setTransform(Translation(0, 0, 10) * RotationX(1.5708));
-	std::shared_ptr<Material> wallMaterial = std::make_shared<Material>();
-	std::shared_ptr<Pattern> wallPattern = std::make_shared<CheckersPattern>(Colour(0.15, 0.15, 0.15), Colour(0.85, 0.85, 0.85));
-	wallMaterial->setPattern(wallPattern);
-	wallMaterial->setAmbient(0.8);
-	wallMaterial->setDiffuse(0.2);
-	wallMaterial->setSpecular(0);
-	wall->setMaterial(wallMaterial);
-	w.addObjects(wall);
+	//std::shared_ptr<Object> wall = std::make_shared<Plane>();
+	//wall->setTransform(Translation(0, 0, 10) * RotationX(1.5708));
+	//std::shared_ptr<Material> wallMaterial = std::make_shared<Material>();
+	//std::shared_ptr<Pattern> wallPattern = std::make_shared<CheckersPattern>(Colour(0.15, 0.15, 0.15), Colour(0.85, 0.85, 0.85));
+	//wallMaterial->setPattern(wallPattern);
+	//wallMaterial->setAmbient(0.8);
+	//wallMaterial->setDiffuse(0.2);
+	//wallMaterial->setSpecular(0);
+	//wall->setMaterial(wallMaterial);
+	//w.addObjects(wall);
 
-	std::shared_ptr<Object> ball = std::make_shared<Sphere>();
-	std::shared_ptr<Material> ballMaterial = std::make_shared<Material>(Colour(1, 1, 1), 0, 0, 0.9, 300, 0.9, 0.9, 1.5);
-	//ballMaterial->setPattern(std::make_shared<Pattern>(Colour(0, 0, 0), Colour(1, 1, 1)));
-	ball->setMaterial(ballMaterial);
-	w.addObjects(ball);
-	 
-	std::shared_ptr<Object> hollow = std::make_shared<Sphere>();
-	hollow->setTransform(Scale(0.5, 0.5, 0.5));
-	std::shared_ptr<Material> hollowMaterial = std::make_shared<Material>(Colour(1, 1, 1), 0, 0, 0.9, 300, 0.9, 0.9, 1.000273);
-	//hollowMaterial->setPattern(std::make_shared<Pattern>(Colour(0, 0, 0), Colour(1, 1, 1)));
-	hollow->setMaterial(hollowMaterial);
-	w.addObjects(hollow);
+	//std::shared_ptr<Object> ball = std::make_shared<Sphere>();
+	//std::shared_ptr<Material> ballMaterial = std::make_shared<Material>(Colour(1, 1, 1), 0, 0, 0.9, 300, 0.9, 0.9, 1.5);
+	////ballMaterial->setPattern(std::make_shared<Pattern>(Colour(0, 0, 0), Colour(1, 1, 1)));
+	//ball->setMaterial(ballMaterial);
+	//w.addObjects(ball);
+	// 
+	//std::shared_ptr<Object> hollow = std::make_shared<Sphere>();
+	//hollow->setTransform(Scale(0.5, 0.5, 0.5));
+	//std::shared_ptr<Material> hollowMaterial = std::make_shared<Material>(Colour(1, 1, 1), 0, 0, 0.9, 300, 0.9, 0.9, 1.000273);
+	////hollowMaterial->setPattern(std::make_shared<Pattern>(Colour(0, 0, 0), Colour(1, 1, 1)));
+	//hollow->setMaterial(hollowMaterial);
+	//w.addObjects(hollow);
 
-	Canvas canvas = camera.render(w);
+	//Canvas canvas = camera.render(w);
 
-	canvas.convertToPPM("FresnelTest");
+	//canvas.convertToPPM("FresnelTest");
 
 
 	// Refraction/Reflection Scene
@@ -196,7 +196,6 @@ int main()
 	Canvas canvas = camera.render(w);
 
 	canvas.convertToPPM("Chapter11Scene");
-
 
 	return 0;
 }
