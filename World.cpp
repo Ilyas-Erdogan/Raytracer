@@ -3,6 +3,7 @@
 #include "Primitives/Sphere.h"
 #include "Transformations/Scale.h"
 #include <algorithm>
+#include <cmath>
 
 /**
 * Creates an empty or default world according to parameter.
@@ -95,8 +96,7 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray)
 	// Iterate over all objects in the world and check for intersections.
 	for (auto &objectsI : this->objects)
 	{
-		std::vector<Intersection> intersectionSub = objectsI->intersect(ray);
-		for (auto& intersects : intersectionSub)
+		for (auto& intersects : objectsI->intersect(ray))
 		{
 			intersections.emplace_back(intersects);
 		}
@@ -116,7 +116,23 @@ const Colour World::shadeHit(const Computation& computation, const int remaining
 {
 	Colour surface = computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getOverPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
 	Colour reflected = this->reflectedColour(computation, remaining);
-	return surface + reflected;
+	Colour refracted = this->refractedColour(computation, remaining);
+	
+	std::shared_ptr<Material> material = computation.getObject()->getMaterial();
+	//printf("%f %f\n", material->getReflectivity(), material->getTransparency());
+
+	if (material->getReflectivity() > 0.0 && material->getTransparency() > 0.0)
+	{
+		//printf("N1: %f AND N2: %f\n", computation.getExit(), computation.getEnter());
+		double reflectance = computation.schlick();
+		//printf("SCHLICK: %f\n", reflectance);
+		
+		return surface + (reflected * reflectance) + refracted * (1 - reflectance);
+	}
+	else
+	{
+		return surface + reflected + refracted;
+	}
 }
 
 /**
@@ -132,7 +148,7 @@ const Colour World::colourAt(const Ray& ray, const int remaining)
 	std::vector<Intersection> intersections = this->intersectWorld(ray);
 
 	// Find hit from resulting intersections
-	std::unique_ptr<Intersection> hitCheck = utilObject->hit(intersections);
+	std::shared_ptr<Intersection> hitCheck = utilObject->hit(intersections);
 	// If no hits are found, return a black colour
 	if (hitCheck == nullptr)
 	{
@@ -142,7 +158,7 @@ const Colour World::colourAt(const Ray& ray, const int remaining)
 	{
 		// Prepare the appropraite computations to be used for shading.
 		// Determine Colour to be written.
-		return this->shadeHit(hitCheck->prepareComputations(ray), remaining);
+		return this->shadeHit(hitCheck->prepareComputations(ray, intersections), remaining);
 	}
 }
 
@@ -165,7 +181,7 @@ bool World::isShadowed(const Point& point)
 
 	// Intersect the world with the ray
 	std::vector<Intersection> intersections = this->intersectWorld(r);
-	std::unique_ptr<Intersection> h = utilObject->hit(intersections);
+	std::shared_ptr<Intersection> h = utilObject->hit(intersections);
 	// Check for hit and if t value is less than distance.
 	if (h != nullptr && h->getT() < distance)
 	{
@@ -194,4 +210,38 @@ const Colour World::reflectedColour(const Computation& comps, const int remainin
 	Ray reflectRay(comps.getOverPoint(), comps.getReflectV());
 	Colour colour = this->colourAt(reflectRay, remaining - 1);
 	return colour * comps.getObject()->getMaterial()->getReflectivity();
+}
+
+const Colour World::refractedColour(const Computation& comps, const int remaining)
+{
+	// Check for lack of transparency (opaque object)
+	if (comps.getObject()->getMaterial()->getTransparency() == 0)
+	{
+		return Colour(0, 0, 0);
+	}
+
+	// Apply Snell's law.
+	// Find the ratio of the first refraction index to the second.
+	double nRatio = comps.getExit() / comps.getEnter();
+	// Get the dot product of the two vectors.
+	double cosI = comps.getEyeV().dotProduct(comps.getNormalV());
+	// Find the sin(thetha_t)^2 using trigonometric identity.
+	double sin2T = (nRatio * nRatio) * (1 - cosI * cosI);
+
+	if (sin2T > 1.0)
+	{
+		return Colour(0, 0, 0);
+	}
+
+	// Find cos(theta t) via trig identity
+	double cosT = std::sqrt(1.0 - sin2T);
+	// Compute the direction of the refracted ray
+	Vector direction = comps.getNormalV() * (nRatio * cosI - cosT) - comps.getEyeV() * nRatio;
+	// Creat refracted ray
+	Ray refractRay(comps.getUnderPoint(), direction);
+
+	// Find the colour of the refracted ray, multiply by transparency to account for opacity
+	Colour colour = this->colourAt(refractRay, remaining - 1);
+	colour *= comps.getObject()->getMaterial()->getTransparency();
+	return colour;
 }

@@ -9,7 +9,15 @@ class Material
 {
 public:
 	// Constructors
-	Material(const Colour& colourVal = Colour(1, 1, 1), const double ambientVal = 0.1, const double diffuseVal = 0.9, const double specularVal = 0.9, const double shininessVal = 200.0, const double reflectiveVal = 0.0);
+	Material(
+		const Colour& colourVal = Colour(1, 1, 1),
+		const double ambientVal = 0.1,
+		const double diffuseVal = 0.9,
+		const double specularVal = 0.9,
+		const double shininessVal = 200.0,
+		const double reflectiveVal = 0.0,
+		const double transparencyVal = 0.0,
+		const double refractiveIndexVal = 1.0);
 	~Material();
 
 	// Overloaded operators
@@ -23,6 +31,8 @@ public:
 	double getShininess() const;
 	const std::shared_ptr<Pattern> getPattern() const;
 	double getReflectivity() const;
+	double getTransparency() const;
+	double getRefractiveIndex() const;
 
 	// Setters
 	void setColour(const Colour& colourVal);
@@ -32,9 +42,12 @@ public:
 	void setShininess(const double shininessVal);
 	void setPattern(std::shared_ptr<Pattern> patternVal);
 	void setReflectivity(const double reflectiveVal);
+	void setTransparency(const double transparencyVal);
+	void setRefractiveIndex(const double refractiveIndexVal);
 
 	// Utilities
 	Colour lighting(const std::shared_ptr<class Object>& object, const PointLight& light, const Point& point, const Vector& eyeV, const Vector& normalV, const bool inShadow) const;
+	void makeGlassy();
 private:
 	Colour colour;
 	double ambient;
@@ -45,5 +58,7 @@ private:
 	std::shared_ptr<Pattern> pattern;
 
 	double reflective;
+	double transparency;
+	double refractiveIndex;
 };
 

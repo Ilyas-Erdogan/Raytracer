@@ -27,6 +27,7 @@ public:
 	const Colour colourAt(const Ray& ray, const int remaining = 5);
 	bool isShadowed(const Point& point);
 	const Colour reflectedColour(const Computation& comps, const int remaining = 5);
+	const Colour refractedColour(const Computation& comps, const int remaining = 5);
 private:
 	std::vector<std::shared_ptr<class Object>> objects;
 	std::unique_ptr<class PointLight> light;

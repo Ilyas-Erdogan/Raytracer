@@ -88,18 +88,22 @@ double Intersection::getT() const
 */
 const std::shared_ptr<Object> Intersection::getObject() const
 {
-	return std::shared_ptr<Object>(this->object);
+	return this->object;
 }
 
 /**
 * Encapsulates data containing precomputed information related to the intersection.
 *
 * @param Ray ray The ray to be cast in the scene.
+* @params std::vector Collection of all the intersections.
 *
 * @return A Computation object containing all the necessary attributes.
 */
-const Computation Intersection::prepareComputations(const Ray& ray) const
+const Computation Intersection::prepareComputations(const Ray& ray, std::vector<Intersection>& xs) const
 {
+	std::vector<std::shared_ptr<Object>> containers;
+	double n1 = 1.0, n2 = 1.0;
+
 	// Precompute necessary values.
 	Point tempPoint = ray.getPosition(this->t);
 	Vector eyeV = -ray.getDirection();
@@ -114,8 +118,58 @@ const Computation Intersection::prepareComputations(const Ray& ray) const
 		normalV = -normalV; // Invert normal vector
 	}
 
-	Point overPoint = tempPoint + normalV * 0.00001;
-
+	Point overPoint = tempPoint + (normalV * 0.00001);
+	Point underPoint = tempPoint - (normalV * 0.00001);
 	Vector reflectV = ray.getDirection().reflect(normalV);
-	return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside, overPoint, reflectV);
+
+	for (const Intersection& i : xs)
+	{
+		// Check if the hit is the intersection.
+		if (i == *this)
+		{
+			// Set the exiting refractive index to 1.
+			if (containers.empty())
+			{
+				n1 = 1.0;
+			}
+			// Set the exiting refractive index to the last item in the contatiner.
+			else
+			{
+				n1 = containers.back()->getMaterial()->getRefractiveIndex();
+			}
+		}
+
+		// Check if the intersections object exists in the container.
+		std::vector<std::shared_ptr<Object>>::iterator it = std::find(containers.begin(), containers.end(), i.getObject());
+
+		if (it != containers.end())
+		{
+			// Erase the found item in the container.
+			containers.erase(it);
+		}
+		else
+		{
+			// Append the item to the container 
+			containers.push_back(i.getObject());
+		}
+
+		// Check if the hit is the intersection.
+		if (i == *this)
+		{
+			// Set the entering refractive index to 1.
+			if (containers.empty())
+			{
+				n2 = 1.0;
+			}
+			// Set the entering refractive index to the last item in the contatiner.
+			else
+			{
+				n2 = containers.back()->getMaterial()->getRefractiveIndex();
+			}
+			// Terminate the loop
+			break;
+		}
+	}
+
+	return Computation(this->t, this->object, tempPoint, eyeV, normalV, inside, overPoint, underPoint, reflectV, n1, n2);
 }

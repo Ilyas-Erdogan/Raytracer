@@ -11,8 +11,16 @@
 * @param double specularVal Value of the specular attribute of the material. Typical Range : [0.0, 1.0].
 * @param double shininessVal Value of the shininess attribute of the material. Typical Range : [10.0, 200.0].
 */
-Material::Material(const Colour& colourVal, const double ambientVal, const double diffuseVal, const double specularVal, const double shininessVal, const double reflectiveVal)
-	: colour {colourVal}, ambient {ambientVal}, diffuse {diffuseVal}, specular {specularVal}, shininess {shininessVal}, reflective{reflectiveVal}
+Material::Material(
+	const Colour& colourVal,
+	const double ambientVal,
+	const double diffuseVal, 
+	const double specularVal, 
+	const double shininessVal, 
+	const double reflectiveVal,
+	const double transparencyVal,
+	const double refractiveIndexVal)
+	: colour {colourVal}, ambient {ambientVal}, diffuse {diffuseVal}, specular {specularVal}, shininess {shininessVal}, reflective{reflectiveVal}, transparency{transparencyVal}, refractiveIndex{refractiveIndexVal}
 {
 }
 
@@ -94,6 +102,22 @@ double Material::getReflectivity() const
 }
 
 /**
+* @return The transparency of the material.
+*/
+double Material::getTransparency() const
+{
+	return this->transparency;
+}
+
+/**
+* @return The refractive index of the material.
+*/
+double Material::getRefractiveIndex() const
+{
+	return this->refractiveIndex;
+}
+
+/**
 * Sets the colour of the material.
 * 
 * @param Colour colourVal Reference to the colour to be assigned to the material.
@@ -164,6 +188,26 @@ void Material::setReflectivity(const double reflectiveVal)
 }
 
 /**
+* Sets the transparency of the material.
+*
+* @param double transparencyVal Transparency value to be assigned to the material.
+*/
+void Material::setTransparency(const double transparencyVal)
+{
+	this->transparency = transparencyVal;
+}
+
+/**
+* Sets the refractive index of the material.
+*
+* @param double refractiveIndexVal Refractive index to be assigned to the material.
+*/
+void Material::setRefractiveIndex(const double refractiveIndexVal)
+{
+	this->refractiveIndex = refractiveIndexVal;
+}
+
+/**
 * Applies the Phong reflection model by combining the calling material's ambient, diffuse, and specular components.
 * 
 * @param PointLight light Reference to the point being illuminated.
@@ -217,4 +261,13 @@ Colour Material::lighting(const std::shared_ptr<Object>& object, const PointLigh
 	}
 
 	return (ambient + diffuse + specular);
+}
+
+/**
+* Creates glassy material by setting specific transparency and refractive indexs values.
+*/
+void Material::makeGlassy()
+{
+	this->transparency = 1.0;
+	this->refractiveIndex = 1.5;
 }

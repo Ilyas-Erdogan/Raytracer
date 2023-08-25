@@ -110,7 +110,7 @@ void Object::setMaterial(std::shared_ptr<Material> newMaterial)
 * 
 * @return A unique pointer of the Intersection.
 */
-std::unique_ptr<Intersection> Object::hit(std::vector<Intersection>& intersectionVec) const
+std::shared_ptr<Intersection> Object::hit(std::vector<Intersection>& intersectionVec) const
 {
 	// Early check for empty vector
 	if (intersectionVec.empty())
@@ -125,8 +125,8 @@ std::unique_ptr<Intersection> Object::hit(std::vector<Intersection>& intersectio
 	{
 		if (intersection.getT() > 0.0)
 		{
-			std::unique_ptr<Intersection> returnIntersection(new Intersection(intersection));
-			return returnIntersection;
+			//std::unique_ptr<Intersection> returnIntersection(new Intersection(intersection));
+			return std::make_shared<Intersection>(intersection);
 		}
 	}
 

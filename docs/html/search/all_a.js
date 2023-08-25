@@ -6,5 +6,5 @@ var searchData=
   ['plane_3',['Plane',['../class_plane.html',1,'']]],
   ['point_4',['Point',['../class_point.html',1,'']]],
   ['pointlight_5',['PointLight',['../class_point_light.html',1,'']]],
-  ['preparecomputations_6',['prepareComputations',['../class_intersection.html#af6cb975a1a5f8ca993fe7e18cfae8baa',1,'Intersection']]]
+  ['preparecomputations_6',['prepareComputations',['../class_intersection.html#a46f4ac90a50874628ddf986a1cf0eb2e',1,'Intersection']]]
 ];

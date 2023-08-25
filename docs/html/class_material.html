@@ -78,8 +78,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad0226a5d3f7a9f33cc3128844766770c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ad0226a5d3f7a9f33cc3128844766770c">Material</a> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal=<a class="el" href="class_colour.html">Colour</a>(1, 1, 1), const double ambientVal=0.1, const double diffuseVal=0.9, const double specularVal=0.9, const double shininessVal=200.0, const double reflectiveVal=0.0)</td></tr>
-<tr class="separator:ad0226a5d3f7a9f33cc3128844766770c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a127507844f9e93db6ad0b26a29442a21"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a127507844f9e93db6ad0b26a29442a21">Material</a> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal=<a class="el" href="class_colour.html">Colour</a>(1, 1, 1), const double ambientVal=0.1, const double diffuseVal=0.9, const double specularVal=0.9, const double shininessVal=200.0, const double reflectiveVal=0.0, const double transparencyVal=0.0, const double refractiveIndexVal=1.0)</td></tr>
+<tr class="separator:a127507844f9e93db6ad0b26a29442a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0519b7438e5ebdcc86d17817c96016d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa0519b7438e5ebdcc86d17817c96016d">operator==</a> (const <a class="el" href="class_material.html">Material</a> &amp;rhs) const</td></tr>
 <tr class="separator:aa0519b7438e5ebdcc86d17817c96016d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2f7f2a55f3756462bcc12f9e4f132f7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_colour.html">Colour</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa2f7f2a55f3756462bcc12f9e4f132f7">getColour</a> () const</td></tr>
@@ -96,6 +96,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ade00cea41f0f73934bb0886cbf1c3ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a162bc404e95158db15d54696feb8458c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a162bc404e95158db15d54696feb8458c">getReflectivity</a> () const</td></tr>
 <tr class="separator:a162bc404e95158db15d54696feb8458c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad372d08632d019481d0e9b38bebe6516"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ad372d08632d019481d0e9b38bebe6516">getTransparency</a> () const</td></tr>
+<tr class="separator:ad372d08632d019481d0e9b38bebe6516"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2f0c3b018626f439142b6d3b9bc834"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aab2f0c3b018626f439142b6d3b9bc834">getRefractiveIndex</a> () const</td></tr>
+<tr class="separator:aab2f0c3b018626f439142b6d3b9bc834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4f8fc437a67db36e151d132689df187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#aa4f8fc437a67db36e151d132689df187">setColour</a> (const <a class="el" href="class_colour.html">Colour</a> &amp;colourVal)</td></tr>
 <tr class="separator:aa4f8fc437a67db36e151d132689df187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a785551b0414b7b096bc86344125c5e2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a785551b0414b7b096bc86344125c5e2a">setAmbient</a> (const double ambientVal)</td></tr>
@@ -110,12 +114,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa2872b56876d79b4cd081483c92ccc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2baea827a2aaef29a916a1d5a7c68e27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a2baea827a2aaef29a916a1d5a7c68e27">setReflectivity</a> (const double reflectiveVal)</td></tr>
 <tr class="separator:a2baea827a2aaef29a916a1d5a7c68e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae866f4bb9cb8e7f46a6a8fede748a5ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ae866f4bb9cb8e7f46a6a8fede748a5ed">setTransparency</a> (const double transparencyVal)</td></tr>
+<tr class="separator:ae866f4bb9cb8e7f46a6a8fede748a5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3333e4984d5fcf6074c148ca34039e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ae3333e4984d5fcf6074c148ca34039e0">setRefractiveIndex</a> (const double refractiveIndexVal)</td></tr>
+<tr class="separator:ae3333e4984d5fcf6074c148ca34039e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae80beb4716579b786efbacce3cb30d53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#ae80beb4716579b786efbacce3cb30d53">lighting</a> (const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; &amp;object, const <a class="el" href="class_point_light.html">PointLight</a> &amp;light, const <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_vector.html">Vector</a> &amp;eyeV, const <a class="el" href="class_vector.html">Vector</a> &amp;normalV, const bool inShadow) const</td></tr>
 <tr class="separator:ae80beb4716579b786efbacce3cb30d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c6f9ce80bc44337833e38061512b02a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#a1c6f9ce80bc44337833e38061512b02a">makeGlassy</a> ()</td></tr>
+<tr class="separator:a1c6f9ce80bc44337833e38061512b02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad0226a5d3f7a9f33cc3128844766770c" name="ad0226a5d3f7a9f33cc3128844766770c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0226a5d3f7a9f33cc3128844766770c">&#9670;&#160;</a></span>Material()</h2>
+<a id="a127507844f9e93db6ad0b26a29442a21" name="a127507844f9e93db6ad0b26a29442a21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127507844f9e93db6ad0b26a29442a21">&#9670;&#160;</a></span>Material()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +164,19 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>reflectiveVal</em> = <code>0.0</code>&#160;</td>
+          <td class="paramname"><em>reflectiveVal</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>transparencyVal</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>refractiveIndexVal</em> = <code>1.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -268,6 +290,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aab2f0c3b018626f439142b6d3b9bc834" name="aab2f0c3b018626f439142b6d3b9bc834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab2f0c3b018626f439142b6d3b9bc834">&#9670;&#160;</a></span>getRefractiveIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Material::getRefractiveIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The refractive index of the material. </dd></dl>
+
+</div>
+</div>
 <a id="a1a4f6a82fe14d4d7bc2c26cce15de656" name="a1a4f6a82fe14d4d7bc2c26cce15de656"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a4f6a82fe14d4d7bc2c26cce15de656">&#9670;&#160;</a></span>getShininess()</h2>
 
@@ -301,6 +341,24 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The specular attribute of the material. </dd></dl>
+
+</div>
+</div>
+<a id="ad372d08632d019481d0e9b38bebe6516" name="ad372d08632d019481d0e9b38bebe6516"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad372d08632d019481d0e9b38bebe6516">&#9670;&#160;</a></span>getTransparency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Material::getTransparency </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The transparency of the material. </dd></dl>
 
 </div>
 </div>
@@ -364,6 +422,24 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The colour to be applied to a pixel given the parameters. </dd></dl>
+
+</div>
+</div>
+<a id="a1c6f9ce80bc44337833e38061512b02a" name="a1c6f9ce80bc44337833e38061512b02a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c6f9ce80bc44337833e38061512b02a">&#9670;&#160;</a></span>makeGlassy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Material::makeGlassy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates glassy material by setting specific transparency and refractive indexs values. </p>
 
 </div>
 </div>
@@ -518,6 +594,31 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae3333e4984d5fcf6074c148ca34039e0" name="ae3333e4984d5fcf6074c148ca34039e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3333e4984d5fcf6074c148ca34039e0">&#9670;&#160;</a></span>setRefractiveIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Material::setRefractiveIndex </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>refractiveIndexVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the refractive index of the material.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>refractiveIndexVal Refractive index to be assigned to the material. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a168129bdfc0437561788922f98f839d3" name="a168129bdfc0437561788922f98f839d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a168129bdfc0437561788922f98f839d3">&#9670;&#160;</a></span>setShininess()</h2>
 
@@ -562,6 +663,31 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">double</td><td>specularVal Specular to be assigned to the material. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae866f4bb9cb8e7f46a6a8fede748a5ed" name="ae866f4bb9cb8e7f46a6a8fede748a5ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae866f4bb9cb8e7f46a6a8fede748a5ed">&#9670;&#160;</a></span>setTransparency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Material::setTransparency </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>transparencyVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the transparency of the material.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>transparencyVal Transparency value to be assigned to the material. </td></tr>
   </table>
   </dd>
 </dl>

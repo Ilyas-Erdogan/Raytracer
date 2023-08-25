@@ -153,9 +153,10 @@ Canvas Camera::render(World& world) const
 		end = std::chrono::high_resolution_clock::now();
 		elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
 		sum += elapsed;
-		///printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
+		printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
 	}
 	printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
+	printf("FINI");
 
 	return image;
 }
