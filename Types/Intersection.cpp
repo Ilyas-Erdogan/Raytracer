@@ -99,7 +99,7 @@ const std::shared_ptr<Object> Intersection::getObject() const
 *
 * @return A Computation object containing all the necessary attributes.
 */
-const Computation Intersection::prepareComputations(const Ray& ray, std::vector<Intersection>& xs) const
+const Computation Intersection::prepareComputations(const Ray& ray, const std::vector<Intersection>& xs) const
 {
 	std::vector<std::shared_ptr<Object>> containers;
 	double n1 = 1.0, n2 = 1.0;

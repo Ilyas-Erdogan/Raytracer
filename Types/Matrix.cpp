@@ -17,16 +17,8 @@ Matrix::Matrix()
 {
 }
 Matrix::Matrix(const int rowLimit, const int columnLimit)
-    : rowSize { rowLimit }, columnSize{ columnLimit }
+    : rowSize{ rowLimit }, columnSize{ columnLimit }, matrix{ {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0} }
 {
-    for (int i = 0; i < rowSize; i++)
-    {
-        this->matrix.push_back(std::vector<double>());
-        for (int j = 0; j < columnSize; j++)
-        {
-            this->matrix[i].push_back(0.0);
-        }
-    }
 }
 
 /**

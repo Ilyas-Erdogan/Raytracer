@@ -2,6 +2,7 @@
 #include <cmath>
 #include <chrono>
 #include <utility>
+#include <thread>
 
 /**
 * Constrcuts a virtual "camera" that can "take pictures" of the scene.
@@ -127,9 +128,9 @@ const Ray Camera::rayForPixel(const int pX, const int pY) const
 
 /**
 * Renders a canvas using the calling object (camera) to render an image of the given world.
-* 
+*
 * @param @World world Reference to the world to be draw to teh canvas.
-* 
+*
 * @return A canvas containing the rendered image.
 */
 Canvas Camera::render(World& world) const
@@ -161,3 +162,74 @@ Canvas Camera::render(World& world) const
 	return image;
 }
 
+///**
+//* Renders a canvas using the calling object (camera) to render an image of the given world.
+//* 
+//* @param @World world Reference to the world to be draw to teh canvas.
+//* 
+//* @return A canvas containing the rendered image.
+//*/
+//const Canvas Camera::render(World& world) const
+//{
+//	std::vector<Colour> section = {};
+//	const std::pair<int, int> pairOne = std::make_pair<int, int>(0, this->vSize * 0.25);
+//	const std::pair<int, int> pairTwo = std::make_pair<int, int>(this->vSize/4 * 0.25 + 1, this->vSize * 0.5);
+//	const std::pair<int, int> pairThree = std::make_pair<int, int>(this->vSize * 0.5 + 1, this->vSize * 0.75);
+//	const std::pair<int, int> pairFour = std::make_pair<int, int>(this->vSize * 0.75 + 1, this->vSize);
+//
+//	std::vector<Colour> calcOne;
+//	std::vector<Colour> calcTwo;
+//	std::vector<Colour> calcThree;
+//	std::vector<Colour> calcFour;
+//
+//	std::thread t1(&Camera::calcThread, this, std::ref(world), std::ref(calcOne), pairOne.first, pairOne.second);
+//	std::thread t2(&Camera::calcThread, this, std::ref(world), std::ref(calcTwo), pairTwo.first, pairTwo.second);
+//	std::thread t3(&Camera::calcThread, this, std::ref(world), std::ref(calcThree), pairThree.first, pairThree.second);
+//	std::thread t4(&Camera::calcThread, this, std::ref(world), std::ref(calcFour), pairFour.first, pairFour.second);
+//
+//	t1.join();
+//	t2.join();
+//	t3.join();
+//	t4.join();
+//
+//	printf("MERGED================================\n");
+//	std::vector<Colour> mergedCalcs;
+//	mergedCalcs.reserve(calcOne.size() + calcTwo.size() + calcThree.size() + calcFour.size());
+//	mergedCalcs.insert(mergedCalcs.end(), calcOne.begin(), calcOne.end());
+//	mergedCalcs.insert(mergedCalcs.end(), calcTwo.begin(), calcTwo.end());
+//	mergedCalcs.insert(mergedCalcs.end(), calcThree.begin(), calcThree.end());
+//	mergedCalcs.insert(mergedCalcs.end(), calcFour.begin(), calcFour.end());
+//
+//	std::vector<Colour>::iterator it = mergedCalcs.begin();
+//
+//	Canvas image(this->hSize, this->vSize, Colour());
+//
+//	for (int y = 0; y < this->vSize; y++)
+//	{
+//		for (int x = 0; x < this->hSize; x++)
+//		{
+//			//printf("(%f, %f, %f)\n", it->getRed(), it->getGreen(), it->getBlue());
+//			if (it != mergedCalcs.end())
+//			{
+//				image.writePixel(x, y, *it);
+//				it++;
+//			}
+//		}
+//	}
+//
+//	return image;
+//}
+//
+//void Camera::calcThread(World& world, std::vector<Colour>& calc, const int yBegin, const int yEnd) const
+//{
+//	for (int y = yBegin; y < yEnd; y++)
+//	{
+//		for (int x = 0; x < this->hSize; x++)
+//		{
+//			Ray r = this->rayForPixel(x, y);
+//			calc.push_back(world.colourAt(r));
+//			printf("%i %i\n", y, x);
+//		}
+//	}
+//}
+//

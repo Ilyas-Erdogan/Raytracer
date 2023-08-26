@@ -25,7 +25,12 @@ public:
 	// Utility
 	double getPixelSize() const;
 	const Ray rayForPixel(const int pX, const int pY) const;
+	// Default Render
 	Canvas render(World& world) const;
+	// Multithread expirementation
+	//const Canvas render(World& world) const;
+	//void calcThread(World& world, std::vector<Colour>& calc, const int yBegin, const int yEnd) const;
+
 private:
 	double hSize;
 	double vSize;

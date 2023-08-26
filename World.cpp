@@ -90,7 +90,7 @@ void World::addObjects(const std::shared_ptr<Object> objectToAdd)
 * 
 * @return An \a sorted immutable vector of the intersections found with the given ray.
 */
-const std::vector<Intersection> World::intersectWorld(const Ray& ray)
+const std::vector<Intersection> World::intersectWorld(const Ray& ray) const
 {
 	std::vector<Intersection> intersections;
 	// Iterate over all objects in the world and check for intersections.
@@ -112,7 +112,7 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray)
 * 
 * @return The colour at the intersection encapsualted by the proivded compuatation.
 */
-const Colour World::shadeHit(const Computation& computation, const int remaining)
+const Colour World::shadeHit(const Computation& computation, const int remaining) const
 {
 	Colour surface = computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getOverPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
 	Colour reflected = this->reflectedColour(computation, remaining);
@@ -142,13 +142,12 @@ const Colour World::shadeHit(const Computation& computation, const int remaining
 * 
 * @return An immutable Colour (to be drawn onto the canvas).
 */
-const Colour World::colourAt(const Ray& ray, const int remaining)
+const Colour World::colourAt(const Ray& ray, const int remaining) const
 {
 	// Find intersections with given ray
-	std::vector<Intersection> intersections = this->intersectWorld(ray);
 
 	// Find hit from resulting intersections
-	std::shared_ptr<Intersection> hitCheck = utilObject->hit(intersections);
+	std::shared_ptr<Intersection> hitCheck = utilObject->hit(this->intersectWorld(ray));
 	// If no hits are found, return a black colour
 	if (hitCheck == nullptr)
 	{
@@ -158,7 +157,7 @@ const Colour World::colourAt(const Ray& ray, const int remaining)
 	{
 		// Prepare the appropraite computations to be used for shading.
 		// Determine Colour to be written.
-		return this->shadeHit(hitCheck->prepareComputations(ray, intersections), remaining);
+		return this->shadeHit(hitCheck->prepareComputations(ray, this->intersectWorld(ray)), remaining);
 	}
 }
 
@@ -169,7 +168,7 @@ const Colour World::colourAt(const Ray& ray, const int remaining)
 * 
 * @return True if a hit exists and the t intersection is less than the calcualted distance, otherwise false.
 */
-bool World::isShadowed(const Point& point)
+bool World::isShadowed(const Point& point) const
 {
 	// Measure distance from point to the light source
 	Vector v = this->getLightSource().getPosition() - point;
@@ -199,7 +198,7 @@ bool World::isShadowed(const Point& point)
 * 
 * @return The colour to display.
 */
-const Colour World::reflectedColour(const Computation& comps, const int remaining)
+const Colour World::reflectedColour(const Computation& comps, const int remaining) const
 {
 	// Check for no reflectivity
 	if (remaining <= 0 || comps.getObject()->getMaterial()->getReflectivity() == 0.0)
@@ -212,7 +211,7 @@ const Colour World::reflectedColour(const Computation& comps, const int remainin
 	return colour * comps.getObject()->getMaterial()->getReflectivity();
 }
 
-const Colour World::refractedColour(const Computation& comps, const int remaining)
+const Colour World::refractedColour(const Computation& comps, const int remaining) const
 {
 	// Check for lack of transparency (opaque object)
 	if (comps.getObject()->getMaterial()->getTransparency() == 0)

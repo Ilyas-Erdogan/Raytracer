@@ -587,7 +587,400 @@ Code Sample</h1>
 Output</h1>
 <h3><a class="anchor" id="autotoc_md29"></a>
 Render time: ~300 sec</h3>
-<p><img src="Renders/PatternsScene.png" alt="Renders/PatternsScene.png" title="a title" class="inline"/> </p>
+<p><img src="Renders/PatternsScene.png" alt="Renders/PatternsScene.png" title="a title" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md30"></a>
+Example 8 - Reflection &amp; Reflection</h1>
+<details >
+<summary >
+Reveal Code Sample</summary>
+<p></p>
+<p></p>
+</details>
+<h1><a class="anchor" id="autotoc_md31"></a>
+Code Sample</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> PI = 3.1415926535897932384626433832795028841971693993751058209;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Fresnel Effect</span></div>
+<div class="line">    <a class="code hl_class" href="class_world.html">World</a> w(<span class="keyword">false</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_camera.html">Camera</a> camera(600, 600, 0.45);</div>
+<div class="line">    camera.setTransform(<a class="code hl_class" href="class_view_transform.html">ViewTransform</a>(<a class="code hl_class" href="class_point.html">Point</a>(0, 0, -5), <a class="code hl_class" href="class_point.html">Point</a>(0, 0, 0), <a class="code hl_class" href="class_vector.html">Vector</a>(0, 1, 0)));</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_point_light.html">PointLight</a> light(<a class="code hl_class" href="class_point.html">Point</a>(2, 10, -5), <a class="code hl_class" href="class_colour.html">Colour</a>(0.9, 0.9, 0.9));</div>
+<div class="line">    w.setLight(light);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Object&gt; wall = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    wall-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 0, 10) * <a class="code hl_class" href="class_rotation_x.html">RotationX</a>(1.5708));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; wallMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; wallPattern = std::make_shared&lt;CheckersPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(0.15, 0.15, 0.15), <a class="code hl_class" href="class_colour.html">Colour</a>(0.85, 0.85, 0.85));</div>
+<div class="line">    wallMaterial-&gt;setPattern(wallPattern);</div>
+<div class="line">    wallMaterial-&gt;setAmbient(0.8);</div>
+<div class="line">    wallMaterial-&gt;setDiffuse(0.2);</div>
+<div class="line">    wallMaterial-&gt;setSpecular(0);</div>
+<div class="line">    wall-&gt;setMaterial(wallMaterial);</div>
+<div class="line">    w.addObjects(wall);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Object&gt; ball = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; ballMaterial = std::make_shared&lt;Material&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 1), 0, 0, 0.9, 300, 0.9, 0.9, 1.5);</div>
+<div class="line">    <span class="comment">//ballMaterial-&gt;setPattern(std::make_shared&lt;Pattern&gt;(Colour(0, 0, 0), Colour(1, 1, 1)));</span></div>
+<div class="line">    ball-&gt;setMaterial(ballMaterial);</div>
+<div class="line">    w.addObjects(ball);</div>
+<div class="line">     </div>
+<div class="line">    std::shared_ptr&lt;Object&gt; hollow = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    hollow-&gt;setTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(0.5, 0.5, 0.5));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; hollowMaterial = std::make_shared&lt;Material&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 1), 0, 0, 0.9, 300, 0.9, 0.9, 1.000273);</div>
+<div class="line">    <span class="comment">//hollowMaterial-&gt;setPattern(std::make_shared&lt;Pattern&gt;(Colour(0, 0, 0), Colour(1, 1, 1)));</span></div>
+<div class="line">    hollow-&gt;setMaterial(hollowMaterial);</div>
+<div class="line">    w.addObjects(hollow);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> canvas = camera.render(w);</div>
+<div class="line"> </div>
+<div class="line">    canvas.<a class="code hl_function" href="class_canvas.html#a84b5638e91675b2930ed247664787bfd">convertToPPM</a>(<span class="stringliteral">&quot;FresnelTest&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Refraction/Reflection Scene</span></div>
+<div class="line">    <a class="code hl_class" href="class_world.html">World</a> w(<span class="keyword">false</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_camera.html">Camera</a> camera(800, 400, 1.152);</div>
+<div class="line">    camera.setTransform(<a class="code hl_class" href="class_view_transform.html">ViewTransform</a>(<a class="code hl_class" href="class_point.html">Point</a>(-2.6, 1.5, -3.9), <a class="code hl_class" href="class_point.html">Point</a>(-0.6, 1, -0.8), <a class="code hl_class" href="class_vector.html">Vector</a>(0, 1, 0)));</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_point_light.html">PointLight</a> light(<a class="code hl_class" href="class_point.html">Point</a>(-4.9, 4.9, -1), <a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 1));</div>
+<div class="line">    w.setLight(light);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// WALL</span></div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; wallPattern = std::make_shared&lt;StripedPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(0.45, 0.45, 0.45), <a class="code hl_class" href="class_colour.html">Colour</a>(0.55, 0.55, 0.55));</div>
+<div class="line">    wallPattern-&gt;setPatternTransform(<a class="code hl_class" href="class_rotation_y.html">RotationY</a>(1.5708) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.25, 0.25, 0.25));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; wallMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    wallMaterial-&gt;setPattern(wallPattern);</div>
+<div class="line">    wallMaterial-&gt;setAmbient(0);</div>
+<div class="line">    wallMaterial-&gt;setDiffuse(0.4);</div>
+<div class="line">    wallMaterial-&gt;setSpecular(0);</div>
+<div class="line">    wallMaterial-&gt;setReflectivity(0.3);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// FLOOR</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; floor = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    floor-&gt;setTransform(<a class="code hl_class" href="class_rotation_y.html">RotationY</a>(0.31415));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; floorMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; floorPattern = std::make_shared&lt;CheckersPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(0.35, 0.35, 0.35), <a class="code hl_class" href="class_colour.html">Colour</a>(0.65, 0.65, 0.65));</div>
+<div class="line">    floorMaterial-&gt;setPattern(floorPattern);</div>
+<div class="line">    floorMaterial-&gt;setSpecular(0);</div>
+<div class="line">    floorMaterial-&gt;setReflectivity(0.4);</div>
+<div class="line">    floor-&gt;setMaterial(floorMaterial);</div>
+<div class="line">    w.addObjects(floor);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// CEILING</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; ceiling = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    ceiling-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 5, 0));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; ceilingMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    ceilingMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.8, 0.8, 0.8));</div>
+<div class="line">    ceilingMaterial-&gt;setAmbient(0.3);</div>
+<div class="line">    ceilingMaterial-&gt;setSpecular(0);</div>
+<div class="line">    ceiling-&gt;setMaterial(ceilingMaterial);</div>
+<div class="line">    w.addObjects(ceiling);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// WEST WALL</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; westWall = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    westWall-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-5, 0, 0) * <a class="code hl_class" href="class_rotation_z.html">RotationZ</a>(1.5708) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(1.5708));</div>
+<div class="line">    westWall-&gt;setMaterial(wallMaterial);</div>
+<div class="line">    w.addObjects(westWall);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// EAST WALL</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; eastWall = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    eastWall-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(5, 0, 0) * <a class="code hl_class" href="class_rotation_z.html">RotationZ</a>(1.5708) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(1.5708));</div>
+<div class="line">    eastWall-&gt;setMaterial(wallMaterial);</div>
+<div class="line">    w.addObjects(eastWall);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// NORTH WALL</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; northWall = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    northWall-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 0, 5) * <a class="code hl_class" href="class_rotation_x.html">RotationX</a>(1.5708));</div>
+<div class="line">    northWall-&gt;setMaterial(wallMaterial);</div>
+<div class="line">    w.addObjects(northWall);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// SOUTH WALL</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; southWall = std::make_shared&lt;Plane&gt;();</div>
+<div class="line">    southWall-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 0, -5) * <a class="code hl_class" href="class_rotation_x.html">RotationX</a>(1.5708));</div>
+<div class="line">    southWall-&gt;setMaterial(wallMaterial);</div>
+<div class="line">    w.addObjects(southWall);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// BGBalls</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; BGBall1 = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    BGBall1-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(4.6, 0.4, 1) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.4, 0.4, 0.4));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; BGMaterial1 = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    BGMaterial1-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.8, 0.5, 0.3));</div>
+<div class="line">    BGMaterial1-&gt;setShininess(50);</div>
+<div class="line">    BGBall1-&gt;setMaterial(BGMaterial1);</div>
+<div class="line">    w.addObjects(BGBall1);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Object&gt; BGBall2 = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    BGBall2-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(4.7, 0.3, 0.4) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.3, 0.3, 0.3));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; BGMaterial2 = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    BGMaterial2-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.9, 0.4, 0.5));</div>
+<div class="line">    BGMaterial2-&gt;setShininess(50);</div>
+<div class="line">    BGBall2-&gt;setMaterial(BGMaterial2);</div>
+<div class="line">    w.addObjects(BGBall2);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Object&gt; BGBall3 = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    BGBall3-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-1, 0.5, 4.5) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.5, 0.5, 0.5));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; BGMaterial3 = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    BGMaterial3-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.4, 0.9, 0.6));</div>
+<div class="line">    BGMaterial3-&gt;setShininess(50);</div>
+<div class="line">    BGBall3-&gt;setMaterial(BGMaterial3);</div>
+<div class="line">    w.addObjects(BGBall3);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Object&gt; BGBall4 = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    BGBall4-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-1.7, 0.3, 4.7) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.3, 0.3, 0.3));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; BGMaterial4 = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    BGMaterial4-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.4, 0.6, 0.9));</div>
+<div class="line">    BGMaterial4-&gt;setShininess(50);</div>
+<div class="line">    BGBall4-&gt;setMaterial(BGMaterial4);</div>
+<div class="line">    w.addObjects(BGBall4);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// FGBalls</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; FGBall1 = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    FGBall1-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-0.6, 1, 0.6));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; FGMaterial1 = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    FGMaterial1-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 0.3, 0.2));</div>
+<div class="line">    FGMaterial1-&gt;setSpecular(0.4);</div>
+<div class="line">    FGMaterial1-&gt;setShininess(5);</div>
+<div class="line">    FGBall1-&gt;setMaterial(FGMaterial1);</div>
+<div class="line">    w.addObjects(FGBall1);</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Object&gt; FGBall2 = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    FGBall2-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0.6, 0.7, -0.6) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.7, 0.7 ,0.7));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; FGMaterial2 = std::make_shared&lt;Material&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(0, 0, 0.2), 0, 0.4, 0.9, 300, 0.9, 0.9, 1.52);</div>
+<div class="line">    FGBall2-&gt;setMaterial(FGMaterial2);</div>
+<div class="line">    w.addObjects(FGBall2);</div>
+<div class="line">    std::cout &lt;&lt; FGBall2-&gt;getMaterial()-&gt;getRefractiveIndex() &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    std::shared_ptr&lt;Object&gt; FGBall3 = std::make_shared&lt;Sphere&gt;();</div>
+<div class="line">    FGBall3-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-0.7, 0.5, -0.8) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.5, 0.5, 0.5));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; FGMaterial3 = std::make_shared&lt;Material&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(0, 0.2, 0), 0, 0.4, 0.9, 300, 0.9, 0.9, 1.52);</div>
+<div class="line">    FGBall3-&gt;setMaterial(FGMaterial3);</div>
+<div class="line">    w.addObjects(FGBall3);</div>
+<div class="line">    std::cout &lt;&lt; FGBall3-&gt;getMaterial()-&gt;getRefractiveIndex() &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> canvas = camera.render(w);</div>
+<div class="line"> </div>
+<div class="line">    canvas.<a class="code hl_function" href="class_canvas.html#a84b5638e91675b2930ed247664787bfd">convertToPPM</a>(<span class="stringliteral">&quot;Chapter11Scene&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_rotation_z_html"><div class="ttname"><a href="class_rotation_z.html">RotationZ</a></div><div class="ttdef"><b>Definition</b> RotationZ.h:5</div></div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md32"></a>
+Output</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Reflection &amp; Refraction   </th><th class="markdownTableHeadNone">Fresnel Effect Demonstration    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><img src="Renders/Chapter11Scene.png" alt="Renders/Chapter11Scene.png" title="a title" class="inline"/>   </td><td class="markdownTableBodyNone"><img src="Renders/FresnelTest.png" alt="Renders/FresnelTest.png" title="a title" class="inline"/>   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md33"></a>
+Example 9 - Cubes</h1>
+<details >
+<summary >
+Reveal Code Sample </summary>
+<p></p>
+<p></p>
+</details>
+<h1><a class="anchor" id="autotoc_md34"></a>
+Code Sample</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> PI = 3.1415926535897932384626433832795028841971693993751058209;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_world.html">World</a> w(<span class="keyword">false</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_camera.html">Camera</a> camera(800, 400, 0.785);</div>
+<div class="line">    camera.setTransform(<a class="code hl_class" href="class_view_transform.html">ViewTransform</a>(<a class="code hl_class" href="class_point.html">Point</a>(8, 6, -8), <a class="code hl_class" href="class_point.html">Point</a>(0, 3, 0), <a class="code hl_class" href="class_vector.html">Vector</a>(0, 1, 0)));</div>
+<div class="line"> </div>
+<div class="line">    w.setLight(<a class="code hl_class" href="class_point_light.html">PointLight</a>(<a class="code hl_class" href="class_point.html">Point</a>(0, 6.9, -5), <a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 0.9)));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// FLOOR/CEILING</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; floor = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    floor-&gt;setTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(20, 7, 20) * <a class="code hl_class" href="class_translation.html">Translation</a>(0, 1, 0));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; floorMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; floorPattern = std::make_shared&lt;CheckersPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(0, 0, 0), <a class="code hl_class" href="class_colour.html">Colour</a>(0.25, 0.25, 0.25));</div>
+<div class="line">    floorPattern-&gt;setPatternTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(0.07, 0.07, 0.07));</div>
+<div class="line">    floorMaterial-&gt;setPattern(floorPattern);</div>
+<div class="line">    floorMaterial-&gt;setAmbient(0.25);</div>
+<div class="line">    floorMaterial-&gt;setDiffuse(0.7);</div>
+<div class="line">    floorMaterial-&gt;setSpecular(0.9);</div>
+<div class="line">    floorMaterial-&gt;setShininess(300);</div>
+<div class="line">    floorMaterial-&gt;setReflectivity(0.1);</div>
+<div class="line">    floor-&gt;setMaterial(floorMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// WALLS</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; wall = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    wall-&gt;setTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(10, 10, 10));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; wallMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; wallPattern = std::make_shared&lt;StripedPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(0.4863, 0.3765, 0.2941), <a class="code hl_class" href="class_colour.html">Colour</a>(0.3725, 0.2902, 0.2275));</div>
+<div class="line">    wallPattern-&gt;setPatternTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(0.05, 0.05, 0.05));</div>
+<div class="line">    wallMaterial-&gt;setPattern(wallPattern);</div>
+<div class="line">    wallMaterial-&gt;setAmbient(0.1);</div>
+<div class="line">    wallMaterial-&gt;setDiffuse(0.7);</div>
+<div class="line">    wallMaterial-&gt;setSpecular(0.9);</div>
+<div class="line">    wallMaterial-&gt;setShininess(300);</div>
+<div class="line">    wallMaterial-&gt;setReflectivity(0.1);</div>
+<div class="line">    wall-&gt;setMaterial(wallMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// TABLE TOP</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; top = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    top-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 3.1, 0) * <a class="code hl_class" href="class_scale.html">Scale</a>(3, 0.1, 2));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; topMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    std::shared_ptr&lt;Pattern&gt; topPattern = std::make_shared&lt;StripedPattern&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(0.5529, 0.4235, 0.3255), <a class="code hl_class" href="class_colour.html">Colour</a>(0.6588, 0.5098, 0.4000));</div>
+<div class="line">    topPattern-&gt;setPatternTransform(<a class="code hl_class" href="class_scale.html">Scale</a>(0.05, 0.05, 0.05) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(0.1));</div>
+<div class="line">    topMaterial-&gt;setPattern(topPattern);</div>
+<div class="line">    topMaterial-&gt;setAmbient(0.1);</div>
+<div class="line">    topMaterial-&gt;setDiffuse(0.7);</div>
+<div class="line">    topMaterial-&gt;setSpecular(0.9);</div>
+<div class="line">    topMaterial-&gt;setShininess(300);</div>
+<div class="line">    topMaterial-&gt;setReflectivity(0.2);</div>
+<div class="line">    top-&gt;setMaterial(topMaterial);</div>
+<div class="line">    </div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// LEG MATERIAL</span></div>
+<div class="line">    std::shared_ptr&lt;Material&gt; legMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    legMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.5529, 0.4235, 0.3255));</div>
+<div class="line">    legMaterial-&gt;setAmbient(0.2);</div>
+<div class="line">    legMaterial-&gt;setDiffuse(0.7);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// LEG 1</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; legOne = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    legOne-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(2.7, 1.5, -1.7) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.1, 1.5, 0.1));</div>
+<div class="line">    legOne-&gt;setMaterial(legMaterial);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// LEG 2</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; legTwo = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    legTwo-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(2.7, 1.5, 1.7) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.1, 1.5, 0.1));</div>
+<div class="line">    legTwo-&gt;setMaterial(legMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// LEG 3</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; legThree = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    legThree-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-2.7, 1.5, -1.7) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.1, 1.5, 0.1));</div>
+<div class="line">    legThree-&gt;setMaterial(legMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// LEG 4</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; legFour = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    legFour-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-2.7, 1.5, 1.7) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.1, 1.5, 0.1));</div>
+<div class="line">    legFour-&gt;setMaterial(legMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// GLASS CUBE</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; glassCube = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    glassCube-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 3.45001, 0) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(0.2) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.25, 0.25, 0.25));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; glassCubeMaterial = std::make_shared&lt;Material&gt;(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 0.8), 0, 0.3, 0.9, 300, 0.7, 0.7, 1.5);</div>
+<div class="line">    glassCube-&gt;setMaterial(glassCubeMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// LITTLE CUBE ONE</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; littleCubeOne = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    littleCubeOne-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(1, 3.35, -0.9) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(-0.4) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.15, 0.15, 0.15));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; littleMaterialOne = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    littleMaterialOne-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 0.5, 0.5));</div>
+<div class="line">    littleMaterialOne-&gt;setReflectivity(0.6);</div>
+<div class="line">    littleMaterialOne-&gt;setDiffuse(0.4);</div>
+<div class="line">    littleCubeOne-&gt;setMaterial(littleMaterialOne);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// LITTLE CUBE TWO </span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; littleCubeTwo = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    littleCubeTwo-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-1.5, 3.27, 0.3) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(0.4) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.15, 0.07, 0.15));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; littleMaterialTwo = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    littleMaterialTwo-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(1, 1, 0.5));</div>
+<div class="line">    littleCubeTwo-&gt;setMaterial(littleMaterialTwo);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// LITTLE CUBE THREE</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; littleCubeThree = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    littleCubeThree-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(0, 3.25, 1) * <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(0.4) * <a class="code hl_class" href="class_scale.html">Scale</a>(0.2, 0.05, 0.05));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; littleMaterialThree = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    littleMaterialThree-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.5, 1, 0.5));</div>
+<div class="line">    littleCubeThree-&gt;setMaterial(littleMaterialThree);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// LITTLE CUBE FOUR</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; littleCubeFour = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    littleCubeFour-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-0.6, 3.4, -1)* <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(0.8)* <a class="code hl_class" href="class_scale.html">Scale</a>(0.05, 0.2, 0.05));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; littleMaterialFour = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    littleMaterialFour-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.5, 0.5, 1));</div>
+<div class="line">    littleCubeFour-&gt;setMaterial(littleMaterialFour);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// LITTLE CUBE FIVE</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; littleCubeFive = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    littleCubeFive-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(2, 3.4, 1)* <a class="code hl_class" href="class_rotation_y.html">RotationY</a>(0.8)* <a class="code hl_class" href="class_scale.html">Scale</a>(0.05, 0.2, 0.05));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; littleMaterialFive = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    littleMaterialFour-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.5, 1, 1));</div>
+<div class="line">    littleCubeFive-&gt;setMaterial(littleMaterialFive);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// FRAME ONE</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; frameOne = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    frameOne-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-10, 4, 1)* <a class="code hl_class" href="class_scale.html">Scale</a>(0.05, 1, 1));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; frameOneMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    frameOneMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.7098, 0.2471, 0.2196));</div>
+<div class="line">    frameOneMaterial-&gt;setDiffuse(0.6);</div>
+<div class="line">    frameOne-&gt;setMaterial(frameOneMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// FRAME TWO</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; frameTwo = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    frameTwo-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-10, 3.4, 2.7)* <a class="code hl_class" href="class_scale.html">Scale</a>(0.05, 0.4, 0.4));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; frameTwoMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    frameTwoMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.2667, 0.2706, 0.6902));</div>
+<div class="line">    frameTwoMaterial-&gt;setDiffuse(0.6);</div>
+<div class="line">    frameTwo-&gt;setMaterial(frameTwoMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// FRAME THREE</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; frameThree = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    frameThree-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-10, 4.6, 2.7)* <a class="code hl_class" href="class_scale.html">Scale</a>(0.05, 0.4, 0.4));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; frameThreeMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    frameThreeMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.3098, 0.5961, 0.3098));</div>
+<div class="line">    frameThreeMaterial-&gt;setDiffuse(0.6);</div>
+<div class="line">    frameThree-&gt;setMaterial(frameThreeMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// MIRROR FRAME</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; mirrorFrame = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    mirrorFrame-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-2, 3.5, 9.95)* <a class="code hl_class" href="class_scale.html">Scale</a>(5, 1.5, 0.05));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; mirrorFrameMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    mirrorFrameMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0.3882, 0.2627, 0.1882));</div>
+<div class="line">    mirrorFrameMaterial-&gt;setDiffuse(0.7);</div>
+<div class="line">    mirrorFrame-&gt;setMaterial(mirrorFrameMaterial);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// MIRROR</span></div>
+<div class="line">    std::shared_ptr&lt;Object&gt; mirror = std::make_shared&lt;Cube&gt;();</div>
+<div class="line">    mirror-&gt;setTransform(<a class="code hl_class" href="class_translation.html">Translation</a>(-2, 3.5, 9.95)* <a class="code hl_class" href="class_scale.html">Scale</a>(4.8, 1.4, 0.06));</div>
+<div class="line">    std::shared_ptr&lt;Material&gt; mirrorMaterial = std::make_shared&lt;Material&gt;();</div>
+<div class="line">    mirrorMaterial-&gt;setColour(<a class="code hl_class" href="class_colour.html">Colour</a>(0, 0, 0));</div>
+<div class="line">    mirrorMaterial-&gt;setDiffuse(0);</div>
+<div class="line">    mirrorMaterial-&gt;setAmbient(0);</div>
+<div class="line">    mirrorMaterial-&gt;setSpecular(1);</div>
+<div class="line">    mirrorMaterial-&gt;setShininess(300);</div>
+<div class="line">    mirrorMaterial-&gt;setReflectivity(1);</div>
+<div class="line">    mirror-&gt;setMaterial(mirrorMaterial);</div>
+<div class="line"> </div>
+<div class="line">    w.addObjects(floor);</div>
+<div class="line">    w.addObjects(wall);</div>
+<div class="line">    w.addObjects(top);</div>
+<div class="line">    w.addObjects(legOne);</div>
+<div class="line">    w.addObjects(legTwo);</div>
+<div class="line">    w.addObjects(legThree);</div>
+<div class="line">    w.addObjects(legFour);</div>
+<div class="line">    w.addObjects(glassCube);</div>
+<div class="line">    w.addObjects(littleCubeOne);</div>
+<div class="line">    w.addObjects(littleCubeTwo);</div>
+<div class="line">    w.addObjects(littleCubeThree);</div>
+<div class="line">    w.addObjects(littleCubeFour);</div>
+<div class="line">    w.addObjects(littleCubeFive);</div>
+<div class="line">    w.addObjects(frameOne);</div>
+<div class="line">    w.addObjects(frameTwo);</div>
+<div class="line">    w.addObjects(frameThree);</div>
+<div class="line">    w.addObjects(mirrorFrame);</div>
+<div class="line">    w.addObjects(mirror);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="class_canvas.html">Canvas</a> canvas = camera.render(w);</div>
+<div class="line"> </div>
+<div class="line">    canvas.<a class="code hl_function" href="class_canvas.html#a84b5638e91675b2930ed247664787bfd">convertToPPM</a>(<span class="stringliteral">&quot;TableScene&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md35"></a>
+Output</h1>
+<p><img src="Renders/TableScene.png" alt="Renders/TableScene.png" title="a title" class="inline"/> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

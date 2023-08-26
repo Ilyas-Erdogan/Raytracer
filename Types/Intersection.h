@@ -22,7 +22,7 @@ public:
 	const std::shared_ptr<class Object> getObject() const;
 
 	// Utilities
-	const Computation prepareComputations(const Ray& ray, std::vector<Intersection>& xs) const;
+	const Computation prepareComputations(const Ray& ray, const std::vector<Intersection>& xs) const;
 
 private:
 	double t;

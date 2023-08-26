@@ -33,7 +33,7 @@ public:
 	void setMaterial(std::shared_ptr<Material> newMaterial);
 
 	// Utilities
-	std::shared_ptr<class Intersection> hit(std::vector<class Intersection>& intersctionVec) const;
+	std::shared_ptr<class Intersection> hit(const std::vector<class Intersection>& intersctionVec) const;
 
 	virtual const std::vector<class Intersection> localIntersect(const class Ray& localRay) = 0;
 	const std::vector<class Intersection> intersect(const Ray& ray);

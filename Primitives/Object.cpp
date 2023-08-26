@@ -110,7 +110,7 @@ void Object::setMaterial(std::shared_ptr<Material> newMaterial)
 * 
 * @return A unique pointer of the Intersection.
 */
-std::shared_ptr<Intersection> Object::hit(std::vector<Intersection>& intersectionVec) const
+std::shared_ptr<Intersection> Object::hit(const std::vector<Intersection>& intersectionVec) const
 {
 	// Early check for empty vector
 	if (intersectionVec.empty())
@@ -119,9 +119,8 @@ std::shared_ptr<Intersection> Object::hit(std::vector<Intersection>& intersectio
 	}
 
 	// Sort the vector for iteration optimization
-	std::sort(intersectionVec.begin(), intersectionVec.end());
 	// Iterate through the vector until first positive result is found
-	for (Intersection& intersection : intersectionVec)
+	for (const Intersection& intersection : intersectionVec)
 	{
 		if (intersection.getT() > 0.0)
 		{
