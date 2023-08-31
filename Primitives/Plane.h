@@ -10,7 +10,7 @@ public:
 
     // Utilities
     virtual const std::vector<Intersection> localIntersect(const Ray& localRay);
-    virtual const Vector localNormalAt(const class Point& localPoint) const;
+    virtual const Vector localNormalAt(const class Point& localPoint, const Intersection& hit) const;
 private:
     const double EPSILON{ 0.00001 };
     const Vector normal = Vector(0, 1, 0);

@@ -28,23 +28,104 @@
 #include "Primitives/Cube.h"
 #include "Primitives/Cylinder.h"
 #include "Primitives/Cone.h"
+#include "Primitives/Group.h"
+#include "Primitives/Triangle.h"
+#include "Parser.h"
 #include <chrono>
 #include <utility>
 #include <thread>
 
 
+std::shared_ptr<Sphere> hexagonCorner()
+{
+	std::shared_ptr<Sphere> corner = std::make_shared<Sphere>();
+	corner->setTransform(Translation(0, 0, -1) * Scale(0.25, 0.25, 0.25));
+
+	return corner;
+}
+
+std::shared_ptr<Cylinder> hexagonEdge()
+{
+	const double PI = 3.1415926535897932384626433832795028841971693993751058209;
+	std::shared_ptr<Cylinder> edge = std::make_shared<Cylinder>(0, 1);
+	edge->setTransform(Translation(0, 0, -1) * RotationY(-PI / 6) * RotationZ(-PI / 2) * Scale(0.25, 1, 0.25));
+	
+	return edge;
+}
+
+std::shared_ptr<Group> hexagonSide()
+{
+	std::shared_ptr<Group> side = std::make_shared<Group>();
+	side->addChild(hexagonCorner());
+	side->addChild(hexagonEdge());
+
+	return side;
+}
+
+std::shared_ptr<Group> hexagon()
+{
+	std::shared_ptr<Group> hex = std::make_shared<Group>();
+	for (int n = 0; n <= 5; n++)
+	{
+		const double PI = 3.1415926535897932384626433832795028841971693993751058209;
+		std::shared_ptr<Group> side = hexagonSide();
+		side->setTransform(RotationY(n * PI / 3));
+		hex->addChild(side);
+	}
+
+	return hex;
+}
+
 int main()
 {
 	const double PI = 3.1415926535897932384626433832795028841971693993751058209;
+	//World w(false);
+
+	//Camera camera(1000, 500, 1.22173);
+	//camera.setTransform(ViewTransform(Point(-4, 3, 5), Point(0, 0, 0), Vector(0, 1, 0)));
+
+	//PointLight light(Point(-1.6, 3, 1), Colour(1, 1, 1));
+	//w.setLight(light);
+	//
+	//std::shared_ptr<Group> hex = hexagon();
+	////std::shared_ptr<Material> mat = std::make_shared<Material>(Colour(1, 0, 0));
+	////hex->getMaterial()->setColour(Colour(0, 1, 0));
+	//hex->getMaterial()->setRefractiveIndex(1.52);
+	////hex->addChild(hexagon());
+	//hex->setTransform(Translation(0, 0.5, 0));
+
+	//w.addObjects(hex);
+
+
+	//// FLOOR
+	//std::shared_ptr<Object> floor = std::make_shared<Plane>();
+	//floor->setTransform(RotationY(0.31415));
+	//std::shared_ptr<Material> floorMaterial = std::make_shared<Material>();
+	//std::shared_ptr<Pattern> floorPattern = std::make_shared<CheckersPattern>(Colour(0.35, 0.35, 0.35), Colour(0.65, 0.65, 0.65));
+	//floorMaterial->setPattern(floorPattern);
+	//floorMaterial->setSpecular(0);
+	//floorMaterial->setReflectivity(0.4);
+	//floor->setMaterial(floorMaterial);
+	//w.addObjects(floor);
+
+	//Canvas canvas = camera.render(w);
+
+	//canvas.convertToPPM("Hexagon1");
 
 	World w(false);
 
-	Camera camera(1000, 500, 1.22173);
-	camera.setTransform(ViewTransform(Point(-4, 3, 5), Point(0, 0, 0), Vector(0, 1, 0)));
+	Camera camera(100, 50, 1.22173);
+	camera.setTransform(ViewTransform(Point(-4, 2, 0), Point(0, 1, 0), Vector(0, 1, 0)));
 
-	PointLight light(Point(-1.6, 3, 1), Colour(1, 1, 1));
+	PointLight light(Point(-5, 5, -7), Colour(1, 1, 1));
 	w.setLight(light);
-	
+
+	Parser parser("pumpkin.txt");
+	std::shared_ptr<Group> astro = parser.objToGroup();
+	astro->setTransform(Translation(2, 5, 0) * Scale(0.0004, 0.0004, 0.0004) * RotationX(-PI / 2));
+	astro->getMaterial()->setColour(Colour(1, 0.647, 0));
+	w.addObjects(astro);
+	//w.addObjects(std::make_shared<Sphere>());
 
 	// FLOOR
 	std::shared_ptr<Object> floor = std::make_shared<Plane>();
@@ -57,44 +138,16 @@ int main()
 	floor->setMaterial(floorMaterial);
 	w.addObjects(floor);
 
-	// RING PATTERN
-	std::shared_ptr<Cylinder> ringOne = std::make_shared<Cylinder>(0, 1, true);
-	ringOne->setTransform(Translation(0, 0, -2) * Scale(0.5, 1.0, 0.5));
-	ringOne->getMaterial()->setColour(Colour(1.0, 0.8, 0.7961));
-	w.addObjects(ringOne);
-
-	std::shared_ptr<Cylinder> ringTwo = std::make_shared<Cylinder>(0, 0.8, false);
-	ringTwo->setTransform(Translation(0, 0, -2) * Scale(1.0, 1.0, 1.0));
-	ringTwo->getMaterial()->setColour(Colour(1, 1, 0));
-	w.addObjects(ringTwo);
-
-	std::shared_ptr<Cylinder> ringThree = std::make_shared<Cylinder>(0, 0.6, false);
-	ringThree->setTransform(Translation(0, 0, -2) * Scale(1.5, 1.0, 1.5));
-	ringThree->getMaterial()->setColour(Colour(1, 1, 0));
-	w.addObjects(ringThree);
-	
-	std::shared_ptr<Cylinder> ringFour = std::make_shared<Cylinder>(0, 0.4, false);
-	ringFour->setTransform(Translation(0, 0, -2) * Scale(2.0, 1.0, 2.0));
-	ringFour->getMaterial()->setColour(Colour(1, 1, 0));
-	w.addObjects(ringFour);
-
-	// Tower
-	std::shared_ptr<Cylinder> towerBase = std::make_shared<Cylinder>(0, 1, false);
-	towerBase->setTransform(Scale(0.6, 1, 0.6) * Translation(0, 0, 4));
-	std::shared_ptr<Pattern> towerPattern = std::make_shared<StripedPattern>(Colour(1, 0, 0), Colour(1, 1, 1));
-	towerPattern->setPatternTransform(Scale(0.2, 0.2, 0.2));
-	towerBase->getMaterial()->setPattern(towerPattern);
-	w.addObjects(towerBase);
-	std::shared_ptr<Cone> cone = std::make_shared<Cone>(0, 1, false);
-	std::shared_ptr<Pattern> conePattern = std::make_shared<CheckersPattern>(Colour(1, 0, 0), Colour(1, 1, 1));
-	conePattern->setPatternTransform(Scale(0.2, 0.2, 0.2));
-	cone->getMaterial()->setPattern(conePattern);
-	cone->setTransform(Scale(0.8, 1, 0.8) * Translation(0, 2, 3)  * RotationX(PI));
-	w.addObjects(cone);
+	std::shared_ptr<Object> object = std::make_shared<Sphere>();
+	object->setTransform(Translation(0, 1, 0));
+	//w.addObjects(object);
 
 	Canvas canvas = camera.render(w);
 
-	canvas.convertToPPM("Cylinders");
+	canvas.convertToPPM("atsro");
+	int n;
+	//std::cin >> n;
+
 
 	return 0;
 }

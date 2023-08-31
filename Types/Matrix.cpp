@@ -233,9 +233,13 @@ Tuple operator*(Tuple lhs, const Matrix& rhs)
         if (rhs.columnSize == 4)
         {
             // Convert tuple to matrix
-            Matrix tupleMatrix = rhs * Matrix({ {lhs.getX()}, {lhs.getY()}, {lhs.getZ()}, {lhs.getW()} });
+            double x = rhs(0, 0) * lhs.getX() + rhs(0, 1) * lhs.getY() + rhs(0, 2) * lhs.getZ() + rhs(0, 3) * lhs.getW();
+            double y = rhs(1, 0) * lhs.getX() + rhs(1, 1) * lhs.getY() + rhs(1, 2) * lhs.getZ() + rhs(1, 3) * lhs.getW();
+            double z = rhs(2, 0) * lhs.getX() + rhs(2, 1) * lhs.getY() + rhs(2, 2) * lhs.getZ() + rhs(2, 3) * lhs.getW();
+            double w = rhs(3, 0) * lhs.getX() + rhs(3, 1) * lhs.getY() + rhs(3, 2) * lhs.getZ() + rhs(3, 3) * lhs.getW();
+
             // Convert back to Tuple
-            return Tuple(tupleMatrix(0,0), tupleMatrix(1,0), tupleMatrix(2,0), tupleMatrix(3,0));
+            return Tuple(x, y, z ,w);
         }
         throw std::exception("Matrix object row size must be equal to four!");
     }

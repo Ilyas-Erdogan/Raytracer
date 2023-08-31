@@ -24,7 +24,7 @@ public:
 
 	// Getters
 	double getT() const;
-	const std::shared_ptr<class Object> getObject() const;
+	const std::shared_ptr<class Object>& getObject() const;
 	const Point& getPoint() const;
 	const Vector& getEyeV() const;
 	const Vector& getNormalV() const;

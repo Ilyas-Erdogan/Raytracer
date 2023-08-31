@@ -81,6 +81,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a90e5d004297b8e4d0ee379fa53c0a0f6"><td class="memItemLeft" align="right" valign="top"><a id="a90e5d004297b8e4d0ee379fa53c0a0f6" name="a90e5d004297b8e4d0ee379fa53c0a0f6"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Intersection</b> (const double tValue, std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; initObject)</td></tr>
 <tr class="separator:a90e5d004297b8e4d0ee379fa53c0a0f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae04aaafece6e046b4e466e46877cd82e"><td class="memItemLeft" align="right" valign="top"><a id="ae04aaafece6e046b4e466e46877cd82e" name="ae04aaafece6e046b4e466e46877cd82e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Intersection</b> (const double tValue, std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt; initObject, const double uVal, const double vVal)</td></tr>
+<tr class="separator:ae04aaafece6e046b4e466e46877cd82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2109c8d996a007baee76244d267b7787"><td class="memItemLeft" align="right" valign="top"><a id="a2109c8d996a007baee76244d267b7787" name="a2109c8d996a007baee76244d267b7787"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Intersection</b> (const <a class="el" href="class_intersection.html">Intersection</a> &amp;copyIntersection)</td></tr>
 <tr class="separator:a2109c8d996a007baee76244d267b7787"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,8 +100,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af90e310f01398d5feebff6febc836ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ffbc19c9fd44091be213f6b63249168"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; class <a class="el" href="class_object.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intersection.html#a5ffbc19c9fd44091be213f6b63249168">getObject</a> () const</td></tr>
 <tr class="separator:a5ffbc19c9fd44091be213f6b63249168"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46f4ac90a50874628ddf986a1cf0eb2e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_computation.html">Computation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intersection.html#a46f4ac90a50874628ddf986a1cf0eb2e">prepareComputations</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray, std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;xs) const</td></tr>
-<tr class="separator:a46f4ac90a50874628ddf986a1cf0eb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0eeb4a298e91e432a41abdfe833900d"><td class="memItemLeft" align="right" valign="top"><a id="ae0eeb4a298e91e432a41abdfe833900d" name="ae0eeb4a298e91e432a41abdfe833900d"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getU</b> () const</td></tr>
+<tr class="separator:ae0eeb4a298e91e432a41abdfe833900d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947b7c0063e4ab4c4274abfa2fffe7e5"><td class="memItemLeft" align="right" valign="top"><a id="a947b7c0063e4ab4c4274abfa2fffe7e5" name="a947b7c0063e4ab4c4274abfa2fffe7e5"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getV</b> () const</td></tr>
+<tr class="separator:a947b7c0063e4ab4c4274abfa2fffe7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aea3ffb377f090270c1e4d24697fbba"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_computation.html">Computation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intersection.html#a7aea3ffb377f090270c1e4d24697fbba">prepareComputations</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray, const std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;xs)</td></tr>
+<tr class="separator:a7aea3ffb377f090270c1e4d24697fbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5ffbc19c9fd44091be213f6b63249168" name="a5ffbc19c9fd44091be213f6b63249168"></a>
@@ -215,8 +224,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a46f4ac90a50874628ddf986a1cf0eb2e" name="a46f4ac90a50874628ddf986a1cf0eb2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46f4ac90a50874628ddf986a1cf0eb2e">&#9670;&#160;</a></span>prepareComputations()</h2>
+<a id="a7aea3ffb377f090270c1e4d24697fbba" name="a7aea3ffb377f090270c1e4d24697fbba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aea3ffb377f090270c1e4d24697fbba">&#9670;&#160;</a></span>prepareComputations()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,13 +239,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>xs</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

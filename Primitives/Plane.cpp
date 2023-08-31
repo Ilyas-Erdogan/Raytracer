@@ -39,7 +39,7 @@ const std::vector<Intersection> Plane::localIntersect(const Ray& localRay)
 * 
 * Returns a constant normal in the upwards y direction regardless of the parameter.
 */
-const Vector Plane::localNormalAt(const Point& localPoint) const
+const Vector Plane::localNormalAt(const class Point& localPoint, const Intersection& hit) const
 {
 	return this->normal;
 }

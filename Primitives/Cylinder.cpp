@@ -95,7 +95,7 @@ const std::vector<Intersection> Cylinder::localIntersect(const Ray& localRay)
 *
 * @return An immutable Vector of the normal at the given point.
 */
-const Vector Cylinder::localNormalAt(const Point& localPoint) const
+const Vector Cylinder::localNormalAt(const class Point& localPoint, const Intersection& hit) const
 {
 	// Compute the square of the distance from the y-axis
 	double dist = localPoint.getX() * localPoint.getX() + localPoint.getZ() * localPoint.getZ();

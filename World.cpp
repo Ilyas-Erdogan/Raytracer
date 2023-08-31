@@ -114,7 +114,8 @@ const std::vector<Intersection> World::intersectWorld(const Ray& ray) const
 */
 const Colour World::shadeHit(const Computation& computation, const int remaining) const
 {
-	Colour surface = computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getOverPoint(), computation.getEyeV(), computation.getNormalV(), this->isShadowed(computation.getOverPoint()));
+	bool shadowed = this->isShadowed(computation.getOverPoint());
+	Colour surface = computation.getObject()->getMaterial()->lighting(computation.getObject(), this->getLightSource(), computation.getOverPoint(), computation.getEyeV(), computation.getNormalV(), false);
 	Colour reflected = this->reflectedColour(computation, remaining);
 	Colour refracted = this->refractedColour(computation, remaining);
 	

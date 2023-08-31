@@ -105,7 +105,7 @@ const std::vector<Intersection> Cone::localIntersect(const Ray& localRay)
 *
 * @return An immutable Vector of the normal at the given point.
 */
-const Vector Cone::localNormalAt(const Point& localPoint) const
+const Vector Cone::localNormalAt(const class Point& localPoint, const Intersection& hit) const
 {
 	double dist = localPoint.getX() * localPoint.getX() + localPoint.getZ() * localPoint.getZ();
 

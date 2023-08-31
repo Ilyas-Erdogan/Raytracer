@@ -98,8 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a43283c943dbc1a71e754797c0c56b60f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9243feb19734f1d313d47e0e1aaa8918"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cylinder.html#a9243feb19734f1d313d47e0e1aaa8918">localIntersect</a> (const class <a class="el" href="class_ray.html">Ray</a> &amp;localRay)</td></tr>
 <tr class="separator:a9243feb19734f1d313d47e0e1aaa8918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac788f656d4468ae3571528126d26c128"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cylinder.html#ac788f656d4468ae3571528126d26c128">localNormalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;localPoint) const</td></tr>
-<tr class="separator:ac788f656d4468ae3571528126d26c128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c3f26d8b78e1834a886d2b9f1a503a8"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cylinder.html#a2c3f26d8b78e1834a886d2b9f1a503a8">localNormalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;localPoint, const <a class="el" href="class_intersection.html">Intersection</a> &amp;<a class="el" href="class_object.html#a4f7cb5484a61b2e649de2f015ec90720">hit</a>) const</td></tr>
+<tr class="separator:a2c3f26d8b78e1834a886d2b9f1a503a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f904da35ff2a71c9760661e037ee27e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cylinder.html#a7f904da35ff2a71c9760661e037ee27e">intersectCaps</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray, std::vector&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;xs)</td></tr>
 <tr class="separator:a7f904da35ff2a71c9760661e037ee27e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c479b90ad49028d056e69b92c0eb33c"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cylinder.html#a0c479b90ad49028d056e69b92c0eb33c">checkCap</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray, const double t) const</td></tr>
@@ -114,6 +114,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af2b0d3dca5bbd3cf0fb6b759542cf1f8 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="class_object.html">Object</a> &amp;copyObject)</td></tr>
 <tr class="separator:af2b0d3dca5bbd3cf0fb6b759542cf1f8 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ebba9ead4673a18e5caa3223e20d1c inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
+virtual std::shared_ptr&lt; class <a class="el" href="class_triangle.html">Triangle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>toTriangle</b> ()</td></tr>
+<tr class="separator:ac9ebba9ead4673a18e5caa3223e20d1c inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502d94aa8a17c688fcb8417a1f78de11 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
+virtual std::shared_ptr&lt; class <a class="el" href="class_group.html">Group</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>toGroup</b> ()</td></tr>
+<tr class="separator:a502d94aa8a17c688fcb8417a1f78de11 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e2ff626eb795dc5142b927b3bbd2d0 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
+virtual std::shared_ptr&lt; class <a class="el" href="class_smooth_triangle.html">SmoothTriangle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>toSmoothTriangle</b> ()</td></tr>
+<tr class="separator:a63e2ff626eb795dc5142b927b3bbd2d0 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcbd10ecc17ea3f0f1951924df41fcc8 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="class_object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_object.html">Object</a> &amp;other)</td></tr>
 <tr class="separator:afcbd10ecc17ea3f0f1951924df41fcc8 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,16 +153,24 @@ const <a class="el" href="class_ray.html">Ray</a> &amp;&#160;</td><td class="mem
 <tr class="memitem:a49ccc337698584ef2dcd767e2d12d44d inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; newMaterial)</td></tr>
 <tr class="separator:a49ccc337698584ef2dcd767e2d12d44d inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5d0c6c3a848bdaf287158cd7132bd32 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ab5d0c6c3a848bdaf287158cd7132bd32">hit</a> (std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersctionVec) const</td></tr>
-<tr class="separator:ab5d0c6c3a848bdaf287158cd7132bd32 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f7cb5484a61b2e649de2f015ec90720 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a4f7cb5484a61b2e649de2f015ec90720">hit</a> (const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersctionVec) const</td></tr>
+<tr class="separator:a4f7cb5484a61b2e649de2f015ec90720 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8214660987134637d2418943863071fa inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a8214660987134637d2418943863071fa">localIntersect</a> (const class <a class="el" href="class_ray.html">Ray</a> &amp;localRay)=0</td></tr>
 <tr class="separator:a8214660987134637d2418943863071fa inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedf1d0fa08d2c31e6b0a05ce761626b6 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#aedf1d0fa08d2c31e6b0a05ce761626b6">intersect</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
 <tr class="separator:aedf1d0fa08d2c31e6b0a05ce761626b6 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ad7d864e934b9aa36797039aaf92841 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a4ad7d864e934b9aa36797039aaf92841">localNormalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;localPoint) const =0</td></tr>
-<tr class="separator:a4ad7d864e934b9aa36797039aaf92841 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ff5b18c1ba00524d57e9f386b0d6883 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a5ff5b18c1ba00524d57e9f386b0d6883">normalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
-<tr class="separator:a5ff5b18c1ba00524d57e9f386b0d6883 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc9d224af346ad4a5629d0c8a788d1b8 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#afc9d224af346ad4a5629d0c8a788d1b8">localNormalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;localPoint, const <a class="el" href="class_intersection.html">Intersection</a> &amp;<a class="el" href="class_object.html#a4f7cb5484a61b2e649de2f015ec90720">hit</a>) const =0</td></tr>
+<tr class="separator:afc9d224af346ad4a5629d0c8a788d1b8 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025fd38afd9a177cf933f6570c84ea8c inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a025fd38afd9a177cf933f6570c84ea8c">normalAt</a> (class <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_intersection.html">Intersection</a> &amp;<a class="el" href="class_object.html#a4f7cb5484a61b2e649de2f015ec90720">hit</a>)</td></tr>
+<tr class="separator:a025fd38afd9a177cf933f6570c84ea8c inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9bc32054ca381acf801030a48c3b0a inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; class <a class="el" href="class_group.html">Group</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a4b9bc32054ca381acf801030a48c3b0a">getParent</a> () const</td></tr>
+<tr class="separator:a4b9bc32054ca381acf801030a48c3b0a inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac67da9f0d2290534e22337d943abb071 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ac67da9f0d2290534e22337d943abb071">setParent</a> (std::shared_ptr&lt; class <a class="el" href="class_group.html">Group</a> &gt; newParent)</td></tr>
+<tr class="separator:ac67da9f0d2290534e22337d943abb071 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b60ed10a6402a036042a3b7167aaba inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a08b60ed10a6402a036042a3b7167aaba">worldToObject</a> (<a class="el" href="class_point.html">Point</a> &amp;worldPoint) const</td></tr>
+<tr class="separator:a08b60ed10a6402a036042a3b7167aaba inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319ccd7f68604f5c19709d22abd3f072 inherit pub_methods_class_object"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a319ccd7f68604f5c19709d22abd3f072">normalToWorld</a> (<a class="el" href="class_vector.html">Vector</a> &amp;normalWorld) const</td></tr>
+<tr class="separator:a319ccd7f68604f5c19709d22abd3f072 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0c479b90ad49028d056e69b92c0eb33c" name="a0c479b90ad49028d056e69b92c0eb33c"></a>
@@ -319,8 +336,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
 
 </div>
 </div>
-<a id="ac788f656d4468ae3571528126d26c128" name="ac788f656d4468ae3571528126d26c128"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac788f656d4468ae3571528126d26c128">&#9670;&#160;</a></span>localNormalAt()</h2>
+<a id="a2c3f26d8b78e1834a886d2b9f1a503a8" name="a2c3f26d8b78e1834a886d2b9f1a503a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c3f26d8b78e1834a886d2b9f1a503a8">&#9670;&#160;</a></span>localNormalAt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,8 +349,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
           <td class="memname">const <a class="el" href="class_vector.html">Vector</a> Cylinder::localNormalAt </td>
           <td>(</td>
           <td class="paramtype">const class <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
-          <td class="paramname"><em>localPoint</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>localPoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_intersection.html">Intersection</a> &amp;&#160;</td>
+          <td class="paramname"><em>hit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>

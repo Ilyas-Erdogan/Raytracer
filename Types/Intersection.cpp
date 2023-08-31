@@ -2,12 +2,17 @@
 #include "../Primitives/Sphere.h"
 
 Intersection::Intersection(const double tValue, std::shared_ptr<class Object> initObject)
-	: t{ tValue }, object{ std::move(initObject)}
+	: t{ tValue }, object{ std::move(initObject) }, u{ -20 }, v{ -20 }
+{
+}
+
+Intersection::Intersection(const double tValue, std::shared_ptr<class Object> initObject, const double uVal, const double vVal)
+	: t{ tValue }, object{ std::move(initObject) }, u{ uVal }, v{ vVal }
 {
 }
 
 Intersection::Intersection(const Intersection& copyIntersection)
-	: t{ copyIntersection.t }, object{ copyIntersection.object }
+	: t{ copyIntersection.t }, object{ copyIntersection.object }, u{ copyIntersection.u }, v{copyIntersection.v}
 {
 }
 
@@ -51,6 +56,7 @@ bool Intersection::operator==(const Intersection& rhs) const
 	}
 }
 
+
 /**
 * Checks the equality between two intersection objects.
 *
@@ -91,6 +97,16 @@ const std::shared_ptr<Object> Intersection::getObject() const
 	return this->object;
 }
 
+double Intersection::getU() const
+{
+	return this->u;
+}
+
+double Intersection::getV() const
+{
+	return this->v;
+}
+
 /**
 * Encapsulates data containing precomputed information related to the intersection.
 *
@@ -99,7 +115,7 @@ const std::shared_ptr<Object> Intersection::getObject() const
 *
 * @return A Computation object containing all the necessary attributes.
 */
-const Computation Intersection::prepareComputations(const Ray& ray, const std::vector<Intersection>& xs) const
+const Computation Intersection::prepareComputations(const Ray& ray, const std::vector<Intersection>& xs)
 {
 	std::vector<std::shared_ptr<Object>> containers;
 	double n1 = 1.0, n2 = 1.0;
@@ -107,7 +123,7 @@ const Computation Intersection::prepareComputations(const Ray& ray, const std::v
 	// Precompute necessary values.
 	Point tempPoint = ray.getPosition(this->t);
 	Vector eyeV = -ray.getDirection();
-	Vector normalV = this->getObject()->normalAt(tempPoint);
+	Vector normalV = this->getObject()->normalAt(tempPoint, *this);
 	bool inside = false; // Default value of inside false.
 
 	// Check for hit occuring inside the object.

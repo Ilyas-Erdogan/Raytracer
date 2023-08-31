@@ -1,6 +1,14 @@
 var searchData=
 [
-  ['lighting_0',['lighting',['../class_material.html#ae80beb4716579b786efbacce3cb30d53',1,'Material']]],
-  ['localintersect_1',['localIntersect',['../class_cone.html#a4d86307ceda552fb3d6b78683b324dda',1,'Cone::localIntersect()'],['../class_cube.html#a6de2d775d1607b85d57b1dc1db5730f6',1,'Cube::localIntersect()'],['../class_cylinder.html#a9243feb19734f1d313d47e0e1aaa8918',1,'Cylinder::localIntersect()'],['../class_plane.html#aad0d84830059c18ce5942f61b4ba4ced',1,'Plane::localIntersect()'],['../class_sphere.html#af5ce5a368841b2fb4b4b156b05c7fd22',1,'Sphere::localIntersect()']]],
-  ['localnormalat_2',['localNormalAt',['../class_cone.html#a7463f0495f64f6915d8b3b9af8852a33',1,'Cone::localNormalAt()'],['../class_cube.html#ad58b06ad15bce3a26fe913ed659985d0',1,'Cube::localNormalAt()'],['../class_cylinder.html#ac788f656d4468ae3571528126d26c128',1,'Cylinder::localNormalAt()'],['../class_plane.html#a03be413878574d8bc907e8e99328e07f',1,'Plane::localNormalAt()'],['../class_sphere.html#a70e11d7f8facb27abdb81990ea7e3845',1,'Sphere::localNormalAt()']]]
+  ['intersect_0',['intersect',['../class_object.html#aedf1d0fa08d2c31e6b0a05ce761626b6',1,'Object']]],
+  ['intersectcaps_1',['intersectCaps',['../class_cone.html#aed0289f0e9ae401de45b76dc616bde05',1,'Cone::intersectCaps()'],['../class_cylinder.html#a7f904da35ff2a71c9760661e037ee27e',1,'Cylinder::intersectCaps()']]],
+  ['intersection_2',['Intersection',['../class_intersection.html',1,'']]],
+  ['intersectworld_3',['intersectWorld',['../class_world.html#aa33b9a229aa5ad3c334cfe684e15fce1',1,'World']]],
+  ['isclosed_4',['isClosed',['../class_cone.html#a79916866b8c4bd1c52a50ce9899b819f',1,'Cone::isClosed()'],['../class_cylinder.html#a43283c943dbc1a71e754797c0c56b60f',1,'Cylinder::isClosed()']]],
+  ['isempty_5',['isEmpty',['../class_group.html#a6a35577180cb4632b18c97e850b722ac',1,'Group']]],
+  ['isinside_6',['isInside',['../class_computation.html#ae661dc99c134f75f9e592d07954ed773',1,'Computation']]],
+  ['isinvertible_7',['isInvertible',['../class_matrix.html#ab50fe8dcbce53d9516d9c81ed1e4751c',1,'Matrix']]],
+  ['ispoint_8',['isPoint',['../class_tuple.html#add3bed4f0cfd5675b1af4bc5c814a877',1,'Tuple']]],
+  ['isshadowed_9',['isShadowed',['../class_world.html#a8d12cbdb12b99e8487f1d54f826e600c',1,'World']]],
+  ['isvector_10',['isVector',['../class_tuple.html#afc1eae02dcea798e50b670dfc5c5240a',1,'Tuple']]]
 ];

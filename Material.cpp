@@ -242,7 +242,10 @@ Colour Material::lighting(const std::shared_ptr<Object>& object, const PointLigh
 	{
 		// lightDotNormal represents the cosine of the angle between the light and normal vector.
 		double lightDotNormal = lightV.dotProduct(normalV);
-
+		if (lightDotNormal < 0)
+		{
+			lightDotNormal *= -1;
+		}
 		if (lightDotNormal >= 0.0)
 		{
 			// Compute the diffuse contribution

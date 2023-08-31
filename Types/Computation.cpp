@@ -62,7 +62,7 @@ double Computation::getT() const
 /**
 * @return An immutable shared pointer to the object of the computation.
 */
-const std::shared_ptr<Object> Computation::getObject() const
+const std::shared_ptr<Object>& Computation::getObject() const
 {
 	return this->object;
 }

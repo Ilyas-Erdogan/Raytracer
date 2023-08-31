@@ -91,6 +91,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <OpenMPSupport>true</OpenMPSupport>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +122,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <OpenMPSupport>true</OpenMPSupport>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +136,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="Patterns\CheckersPattern.h" />
     <ClInclude Include="Patterns\GradientPattern.h" />
     <ClInclude Include="Patterns\Pattern.h" />
@@ -141,9 +146,12 @@
     <ClInclude Include="Primitives\Cone.h" />
     <ClInclude Include="Primitives\Cube.h" />
     <ClInclude Include="Primitives\Cylinder.h" />
+    <ClInclude Include="Primitives\Group.h" />
     <ClInclude Include="Primitives\Object.h" />
     <ClInclude Include="Primitives\Plane.h" />
+    <ClInclude Include="Primitives\SmoothTriangle.h" />
     <ClInclude Include="Primitives\Sphere.h" />
+    <ClInclude Include="Primitives\Triangle.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="RingPattern.h" />
     <ClInclude Include="Transformations\RotationX.h" />
@@ -160,6 +168,8 @@
     <ClInclude Include="Types\Point.h" />
     <ClInclude Include="Types\Tuple.h" />
     <ClInclude Include="Types\Vector.h" />
+    <ClInclude Include="VectorB1.h" />
+    <ClInclude Include="VectorB2.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +177,7 @@
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Patterns\CheckersPattern.cpp" />
     <ClCompile Include="Patterns\GradientPattern.cpp" />
     <ClCompile Include="Patterns\Pattern.cpp" />
@@ -176,9 +187,12 @@
     <ClCompile Include="Primitives\Cone.cpp" />
     <ClCompile Include="Primitives\Cube.cpp" />
     <ClCompile Include="Primitives\Cylinder.cpp" />
+    <ClCompile Include="Primitives\Group.cpp" />
     <ClCompile Include="Primitives\Object.cpp" />
     <ClCompile Include="Primitives\Plane.cpp" />
+    <ClCompile Include="Primitives\SmoothTriangle.cpp" />
     <ClCompile Include="Primitives\Sphere.cpp" />
+    <ClCompile Include="Primitives\Triangle.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Transformations\RotationX.cpp" />
     <ClCompile Include="Transformations\RotationY.cpp" />
@@ -194,6 +208,8 @@
     <ClCompile Include="Types\Point.cpp" />
     <ClCompile Include="Types\Tuple.cpp" />
     <ClCompile Include="Types\Vector.cpp" />
+    <ClCompile Include="VectorB1.cpp" />
+    <ClCompile Include="VectorB2.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

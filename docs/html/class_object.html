@@ -81,11 +81,14 @@ Inheritance diagram for Object:</div>
  <div class="center">
   <img src="class_object.png" usemap="#Object_map" alt=""/>
   <map id="Object_map" name="Object_map">
-<area href="class_cone.html" alt="Cone" shape="rect" coords="0,56,60,80"/>
-<area href="class_cube.html" alt="Cube" shape="rect" coords="70,56,130,80"/>
-<area href="class_cylinder.html" alt="Cylinder" shape="rect" coords="140,56,200,80"/>
-<area href="class_plane.html" alt="Plane" shape="rect" coords="210,56,270,80"/>
-<area href="class_sphere.html" alt="Sphere" shape="rect" coords="280,56,340,80"/>
+<area href="class_cone.html" alt="Cone" shape="rect" coords="109,56,208,80"/>
+<area href="class_cube.html" alt="Cube" shape="rect" coords="109,112,208,136"/>
+<area href="class_cylinder.html" alt="Cylinder" shape="rect" coords="109,168,208,192"/>
+<area href="class_group.html" alt="Group" shape="rect" coords="109,224,208,248"/>
+<area href="class_plane.html" alt="Plane" shape="rect" coords="109,280,208,304"/>
+<area href="class_smooth_triangle.html" alt="SmoothTriangle" shape="rect" coords="109,336,208,360"/>
+<area href="class_sphere.html" alt="Sphere" shape="rect" coords="109,392,208,416"/>
+<area href="class_triangle.html" alt="Triangle" shape="rect" coords="109,448,208,472"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -100,6 +103,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af2b0d3dca5bbd3cf0fb6b759542cf1f8"><td class="memItemLeft" align="right" valign="top"><a id="af2b0d3dca5bbd3cf0fb6b759542cf1f8" name="af2b0d3dca5bbd3cf0fb6b759542cf1f8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> (const <a class="el" href="class_object.html">Object</a> &amp;copyObject)</td></tr>
 <tr class="separator:af2b0d3dca5bbd3cf0fb6b759542cf1f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ebba9ead4673a18e5caa3223e20d1c"><td class="memItemLeft" align="right" valign="top"><a id="ac9ebba9ead4673a18e5caa3223e20d1c" name="ac9ebba9ead4673a18e5caa3223e20d1c"></a>
+virtual std::shared_ptr&lt; class <a class="el" href="class_triangle.html">Triangle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>toTriangle</b> ()</td></tr>
+<tr class="separator:ac9ebba9ead4673a18e5caa3223e20d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502d94aa8a17c688fcb8417a1f78de11"><td class="memItemLeft" align="right" valign="top"><a id="a502d94aa8a17c688fcb8417a1f78de11" name="a502d94aa8a17c688fcb8417a1f78de11"></a>
+virtual std::shared_ptr&lt; class <a class="el" href="class_group.html">Group</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>toGroup</b> ()</td></tr>
+<tr class="separator:a502d94aa8a17c688fcb8417a1f78de11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e2ff626eb795dc5142b927b3bbd2d0"><td class="memItemLeft" align="right" valign="top"><a id="a63e2ff626eb795dc5142b927b3bbd2d0" name="a63e2ff626eb795dc5142b927b3bbd2d0"></a>
+virtual std::shared_ptr&lt; class <a class="el" href="class_smooth_triangle.html">SmoothTriangle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>toSmoothTriangle</b> ()</td></tr>
+<tr class="separator:a63e2ff626eb795dc5142b927b3bbd2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcbd10ecc17ea3f0f1951924df41fcc8"><td class="memItemLeft" align="right" valign="top"><a id="afcbd10ecc17ea3f0f1951924df41fcc8" name="afcbd10ecc17ea3f0f1951924df41fcc8"></a>
 <a class="el" href="class_object.html">Object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_object.html">Object</a> &amp;other)</td></tr>
 <tr class="separator:afcbd10ecc17ea3f0f1951924df41fcc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,16 +142,24 @@ const <a class="el" href="class_ray.html">Ray</a> &amp;&#160;</td><td class="mem
 <tr class="memitem:a49ccc337698584ef2dcd767e2d12d44d"><td class="memItemLeft" align="right" valign="top"><a id="a49ccc337698584ef2dcd767e2d12d44d" name="a49ccc337698584ef2dcd767e2d12d44d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; newMaterial)</td></tr>
 <tr class="separator:a49ccc337698584ef2dcd767e2d12d44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5d0c6c3a848bdaf287158cd7132bd32"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ab5d0c6c3a848bdaf287158cd7132bd32">hit</a> (std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersctionVec) const</td></tr>
-<tr class="separator:ab5d0c6c3a848bdaf287158cd7132bd32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f7cb5484a61b2e649de2f015ec90720"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a4f7cb5484a61b2e649de2f015ec90720">hit</a> (const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;intersctionVec) const</td></tr>
+<tr class="separator:a4f7cb5484a61b2e649de2f015ec90720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8214660987134637d2418943863071fa"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a8214660987134637d2418943863071fa">localIntersect</a> (const class <a class="el" href="class_ray.html">Ray</a> &amp;localRay)=0</td></tr>
 <tr class="separator:a8214660987134637d2418943863071fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedf1d0fa08d2c31e6b0a05ce761626b6"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#aedf1d0fa08d2c31e6b0a05ce761626b6">intersect</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;ray)</td></tr>
 <tr class="separator:aedf1d0fa08d2c31e6b0a05ce761626b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ad7d864e934b9aa36797039aaf92841"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a4ad7d864e934b9aa36797039aaf92841">localNormalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;localPoint) const =0</td></tr>
-<tr class="separator:a4ad7d864e934b9aa36797039aaf92841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ff5b18c1ba00524d57e9f386b0d6883"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a5ff5b18c1ba00524d57e9f386b0d6883">normalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
-<tr class="separator:a5ff5b18c1ba00524d57e9f386b0d6883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc9d224af346ad4a5629d0c8a788d1b8"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#afc9d224af346ad4a5629d0c8a788d1b8">localNormalAt</a> (const class <a class="el" href="class_point.html">Point</a> &amp;localPoint, const <a class="el" href="class_intersection.html">Intersection</a> &amp;<a class="el" href="class_object.html#a4f7cb5484a61b2e649de2f015ec90720">hit</a>) const =0</td></tr>
+<tr class="separator:afc9d224af346ad4a5629d0c8a788d1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025fd38afd9a177cf933f6570c84ea8c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a025fd38afd9a177cf933f6570c84ea8c">normalAt</a> (class <a class="el" href="class_point.html">Point</a> &amp;point, const <a class="el" href="class_intersection.html">Intersection</a> &amp;<a class="el" href="class_object.html#a4f7cb5484a61b2e649de2f015ec90720">hit</a>)</td></tr>
+<tr class="separator:a025fd38afd9a177cf933f6570c84ea8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9bc32054ca381acf801030a48c3b0a"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; class <a class="el" href="class_group.html">Group</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a4b9bc32054ca381acf801030a48c3b0a">getParent</a> () const</td></tr>
+<tr class="separator:a4b9bc32054ca381acf801030a48c3b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac67da9f0d2290534e22337d943abb071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#ac67da9f0d2290534e22337d943abb071">setParent</a> (std::shared_ptr&lt; class <a class="el" href="class_group.html">Group</a> &gt; newParent)</td></tr>
+<tr class="separator:ac67da9f0d2290534e22337d943abb071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b60ed10a6402a036042a3b7167aaba"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a08b60ed10a6402a036042a3b7167aaba">worldToObject</a> (<a class="el" href="class_point.html">Point</a> &amp;worldPoint) const</td></tr>
+<tr class="separator:a08b60ed10a6402a036042a3b7167aaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319ccd7f68604f5c19709d22abd3f072"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object.html#a319ccd7f68604f5c19709d22abd3f072">normalToWorld</a> (<a class="el" href="class_vector.html">Vector</a> &amp;normalWorld) const</td></tr>
+<tr class="separator:a319ccd7f68604f5c19709d22abd3f072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9aa22f0904b25380707ddd849305ae53" name="a9aa22f0904b25380707ddd849305ae53"></a>
@@ -157,6 +177,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>An immutable reference to teh current material of the <a class="el" href="class_sphere.html">Sphere</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a4b9bc32054ca381acf801030a48c3b0a" name="a4b9bc32054ca381acf801030a48c3b0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9bc32054ca381acf801030a48c3b0a">&#9670;&#160;</a></span>getParent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::shared_ptr&lt; <a class="el" href="class_group.html">Group</a> &gt; &amp; Object::getParent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>An immutable reference to the parent of the calling object. </dd></dl>
 
 </div>
 </div>
@@ -178,8 +216,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
 
 </div>
 </div>
-<a id="ab5d0c6c3a848bdaf287158cd7132bd32" name="ab5d0c6c3a848bdaf287158cd7132bd32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5d0c6c3a848bdaf287158cd7132bd32">&#9670;&#160;</a></span>hit()</h2>
+<a id="a4f7cb5484a61b2e649de2f015ec90720" name="a4f7cb5484a61b2e649de2f015ec90720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7cb5484a61b2e649de2f015ec90720">&#9670;&#160;</a></span>hit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +225,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_intersection.html">Intersection</a> &gt; Object::hit </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; class <a class="el" href="class_intersection.html">Intersection</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>intersctionVec</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -254,12 +292,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_cone.html#a4d86307ceda552fb3d6b78683b324dda">Cone</a>, <a class="el" href="class_cylinder.html#a9243feb19734f1d313d47e0e1aaa8918">Cylinder</a>, and <a class="el" href="class_sphere.html#af5ce5a368841b2fb4b4b156b05c7fd22">Sphere</a>.</p>
+<p>Implemented in <a class="el" href="class_cone.html#a4d86307ceda552fb3d6b78683b324dda">Cone</a>, <a class="el" href="class_cylinder.html#a9243feb19734f1d313d47e0e1aaa8918">Cylinder</a>, <a class="el" href="class_group.html#a6167171597c1378e80ec15f2c7dc4716">Group</a>, <a class="el" href="class_sphere.html#af5ce5a368841b2fb4b4b156b05c7fd22">Sphere</a>, and <a class="el" href="class_triangle.html#a91bc612f911a61ee3bf827bb8e99a255">Triangle</a>.</p>
 
 </div>
 </div>
-<a id="a4ad7d864e934b9aa36797039aaf92841" name="a4ad7d864e934b9aa36797039aaf92841"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ad7d864e934b9aa36797039aaf92841">&#9670;&#160;</a></span>localNormalAt()</h2>
+<a id="afc9d224af346ad4a5629d0c8a788d1b8" name="afc9d224af346ad4a5629d0c8a788d1b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc9d224af346ad4a5629d0c8a788d1b8">&#9670;&#160;</a></span>localNormalAt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,8 +309,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
           <td class="memname">virtual const <a class="el" href="class_vector.html">Vector</a> Object::localNormalAt </td>
           <td>(</td>
           <td class="paramtype">const class <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
-          <td class="paramname"><em>localPoint</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>localPoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_intersection.html">Intersection</a> &amp;&#160;</td>
+          <td class="paramname"><em>hit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -282,12 +330,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_cone.html#a7463f0495f64f6915d8b3b9af8852a33">Cone</a>, <a class="el" href="class_cube.html#ad58b06ad15bce3a26fe913ed659985d0">Cube</a>, <a class="el" href="class_cylinder.html#ac788f656d4468ae3571528126d26c128">Cylinder</a>, <a class="el" href="class_plane.html#a03be413878574d8bc907e8e99328e07f">Plane</a>, and <a class="el" href="class_sphere.html#a70e11d7f8facb27abdb81990ea7e3845">Sphere</a>.</p>
+<p>Implemented in <a class="el" href="class_cone.html#a4f599fc1a33c1f1b30d3c72fb14ba65f">Cone</a>, <a class="el" href="class_cylinder.html#a2c3f26d8b78e1834a886d2b9f1a503a8">Cylinder</a>, <a class="el" href="class_plane.html#acf6b4ec105577ea7727cad2845c9f1f7">Plane</a>, <a class="el" href="class_sphere.html#aa79b8fa1b37595e999b5fecc82c34eee">Sphere</a>, and <a class="el" href="class_triangle.html#adb1cfa9707b8370e86296b17b4d6430c">Triangle</a>.</p>
 
 </div>
 </div>
-<a id="a5ff5b18c1ba00524d57e9f386b0d6883" name="a5ff5b18c1ba00524d57e9f386b0d6883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ff5b18c1ba00524d57e9f386b0d6883">&#9670;&#160;</a></span>normalAt()</h2>
+<a id="a025fd38afd9a177cf933f6570c84ea8c" name="a025fd38afd9a177cf933f6570c84ea8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025fd38afd9a177cf933f6570c84ea8c">&#9670;&#160;</a></span>normalAt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,20 +343,81 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
         <tr>
           <td class="memname">const <a class="el" href="class_vector.html">Vector</a> Object::normalAt </td>
           <td>(</td>
-          <td class="paramtype">const class <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
-          <td class="paramname"><em>point</em></td><td>)</td>
+          <td class="paramtype">class <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="class_intersection.html">Intersection</a> &amp;&#160;</td>
+          <td class="paramname"><em>hit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Finds the normal at the given point.</p>
+<p>Finds the normal on a child object of a group, taking into account transformations on both the child object and the parent(s).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_point.html">Point</a></td><td>worldPoint Refernce to the point in the world space to normalize.</td></tr>
+    <tr><td class="paramname"><a class="el" href="class_point.html">Point</a></td><td>worldPoint Reference to the point in the world space to normalize.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of the normal at the given point. </dd></dl>
+
+</div>
+</div>
+<a id="a319ccd7f68604f5c19709d22abd3f072" name="a319ccd7f68604f5c19709d22abd3f072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319ccd7f68604f5c19709d22abd3f072">&#9670;&#160;</a></span>normalToWorld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_vector.html">Vector</a> Object::normalToWorld </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>normalWorld</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a normal in world space and trasnforms it into object space.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_vector.html">Vector</a></td><td>worldNormal Reference to normal in world space.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The normal in object space. </dd></dl>
+
+</div>
+</div>
+<a id="ac67da9f0d2290534e22337d943abb071" name="ac67da9f0d2290534e22337d943abb071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac67da9f0d2290534e22337d943abb071">&#9670;&#160;</a></span>setParent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Object::setParent </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; class <a class="el" href="class_group.html">Group</a> &gt;&#160;</td>
+          <td class="paramname"><em>newParent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets a new parent of the calling object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shared_ptr&lt;Group&gt;</td><td>newParent The new group to set as the parent of the calling object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -334,6 +443,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaterial</b> (std:
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a08b60ed10a6402a036042a3b7167aaba" name="a08b60ed10a6402a036042a3b7167aaba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08b60ed10a6402a036042a3b7167aaba">&#9670;&#160;</a></span>worldToObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_point.html">Point</a> Object::worldToObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>worldPoint</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a point in world space and trasnforms it into object space.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_point.html">Point</a></td><td>worldPoint Reference to point in world space.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The point in object space. </dd></dl>
 
 </div>
 </div>

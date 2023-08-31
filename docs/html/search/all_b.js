@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['ray_0',['Ray',['../class_ray.html',1,'Ray'],['../class_ray.html#a7d9911c815bca78ec4e1f2f8ba1378ab',1,'Ray::Ray(const Point originPt, const Vector directionVec)'],['../class_ray.html#a155a0b6573cf6a9a2256eb5062523daf',1,'Ray::Ray(const Ray &amp;ray)']]],
-  ['rayforpixel_1',['rayForPixel',['../class_camera.html#a90ea51278bb11364eb1e66ad0342e37f',1,'Camera']]],
-  ['raytracer_2',['Raytracer',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['reflect_3',['reflect',['../class_vector.html#a8c26a5038bbda00347d385bdd1c0dcdc',1,'Vector']]],
-  ['reflectedcolour_4',['reflectedColour',['../class_world.html#a9f771f2dc522d98667c8e4bf4087b395',1,'World']]],
-  ['render_5',['render',['../class_camera.html#aee3e49227869601b8efe9ba9c1076227',1,'Camera']]],
-  ['ringpattern_6',['RingPattern',['../class_ring_pattern.html',1,'']]],
-  ['rotationx_7',['RotationX',['../class_rotation_x.html',1,'RotationX'],['../class_rotation_x.html#a629af3016c4daff34d8338640ba3539d',1,'RotationX::RotationX(const double r)'],['../class_rotation_x.html#a7488e4e506455e35048551834bd82434',1,'RotationX::RotationX(const Matrix &amp;matrix)']]],
-  ['rotationy_8',['RotationY',['../class_rotation_y.html',1,'RotationY'],['../class_rotation_y.html#a78d168300b61f9c24939e0677553f084',1,'RotationY::RotationY(const double r)'],['../class_rotation_y.html#afcd9ae001096c3e593025ca54aa4f19f',1,'RotationY::RotationY(const Matrix &amp;matrix)']]],
-  ['rotationz_9',['RotationZ',['../class_rotation_z.html',1,'RotationZ'],['../class_rotation_z.html#a89d2adcd5a8309f133f144547e0048df',1,'RotationZ::RotationZ(const double r)'],['../class_rotation_z.html#a324696fb4beacb70d3524d56a74a5013',1,'RotationZ::RotationZ(const Matrix &amp;matrix)']]]
+  ['parser_0',['Parser',['../class_parser.html',1,'']]],
+  ['parsevertexcommand_1',['parseVertexCommand',['../class_parser.html#a890bc9545b47a5c40be9291ed666554c',1,'Parser']]],
+  ['pattern_2',['Pattern',['../class_pattern.html',1,'']]],
+  ['patternat_3',['patternAt',['../class_checkers_pattern.html#acb8261dd448d293cd969a9e6a919bcff',1,'CheckersPattern::patternAt()'],['../class_gradient_pattern.html#ad7c28464fe837dde69da14d986852a60',1,'GradientPattern::patternAt()'],['../class_pattern.html#a9a12bc18aa6c9ed033b2bf99bf93d76c',1,'Pattern::patternAt()'],['../class_ring_pattern.html#a4c3d3678caf7b2dc700e225dded07494',1,'RingPattern::patternAt()'],['../class_striped_pattern.html#a656d24bd5285db270f91700625aa474e',1,'StripedPattern::patternAt()']]],
+  ['patternatshape_4',['patternAtShape',['../class_pattern.html#a1c018b9a26414ac14ec5772fa186534f',1,'Pattern']]],
+  ['plane_5',['Plane',['../class_plane.html',1,'']]],
+  ['point_6',['Point',['../class_point.html',1,'']]],
+  ['pointlight_7',['PointLight',['../class_point_light.html',1,'']]],
+  ['preparecomputations_8',['prepareComputations',['../class_intersection.html#a7aea3ffb377f090270c1e4d24697fbba',1,'Intersection']]]
 ];

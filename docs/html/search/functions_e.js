@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['viewtransform_0',['ViewTransform',['../class_view_transform.html#ac24f41b0e6fa47c55615af66e059aeab',1,'ViewTransform::ViewTransform(const Point &amp;fromPoint, const Point &amp;toPoint, const Vector &amp;upVector)'],['../class_view_transform.html#a0a211ac1f7d6f45aa672b63e0360da9c',1,'ViewTransform::ViewTransform(const ViewTransform &amp;copyTransform)']]]
+  ['transform_0',['transform',['../class_ray.html#a61a22fe1689149c1bfca5982be9182b9',1,'Ray']]],
+  ['translation_1',['Translation',['../class_translation.html#acb8db0da33475ae2d7dc9dc5285e4b99',1,'Translation::Translation(const double x, const double y, const double z)'],['../class_translation.html#a2edfe59e1f40bd6f90f7425e73406d00',1,'Translation::Translation(const Matrix &amp;matrix)']]]
 ];

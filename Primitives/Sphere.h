@@ -20,6 +20,6 @@ public:
 
 	// Utilities
 	virtual const std::vector<Intersection> localIntersect(const class Ray& localRay);
-	virtual const Vector localNormalAt(const class Point& localPoint) const;
+	virtual const Vector localNormalAt(const class Point& localPoint, const Intersection& hit) const;
 };
 

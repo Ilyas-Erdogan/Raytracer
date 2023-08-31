@@ -14,7 +14,7 @@ public:
 
     // Utilities
     virtual const std::vector<Intersection> localIntersect(const class Ray& localRay);
-    virtual const Vector localNormalAt(const class Point& localPoint) const;
+    virtual const Vector localNormalAt(const class Point& localPoint, const Intersection& hit) const;
     void intersectCaps(const Ray& ray, std::vector<Intersection>& xs);
     const bool checkCap(const Ray& ray, const double t, const double capRadius) const;
 private:

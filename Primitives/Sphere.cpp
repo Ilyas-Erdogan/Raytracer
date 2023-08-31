@@ -89,7 +89,7 @@ const std::vector<Intersection> Sphere::localIntersect(const Ray& localRay)
 *
 * @return The local point as a vector.
 */
-const Vector Sphere::localNormalAt(const class Point& localPoint) const
+const Vector Sphere::localNormalAt(const class Point& localPoint, const Intersection& hit) const
 {
 	return localPoint;
 }

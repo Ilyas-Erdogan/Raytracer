@@ -141,12 +141,13 @@ Canvas Camera::render(World& world) const
 	std::chrono::high_resolution_clock::time_point end;
 	std::chrono::nanoseconds elapsed;
 	std::chrono::nanoseconds sum = std::chrono::nanoseconds::zero();
-	for (int y = 0; y < this->vSize; y++)
+	#pragma omp parallel for
+	for (int y = 0; y < static_cast<int>(this->vSize); y++)
 	{
 		begin = std::chrono::high_resolution_clock::now();
-		for (int x = 0; x < this->hSize; x++)
+		for (int x = 0; x < static_cast<int>(this->hSize); x++)
 		{
-			Ray r = this->rayForPixel(x, y);
+			Ray r(this->rayForPixel(x, y));
 			Colour colour = world.colourAt(r);
 			image.writePixel(x, y, colour);
 			//printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
@@ -154,7 +155,7 @@ Canvas Camera::render(World& world) const
 		end = std::chrono::high_resolution_clock::now();
 		elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
 		sum += elapsed;
-		printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
+		printf("Time measured: %.3f seconds. %i // %i\n", sum.count() * 1e-9, y, static_cast<int>(this->vSize));
 	}
 	printf("Time measured: %.3f seconds.\n", sum.count() * 1e-9);
 	printf("FINI");

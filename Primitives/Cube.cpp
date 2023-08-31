@@ -48,7 +48,7 @@ const std::vector<Intersection> Cube::localIntersect(const Ray& localRay)
 * 
 * @return An immutable Vector of the normal at the given point.
 */
-const Vector Cube::localNormalAt(const Point& localPoint) const
+const Vector Cube::localNormalAt(const class Point& localPoint, const std::shared_ptr<Intersection> hit) const
 {
 	// Find ray component with largest absolute value
 	double maxC = std::max(std::abs(localPoint.getX()), std::max(std::abs(localPoint.getY()), std::abs(localPoint.getZ())));

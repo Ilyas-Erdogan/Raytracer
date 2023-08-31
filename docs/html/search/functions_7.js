@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['makeglassy_0',['makeGlassy',['../class_material.html#a1c6f9ce80bc44337833e38061512b02a',1,'Material']]],
-  ['material_1',['Material',['../class_material.html#a127507844f9e93db6ad0b26a29442a21',1,'Material']]],
-  ['matrix_2',['Matrix',['../class_matrix.html#a2dba13c45127354c9f75ef576f49269b',1,'Matrix::Matrix()'],['../class_matrix.html#a2ce922425e2f68eef51961f197216473',1,'Matrix::Matrix(const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;matrixSet)']]]
+  ['lighting_0',['lighting',['../class_material.html#ae80beb4716579b786efbacce3cb30d53',1,'Material']]],
+  ['localintersect_1',['localIntersect',['../class_cone.html#a4d86307ceda552fb3d6b78683b324dda',1,'Cone::localIntersect()'],['../class_cube.html#a6de2d775d1607b85d57b1dc1db5730f6',1,'Cube::localIntersect()'],['../class_cylinder.html#a9243feb19734f1d313d47e0e1aaa8918',1,'Cylinder::localIntersect()'],['../class_group.html#a6167171597c1378e80ec15f2c7dc4716',1,'Group::localIntersect()'],['../class_plane.html#aad0d84830059c18ce5942f61b4ba4ced',1,'Plane::localIntersect()'],['../class_sphere.html#af5ce5a368841b2fb4b4b156b05c7fd22',1,'Sphere::localIntersect()'],['../class_triangle.html#a91bc612f911a61ee3bf827bb8e99a255',1,'Triangle::localIntersect()']]],
+  ['localnormalat_2',['localNormalAt',['../class_cone.html#a4f599fc1a33c1f1b30d3c72fb14ba65f',1,'Cone::localNormalAt()'],['../class_cube.html#ac47ef27ec3450f6ca433cb9748d8168f',1,'Cube::localNormalAt()'],['../class_cylinder.html#a2c3f26d8b78e1834a886d2b9f1a503a8',1,'Cylinder::localNormalAt()'],['../class_plane.html#acf6b4ec105577ea7727cad2845c9f1f7',1,'Plane::localNormalAt()'],['../class_sphere.html#aa79b8fa1b37595e999b5fecc82c34eee',1,'Sphere::localNormalAt()'],['../class_triangle.html#adb1cfa9707b8370e86296b17b4d6430c',1,'Triangle::localNormalAt()']]]
 ];

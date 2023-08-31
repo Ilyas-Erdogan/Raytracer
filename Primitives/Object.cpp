@@ -4,29 +4,31 @@
 
 #include <algorithm>
 
+#include "Group.h"
+
 Object::Object()
-	: transform{ Matrix(4, 4).getIdentityMatrix() }, material{ std::make_shared<Material>() }
+	: transform{ Matrix(4, 4).getIdentityMatrix() }, material{ std::make_shared<Material>() }, parent{nullptr}
 {
 	this->cachedInverse = this->transform;
 	this->cachedInverseTranspose = this->cachedInverse.getTransposedMatrix();
 }
 
 Object::Object(std::shared_ptr<Material> materialVal)
-	: transform{ Matrix(4, 4).getIdentityMatrix() }, material{ materialVal }
+	: transform{ Matrix(4, 4).getIdentityMatrix() }, material{ materialVal }, parent{ nullptr }
 {
 	this->cachedInverse = this->transform;
 	this->cachedInverseTranspose = this->cachedInverse.getTransposedMatrix();
 }
 
 Object::Object(const Matrix& transformMatrix)
-	: transform {transformMatrix}, material{std::make_shared<Material>()}
+	: transform {transformMatrix}, material{std::make_shared<Material>()}, parent{ nullptr }
 {
 	this->cachedInverse = this->transform.getInverse();
 	this->cachedInverseTranspose = this->cachedInverse.getTransposedMatrix();
 }
 
 Object::Object(const Object& copyObject)
-	: transform{copyObject.getTransform()}, material{copyObject.getMaterial()}, cachedInverse{copyObject.getCachedInverse()}, cachedInverseTranspose{copyObject.getCachedInverseTranspose()}
+	: transform{ copyObject.getTransform() }, material{ copyObject.getMaterial() }, cachedInverse{ copyObject.getCachedInverse() }, cachedInverseTranspose{ copyObject.getCachedInverseTranspose() }, parent{copyObject.parent}
 {
 }
 
@@ -34,11 +36,40 @@ Object::~Object()
 {
 }
 
+std::shared_ptr<class Triangle> Object::toTriangle()
+{
+	throw std::exception("NO");
+}
+
+std::shared_ptr<class Group> Object::toGroup()
+{
+	throw std::exception("NO");
+}
+
+std::shared_ptr<class SmoothTriangle> Object::toSmoothTriangle()
+{
+	throw std::exception("NO");
+}
+
+
+
 Object& Object::operator=(const Object& other)
 {
-	*this = other;
+	if (this == &other)
+	{
+		*this = other;
+	}
+
+	this->transform = other.transform;
+	this->material = other.material;
+	this->cachedInverse = other.cachedInverse;
+	this->cachedInverseTranspose = other.cachedInverseTranspose;
+	this->savedRay = other.savedRay;
+	this->parent = other.parent;
 	return *this;
 }
+
+
 
 bool Object::operator==(const Object& rhs) const
 {
@@ -68,6 +99,10 @@ const Matrix& Object::getTransform() const
 */
 const std::shared_ptr<Material> Object::getMaterial() const
 {
+	if (this->parent != nullptr)
+	{
+		return this->parent->getMaterial();
+	}
 	return this->material;
 }
 
@@ -100,7 +135,7 @@ void Object::setTransform(const Matrix& transformMatrix)
 
 void Object::setMaterial(std::shared_ptr<Material> newMaterial)
 {
-	this->material = std::move(newMaterial);
+	this->material = newMaterial;
 }
 
 /**
@@ -148,19 +183,79 @@ const std::vector<Intersection> Object::intersect(const Ray& ray)
 }
 
 /**
-* Finds the normal at the given point.
+* Finds the normal on a child object of a group, 
+* taking into account transformations on both the child object and the parent(s).
 *
-* @param Point worldPoint Refernce to the point in the world space to normalize.
+* @param Point worldPoint Reference to the point in the world space to normalize.
 *
 * @return A vector of the normal at the given point.
 */
-const Vector Object::normalAt(const Point& worldPoint)
+const Vector Object::normalAt(Point& worldPoint, const Intersection& hit)
 {
-	Point localPoint = this->getCachedInverse() * worldPoint;
+	// Convert world-space point to object space
+	Point localPoint = this->worldToObject(worldPoint);
+	// Calculate the normal
+	Vector localNormal = this->localNormalAt(localPoint, hit);
+	// Convert the nroaml back to world space
+	return this->normalToWorld(localNormal);
+}
 
-	Vector localNormal = this->localNormalAt(localPoint);
+/**
+* @return An immutable reference to the parent of the calling object.
+*/
+const std::shared_ptr<Group>& Object::getParent() const
+{
+	return this->parent;
+}
 
-	Vector worldNormal = this->getCachedInverseTranspose() * localNormal;
+/**
+* Sets a new parent of the calling object.
+* 
+* @param shared_ptr<Group> newParent The new group to set as the parent of the calling object.
+*/
+void Object::setParent(std::shared_ptr<class Group> newParent)
+{
+	this->parent = std::move(newParent);
+}
 
-	return worldNormal.normalizeVector();
+/**
+* Converts a point in world space and trasnforms it into object space.
+* 
+* @param Point worldPoint Reference to point in world space.
+* 
+* @return The point in object space.
+*/
+const Point Object::worldToObject(Point& worldPoint) const
+{
+	// Check if shape has a parent
+	if (this->parent != nullptr)
+	{
+		// Convert the point to its parent's space
+		worldPoint = this->parent->worldToObject(worldPoint);
+	}
+
+	return this->cachedInverse * worldPoint;
+}
+
+/**
+* Converts a normal in world space and trasnforms it into object space.
+*
+* @param Vector worldNormal Reference to normal in world space.
+*
+* @return The normal in object space.
+*/
+const Vector Object::normalToWorld(Vector& normalWorld) const
+{
+	normalWorld = this->cachedInverseTranspose * normalWorld;
+	normalWorld = Tuple(normalWorld.getX(), normalWorld.getY(), normalWorld.getZ(), 0);
+	normalWorld = normalWorld.normalizeVector();
+
+	// Check for parent
+	if (this->parent != nullptr)
+	{
+		// Recurisve pass
+		normalWorld = this->parent->normalToWorld(normalWorld);
+	}
+
+	return normalWorld;
 }
